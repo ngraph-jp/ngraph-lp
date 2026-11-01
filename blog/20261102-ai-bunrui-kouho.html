@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>AIの分類は候補にすぎない——国と県の政策サイトで出た5つの誤りと、確かめるまで公開を止める作り方 | NGraphブログ</title>
+<meta name="description" content="国と福井県の政策サイトをAIで分類して分かった、判定の種類で開く正解率と5つの誤りの型。確かめた分だけを公開する4つの作りと、社内の分類・要約で今週試す手順を整理します。">
+<meta property="og:title" content="AIの分類は候補にすぎない——国と県の政策サイトで出た5つの誤りと、確かめるまで公開を止める作り方 | NGraphブログ">
+<meta property="og:description" content="AIの分類は、間違っていても読みやすい文で出ます。国と県のサイトで出た5つの誤りと、確かめるまで公開を止める作りを、社内の仕事への当てはめまで整理しました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261102-ai-bunrui-kouho">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261102-ai-bunrui-kouho.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261102-ai-bunrui-kouho">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=16">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<style>@media(max-width:768px){p,li,dd,td{text-wrap:wrap}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AIの分類は候補にすぎない——国と県の政策サイトで出た5つの誤りと、確かめるまで公開を止める作り方",
+  "image": "https://ngraph.jp/assets/blog/20261102-ai-bunrui-kouho.jpg",
+  "description": "国と福井県の政策サイトをAIで分類して分かった、判定の種類で開く正解率と5つの誤りの型。確かめた分だけを公開する4つの作りと、社内の分類・要約で今週試す手順を整理します。",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261102-ai-bunrui-kouho",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "AIの結果は全部、人が確認しないといけませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "全件の確認は続かないことが多いので、判定の種類ごとに抜き取りで正解率を測り、低い種類から人の確認や別のAIの照合を当てます。当社のサイトも、人が全件を確かめた版ではありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "別のAIに照合させれば十分ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "十分とは言えません。当社の例では、指摘70件のうち5件は指摘した側の誤りでした。指摘は候補として受け取り、原文で確かめてから直します。読まなかった資料の抜けは、照合では見つかりにくいので別に確かめます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "記事の正解率は、ほかのAIや資料でも同じですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じとは言えません。当社が2026年9月に、自社のデータを抜き取りで調べた値です。自社の文書で測り直してください。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI導入支援</a>
+      <a href="/#services">サービス一覧</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料相談</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>AIの分類は候補にすぎない——国と県の政策サイトで出た5つの誤りと、確かめるまで公開を止める作り方</h1>
+  <span class="a-date">2026.11.02 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261102-ai-bunrui-kouho.jpg" alt="AIの分類は候補にすぎない。段階の判定は約97%、見送りの判定は約5割、別のAIの指摘70件のうち5件は指摘側の誤り、読まなかった資料は画面に出ない">
+
+<p>株式会社NGraphは、国の法律・制度と福井県の予算を業種で探せる試作サイト「政策トラッカー」を公開しています。AIで分類し、2026年10月31日時点で国の686テーマと県の506件を載せました。</p>
+<p>作って分かったのは、AIの分類や要約は、間違っていても読みやすい文のまま画面に出るということです。結論は、AIの判定を候補として扱い、確かめた印が付いた分だけを公開する作りです。社内の問い合わせや議事録をAIに分類・要約させて、人に見せる仕事でも同じ作りが使えます。</p>
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・AIの正解率が、判定の種類によってどれだけ違ったか<br>
+・公的資料の分類で実際に出た5つの誤りの型<br>
+・確かめるまで公開を止める4つの作りと、今週の試し方</div>
+
+<h2>正解率は、判定の種類でこれだけ違った</h2>
+<p>国のサイトでは、2026年9月に中身を抜き取りで検査しました。AIに検査役をさせ、見つかった誤りを原文で確かめる形です。結果は全体で何点と言えるものになりませんでした。同じサイトの中で、判定の種類ごとに差が開いたからです。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>調べたもの</th><th>結果</th><th>扱い</th></tr>
+<tr><td>法律の件名と成立</td><td>正確</td><td>公開</td></tr>
+<tr><td>施行済み・施行待ちなどの段階</td><td>約97%</td><td>施行日の取り方を直して公開</td></tr>
+<tr><td>AIが書いた解説文（抽出44件）</td><td>約84%。実害のある誤りは約9%</td><td>原文で確かめられない文を別の欄へ分離</td></tr>
+<tr><td>政府が「見送り」と答えたという判定</td><td>約5割</td><td>該当の26件を画面から外した</td></tr>
+</table></div>
+<p class="a-fig-cap">2026年9月26日の当社の検査で、抜き取りの値です。今のサイトの精度を示す数字ではなく、ほかの資料やAIに当てはまるとも限りません。</p>
+<p>約5割の判定を、約97%の判定と同じ画面に並べていたことになります。国の南極に関する法律では、施行していない部分があるのに「施行済み」と出ていました。こうした誤りは、文が整っているので画面を眺めるだけでは見つかりません。施行日は政府の法令データから取り直し、この型は公開前の検査に入れました。</p>
+<figure class="a-fig-wrap"><img src="/assets/blog/20261102-ai-bunrui-kouho-kuni.jpg" alt="国会トラッカーの最初の画面。できるようになる、義務が強まる、意見を出せるの件数と、12業種のカードが並ぶ" width="1400" height="875" loading="lazy" style="width:100%;height:auto;display:block"></figure>
+<p class="a-fig-cap">国の画面。業種を選ぶと、できるようになること、義務が強まること、意見を出せる案が出ます（2026年11月1日撮影）。</p>
+
+<h2>公的資料の分類で出た、5つの誤りの型</h2>
+<p>誤りを並べると、5つの型に分かれました。どれも別々に起きるので、1つの検査では止まりません。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>型</th><th>実際に起きたこと</th><th>止め方</th></tr>
+<tr><td>束ねの誤り</td><td>別の話の資料が同じテーマに入った。AIの確率が5割未満のものは、10件見るとほぼ誤りだった</td><td>確率の低いものは束ねず、残りを見直す</td></tr>
+<tr><td>付けすぎ</td><td>仕入れ先が変わる程度の関係でも業種が付いた。震災の保証制度の政令案が、飲食など10業種のまま出た</td><td>費用や売上が直接変わるかで線を引く</td></tr>
+<tr><td>文の崩れ</td><td>法律の言葉を縮めただけの、意味の通らない一文が出た。書き直した文には言い過ぎも混ざった</td><td>材料にある範囲で書き、別のAIに照合させる</td></tr>
+<tr><td>画面の誤り</td><td>締切を過ぎた案が「今なら意見を出せる」の欄に出た</td><td>見る人の画面を全パターン読む</td></tr>
+<tr><td>読み落とし</td><td>県の6月補正63件と9月追加補正25件を読んでいなかった</td><td>読むべき資料の一覧を公式ページと突き合わせる</td></tr>
+</table></div>
+<p class="a-fig-cap">当社の政策トラッカーの記録から。件数は当時のものです。</p>
+<p>いちばん見つけにくいのは最後の読み落としです。読まなかった資料は、誤った行として画面に現れません。載っている分の正解率をいくら測っても、載っていない分は数えられないからです。県のサイトの場合、発覚のきっかけは、AIに聞いた答えと見比べて、あるはずの補助事業が無いと分かったことでした。</p>
+<div class="a-note"><strong>私たちの一次体験：</strong>「見せられる品質になった」と報告した後で、代表が飲食の業種で絞ると、家畜伝染病予防法が「ランピースキン病追加と違法畜産物販売禁止で防疫を強化する」という一文で出ました。データ全体の検査は通っていて、見る人の画面を開いて初めて止まりました。以来、業種ごと、絞り込みごとに出る画面を書き出して読む工程を、毎回の手順に入れています。</div>
+<figure class="a-fig-wrap"><img src="/assets/blog/20261102-ai-bunrui-kouho-ken.jpg" alt="福井県予算トラッカーの最初の画面。支援を受けられる額262億円、受注の機会202億円と、12業種のカードが並ぶ" width="1400" height="875" loading="lazy" style="width:100%;height:auto;display:block"></figure>
+<p class="a-fig-cap">県の画面。支援を受けられる事業と受注の機会を、業種で探せます。県の公式サイトではなく、当社が整理した試作です（2026年11月1日撮影）。</p>
+
+<h2>確かめるまで公開を止める、4つの作り</h2>
+<p>型が分かっても、人が気をつけるだけでは毎週の更新で崩れます。そこで、確かめていないものは公開の処理そのものが通らない形にしました。</p>
+<p>土台にしたのは、役割ごとに担当を分けることです。作ったAIに確かめまで任せず、次の表のように分けています。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>役割</th><th>担当</th><th>やること</th></tr>
+<tr><td>判定</td><td>Jev</td><td>テーマのまとめ方と業種を判定する。文章を書かず、判定と確率だけを返す</td></tr>
+<tr><td>見直しと文</td><td>Claude</td><td>判定を見直し、法律の内容を一文に書く</td></tr>
+<tr><td>照合</td><td>Codex</td><td>書いた文を、法律の提出理由と突き合わせる</td></tr>
+<tr><td>基準と指摘</td><td>人</td><td>何を確かめるかを決め、画面を見て直す点を指摘する</td></tr>
+</table></div>
+<p class="a-fig-cap">JevはTypeSafe AI、ClaudeはAnthropic、CodexはOpenAIのAIです。</p>
+<h3>1. AIの判定は候補として記録し、印を付ける</h3>
+<p>AIが出した分類や文は、そのまま画面へ流しません。確かめた分にだけ印を付け、印は中身に結び付けます。テーマや業種や文が変わると印は無効になり、確かめ直すまで公開の処理が止まります。</p>
+<h3>2. 書いたAIと別のAIに照合させる</h3>
+<p>AIは自分の書いた言い過ぎに気づきにくく、ある回の照合ではCodexが70件を指摘しました。そのうち5件は指摘した側の誤りで、原文に書いてありました。照合には材料を全文で渡し、指摘も原文で確かめてから直します。</p>
+<h3>3. 見る人の画面で読む</h3>
+<p>データが正しくても、絞り込みの組み立てで誤った組み合わせが出ることがあります。業種ごとの画面を書き出して読むのは、先ほどの一文のような誤りを止めるためです。</p>
+<p>見た目の検査は機械に任せました。国は80画面、県は90画面を、2種類のブラウザと5つの画面幅で開いています。横へのはみ出しや12px未満の小さな文字は、1か所でも問題として数える決まりです。</p>
+<h3>4. 見つけた型を検査に変える</h3>
+<p>1件直して終わりにせず、同じ型を機械で見つける検査を足します。読み落としなら、県の財政課のページと読んだ資料を突き合わせ、足りなければ公開を止めます。</p>
+<h3>4つを手順にまとめ、定時で回す</h3>
+<p>この4つは1つの手順書にまとめました。国のサイトは毎週月曜に定時の処理がデータを取り直し、確認と照合が全部通ったときだけ本番に出します。前回から消えた行が全体の5%を超えたら、原因が分かるまで公開は止まったままです。</p>
+<p>照合役のCodexが利用上限で止まった日も、Claudeに代わりはさせません。その日のうちに照合が終わらなければ、公開を見送って報告が届く作りです。県のサイトは月1回、AIを使わない確認で資料の変化を見つけ、変化があれば手順書に沿って更新します。</p>
+<p>それでも、人が全件を確かめた版ではありません。サイトの説明にはそう書き、施行日や締切は公式の情報で確かめるよう案内しています。誰が何を確かめたかを正直に書くことまでが、作りの一部です。判定を担当したAIの仕組みは、<a href="/blog/20260918-jev-typesafe-handan">文章を書かず判定だけを返すAIの記事</a>で書きました。</p>
+
+<h2>社内の仕事に置き換えるとどうなるか</h2>
+<p>同じ作りは、社内の文書にも当てはまります。例えば次の3つです。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>仕事の例</th><th>候補として扱うもの</th><th>読み落としの確かめ方</th></tr>
+<tr><td>問い合わせの分類</td><td>種類と担当部署</td><td>受信件数と分類した件数を合わせる</td></tr>
+<tr><td>議事録の要約</td><td>決定事項と担当者</td><td>出席者の異論が残っているか録音で見る</td></tr>
+<tr><td>契約書の項目の抜き出し</td><td>期限と金額</td><td>契約台帳の件数と合わせる</td></tr>
+</table></div>
+<p class="a-fig-cap">表は当社が考えた当てはめの例で、実測ではありません。</p>
+
+<h2>よくある質問とまとめ</h2>
+<div class="a-faq">
+<details><summary>AIの結果は全部、人が確認しないといけませんか？</summary><p>全件の確認は続かないことが多いので、判定の種類ごとに抜き取りで正解率を測り、低い種類から人の確認や別のAIの照合を当てます。当社のサイトも、人が全件を確かめた版ではありません。</p></details>
+<details><summary>別のAIに照合させれば十分ですか？</summary><p>十分とは言えません。当社の例では、指摘70件のうち5件は指摘した側の誤りでした。指摘は候補として受け取り、原文で確かめてから直します。読まなかった資料の抜けは、照合では見つかりにくいので別に確かめます。</p></details>
+<details><summary>記事の正解率は、ほかのAIや資料でも同じですか？</summary><p>同じとは言えません。当社が2026年9月に、自社のデータを抜き取りで調べた値です。自社の文書で測り直してください。</p></details>
+</div>
+
+<h3>まとめ：今週やること</h3>
+<p>AIの分類や要約は、間違っていても読みやすい文で出てきます。必要なのは、判定の種類ごとに測り、確かめた分だけを人の目に届ける作りです。載っていない分は測れないので、読むべき資料の一覧も別に確かめます。</p>
+<p>今週やることは、3つです。</p>
+<ol>
+<li><strong>判定を20件開く。</strong>AIに分類や要約をさせている仕事を1つ選び、結果を20件、原文と見比べます。</li>
+<li><strong>種類ごとに数える。</strong>正解の数を判定の種類ごとに書き出し、低い種類に人の確認を付けます。</li>
+<li><strong>元の資料の件数を合わせる。</strong>元の資料の件数と、AIが処理した件数が合っているかを見ます。</li>
+</ol>
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">AIの分類や要約を、確かめて使える形にします。</p>
+  <p>エンジニアが御社の現場に入り、精度の測り方と確認の流れを一緒に作る伴走支援です。8問の無料AI診断で現在地もわかります。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem"><a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">AI導入支援のサービス詳細・無料AI診断はこちら →</a></p>
+</div>
+
+<div class="a-src">参考：<br>
+・株式会社NGraph「<a href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">国会トラッカー</a>」「<a href="https://seisaku-tracker.jp/about" target="_blank" rel="noopener">このサイトについて</a>」（2026年11月1日確認）<br>
+・株式会社NGraph「<a href="https://seisaku-tracker.jp/fukui/" target="_blank" rel="noopener">福井県 予算トラッカー（試作）</a>」「<a href="https://seisaku-tracker.jp/fukui/about" target="_blank" rel="noopener">このサイトについて</a>」（2026年11月1日確認）<br>
+・あわせて読む：<a href="/blog/20260918-jev-typesafe-handan">AIは文章を書かず、判定だけを返せる——Jevの確信度が、手書き205語の判定ルールを置き換える条件</a></div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+<div class="float-cta" id="floatCta"><a href="/entry">無料で相談する →</a></div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI導入支援（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/security/">ローカルAI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+(function(){var f=document.getElementById('floatCta');if(!f)return;
+function t(){if(window.scrollY>420)f.classList.add('show');else f.classList.remove('show');}
+window.addEventListener('scroll',t,{passive:true});t();})();
+</script>
+</body>
+</html>
