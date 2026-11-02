@@ -486,15 +486,15 @@
   "article_h1": "AI導入の費用はいくらか、補助金5万件の実額で見る",
   "fs": 58,
   "pattern": "c7-bignumber",
-  "sub": "補助金の採択5万件の実額",
-  "title": "AI導入の交付額は150万円未満"
+  "sub": "採択件数5万件の内訳",
+  "title": "IT補助金の交付額は150万円未満"
  },
  "ai-hojokin": {
   "article_h1": "AI導入に使える補助金8制度の判定表",
   "fs": 78,
   "pattern": "c7-document",
   "sub": "補助金の判定表",
-  "title": "AI導入の補助金に、「AI」の文字はない。"
+  "title": "補助金の対象経費に、「AI」の費目はない。"
  },
  "ai-roadmap": {
   "article_h1": "中小企業のAI導入は、最初の1業務を決めるところから始まる",

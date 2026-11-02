@@ -52,7 +52,7 @@
   {"@type": "Question", "name": "Cloudflare Pagesは本当に無料で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "静的ファイル（あらかじめ作り終えた画像やHTMLなど、閲覧のたびに作り直さないファイル）へのリクエストは無料・無制限だと公式ドキュメントに明記されています。保存にも追加費用はかかりません。ただし無料プランにはファイル数・1ファイルの容量・月間ビルド回数の上限があり、ドメイン代や制作費が無料になるという意味ではありません。"}},
   {"@type": "Question", "name": "更新のたびにビルドが走ると、無料枠の月500回はいつ足りなくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "更新の頻度で決まります。ngraph.jpの直近30日のcommit数は157件で、1回の更新に複数のcommitが乗ることもあります。毎日更新しても月500回の上限には届きにくい水準です。なお当社は現在Workersで配信しており、Pagesのビルド回数は使っていません。"}},
   {"@type": "Question", "name": "いま新しく始めるなら、PagesとWorkersのどちらを選べばいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "公式はWorkersから始めるよう案内しています。例外は、ドメインのネームサーバーをCloudflareへ移せない場合です。その場合はPagesを使います。"}},
-  {"@type": "Question", "name": "他社で管理している独自ドメインでも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "Pagesは対応していますが、Workersの互換表ではCloudflareで管理していないドメインを独自ドメインとして使う機能（Custom domains outside Cloudflare zones）が非対応と示されています。ドメインを制作会社や既存のレジストラに預けたままの会社は、この1件が移行の可否をそのまま決めます。"}},
+  {"@type": "Question", "name": "他社で管理している独自ドメインでも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "Pagesは対応していますが、Workersの互換表ではCloudflareで管理していないドメインを独自ドメインとして使う機能（Custom domains outside Cloudflare zones）が非対応と示されています。ネームサーバーをCloudflareへ向けられない会社は、この1件が移行の可否をそのまま決めます。登録先のレジストラを変える必要はありません。"}},
   {"@type": "Question", "name": "会員機能や予約フォームのあるサイトも置けますか？", "acceptedAnswer": {"@type": "Answer", "text": "Pages・Workers Static Assetsのいずれも、置いて配るのは静的なファイルです。会員機能や予約のようにサーバー側で処理が要るものは、この仕組みだけでは作れず別の仕組みが必要になります。"}},
   {"@type": "Question", "name": "Cloudflare Pagesはいずれ終わるという話を聞きましたが、本当ですか？", "acceptedAnswer": {"@type": "Answer", "text": "2026年11月2日に確認した公式4ページに、Pagesの廃止を告げる記述はありません。ただしPagesの公式トップは、新しいプロジェクトをWorkersで始めるよう案内しています。すでに動いているサイトを急いで移す必要はありませんが、新規ならWorkersを選びます。"}}
  ]
@@ -137,15 +137,15 @@
 <p>同じ箇所で、Workersを「Cloudflare's primary platform」（Cloudflareの主要な基盤）と呼んでいます。</p>
 <p>8月の時点で確認した範囲では、この案内は見当たりませんでした。ただし確認した公式ページに、Pagesの廃止を告げる記述はありません。</p>
 <p>すでにPagesで動いているサイトを、急いで移す理由にはなりません。</p>
-<p>この移行ガイドが持つ互換表（compatibility matrix）を数えると、<strong>Workersだけが対応している機能は15件</strong>（Cron Triggers・Workers Logs・Logpush・Tail Workers・Source Maps・Queue Consumers・Rate Limiting・Email Workers・Image Resizing・Gradual Deployments・Remote Development・Quick Editor in Dashboard・Cloudflare Vite plugin・パス配下への静的配信・ルート直下以外への配置）、<strong>Pagesが上でWorkersは部分対応にとどまる機能は5件</strong>（Early Hints・Branch Deploy Controls・Custom Branch Aliases・ファイル配置がそのままURLになる仕組み〈File-based Routing〉・Pages Plugins）、<strong>Pagesだけが対応している機能は1件</strong>です。</p>
+<p>この移行ガイドが持つ互換表（compatibility matrix）を数えると、<strong>Workersだけが対応している機能は15件</strong>（Cron Triggers・Workers Logs・Logpush・Tail Workers・Source Maps・Queue Consumers・Rate Limiting・Email Workers・Image Resizing・Gradual Deployments・Remote Development・Quick Editor in Dashboard・Cloudflare Vite plugin・パス配下への静的配信・ルート直下以外への配置）、<strong>Workersに回避策しかない機能は4件</strong>（Early Hints・Branch Deploy Controls・Pages Functionsのファイルベースのルーティング・Pages Plugins）、<strong>Pagesだけが対応している機能は1件</strong>です。</p>
 <div class="a-fig-wrap">
 <p class="a-fig-title">機能の数ではWorkersが広い。判断を決めるのは1件</p>
-<svg viewBox="0 0 1200 302" width="100%" style="min-width:640px" role="img" aria-label="機能の数ではWorkersが広い。判断を決めるのは1件"><text x="462" y="75" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Workersだけが対応</text><rect x="480" y="50" width="520" height="34" rx="2" fill="#a63a24"/><text x="1012" y="76" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">15件</text><text x="462" y="127" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Pagesが上（Workersは部分対応）</text><rect x="480" y="102" width="173" height="34" rx="2" fill="#cfc5b4"/><text x="665" y="128" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">5件</text><text x="462" y="179" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Pagesだけが対応</text><rect x="480" y="154" width="34" height="34" rx="2" fill="#cfc5b4"/><text x="526" y="180" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">1件</text><text x="570" y="179" font-family="'Zen Kaku Gothic New',sans-serif" font-size="16" fill="#a63a24" font-weight="700" text-anchor="start">← Cloudflare管理外のドメイン。該当すると移せない</text><text x="600.0" y="244" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">数の多寡ではなく、自社に該当する1行があるかで決まる</text><text x="8" y="286" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Cloudflare公式「Migrate from Pages to Workers」の互換表を集計（2026年11月2日参照）</text></svg>
+<svg viewBox="0 0 1200 302" width="100%" style="min-width:640px" role="img" aria-label="機能の数ではWorkersが広い。判断を決めるのは1件"><text x="462" y="75" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Workersだけが対応</text><rect x="480" y="50" width="520" height="34" rx="2" fill="#a63a24"/><text x="1012" y="76" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">15件</text><text x="462" y="127" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Workersは回避策のみ</text><rect x="480" y="102" width="173" height="34" rx="2" fill="#cfc5b4"/><text x="665" y="128" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">4件</text><text x="462" y="179" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Pagesだけが対応</text><rect x="480" y="154" width="34" height="34" rx="2" fill="#cfc5b4"/><text x="526" y="180" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">1件</text><text x="570" y="179" font-family="'Zen Kaku Gothic New',sans-serif" font-size="16" fill="#a63a24" font-weight="700" text-anchor="start">← Cloudflare管理外のドメイン。該当すると移せない</text><text x="600.0" y="244" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">数の多寡ではなく、自社に該当する1行があるかで決まる</text><text x="8" y="286" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Cloudflare公式「Migrate from Pages to Workers」の互換表を集計（2026年11月2日参照）</text></svg>
 </div>
 <p>判断を決めるのは、Pagesだけが対応している1件です。</p>
 <p>それは<strong>Cloudflareで管理していないドメインを独自ドメインとして使えること</strong>（互換表の原語では "Custom domains outside Cloudflare zones"）です。</p>
 <p>公式は「Workersはネームサーバーが Cloudflare で管理されていないドメインに対応しない」と説明しています。</p>
-<p>ドメインを制作会社や既存のレジストラなど他社に預けたままの会社にとって、この1件が移行できるかどうかをそのまま決めます。数の多寡ではなく、自社に該当する1行があるかで判断が決まるということです。</p>
+<p>ネームサーバーを他社で管理したままの会社にとって、この1件が移行できるかどうかをそのまま決めます。ドメインの登録先は変えなくても、ネームサーバーをCloudflareへ向ければ使えます。数の多寡ではなく、自社に該当する1行があるかで判断が決まるということです。</p>
 <h2>当社がつまずいたのは、URLの末尾だった</h2>
 <p>Cloudflare Pagesの配信仕様（2026年8月10日参照）には次のように書かれています。</p>
 <p>「Pages will also redirect HTML pages to their extension-less counterparts: for instance, `/contact.html` will be redirected to `/contact`, and `/about/index.html` will be redirected to `/about/`.」（Pagesは、`.html` で終わるページを拡張子なしのURLへリダイレクトする。</p>
@@ -169,7 +169,7 @@
 <ol>
 <li><strong>URLの表記を `.html` のまま残す。</strong>表示は正常なので誰も気づきません。公開手順に機械の検査を入れて、拡張子なしに揃っているかを確認する必要があります。</li>
 <li><strong>無料枠を「容量」だけで確認して、回数を見ない。</strong>先に埋まるのは、Pagesならビルド回数、Workersなら1日のリクエスト数です。</li>
-<li><strong>ドメインを他社で管理したままWorkers側へ移そうとする。</strong>互換表では、Cloudflare管理外のドメインはWorkers非対応の1件として明記されています。</li>
+<li><strong>ネームサーバーを他社で管理したままWorkers側へ移そうとする。</strong>互換表では、Cloudflare管理外のドメインはWorkers非対応の1件として明記されています。</li>
 <li><strong>会員機能や予約のようにサーバー側で処理が要るものを、静的なファイルを配る仕組みだけで作ろうとする。</strong>PagesもWorkers Static Assetsも、置いて配るのは静的なファイルです。サーバー側の処理には別の仕組みが要ります。</li>
 <li><strong>「Pagesはもう終わる」という噂だけで移行を急ぐ。</strong>公式は新しい案件をWorkersへ案内していますが、確認した範囲に廃止の記述はありません。この領域の案内は3か月で変わります。いつ時点の話かを必ず確認してください。</li>
 </ol>
@@ -180,14 +180,14 @@
 <details><summary>Cloudflare Pagesは本当に無料で使えますか？</summary><p>静的ファイル（あらかじめ作り終えた画像やHTMLなど、閲覧のたびに作り直さないファイル）へのリクエストは無料・無制限だと公式ドキュメントに明記されています。保存にも追加費用はかかりません。ただし無料プランにはファイル数・1ファイルの容量・月間ビルド回数の上限があり、ドメイン代や制作費が無料になるという意味ではありません。</p></details>
 <details><summary>更新のたびにビルドが走ると、無料枠の月500回はいつ足りなくなりますか？</summary><p>更新の頻度で決まります。ngraph.jpの直近30日のcommit数は157件で、1回の更新に複数のcommitが乗ることもあります。毎日更新しても月500回の上限には届きにくい水準です。なお当社は現在Workersで配信しており、Pagesのビルド回数は使っていません。</p></details>
 <details><summary>いま新しく始めるなら、PagesとWorkersのどちらを選べばいいですか？</summary><p>公式はWorkersから始めるよう案内しています。例外は、ドメインのネームサーバーをCloudflareへ移せない場合です。その場合はPagesを使います。</p></details>
-<details><summary>他社で管理している独自ドメインでも使えますか？</summary><p>Pagesは対応していますが、Workersの互換表ではCloudflareで管理していないドメインを独自ドメインとして使う機能（Custom domains outside Cloudflare zones）が非対応と示されています。ドメインを制作会社や既存のレジストラに預けたままの会社は、この1件が移行の可否をそのまま決めます。</p></details>
+<details><summary>他社で管理している独自ドメインでも使えますか？</summary><p>Pagesは対応していますが、Workersの互換表ではCloudflareで管理していないドメインを独自ドメインとして使う機能（Custom domains outside Cloudflare zones）が非対応と示されています。ネームサーバーをCloudflareへ向けられない会社は、この1件が移行の可否をそのまま決めます。登録先のレジストラを変える必要はありません。</p></details>
 <details><summary>会員機能や予約フォームのあるサイトも置けますか？</summary><p>Pages・Workers Static Assetsのいずれも、置いて配るのは静的なファイルです。会員機能や予約のようにサーバー側で処理が要るものは、この仕組みだけでは作れず別の仕組みが必要になります。</p></details>
 <details><summary>Cloudflare Pagesはいずれ終わるという話を聞きましたが、本当ですか？</summary><p>2026年11月2日に確認した公式4ページに、Pagesの廃止を告げる記述はありません。ただしPagesの公式トップは、新しいプロジェクトをWorkersで始めるよう案内しています。すでに動いているサイトを急いで移す必要はありませんが、新規ならWorkersを選びます。</p></details>
 </div>
 
 <h2>まとめ</h2>
 <p>会社のホームページは、無料枠で足ります。新しく作るならWorkersから始め、すでにPagesで動いているならそのままで構いません。</p>
-<p>移す前に確かめるのは1つです。自社のドメインのネームサーバーを、誰が管理しているかを確認してください。Cloudflare以外のままならWorkersへは移せません。</p>
+<p>移す前に確かめるのは1つです。自社のドメインのネームサーバーを、誰が管理しているかを確認してください。Cloudflare以外のままならWorkersへは移せません。ドメインの登録先を変える必要はありません。</p>
 
 <div class="a-cta">
   <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">「うちのサイトの置き場所、これで合っているか」から、一緒に整理します。</p>
