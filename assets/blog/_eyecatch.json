@@ -483,18 +483,32 @@
   "title": "AIと人間、本当の分担"
  },
  "ai-cost": {
-  "article_h1": "AI導入の費用はいくらか——補助金の採択5万件データで見る実額と見積の内訳",
-  "fs": null,
-  "pattern": "pyramid",
-  "sub": "補助金の採択5万件が示す実額と、見積の内訳",
-  "title": "AI導入の費用はいくらか"
+  "article_h1": "AI導入の費用はいくらか、補助金5万件の実額で見る",
+  "fs": 58,
+  "pattern": "c7-bignumber",
+  "sub": "補助金の採択5万件の実額",
+  "title": "AI導入の交付額は150万円未満"
+ },
+ "ai-hojokin": {
+  "article_h1": "AI導入に使える補助金8制度の判定表",
+  "fs": 78,
+  "pattern": "c7-document",
+  "sub": "補助金の判定表",
+  "title": "AI導入の補助金に、「AI」の文字はない。"
+ },
+ "ai-roadmap": {
+  "article_h1": "中小企業のAI導入は、最初の1業務を決めるところから始まる",
+  "fs": 81,
+  "pattern": "c7-illust",
+  "sub": "",
+  "title": "AI導入は最初の1業務から始まる"
  },
  "fde-vs-training": {
-  "article_h1": "研修は「教える」、コンサルは「描く」、FDEは現場で「つくる」——AI導入支援3タイプの選び方",
-  "fs": null,
-  "pattern": "venn",
-  "sub": "教える／描く／つくる——3つの支援の選び方",
-  "title": "研修・コンサル・FDEの違い"
+  "article_h1": "研修は教え、コンサルは描き、FDEは現場でつくる",
+  "fs": 69,
+  "pattern": "c7-bunko",
+  "sub": "",
+  "title": "研修は教えコンサルは描きFDEは現場でつくる"
  },
  "k-blog-gate": {
   "article_h1": "毎日出す仕事を、人の目で守るのをやめる——公開前ゲート13本の設計",
@@ -591,10 +605,17 @@
   "title": "自己改善ループをXで実装する"
  },
  "what-is-fde": {
-  "article_h1": "FDE（フォワード・デプロイド・エンジニア）とは？ 企業が本当に足りないのは「現場でAIを入れられる人」——不足69.6%",
-  "fs": null,
-  "pattern": "pyramid",
-  "sub": "現場でAIを入れられる人の不足 69.6%",
-  "title": "FDEとは？足りないのは研究者ではない"
+  "article_h1": "FDEとは、現場に入ってAIを業務に組み込むエンジニアのこと",
+  "fs": 116,
+  "pattern": "c7-newspaper",
+  "sub": "足りないのは研究者ではなかった",
+  "title": "FDEは現場に入るエンジニア"
+ },
+ "why-ai-stalls": {
+  "article_h1": "AIを入れても使われないのは、社員の仕事が増えるから",
+  "fs": 77,
+  "pattern": "c7-memo",
+  "sub": "覚える、直す、怒られる全部担当者の仕事になる",
+  "title": "AIを入れても使われないのは、社員の仕事が増えるから"
  }
 }
