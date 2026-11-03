@@ -475,6 +475,13 @@
   "sub": "AIの試行錯誤",
   "title": "Jevで国会を仕分けたら約45円だった"
  },
+ "20261103-ai-tokurei-kojinjoho": {
+  "article_h1": "改正個人情報保護法の「AI特例」は、社内でAIに顧客情報を入れてよいという話ではない",
+  "fs": 67,
+  "pattern": "c7-document",
+  "sub": "統計作成等の特例",
+  "title": "AI特例は、社内のAI利用の話ではない"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,

@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [改正個人情報保護法の「AI特例」は、社内でAIに顧客情報を入れてよいという話ではない](https://ngraph.jp/blog/20261103-ai-tokurei-kojinjoho)
 - [Jevで国会の質問2,424件を仕分けたら約45円だった——規制緩和を早く知りたくて試した約40日の顛末](https://ngraph.jp/blog/20261102-ai-bunrui-kouho)
 - [AIの確認ボタンは97%通る——危険を止めたのは13.6%、人の判断は「1回ごと」から「計画」へ移す](https://ngraph.jp/blog/20261101-ai-kakunin-button)
 - [AIの月額は固定費にならない——Anthropicの上場書類が認めた上限の変更と、使い方で約20倍開く費用](https://ngraph.jp/blog/20261031-ai-getsugaku-kotei-hi)
