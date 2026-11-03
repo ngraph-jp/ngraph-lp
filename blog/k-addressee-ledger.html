@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった | NGraphブログ</title>
+<meta name="description" content="AIに見積書やメールを書かせると、宛名を署名やプレビューから取って常連の社名や氏名の漢字を間違えます。宛名を台帳から引き、文字列で照合し、根拠が無ければ止める4つの原則を整理しました。">
+<meta property="og:title" content="AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった | NGraphブログ">
+<meta property="og:description" content="AIに見積書やメールを書かせると、宛名を署名やプレビューから取って常連の社名や氏名の漢字を間違えます。宛名を台帳から引き、文字列で照合し、根拠が無ければ止める4つの原則を整理しました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/k-addressee-ledger">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/k-addressee-ledger.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/k-addressee-ledger">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=16">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった",
+  "image": "https://ngraph.jp/assets/blog/k-addressee-ledger.jpg",
+  "description": "AIに見積書やメールを書かせると、宛名を署名やプレビューから取って常連の社名や氏名の漢字を間違えます。宛名を台帳から引き、文字列で照合し、根拠が無ければ止める4つの原則を整理しました。",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/k-addressee-ledger",
+  "author": { "@type": "Person", "name": "髙橋 真吾", "jobTitle": "代表取締役", "url": "https://ngraph.jp/company#team", "worksFor": { "@type": "Organization", "name": "株式会社NGraph", "url": "https://ngraph.jp/" } },
+  "publisher": { "@type": "Organization", "name": "株式会社NGraph", "logo": { "@type": "ImageObject", "url": "https://ngraph.jp/assets/ngraph-logo-circle.png" } }
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI導入支援</a>
+      <a href="/#services">サービス一覧</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料相談</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+<article class="article-wrap">
+  <div class="a-label">N-KNOWLEDGE</div>
+  <h1>AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった</h1>
+  <span class="a-date">2026.11.04 ナレッジ ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/k-addressee-ledger.jpg" alt="AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった">
+<p>AIに見積書やメールの下書きを任せると、取引先の社名や担当者の氏名を間違えて社外に出すことがあります。しかも自社で間違えた相手は、何度も取引のある常連でした。この記事では、自社で実際に起きた2件の宛名の間違いを手がかりに、宛名を「目の前の文字」から取らせず、取引先の台帳から引かせる設計を書きます。</p>
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・AIが宛名を間違えるのは、読み間違えたときとは限らない理由<br>
+・宛名の根拠に順番をつける設計「宛名は台帳から引く」<br>
+・台帳に無い名前を「新規」と決めつけない手順<br>
+・送る前に文字列一致で照合し、根拠が無ければ止める条件<br>
+・明日からの最小実践パス</div>
+
+<h2>署名を正しく読んだのに、宛名は間違っていた</h2>
+<p>最初の事例は、自社が運用している、海外での車両手配の見積・請求業務で起きました。</p>
+<div class="a-note"><strong>2026年10月29日の出来事</strong>　2024年から5回取引のある法人の客から、見積の依頼が届きました。依頼メールを書いたのは新しい担当者で、署名にはグループ内の別の法人の商号が入っていました。AIはその署名の商号を宛名にして見積書を作り、予約の管理表の英語表記にも同じ名前を書きました。私は「これまでの取引先なのに、急に間違えるのは最悪だ」と指摘しました。</div>
+<p>AIは署名を読み間違えたわけではありません。署名に書かれた商号は、正確に写されていました。間違っていたのは、署名の商号を宛名の根拠にしたことです。</p>
+<p>原因は3つ重なっていました。</p>
+<p><strong>署名の商号は、その人の所属を表している</strong>　請求先や契約先を表すとは限りません。グループ内で法人が分かれている客では、担当者の所属する法人と、契約している法人が違うことがあります。</p>
+<p><strong>過去の取引がAIから見えなかった</strong>　その年の予約の管理表は途中の番号から始まっていて、5回分の取引の履歴が手元にありませんでした。</p>
+<p><strong>取引先の台帳が無かった</strong>　宛名の根拠にできるものが、目の前の署名しか無かったのです。</p>
+<p>3つ目が本質です。根拠がひとつしか無ければ、AIはそれを使います。そして文面は丁寧に整うので、間違った宛名のまま、そのまま送れる書類に見えます。</p>
+
+<h2>目の前の文字は、4つの経路でAIに入ってくる</h2>
+<p>宛名の間違いは、AIが何も無いところから名前を作るときに起きるとは限りません。自社の2件は、どちらも手元にある文字を拾ったときでした。拾い先は、おおまかに4つに分けられます。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>経路</th><th>何が写っているか</th><th>宛名の根拠にしてよいか</th></tr>
+<tr><td>最新メールの署名</td><td>その人の所属と肩書</td><td>しない。所属は請求先とは別</td></tr>
+<tr><td>受信トレイのプレビュー</td><td>画面に縮小して出た名前の断片</td><td>しない。字形を取り違えやすい</td></tr>
+<tr><td>画面の縮小画像</td><td>画像として読み取った文字</td><td>しない。読み取りの誤りが混ざる</td></tr>
+<tr><td>過去の書類・案件の指定</td><td>客が確定させた宛名</td><td>する。ただし台帳に移してから使う</td></tr>
+</table></div>
+<p>上の3つは「手がかり」です。宛名の候補を絞るのには役立ちますが、これを根拠に書類へ書いてはいけません。下の1つは根拠になりますが、毎回AIが過去の書類を探し直す形にすると、探し漏れが出ます。そこで、確定した宛名を一度台帳に置き、以後はそこから引く形にします。</p>
+
+<h2>設計「宛名は台帳から引く」の4つの原則</h2>
+<p>この設計は、宛名をAIに読ませて書かせる代わりに、取引先の台帳から引かせ、送る前に突き合わせ、根拠が無ければ止めるものです。台帳には、取引先ごとに宛名、英語表記、支払いの経路を持たせます。原則は4つです。</p>
+<ul>
+<li>原則1：宛名の根拠に順番をつけ、署名やプレビューは根拠に入れない</li>
+<li>原則2：台帳に無い名前は「新規」ではなく「まだ特定できていない」と扱う</li>
+<li>原則3：照合は案件のIDで引いた台帳と、文字列の一致で行う</li>
+<li>原則4：根拠が無い、または一致しないときは、書類を止める</li>
+</ul>
+<p>以下、原則ごとに、なぜそうするのかを実例で見ていきます。</p>
+
+<h2>原則1：宛名の根拠に順番をつける</h2>
+<p>自社では、宛名の根拠を次の順で使うことにしました。</p>
+<p><strong>①その案件で客が指定した宛名</strong>　客が「請求書はこの名前で」と書いてきたなら、それが最優先です。</p>
+<p><strong>②台帳の確定済みの宛名</strong>　過去の取引で確定させ、台帳に登録した名前です。</p>
+<p><strong>③公式の商号を確かめて、台帳に登録してから使う</strong>　①も②も無いときは、客の公式な情報で商号を確かめます。確かめたら先に台帳へ登録し、その台帳の行を使って書類を作ります。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">宛名の根拠には順番がある</p>
+<svg viewBox="0 0 1200 614" width="100%" style="min-width:640px" role="img" aria-label="宛名の根拠には順番がある"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">目の前の署名や画面は、この順番の中に入っていない</text><line x1="190" y1="156" x2="190" y2="208" stroke="#8a8172" stroke-width="1.5"/><circle cx="190" cy="126" r="27" fill="none" stroke="#a63a24" stroke-width="2.5"/><text x="190" y="138" font-family="'Zen Old Mincho',serif" font-size="30" fill="#a63a24" font-weight="900" text-anchor="middle">1</text><text x="246" y="137" font-family="'Zen Kaku Gothic New',sans-serif" font-size="27" fill="#2b2620" font-weight="700" text-anchor="start">その案件で客が指定した宛名</text><line x1="190" y1="268" x2="190" y2="320" stroke="#8a8172" stroke-width="1.5"/><circle cx="190" cy="238" r="27" fill="none" stroke="#a63a24" stroke-width="2.5"/><text x="190" y="250" font-family="'Zen Old Mincho',serif" font-size="30" fill="#a63a24" font-weight="900" text-anchor="middle">2</text><text x="246" y="249" font-family="'Zen Kaku Gothic New',sans-serif" font-size="27" fill="#2b2620" font-weight="700" text-anchor="start">台帳の確定済みの宛名</text><line x1="190" y1="380" x2="190" y2="432" stroke="#8a8172" stroke-width="1.5"/><circle cx="190" cy="350" r="27" fill="none" stroke="#a63a24" stroke-width="2.5"/><text x="190" y="362" font-family="'Zen Old Mincho',serif" font-size="30" fill="#a63a24" font-weight="900" text-anchor="middle">3</text><text x="246" y="361" font-family="'Zen Kaku Gothic New',sans-serif" font-size="27" fill="#2b2620" font-weight="700" text-anchor="start">公式の商号を確かめて台帳に登録してから使う</text><circle cx="190" cy="462" r="27" fill="none" stroke="#cfc5b4" stroke-width="2.5"/><text x="190" y="474" font-family="'Zen Old Mincho',serif" font-size="30" fill="#cfc5b4" font-weight="900" text-anchor="middle">4</text><text x="246" y="473" font-family="'Zen Kaku Gothic New',sans-serif" font-size="27" fill="#2b2620" font-weight="700" text-anchor="start">どれにも当たらなければ書類を止める</text><text x="600.0" y="556.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">署名とプレビューは候補の手がかり。宛名の根拠にはしない</text></svg>
+</div>
+<p>順番をつける意味は、迷ったときの行き先を固定することにあります。署名の商号は、この順番のどこにも入りません。署名は「この人はこのグループにいる」ことを示すもので、請求先を示すものではないからです。</p>
+<p>③で先に台帳へ登録する手間は、次の案件で戻ってきます。確かめた結果を書類にだけ書いて終えると、次の案件でまた同じ確認が要るからです。台帳に置けば、2回目以降は①と②で済みます。</p>
+
+<h2>原則2：台帳に無い名前は「未特定」と扱う</h2>
+<p>台帳を作ると、新しい落とし穴が生まれます。台帳を引いて見つからなかったとき、AIがその客を新規客と判断して、手元の署名で書類を作り始めることです。</p>
+<p>自社の事例も、この形でした。台帳が無かったときは署名しか根拠が無く、台帳ができたあとも、そこに載っていなければ同じことが起きえます。5回取引のある客は、新規ではありません。台帳にまだ載っていなかっただけです。</p>
+<p>そこで、台帳に無いことの意味を決め直しました。</p>
+<ul>
+<li>台帳に無い、は「新規客」の意味ではなく、「まだ特定できていない」の意味にする</li>
+<li>特定できていないときは、まず過去の見積書や請求書を探す</li>
+<li>探しても見つからないときに、はじめて新規客として、原則1の③に進む</li>
+</ul>
+<p>探す順番も大事です。過去の書類を探さずに公式の商号を確かめると、取引のある客が別名で二重に登録される原因になります。</p>
+
+<h2>原則3：照合は、案件のIDで引いた台帳と文字列で突き合わせる</h2>
+<p>台帳から引いて書類を作っても、最後の書類に別の名前が混ざることがあります。たとえば本文のどこかで署名の名前を書き写したり、返信の下書きで名前を打ち直したりする場合です。そこで、送る前に書類の宛名を台帳の宛名と突き合わせます。</p>
+<p>ここで大事なのは、<strong>何を基準に台帳を引くか</strong>です。</p>
+<p>書類の紙面に書かれた名前から台帳を逆に引く方法は、安全に見えて、安全ではありません。紙面の名前が間違っていても、同じ名前の別の客が台帳にいれば、その行が見つかって検査が通ってしまうからです。自社の運用では、別のAIにレビューさせたときにこの点を指摘されました。</p>
+<p>そこで、書類の検査には、案件で確定した取引先のIDを渡します。検査は、そのIDの台帳の行を引き、書類の宛名と一字ずつ突き合わせます。IDは案件を受けた時点で人かAIが決めたものなので、書類の中身に引きずられません。</p>
+<div class="a-note"><strong>2026年9月10日の出来事</strong>　取引先の管理職に宛てた連絡で、下の名前の漢字を1字、似た別の字に間違えて送ってしまいました。AIは受信トレイを縮小した画面のプレビュー行から名前を読んでいました。本人の署名にはローマ字が併記され、正しい漢字も書かれていました。次の返信で訂正とお詫びを入れました。</div>
+<p>この件のあと、人名の漢字には別の規則を足しました。氏名の漢字は本人が書いたテキスト、つまり署名か本文から取り、下書きの宛名をその文字列と一字ずつ突き合わせます。見た目が近いかどうかは目で見ず、文字として一致するかどうかを機械で確かめます。</p>
+<p>署名にローマ字しか無いときは、漢字を推測しません。「姓＋様」にとどめ、そこで止めます。推測した漢字が当たっていても、根拠が無いまま出すのは同じ誤りの入口だからです。</p>
+
+<h2>原則4：根拠が無ければ、書類を止める</h2>
+<p>照合の検査には、通ったときの動きより、通らないときの動きのほうが重要です。止まる条件を、先に決めておきます。自社では、次のどれかに当たると書類の作成が止まります。</p>
+<ul>
+<li>案件の取引先IDが渡されていない</li>
+<li>IDに対応する台帳の宛名が、確定していない</li>
+<li>書類の宛名が、台帳の宛名と一致しない</li>
+<li>人名の漢字が、本人の書いた文字列と一致しない</li>
+</ul>
+<p>止まったときは、AIが推測で先へ進まず、人に確認を返します。止まる仕組みが無いと、検査があっても通らなかった書類がそのまま出てしまうからです。止めることは不便に見えますが、宛名の誤りは社外に出てから直すと、訂正の連絡と信用の目減りという形で、高くつきます。</p>
+
+<h2>書類に載せる名前は、役割で書く</h2>
+<p>宛名の間違いとは少し違いますが、同じ根から出る問題がもうひとつあります。顧客に渡す成果物に、先方の担当者の実名が入ってしまうことです。</p>
+<div class="a-note"><strong>2026年8月21日の出来事</strong>　顧客に渡す成果物、具体的には方針書の日英版、絵コンテ、画面の試作の操作履歴に、先方の担当者の実名が入っていました。私は「固有名詞は入れない。汎用的な表現がいい」と指摘しました。「御社」「本部」「管理者」といった役割の表記に直し、納品の前に担当者の名前を文字列で検索したところ、4か所が見つかりました。</div>
+<p>理由は2つあります。ひとつは、成果物が担当者の手を離れて、社内で回覧されることです。もうひとつは、異動や退職で、名前が古くなることです。</p>
+<p>これも台帳の考え方で処理できます。宛名として書く名前は台帳から引き、成果物の中の名前は役割に置き換える。そして納品の前に、担当者の名前を文字列で検索して残りが無いことを確かめます。</p>
+
+<h2>明日からの最小実践パス</h2>
+<p>自社のように専用の仕組みを作らなくても、次の3段階で始められます。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>段階</th><th>時期</th><th>やること</th></tr>
+<tr><td>段階1</td><td>今週</td><td>直近に出した見積書・請求書・メールから10通を選び、宛名の社名と氏名が、過去の書類や本人の署名と一致しているかを突き合わせる</td></tr>
+<tr><td>段階2</td><td>今月</td><td>取引先の台帳を作る。宛名、英語表記、支払いの経路の3列から始め、主要な客から過去の書類を見て埋める。AIには、宛名は台帳から引くよう指示する</td></tr>
+<tr><td>段階3</td><td>3か月</td><td>案件ごとに取引先IDを決め、送る前の突き合わせを手順に入れる。IDが無い、宛名が未確定、一致しないときは止まる条件を書き出す</td></tr>
+</table></div>
+<p>段階1で10通すべてが一致していれば、いまの運用で当面の危険は低いと考えられます。ずれが1通でも見つかったら、4つの経路のどこから名前を拾ったかを調べてください。拾った経路が分かれば、段階2で台帳の優先順位をどこから決めるかが見えてきます。</p>
+
+<h2>よくある失敗</h2>
+<p><strong>①台帳に、署名の商号をそのまま登録する</strong>　台帳の元が署名だと、間違いが台帳に固定されます。登録するのは、客が指定した宛名か、公式の商号を確かめた結果です。</p>
+<p><strong>②台帳に無い客を、すぐ新規として登録する</strong>　過去の書類を探さずに登録すると、同じ客が別名で二重に登録されます。</p>
+<p><strong>③書類の名前から台帳を逆引きして検査する</strong>　間違った名前でも、同じ名前の別の客がいれば通ってしまいます。引くのは案件のIDです。</p>
+<p><strong>④AIに「宛名は合っていますか」と聞いて終える</strong>　AIの返事は文面として整っているので、確かめた気持ちだけが残ります。突き合わせは、文字列の一致で行います。</p>
+
+<h2>まとめ</h2>
+<ul>
+<li>AIの宛名の誤りは、署名やプレビューなど、目の前の文字を根拠にしたときに起きる</li>
+<li>署名の商号は所属を表す。請求先や契約先の根拠にしない</li>
+<li>原則1：宛名の根拠は、案件の指定、台帳の確定済みの宛名、公式の商号を確かめて台帳に登録、の順にする</li>
+<li>原則2：台帳に無いのは「新規」ではなく「未特定」。先に過去の書類を探す</li>
+<li>原則3：照合は案件のIDで引いた台帳と、文字列で突き合わせる。紙面の名前から逆引きしない</li>
+<li>原則4：IDが無い、宛名が未確定、一致しないときは、書類を止める</li>
+<li>氏名の漢字は本人が書いたテキストから取る。ローマ字しか無ければ推測せず、「姓＋様」で止める</li>
+<li>実践は3段階。今週は10通を突き合わせ、今月は台帳を作り、3か月で止まる条件まで手順に入れる</li>
+</ul>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">NGraphでは、見積・請求・連絡文をAIに任せるときの、宛名の台帳と送る前の照合、根拠が無ければ止まる仕組みを、現場の業務に入って一緒に作り、担当者が変わっても回り続ける形にして残します。</p>
+  <p>NGraphでは、FDE型AI導入伴走支援を承っております。ご依頼は随時募集しています。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem">お気軽にDMください。XのDMでも受け付けています：<a href="https://x.com/japan19840824" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid var(--accent)">@japan19840824</a></p>
+  <p style="margin-top:10px;font-size:.82rem">くわしくは<a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">FDE型AI導入伴走支援</a>のページへ。あわせて読みたい記事：<a href="/blog/k-invoice-numbers" style="color:var(--accent);border-bottom:1px solid var(--accent)">AIに作らせた請求書の金額は、「計算式」を見ずに出さない</a>／<a href="/blog/k-rule-origin" style="color:var(--accent);border-bottom:1px solid var(--accent)">手順書の1行ずつに「誰が決めたか」を書く設計</a></p>
+</div>
+
+<div class="a-src">補足：<br>
+・取引先の事例は、自社が運用している海外での車両手配の見積・請求業務で起きた実例を、取引先が特定できないように書き換えたものです<br>
+・人名の漢字や社名の扱いは、取引先との契約や相手の表記の希望によって変わります。台帳の項目は、自社の取引に合わせて決めてください</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+<div class="float-cta" id="floatCta"><a href="/entry">無料で相談する →</a></div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI導入支援（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/security/">ローカルAI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+(function(){var f=document.getElementById('floatCta');if(!f)return;
+function t(){if(window.scrollY>420)f.classList.add('show');else f.classList.remove('show');}
+window.addEventListener('scroll',t,{passive:true});t();})();
+</script>
+</body>
+</html>
