@@ -225,7 +225,7 @@ Disallow: /</pre>
 <p class="a-fig-cap">Cloudflare Blog「Giving users choice with Cloudflare's new Content Signals Policy」とCloudflare Docsをもとに当社が整理しました。ai-inputは、管理用robots.txtの利用者には値を出さないと書かれています。</p>
 <p>注意したいのは、ai-inputを入れない点です。回答の根拠に使うことについて、Cloudflareの既定の行は、何も言っていません。</p>
 <p>一方で、同じ管理用のrobots.txtには、会社名を名指しで断る行も入ります。当社の2サイトでは、GoogleのGoogle-Extended、OpenAIのGPTBot、AnthropicのClaudeBotなど、32種類のクローラーが、Disallow: /で断られていました。</p>
-<p>もう1つ、Cloudflareの説明で押さえておく点があります。robots.txtの順守は、任意です。強制したいときは、AI Crawl Controlという別の機能を使うよう案内されています。学習を「Disallow」にしてBot Preference Syncを有効にすると、robots.txtに加えて、学習用のクローラーをCloudflareの入口でも遮断する仕組みです。検索と学習の両方に使うクローラーは、除かれます。設定の場所は、セキュリティ、設定、Bot traffic、AI Crawler and Agent access policiesの順です。</p>
+<p>もう1つ、Cloudflareの説明で押さえておく点があります。robots.txtの順守は、任意です。強制したいときは、AI Crawl Controlという別の機能を使うよう案内されています。もう1つ、AI Crawler and Agent access policiesの設定で学習を「Disallow」にし、Bot Preference Syncを有効にすると、robots.txtに加えて、学習用のクローラーをCloudflareの入口でも遮断します。検索と学習の両方に使うクローラーは、この遮断から除かれます。設定の場所は、セキュリティ、設定、Bot trafficの順です。</p>
 <p>Content Signalは、スクレイピングへの技術的な対抗手段ではない、とも書かれています。意思表示を書く場所で、止める道具ではありません。</p>
 
 <h2>中小企業の現場で見たこと</h2>
@@ -263,7 +263,7 @@ Allow: /</pre>
 <pre class="a-code">User-Agent: __usage_ai-training
 Disallow: /</pre>
 <p>ここで、Googleについて覚えておきたいことがあります。この2行は、Google-Extendedの拒否と同じに扱われる予定で、その範囲は学習と回答の根拠付けの両方です。学習だけを断るつもりで書いても、Geminiの回答に載る道まで閉じる可能性があります。分けて決めるのは、書く前です。</p>
-<p>一部のページだけ学習を断りたいときは、パスを指定します。例えば、プレスキットのページだけ開けたいときは、Disallow: /に、Allow: /press-kit/を足します。</p>
+<p>一部のページだけ扱いを変えたいときは、パスを指定します。例えば、プレスキットのページだけ開けたいときは、Disallow: /に、Allow: /press-kit/を足します。</p>
 <h3>手順5の日付は、図3のとおり</h3>
 <p>各社の対応が始まるのは、2027年です。図3に、確認できた日付を並べます。図の「旧指定」は、NoArchiveとNoCacheのことです。12月15日の移行用設定は、このどちらかを使っているサイトが対象です。</p>
 <div class="a-fig-wrap">
@@ -281,7 +281,7 @@ Disallow: /</pre>
 <p>*は、すべてのクローラーを指すので、Googleの検索のクローラーも含みます。しかも草案は、*のグループを共通の指定に当てはめないと定めています。つまり、AIの学習への意思表示としては数えられない扱いです。</p>
 <p>Googleは、Google-Extendedが検索への掲載にも順位にも影響しないと説明しています。AIに向けた指定と、検索に向けた指定は、別のものです。AIだけを止めたいなら、共通の名前かGoogle-Extendedの行を、名指しで書きます。</p>
 <h3>3. 学習だけを断るつもりで、Google-Extendedを拒否する</h3>
-<p>Google-Extendedが対象にするのは、学習とグラウンディングの両方です。Googleのブログによれば、明示的に許可したサイトは、Geminiアプリの回答に根拠として載り、クリックを受ける対象になります。拒否すれば、その対象から外れることになります。</p>
+<p>Google-Extendedが対象にするのは、学習とグラウンディングの両方です。Googleのブログによれば、明示的に許可したサイトは、Geminiアプリの回答に根拠として載り、クリックを受ける対象になります。拒否は、Geminiアプリの回答の根拠に使うことも断る意思表示になります。</p>
 <p>当社の2サイトでは、Cloudflareの行の中に、Google-Extendedが入っていました。手元のファイルに書いていなくても、本番では同じことが起きる場合があります。</p>
 <h3>4. 書けば守られると思う</h3>
 <p>robots.txtの順守は、各社の対応に任されています。Cloudflareも、順守は任意だと書いています。草案では、この指定は、クロールの動作を指示するものとは別物です。個別の契約が優先しうる、という注意書きも付いています。</p>
