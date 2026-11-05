@@ -489,6 +489,13 @@
   "sub": "米国は0%・PwC調査（2026年6月）",
   "title": "日本企業は、AIの効果をまだ測れていない"
  },
+ "20261105-ai-gakushu-kyohi-robots": {
+  "article_h1": "AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる",
+  "fs": 88,
+  "pattern": "c7-terminal",
+  "sub": "robots.txt",
+  "title": "Googleでは、学習を断ると回答の根拠からも外れる"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,

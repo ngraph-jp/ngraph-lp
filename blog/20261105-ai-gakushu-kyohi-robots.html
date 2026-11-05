@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる | NGraphブログ</title>
+<meta name="description" content="10月30日、AIの学習を断るrobots.txtの共通の書き方が提案された。Googleは2027年にGoogle-Extendedの拒否と同じに扱う予定で、Geminiの回答の根拠からも外れる。Microsoftは学習だけ。自社サイト6つのうち2つは、Cloudflareが32種類のAIを拒否していた。">
+<meta property="og:title" content="AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる | NGraphブログ">
+<meta property="og:description" content="AIの学習を断る1行は、Googleでは回答の根拠からも外れ、Microsoftでは学習だけに効く。自社サイト6つの本番のrobots.txtを取得して確かめた結果と、自社サイトで決める順番を整理しました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261105-ai-gakushu-kyohi-robots">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261105-ai-gakushu-kyohi-robots.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261105-ai-gakushu-kyohi-robots">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=16">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}.a-code{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.84rem;line-height:1.8;color:var(--text);background:rgba(22,32,44,.05);border:1px solid var(--border);border-radius:3px;padding:12px 16px;margin:14px 0;white-space:pre;overflow-x:auto}</style>
+<style>@media(max-width:768px){p,li,dd,td{text-wrap:wrap}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる",
+  "image": "https://ngraph.jp/assets/blog/20261105-ai-gakushu-kyohi-robots.jpg",
+  "description": "10月30日、AIの学習を断るrobots.txtの共通の書き方が提案された。Googleは2027年にGoogle-Extendedの拒否と同じに扱う予定で、Geminiの回答の根拠からも外れる。Microsoftは学習だけ。自社サイト6つのうち2つは、Cloudflareが32種類のAIを拒否していた。",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261105-ai-gakushu-kyohi-robots",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "共通の指定は、いつから効きますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microsoftは2027年2月1日から、新しい指定をクロールのときに尊重し始めると書いています。Googleは2027年の早い時期に対応する予定で、日付は決まっていません。Googleは、他のAI事業者とともに2027年の対応を目指すとも書いています。いずれも提案段階の草案に基づく話で、IETFが承認した標準ではありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "書かなければ、学習に使われるのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "書かなければ「意思表示なし」です。草案は、この指定を含むグループが無ければ、意思表示が無いものとして扱います。Microsoftの説明では、何も書かなければ許可が既定です。実際に学習に使われるかどうかは、各社の対応と、個別の契約が決めます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Google検索の順位は下がりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleは、Google-Extendedが検索への掲載に影響せず、検索順位の要素にもならないと説明しています。Bingも、通常の検索結果に載る資格は変わらないと書いています。ただし、Bingで拒否を選ぶと、AIが生成する体験での露出は大きく減る、という説明です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI Overviewsはどうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleの今回の発表は、AI Overviewsに触れていません。どうなるかは、こちらでは推測しません。Googleの発表が更新されたら、そこを確かめてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cloudflareが足した行は、消すべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "消すべきかどうかは、AIの回答に載りたいか、学習を断りたいかで決まります。どちらが正解とは言えません。まず本番のrobots.txtを開いて、何が足されているかを確かめるところから始めます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "OpenAIやAnthropicは、いつから対応しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "草案の著者のKevin Kelley氏は、Anthropic所属です。ただし、Anthropicが対応する時期は、今回確認した資料に書かれていません。OpenAIは、公式の発表ページを執筆時に確認できなかったので、時期は書きません。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI導入支援</a>
+      <a href="/#services">サービス一覧</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料相談</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる</h1>
+  <span class="a-date">2026.11.05 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261105-ai-gakushu-kyohi-robots.jpg" alt="robots.txtの画面に、User-Agent: __usage_ai-training とDisallow: / の2行が表示され、Googleでは学習を断ると回答の根拠からも外れる、と書かれた表紙">
+
+<p>AIの学習を断る共通の書き方が、10月30日に提案されました。</p>
+<p>書く場所は、robots.txtです。サイトの入口に置くテキストファイルで、検索エンジンやAIのクローラー、つまりページを自動で読みに来るプログラムに、読んでよい範囲を伝えます。この提案を、GoogleとMicrosoftが同じ日に、それぞれの公式ブログで支持しました。</p>
+<p>ただし、同じ1行でも、効く範囲は会社で違います。Googleは、この指定で学習を断ったサイトを、Google-Extendedを拒否したサイトと同じに扱う予定です。Google-Extendedの範囲は、学習と、Geminiの回答の根拠に使われることの両方に及びます。Microsoftの指定が及ぶのは、学習だけです。</p>
+<p>当社が管理する公開サイトの本番のrobots.txtを取得すると、6サイトのうち2つで、手元のファイルに無い拒否が本番にだけ足されていました。</p>
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・10月30日に提案された共通の指定と、各社が示した対応の時期<br>
+・同じ1行が、GoogleとMicrosoftで違う範囲に効く理由<br>
+・Cloudflareが本番のrobots.txtに行を足す仕組みと、当社サイトでの実測<br>
+・自社サイトで、本番を開いて決める順番と、避けたい失敗</div>
+
+<h2>10月30日に提案されたのは、AIの学習を断る共通の1行</h2>
+<p>決まったのは標準ではなく、提案です。ここを最初に分けておきます。</p>
+<p>提案されたのは、次の2行です。User-Agentの欄に、会社の名前ではなく、共通の名前を書きます。</p>
+<pre class="a-code">User-Agent: __usage_ai-training
+Disallow: /</pre>
+<p>1行目の__usage_ai-trainingが、共通の名前です。2行目のDisallow: /は、サイト全体を断るという意味になります。一部だけ開けたいときは、Allow: /press-kit/のように、例外のパスを足します。草案に載っている例です。</p>
+<p>提案の出どころは、IETF（インターネットで使う技術の取り決めを議論する団体）に出た個人の草案です。著者はAnthropic所属のKevin Kelley氏で、2026年10月30日に提出されました。IETFの承認や正式な位置付けはなく、草案の有効期限は2027年5月3日と記されています。</p>
+<p>この草案を、Googleは公式ブログで、Microsoftは自社のBing Blogで取り上げました。ここから、各社が何を約束したかを表にします。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>会社</th><th>断ったときに効く範囲</th><th>いつから</th><th>会社ごとの既存の指定</th></tr>
+<tr><td>Google</td><td>Google-Extendedを拒否したのと同じ扱い。将来のGeminiモデルの学習と、Geminiアプリの回答の根拠付けの両方</td><td>2027年の早い時期に対応する予定。日付は未定</td><td>共通の指定と並んで、引き続き機能する</td></tr>
+<tr><td>Microsoft</td><td>AI学習だけ。回答の根拠付けは、ページ単位の指定で別に行う</td><td>2027年2月1日に、新しい指定をクロール時に尊重し始める</td><td>NoArchive・NoCacheは、2027年3月1日以降、学習や根拠付けの意思表示として読まれなくなる</td></tr>
+<tr><td>草案</td><td>学習。生成AIモデルの学習済みパラメータを変えるための利用</td><td>2026年10月30日に提出。有効期限は2027年5月3日</td><td>ExampleBotのような会社ごとの指定は、引き続き確認される</td></tr>
+</table></div>
+<p class="a-fig-cap">Google Search Central Blog・Bing Blog（いずれも2026年10月30日）と、IETFの草案をもとに当社が整理しました。Googleの時期は「予定」です。</p>
+<p>なぜ、Googleの行にだけ「根拠付け」という言葉が入っているのでしょうか。次の章で、中身を見ます。</p>
+
+<h2>同じ1行が、Googleでは回答の根拠まで、Microsoftでは学習だけに効く</h2>
+<p>両社の説明を合わせると、AIが関わる場面は2つに分かれます。1つは、AIのモデルを作るために、ページの内容を学習に使う場面です。もう1つは、利用者が質問したその場で、AIが回答を作るときの材料に、ページの内容を使う場面です。</p>
+<p>後者を、GoogleもMicrosoftも「グラウンディング」と呼んでいます。Googleの説明では、質問の時点で、Google検索の索引にある内容をモデルに渡すことです。Microsoftの説明では、AIが生成する回答の材料として、内容を入力することです。</p>
+<h3>Googleは、学習と根拠付けを1つにまとめている</h3>
+<p>Googleは、共通の指定で学習を断ったサイトを、Google-Extendedを拒否したサイトと同じに扱う予定だと書いています。</p>
+<p>Google-Extendedが何に効くかは、クローラーの一覧に書かれています。将来のGeminiモデルの学習と、グラウンディングの両方です。ブログには、Google-Extendedを明示的に許可したサイトは、Geminiアプリの回答に根拠として載り、クリックを受ける対象になる、とも書かれています。</p>
+<p>ここで読み落としやすいことが2つあります。1つは、Google-Extendedという名前のクローラーが来るわけではない点です。取得は、既存のGoogleのクローラーが行います。もう1つは、Google-Extendedは、Google検索への掲載にも、検索順位にも影響しないとGoogleが説明している点です。</p>
+<h3>Microsoftは、学習だけに絞っている</h3>
+<p>Microsoftの共通の指定が対象にするのは、AI学習です。AI学習とは、生成AIモデルの学習済みパラメータを変えるための利用です。従来の検索結果の索引作成や順位付けは、グラウンディングに入りません。</p>
+<p>回答の根拠付けは、ページ単位で指定します。robots.txtでサイト全体にまとめて指定する方法は、示されていません。ページ単位の学習の拒否も、metaタグやHTTPヘッダーで行えます。</p>
+<p>Bingの通常の検索結果に載る資格は、変わりません。ただし、拒否を選ぶと、AIが生成する体験での露出は大きく減るとされています。どちらを選んでも、掲載や流入、支払いは保証されません。ライセンスや支払いの取り決めを作るものでもありません。</p>
+<h3>草案の文面と、Googleの扱いを並べると</h3>
+<p>草案の「学習」は、生成AIモデルの学習済みパラメータを変えるための利用です。回答の材料に使うことは、この定義に入っていません。</p>
+<p>それなのにGoogleは、この指定をGoogle-Extendedの拒否と同じに扱い、その中には回答の根拠付けが入っています。文面を並べると、Googleでは、草案の定義より広い範囲に効く予定だと読めます。これは当社の読みで、Googleがそう説明しているわけではありません。</p>
+<p>図1は、この違いを、断つ範囲の軸で並べたものです。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">同じ1行が、会社によって違う範囲に効く</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="同じ1行が、会社によって違う範囲に効く"><rect x="300" y="50" width="620" height="434" fill="none" stroke="#8a8172" stroke-width="1"/><rect x="300" y="50" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="135.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">回答の根拠だけ断る</text><text x="455.0" y="165.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">Microsoft：ページ単位の</text><text x="455.0" y="196.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">指定</text><rect x="610.0" y="50" width="310.0" height="217.0" fill="rgba(166,58,36,.08)"/><text x="765.0" y="150.41500000000002" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">学習も回答の根拠も断る</text><text x="765.0" y="180.865" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">Google（予定）</text><rect x="300" y="267.0" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="352.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">どちらも断らない</text><text x="455.0" y="382.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">何も書かない</text><text x="455.0" y="413.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">User-Agent: *だけ</text><rect x="610.0" y="267.0" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="367.41499999999996" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">学習だけ断る</text><text x="765.0" y="397.86499999999995" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">Microsoft：共通の1行</text><line x1="610.0" y1="50" x2="610.0" y2="484" stroke="#2b2620" stroke-width="1.4"/><line x1="300" y1="267.0" x2="920" y2="267.0" stroke="#2b2620" stroke-width="1.4"/><text x="610.0" y="522" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="middle">AIの学習を断る（右ほど断る）</text><text x="278" y="267.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="end">回答の根拠を断る</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">Googleでは学習を断ると、Geminiの回答の根拠からも外れる</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Google Search Central Blog・Bing Blog（2026年10月30日）</text></svg>
+</div>
+<p>読者にとって大事なのは、同じ1行を書いたとき、どこまで断ったことになるかが、会社ごとに違うことです。「学習を断る」と「AIの回答に載る」は、別の話です。それなのに、Googleでは1つの指定に束ねられる予定とされています。</p>
+
+<h2>書かなければ「意思表示なし」で、User-agent: * では効かない</h2>
+<p>書けば、そのとおりに効くのでしょうか。共通の指定には、書き方のルールがあります。草案が定めているのは、次の点です。</p>
+<p>まず、User-Agent: *のグループは、この指定に当てはめません。グループとは、robots.txtの中で、User-Agentの行から次のUser-Agentの行までのまとまりです。*は、すべてのクローラーを指す書き方なので、AIの学習への意思表示とは別に扱われます。</p>
+<p>次に、この指定を含むグループが無ければ、意思表示なしになります。「断らなかった」ではなく、「何も言っていない」という扱いです。</p>
+<p>会社ごとの指定は、そのまま残ります。ExampleBotのような名前を指定した行は引き続き確認され、Googleのブログにも、既存の指定は共通の指定と並んで機能する、と書かれています。</p>
+<p>最後に、この指定はクロールの動作を指示するものではありません。個別の契約は、この仕組みで示した意思表示に優先しうる、という注意書きも付いています。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>書き方</th><th>草案での扱い</th></tr>
+<tr><td>何も書かない</td><td>意思表示なし。Microsoftは、何も書かなければ許可が既定と説明している</td></tr>
+<tr><td>User-Agent: *だけ</td><td>この指定には当てはまらない。意思表示なし</td></tr>
+<tr><td>共通の名前で、Disallow: /</td><td>学習に反対する意思表示。Googleでは、Google-Extendedの拒否と同じ扱いになる予定</td></tr>
+</table></div>
+<p class="a-fig-cap">IETF草案（draft-kelley-aipref-training-preference-signal-00）とGoogleのブログをもとに当社が整理しました。</p>
+<p>2行目の「User-Agent: *だけ」は、当社のサイトでも、6つのうち3つがこの形でした。詳しくは、次の次の章で書きます。</p>
+
+<h2>もう1つの経路は、Cloudflareが本番のrobots.txtに行を足すこと</h2>
+<p>自分で書いた覚えがないのに、AIを断る行が入っていることはあるのでしょうか。あります。Cloudflareが足す場合です。</p>
+<p>Cloudflareは、管理用のrobots.txtを、サイトにある既存のrobots.txtの前に足し、1つの応答にまとめて返します。サイトにrobots.txtが無ければ、既知のAIクローラーを拒否する新しいファイルを作ります。全プランで使える機能です。</p>
+<p>新しいドメインでは、検索、エージェント、学習のどれも「許可」が既定で、その場合は何も足されません。Cloudflareが入れる既定のContent-Signalは、search=yes、ai-train=no、use=referenceです。</p>
+<p>Content-Signalは、Cloudflareが提案した、サイトの意思表示を書く項目です。それぞれの意味を表にします。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>項目</th><th>意味</th><th>Cloudflareが入れる既定</th></tr>
+<tr><td>search</td><td>検索の索引作成と、検索結果（リンクと短い抜粋）の提供。AIが生成する検索の要約は含まない</td><td>yes</td></tr>
+<tr><td>ai-input</td><td>AIの回答のために、内容をモデルに入力すること。RAGやグラウンディングなど</td><td>値を入れない</td></tr>
+<tr><td>ai-train</td><td>AIモデルの学習と微調整</td><td>no</td></tr>
+<tr><td>use</td><td>意味は当社で確認できていないため、ここでは書かない</td><td>reference</td></tr>
+</table></div>
+<p class="a-fig-cap">Cloudflare Blog「Giving users choice with Cloudflare's new Content Signals Policy」とCloudflare Docsをもとに当社が整理しました。ai-inputは、管理用robots.txtの利用者には値を出さないと書かれています。</p>
+<p>注意したいのは、ai-inputを入れない点です。回答の根拠に使うことについて、Cloudflareの既定の行は、何も言っていません。</p>
+<p>一方で、同じ管理用のrobots.txtには、会社名を名指しで断る行も入ります。当社の2サイトでは、GoogleのGoogle-Extended、OpenAIのGPTBot、AnthropicのClaudeBotなど、32種類のクローラーが、Disallow: /で断られていました。</p>
+<p>もう1つ、Cloudflareの説明で押さえておく点があります。robots.txtの順守は、任意です。強制したいときは、AI Crawl Controlという別の機能を使うよう案内されています。学習を「Disallow」にしてBot Preference Syncを有効にすると、robots.txtに加えて、学習用のクローラーをCloudflareの入口でも遮断する仕組みです。検索と学習の両方に使うクローラーは、除かれます。設定の場所は、セキュリティ、設定、Bot traffic、AI Crawler and Agent access policiesの順です。</p>
+<p>Content Signalは、スクレイピングへの技術的な対抗手段ではない、とも書かれています。意思表示を書く場所で、止める道具ではありません。</p>
+
+<h2>中小企業の現場で見たこと</h2>
+<p>当社は、自分たちが管理するサイトで、本番のrobots.txtを確かめました。</p>
+<div class="a-note"><strong>当社のサイトで、本番のrobots.txtを取得して確かめた話</strong><br>
+2026年11月5日に、当社が作って管理している公開サイトのうち、robots.txtを返した6サイトを取得しました。自社のサイト、自社サービスのサイト、うちが作った飲食店のホームページです。<br>
+共通の指定を書いていたのは、0サイトでした。3サイトは、User-Agent: *とAllow: /だけです。1サイトは、当社のコーポレートサイトで、AIのクローラー9種を名指しで許可していました。残る2サイトは、うちが作った飲食店のホームページです。<br>
+この2サイトで、手元のファイルと本番が違いました。手元のファイルは、User-Agent: *、Allow: /、Sitemapの行だけです。ところが本番の先頭には、Cloudflareが足したブロックが付いていました。search=yes、ai-train=no、use=referenceのContent-Signalと、32種類のクローラーへのDisallow: /です。2サイトの中身は同じでした。</div>
+<div class="a-fig-wrap">
+<p class="a-fig-title">うちのサイト6つのうち、共通の指定を書いていたのは0</p>
+<svg viewBox="0 0 1200 520" width="100%" style="min-width:640px" role="img" aria-label="うちのサイト6つのうち、共通の指定を書いていたのは0"><text x="400" y="75" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Cloudflareが32種類を拒否</text><rect x="418" y="50" width="388" height="34" rx="2" fill="#a63a24"/><text x="818" y="76" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">2サイト</text><text x="400" y="127" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">User-agent: * だけ</text><rect x="418" y="102" width="582" height="34" rx="2" fill="#cfc5b4"/><text x="1012" y="128" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">3サイト</text><text x="400" y="179" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">AIを名指しで許可</text><rect x="418" y="154" width="194" height="34" rx="2" fill="#cfc5b4"/><text x="624" y="180" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">1サイト</text><text x="400" y="231" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">共通の指定を書いていた</text><rect x="418" y="206" width="6" height="34" rx="2" fill="#cfc5b4"/><text x="436" y="232" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">0サイト</text><text x="600.0" y="462.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">手元のファイルと本番が違ったのは2サイト</text><text x="8" y="504" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：NGraph実測（2026年11月5日・本番のrobots.txtを取得）</text></svg>
+</div>
+<p>手元のファイルを見て「全部許可」と思っていたサイトが、本番では32種類を断っていました。誰がいつ設定をオンにしたかは、分かっていません。</p>
+<p>32種類にはGoogle-Extendedが含まれています。Googleの説明どおりなら、この2サイトは、Geminiアプリの回答の根拠として載る対象から外れています。流入が減ったかどうかは、測っていないので書けません。</p>
+<p>反対に、当社のコーポレートサイトは、AIのクローラー9種を名指しで許可しています。GPTBot、OAI-SearchBot、ChatGPT-User、PerplexityBot、ClaudeBot、Claude-Web、Google-Extended、Bingbot、CCBotです。Googleのブログの書き方なら、Google-Extendedを明示的に許可したサイトに当たります。</p>
+<p>手元のファイルと、本番の中身が、同じとは限りません。見る場所を間違えると、判断の前提が崩れます。</p>
+
+<h2>自社サイトで決める順番は、本番を開いて、載るかと断るかを分ける</h2>
+<p>当社が見てほしいのは、次の順番です。作業は、ブラウザだけで済みます。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>手順</th><th>やること</th><th>見るもの</th></tr>
+<tr><td>1</td><td>ブラウザで、自社ドメインの末尾に/robots.txtを付けて開く</td><td>手元のファイルではなく、本番の中身</td></tr>
+<tr><td>2</td><td>「BEGIN Cloudflare Managed」の行があるかを探す</td><td>あれば、Cloudflareが足した行がある</td></tr>
+<tr><td>3</td><td>「AIの回答に載りたいか」と「AIの学習を断りたいか」を、分けて決める</td><td>社内で、どちらを優先するか</td></tr>
+<tr><td>4</td><td>決めた結果を、robots.txtに書く</td><td>下の例</td></tr>
+<tr><td>5</td><td>2027年2月以降に、もう一度本番を開く</td><td>各社の対応が始まったあとの中身</td></tr>
+</table></div>
+<p class="a-fig-cap">手順は当社の提案です。各社の対応の日付は、Bing BlogとGoogle Search Central Blogによります。</p>
+<h3>手順3の決め方で、書く行が変わる</h3>
+<p>3つ目の手順が、いちばん大事です。ここで決めるのは、技術ではなく、会社の方針です。</p>
+<p>AIの回答に載りたい会社は、Google-Extendedを断りません。Googleのブログでは、明示的に許可したサイトが、Geminiアプリの回答の根拠に載ると書かれています。次のような、名指しの許可の書き方があります。</p>
+<pre class="a-code">User-agent: Google-Extended
+Allow: /</pre>
+<p>学習を断りたい会社は、共通の名前を書きます。サイト全体を断るなら、次の2行です。</p>
+<pre class="a-code">User-Agent: __usage_ai-training
+Disallow: /</pre>
+<p>ここで、Googleについて覚えておきたいことがあります。この2行は、Google-Extendedの拒否と同じに扱われる予定で、その範囲は学習と回答の根拠付けの両方です。学習だけを断るつもりで書いても、Geminiの回答に載る道まで閉じる可能性があります。分けて決めるのは、書く前です。</p>
+<p>一部のページだけ学習を断りたいときは、パスを指定します。例えば、プレスキットのページだけ開けたいときは、Disallow: /に、Allow: /press-kit/を足します。</p>
+<h3>手順5の日付は、図3のとおり</h3>
+<p>各社の対応が始まるのは、2027年です。図3に、確認できた日付を並べます。図の「旧指定」は、NoArchiveとNoCacheのことです。12月15日の移行用設定は、このどちらかを使っているサイトが対象です。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">各社の対応は2027年に始まる</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="各社の対応は2027年に始まる"><line x1="110" y1="294" x2="1090" y2="294" stroke="#8a8172" stroke-width="1.5"/><line x1="150.0" y1="294" x2="150.0" y2="272" stroke="#a63a24" stroke-width="1.5"/><circle cx="150.0" cy="294" r="9" fill="#a63a24"/><text x="150.0" y="246" font-family="'Zen Old Mincho',serif" font-size="26" fill="#a63a24" font-weight="900" text-anchor="middle">10/30</text><text x="150.0" y="216" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#2b2620" font-weight="700" text-anchor="middle">共通の指定を提案</text><line x1="273.5820895522388" y1="294" x2="273.5820895522388" y2="316" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="273.5820895522388" cy="294" r="7" fill="#cfc5b4"/><text x="273.5820895522388" y="342" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">12/15</text><text x="273.5820895522388" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">Bing移行設定</text><line x1="402.53731343283584" y1="294" x2="402.53731343283584" y2="272" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="402.53731343283584" cy="294" r="7" fill="#cfc5b4"/><text x="402.53731343283584" y="246" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">2/1</text><text x="402.53731343283584" y="216" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">Microsoftが尊重開始</text><line x1="477.76119402985074" y1="294" x2="477.76119402985074" y2="316" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="477.76119402985074" cy="294" r="7" fill="#cfc5b4"/><text x="477.76119402985074" y="342" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">3/1</text><text x="477.76119402985074" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">旧指定の読取終了</text><line x1="1050.0" y1="294" x2="1050.0" y2="272" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="1050.0" cy="294" r="7" fill="#cfc5b4"/><text x="1050.0" y="246" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">9/30</text><text x="1050.0" y="216" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">移行設定が終了</text><text x="110" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="17" fill="#8a8172" font-weight="400" text-anchor="middle">2026年</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">Googleは2027年の早い時期を予定、日付は未定</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Bing Blog・Google Search Central（2026年10月30日）</text></svg>
+</div>
+<p>Googleは、2027年の早い時期と書いていて、日付は示していません。そのため、手順5は「2027年2月以降」とし、Googleのブログと、Bing Blogを、見直しのたびに開き直します。</p>
+<p>AIの回答にどう載るかを一緒に整理したい方は、<a href="/entry">無料相談</a>からどうぞ。</p>
+
+<h2>よくある失敗は、手元のファイルを見て決めてしまうこと</h2>
+<p>ここまでの内容から、避けたい失敗を4つ挙げます。</p>
+<h3>1. 手元のファイルだけ見て、判断する</h3>
+<p>Cloudflareは、既存のrobots.txtの前に、管理用の行を足して1つの応答にまとめます。手元のファイルが「Allow: /」だけでも、本番は違うことがあります。当社の2サイトが、実際にそうでした。判断の材料は、ブラウザで開いた本番の中身にします。</p>
+<h3>2. User-agent: *にDisallow: /を書いて、AIだけ止めたつもりになる</h3>
+<p>*は、すべてのクローラーを指すので、Googleの検索のクローラーも含みます。しかも草案は、*のグループを共通の指定に当てはめないと定めています。つまり、AIの学習への意思表示としては数えられない扱いです。</p>
+<p>Googleは、Google-Extendedが検索への掲載にも順位にも影響しないと説明しています。AIに向けた指定と、検索に向けた指定は、別のものです。AIだけを止めたいなら、共通の名前かGoogle-Extendedの行を、名指しで書きます。</p>
+<h3>3. 学習だけを断るつもりで、Google-Extendedを拒否する</h3>
+<p>Google-Extendedが対象にするのは、学習とグラウンディングの両方です。Googleのブログによれば、明示的に許可したサイトは、Geminiアプリの回答に根拠として載り、クリックを受ける対象になります。拒否すれば、その対象から外れることになります。</p>
+<p>当社の2サイトでは、Cloudflareの行の中に、Google-Extendedが入っていました。手元のファイルに書いていなくても、本番では同じことが起きる場合があります。</p>
+<h3>4. 書けば守られると思う</h3>
+<p>robots.txtの順守は、各社の対応に任されています。Cloudflareも、順守は任意だと書いています。草案では、この指定は、クロールの動作を指示するものとは別物です。個別の契約が優先しうる、という注意書きも付いています。</p>
+<p>以前の記事で、AIボットを名乗る偽のアクセスを調べました。robots.txtが防御にならない話は、<a href="/blog/20260813-nise-ai-bot">AIボットを名乗る偽アクセスの記事</a>にまとめています。止めたいものがあるなら、robots.txtとは別の手段が要ります。</p>
+<p>AIの学習を断る行は、方針を表す札です。札の中身を、本番で確かめてください。確認や設計を一緒に進めたい方は、<a href="/entry">無料相談</a>でも受けています。</p>
+
+<h2>よくある質問</h2>
+<div class="a-faq">
+<details><summary>共通の指定は、いつから効きますか？</summary><p>Microsoftは2027年2月1日から、新しい指定をクロールのときに尊重し始めると書いています。Googleは2027年の早い時期に対応する予定で、日付は決まっていません。Googleは、他のAI事業者とともに2027年の対応を目指すとも書いています。いずれも提案段階の草案に基づく話で、IETFが承認した標準ではありません。</p></details>
+<details><summary>書かなければ、学習に使われるのですか？</summary><p>書かなければ「意思表示なし」です。草案は、この指定を含むグループが無ければ、意思表示が無いものとして扱います。Microsoftの説明では、何も書かなければ許可が既定です。実際に学習に使われるかどうかは、各社の対応と、個別の契約が決めます。</p></details>
+<details><summary>Google検索の順位は下がりますか？</summary><p>Googleは、Google-Extendedが検索への掲載に影響せず、検索順位の要素にもならないと説明しています。Bingも、通常の検索結果に載る資格は変わらないと書いています。ただし、Bingで拒否を選ぶと、AIが生成する体験での露出は大きく減る、という説明です。</p></details>
+<details><summary>AI Overviewsはどうなりますか？</summary><p>Googleの今回の発表は、AI Overviewsに触れていません。どうなるかは、こちらでは推測しません。Googleの発表が更新されたら、そこを確かめてください。</p></details>
+<details><summary>Cloudflareが足した行は、消すべきですか？</summary><p>消すべきかどうかは、AIの回答に載りたいか、学習を断りたいかで決まります。どちらが正解とは言えません。まず本番のrobots.txtを開いて、何が足されているかを確かめるところから始めます。</p></details>
+<details><summary>OpenAIやAnthropicは、いつから対応しますか？</summary><p>草案の著者のKevin Kelley氏は、Anthropic所属です。ただし、Anthropicが対応する時期は、今回確認した資料に書かれていません。OpenAIは、公式の発表ページを執筆時に確認できなかったので、時期は書きません。</p></details>
+</div>
+
+<h2>まとめ</h2>
+<p>AIの学習を断る1行は、会社によって、効く範囲が違います。Googleでは回答の根拠まで、Microsoftでは学習だけです。</p>
+<p>決める順番は3つです。1つ目は、ブラウザで、本番のrobots.txtを開くこと。2つ目は、AIの回答に載りたいか、学習を断りたいかを、分けて決めること。3つ目は、2027年2月以降に、もう一度本番を開き直すことです。</p>
+<p>今日、自社のドメインの末尾に/robots.txtを付けて開いてください。「BEGIN Cloudflare Managed」の行があるかを探すのが、最初の1分の仕事です。</p>
+<p>なお、この記事は公開資料の読み解きで、法的な助言ではありません。個別の判断は、各社の発表の原本で確かめてください。</p>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">自社サイトのAIへの意思表示を、本番で確かめます。</p>
+  <p>エンジニアが御社の現場に入り、robots.txtの中身と、AIの回答に載りたいかどうかの方針を、一緒に整理する伴走支援です。8問の無料AI診断で現在地もわかります。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+</div>
+
+<div class="a-src">参考（一次情報）：<br>
+・Google Search Central Blog「<a href="https://developers.google.com/search/blog/2026/10/ai-training-control" target="_blank" rel="noopener">Supporting a shared AI training control for websites</a>」（2026年10月30日）<br>
+・Google for Developers「<a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers" target="_blank" rel="noopener">Google's common crawlers</a>」<br>
+・Bing Blog「<a href="https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/" target="_blank" rel="noopener">Your content, your choice: clearer preferences for training and grounding</a>」（2026年10月30日）<br>
+・IETF「<a href="https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/" target="_blank" rel="noopener">draft-kelley-aipref-training-preference-signal-00 - Machine-Readable Training Preference Signal</a>」（2026年10月30日）<br>
+・Cloudflare Docs「<a href="https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/" target="_blank" rel="noopener">robots.txt setting</a>」（2026年11月2日更新）<br>
+・Cloudflare Docs「<a href="https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/" target="_blank" rel="noopener">AI Crawler and Agent access policies</a>」（2026年11月2日更新）<br>
+・Cloudflare Blog「<a href="https://blog.cloudflare.com/content-signals-policy/" target="_blank" rel="noopener">Giving users choice with Cloudflare's new Content Signals Policy</a>」<br>
+・あわせて読む：<a href="/blog/20260813-nise-ai-bot">AIボットを名乗る偽アクセスの記事</a></div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+<div class="float-cta" id="floatCta"><a href="/entry">無料で相談する →</a></div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI導入支援（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/security/">ローカルAI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+(function(){var f=document.getElementById('floatCta');if(!f)return;
+function t(){if(window.scrollY>420)f.classList.add('show');else f.classList.remove('show');}
+window.addEventListener('scroll',t,{passive:true});t();})();
+</script>
+</body>
+</html>
