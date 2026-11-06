@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [なぜClaude Codeは、持ち主のメールアドレスをWebサイトに送ったのか](https://ngraph.jp/blog/20261106-claude-code-email-user-agent)
 - [AIの学習を断るrobots.txtの1行は、GoogleではGeminiの回答に載る道まで閉じる](https://ngraph.jp/blog/20261105-ai-gakushu-kyohi-robots)
 - [「まだ効果を評価できていない」日本企業は13%、米国は0%だった](https://ngraph.jp/blog/20261104-ai-kouka-hyouka)
 - [改正個人情報保護法の「AI特例」は、社内でAIに顧客情報を入れてよいという話ではない](https://ngraph.jp/blog/20261103-ai-tokurei-kojinjoho)
