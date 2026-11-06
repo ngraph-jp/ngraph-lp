@@ -54,7 +54,7 @@ EDGE = r"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 BLOGOPS_PATH = os.environ.get("X_BLOGOPS_PATH", os.path.join(REPO, "BLOG-OPS.md"))
 TPL_START = "<!-- x-handoff-template:start -->"
 TPL_END = "<!-- x-handoff-template:end -->"
-TEMPLATE_HASH = "ac2e7bb1ccf5"
+TEMPLATE_HASH = "4373334c025b"
 
 
 def template_block(path=None):
@@ -128,7 +128,7 @@ def make_wide_cover(slug, d, cover, is_fig=False):
     # 描き直せるのは前者だけ: 後者の記録は改行指定「|」を落として保存しているため（eyecatch_k.py
     # の record()）、記録からは行が復元できず「行が助詞で始まる」で必ず落ちる。
     # よって描き直しは通常パターンに限り、それ以外は下の台紙置きへ回す〔2026-08-20実測〕。
-    if pattern and not pattern.startswith("k-") and pattern != "visual-gen":
+    if pattern and not pattern.startswith(("k-", "c7-")) and pattern != "visual-gen":
         r = subprocess.run(
             [sys.executable, os.path.join(REPO, "scripts", "eyecatch_gen.py"), slug,
              rec.get("title", ""), rec.get("sub", ""), pattern, "--wide", "--out=" + wide],
@@ -159,13 +159,14 @@ def make_wide_cover(slug, d, cover, is_fig=False):
     return wide
 
 
-def hang_text(slug):
+def hang_text(slug, extra=()):
     """ぶら下がり（本ポスト直下の自己リプ）の文面を記事から自動生成する（2026-08-17新設・
     髙橋さん「Xのアルゴリズムの仕様などうちのブログ運用全部に恒久的に効くように構造取り込んで」）。
 
     役割: 本文カードを汚さずにリンクの置き場を作る＝①一次情報（記事の参考枠の先頭外部リンク）
     ②ブログ版URL（t.co計測の導線・GA4で参照元x.comとして数えられる）。
-    アルゴリズム上リプライ自体は加点対象外だが、目的はリーチではなく導線と計測。"""
+    アルゴリズム上リプライ自体は加点対象外だが、目的はリーチではなく導線と計測。
+    extra は --hang-link の「ラベル|URL」。①と②の間に足す（2026-11-02 福井県版のリンク）。"""
     src = open(os.path.join(REPO, "blog", slug + ".html"), encoding="utf-8").read()
     soup = BeautifulSoup(src, "html.parser")
     box = soup.find("div", class_="a-src")
@@ -179,6 +180,11 @@ def hang_text(slug):
     parts = []
     if first:
         parts += [f"一次情報（{first[0]}）", first[1], ""]
+    for link in extra:
+        label, _, url = link.partition("|")
+        if not label or not url.startswith("https://"):
+            sys.exit(f"NG（handoff）: --hang-link は「ラベル|https://…」の形: {link}")
+        parts += [label, url, ""]
     parts += ["ブログ版（全文・図表つき）", f"{SITE}/blog/{slug}"]
     return chr(10).join(parts)
 
@@ -189,7 +195,7 @@ def receipt_path(slug):
 
 def check_links(links):
     """本文リンクの検査（§7: 3本まで・/fde/禁止）。NGなら理由の文字列、OKなら None。"""
-    fde = [u for u in links if "/fde" in u]
+    fde = [u for u in links if re.search(r"ngraph\.jp/(fde|entry)|^/(fde|entry)", u)]
     if fde:
         return (f"NG: /fde/ へのリンクが本文に残っています（{len(fde)}本）。"
                 "BLOG-OPS §7 は末尾の記事リンクへ導線を一本化する決まりです。\n"
@@ -228,6 +234,11 @@ def check_caption(caption):
         body = body.replace(t, "")
     blen = len(re.sub(r"\s", "", body))
     warns = []
+    # 2026-11-06: Xは一次情報を早く届ける場所（X-OPS §3）。1文目は発表元と日付から入る。
+    # 発表元の名前は機械で判定しきれないので、日付が無いときだけ警告する（止めない）
+    first = re.split(r"[。！？]", body.strip(), 1)[0]
+    if not re.search(r"\d{1,2}月\d{1,2}日|\d{4}年\d{1,2}月|\d{1,2}/\d{1,2}", first):
+        warns.append("キャプションの1文目に日付が無い。発表元と日付から入る（例「Googleが10月30日、公式ブログで…」・X-OPS §3）")
     if not (80 <= blen <= 150):
         warns.append(f"キャプション本文が{blen}字（目安100〜130字）。直すかはそのまま判断してよい")
     return None, warns
@@ -297,6 +308,9 @@ def render_fig(title, svg, out, w=1200):
 KEEP_HEADINGS = ("何が起きたか", "なぜ重要か", "中小企業は何をすべきか")
 # NGraphの視点から落とす一文（Xでは末尾の記事リンクに導線を一本化する）
 CTA_SENTENCE = re.compile(r"この分野の導入相談は.*$")
+# 2026-11-06: 記事の相談案内のリンク先が /fde/ から /entry に変わり、Xの本文に「無料相談からどうぞ」が残った。
+# 相談の入口へのリンクを含む段落は、リンク先がどちらでも落とす
+CTA_HREF = re.compile(r"^/(fde|entry)(/|$|#|\?)")
 
 
 # ---------------------------------------------------------------- HTML 解析
@@ -509,21 +523,23 @@ def table_blocks(wrap, entities):
     return out
 
 
-def first_reference(art):
-    """.a-src は <br> 区切りの行の集まり。外部リンクを含む最初の行のノード列を返す。"""
+def references(art, limit=1):
+    """.a-src は <br> 区切りの行の集まり。外部リンクを含む行を先頭から limit 行返す。"""
     src = art.find("div", class_="a-src")
     if src is None:
-        return None
-    line = []
+        return []
+    found, line = [], []
     for node in src.children:
         if getattr(node, "name", None) == "br":
             if any(getattr(n, "name", None) == "a" and not n.get("href", "/").startswith("/")
                    for n in line):
-                return line
+                found.append(line)
+                if len(found) == limit:
+                    return found
             line = []
             continue
         line.append(node)
-    return None
+    return found
 
 
 def ref_block(nodes, entities):
@@ -531,7 +547,13 @@ def ref_block(nodes, entities):
     holder = BeautifulSoup("<div></div>", "html.parser").div
     for n in nodes:
         holder.append(n.__copy__() if hasattr(n, "__copy__") else NavigableString(str(n)))
+    # 1行につきリンクは1本。2本目は「」ごと落とす（本文リンクの上限3本を食うため）
+    for extra in holder.find_all("a")[1:]:
+        extra.decompose()
     b = block(holder, "unstyled", entities)
+    if "「」" in b["text"]:
+        b["text"] = drop(b["text"], b["inline_style_ranges"] + b["entity_ranges"],
+                         b["text"].index("「」"), 2)
     if b["text"].startswith("・"):
         b["text"] = drop(b["text"], b["inline_style_ranges"] + b["entity_ranges"], 0)
     return b
@@ -555,7 +577,7 @@ def scrub_labels(art, mark_figs):
             node.replace_with(NavigableString(new))
 
 
-def build(slug, teaser, heads=None, mark_figs=False):
+def build(slug, teaser, heads=None, mark_figs=False, refs=1, unlink=()):
     path = os.path.join(REPO, "blog", f"{slug}.html")
     if not os.path.exists(path):
         sys.exit(f"記事が見つかりません: {path}")
@@ -564,6 +586,9 @@ def build(slug, teaser, heads=None, mark_figs=False):
     if art is None:
         sys.exit("article.article-wrap が見つかりません（記事の雛形か確認）")
     scrub_labels(art, mark_figs)
+    for a_tag in art.find_all("a", href=True):
+        if a_tag["href"].startswith(tuple(unlink)):
+            a_tag.unwrap()
     keep = tuple(heads) if heads else KEEP_HEADINGS
 
     title = art.find("h1").get_text(strip=True)
@@ -617,7 +642,12 @@ def build(slug, teaser, heads=None, mark_figs=False):
                 # 記事で素通りする（8/15夕記事で実際に起きた）。CTAの定義は文言ではなく
                 # 「/fde/ へのリンクを含む段落」＝§7の導線一本化の対象そのものなので、そちらで判定する
                 if CTA_SENTENCE.match(sib.get_text(" ", strip=True)) or \
-                   any("/fde" in (link.get("href") or "") for link in sib.find_all("a")):
+                   any(CTA_HREF.search(link.get("href") or "") for link in sib.find_all("a")):
+                    continue
+                # 図を載せないとき、図の説明文だけが本文に残らないようにする
+                prev = sib.find_previous_sibling()
+                if not mark_figs and "a-fig-cap" in (sib.get("class") or []) and \
+                   prev is not None and "a-fig-wrap" in (prev.get("class") or []):
                     continue
                 blocks.extend(split_long(block(sib, "unstyled", entities)))
             elif sib.name == "ul":
@@ -651,11 +681,12 @@ def build(slug, teaser, heads=None, mark_figs=False):
         blocks.extend(split_long(text_block(body, bold_prefix=label, entities=entities)))
 
     # 参考（一次情報）— メインの1本だけ。「発表元「タイトル」（公開日）」の行ごと載せる
-    ref = first_reference(art)
-    if ref is not None:
+    ref_lines = references(art, refs)
+    if ref_lines:
         blocks.append(text_block("参考（一次情報）", bold_prefix="参考（一次情報）",
                                  entities=entities))
-        blocks.append(ref_block(ref, entities))
+        for ref in ref_lines:
+            blocks.append(ref_block(ref, entities))
 
     # 短信予告 ＋ 本家記事へのリンク
     blocks.append(text_block(teaser, entities=entities))
@@ -902,6 +933,12 @@ def main():
                     help="本文HTML・タイトル・キャプション・カバー画像をフォルダに書き出す（既定の受け渡し方法。"
                          "既定は %%TEMP%%/x_article/<slug>/）。何度でも取り直せる")
     ap.add_argument("--caption", help="キャプション文面（--handoff では必須）")
+    ap.add_argument("--hang-link", dest="hang_link", action="append", default=[], metavar="LABEL|URL",
+                    help="ぶら下がりに足すリンク（複数可）")
+    ap.add_argument("--refs", type=int, default=1, metavar="N",
+                    help="本文末尾の参考に載せる行数（既定1）。国と県のように一次情報が2つある記事は2")
+    ap.add_argument("--unlink", action="append", default=[], metavar="URL",
+                    help="本文でリンクを外して文字だけ残すURL（前方一致・複数可）。上限3本に収めるため")
     ap.add_argument("--handoff", action="store_true",
                     help="AIが使う唯一のモード。全検査＋カバー画像コピー＋受領証を書き、応答に貼る4ブロックを出力する。"
                          "クリップボードには触らない")
@@ -922,7 +959,8 @@ def main():
     a = ap.parse_args()
 
     heads = [h.strip() for h in a.heads.split(",") if h.strip()] if a.heads else None
-    title, content_state, figs = build(a.slug, a.teaser, heads, mark_figs=a.figs is not None)
+    title, content_state, figs = build(a.slug, a.teaser, heads, mark_figs=a.figs is not None,
+                                       refs=a.refs, unlink=a.unlink)
     # 記事のh1がX上限を超えるとき用。記事本体（公開済みのcanonical/JSON-LD）を
     # 触らずにXの場だけ短縮できるようにする。指定が無ければh1をそのまま使う
     if a.x_title:
@@ -1046,6 +1084,10 @@ def main():
             extra += f' --heads "{a.heads}"'
         if a.x_title:
             extra += f' --x-title "{a.x_title}"'
+        if a.refs != 1:
+            extra += f" --refs {a.refs}"
+        for url in a.unlink:
+            extra += f' --unlink "{url}"'
         if a.figs is not None:
             # ［図N］の目印は --figs のときだけ本文に入る。▷に引き継がないと、
             # 検査した本文（目印あり）と貼る本文（目印なし）が別物になり、
@@ -1059,9 +1101,9 @@ def main():
         print(f"**タイトル**（X加重 {tw}/{X_TITLE_MAX}）\n```\n{title}\n```\n")
         print(f"**キャプション**（記事URLは入れていません）\n```\n{a.caption}\n```\n")
         print(f'**カバー画像**（▷を押すとフォルダが開き、対象の1枚が選択済み。そのままXへドラッグ）\n'
-              f'```bash\nexplorer /select,"{cover}"\n```\n')
+              f'```bash\nexplorer "/select,{cover}"\n```\n')
         print('**ぶら下がり**（Article公開後、自分のポストに返信で貼る）\n'
-              '```\n' + hang_text(a.slug) + '\n```\n')
+              '```\n' + hang_text(a.slug, a.hang_link) + '\n```\n')
         print("順番は ▷ → 記事を作成 → 本文欄に Ctrl+V → そのあとタイトル・キャプション → カバー画像 → 公開。")
         print("===== ここまで =====")
         return
@@ -1085,7 +1127,7 @@ def main():
         ok, err = to_clipboard(html, plain)
         if not ok:
             sys.exit(f"クリップボードに載せられませんでした: {err[:300]}")
-        cover = os.path.join(REPO, "assets", "blog", f"{a.slug}.jpg")
+        cover = rec.get("cover_path") or os.path.join(REPO, "assets", "blog", f"{a.slug}.jpg")
         print("クリップボードに載せました（書式つき）")
         print("⚠ クリップボードは他をコピーした時点で消えます。取り直せる形が要るなら --file を使ってください")
         print("  1. https://x.com/compose/articles →「記事を作成」")
