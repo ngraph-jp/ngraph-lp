@@ -75,6 +75,22 @@ JS = r"""() => {
     seen.add(key);
     out.push(`[見出し] 句の箱の外：「${loose.join('」「')}」  ← ${h.textContent.replace(/\s+/g, '').slice(0, 30)}`);
   }
+  // 1行に収まるのに2行以上になっている見出し（<br>・幅の上限で無理に割っている）。2026-11-07「1行でいけるのにわざわざ2行にしてたりしない？」
+  for(const h of document.querySelectorAll('h1,h2,h3')){
+ if(h.closest('svg,[aria-hidden="true"],.sr-only,footer,header,[data-keep-lines]'))continue; // data-keep-lines＝意図して行を組んだ見出し（トップのロゴ代わりの見出し）
+ const cs=getComputedStyle(h); if(cs.display==='none'||!h.offsetParent)continue;
+ if(!/[぀-ヿ一-鿿]/.test(h.textContent))continue;
+ const lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.4;
+ const lines=Math.round(h.getBoundingClientRect().height/lh); if(lines<2)continue;
+ const hasBr=!!h.querySelector('br');
+ const saved=h.style.cssText; const kids=[...h.querySelectorAll('*')].map(e=>[e,e.style.cssText]);
+ h.style.whiteSpace='nowrap'; h.style.width='max-content'; h.style.maxWidth='none';
+ kids.forEach(([e])=>{if(e.tagName==='BR'){e.style.display='none';return;}e.style.whiteSpace='nowrap'; if(getComputedStyle(e).display==='block')e.style.display='inline'});
+ const need=h.getBoundingClientRect().width;
+ h.style.cssText=saved; kids.forEach(([e,c])=>e.style.cssText=c);
+ const hw=h.getBoundingClientRect().width; const pc=getComputedStyle(h.parentElement); const pd=pc.display; const pw=(cs.maxWidth!=='none'&&!/flex|grid/.test(pd))?h.parentElement.clientWidth-parseFloat(pc.paddingLeft)-parseFloat(pc.paddingRight):hw;
+ if(need<=Math.max(hw,pw)+0.5) out.push('[見出し] 1行に入るのに2行以上：'+(hasBr?'[br] ':'')+`${h.tagName}.${h.className} 1行に要る${Math.round(need)}px／見出し幅${Math.round(hw)}／親${Math.round(pw)} max-width=${cs.maxWidth} fs=${cs.fontSize}: ${h.textContent.replace(/\s+/g,'').slice(0,30)}`);
+}
   return out;
 }"""
 
@@ -133,7 +149,7 @@ def main():
         b.close()
     srv.shutdown()
     if bad:
-        print("句の箱が割れている %d 件（級数をSPで下げる・句を短く分ける・言い換える）" % len(bad))
+        print("見出しの割れ方が悪い %d 件（級数をSPで下げる・句を短く分ける・<br>や幅の上限を外す）" % len(bad))
         for x in bad:
             print("  - " + x)
         return 1
