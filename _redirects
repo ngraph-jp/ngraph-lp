@@ -8,3 +8,7 @@
 # 髙橋さん指示「UTMのパラメータつけるのなし。全部普通のURLにしよう」。
 # 件名A/Bの勝敗は送信台帳（variant列）×返信数で判定する。
 /shindan      /fde/#shindan   302
+
+# ぼんた入社ガイダンス：お店に貼るQRの入口（2026-11-06 髙橋さん「ngraph.jpに置く」）
+# QRはこのURLを指す。行き先が変わったら右側だけ直す。301にしない（ブラウザに覚えられて変えられなくなる）
+/go/bonta-start   https://bonta-onboarding-app.bonta.workers.dev/start   302
