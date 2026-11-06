@@ -112,6 +112,8 @@
             <option value="">選択してください（任意）</option>
             <option value="AI導入伴走支援（FDE型）">AI導入の伴走支援（現場常駐・FDE型）</option>
             <option value="セキュリティ対策（Cyber Drill）">セキュリティ対策（Cyber Drill）</option>
+            <option value="Local AI Pack（社内に置くAI）">社内に置くAI（Local AI Pack）</option>
+            <option value="生成AI導入 初期セット">生成AI導入 初期セット</option>
             <option value="共同開発・PoC">共同開発・PoC</option>
             <option value="業務改善助成金">賃上げ・業務改善助成金を使った設備投資の相談</option>
             <option value="その他">採用・取材・その他</option>
@@ -174,7 +176,7 @@ form.addEventListener('submit',function(e){
 <script>
 (function(){var q=new URLSearchParams(location.search);var f=document.getElementById('contact-form');if(!f)return;
 var t=q.get('type'),m=q.get('memo');
-var ALIAS={drill:'セキュリティ対策（Cyber Drill）'};if(t&&ALIAS[t])t=ALIAS[t];
+var ALIAS={drill:'セキュリティ対策（Cyber Drill）',security:'Local AI Pack（社内に置くAI）',starter:'生成AI導入 初期セット'};if(t&&ALIAS[t])t=ALIAS[t];
 if(t){var s=f.querySelector('[name="お問い合わせ種別"]');for(var i=0;i<s.options.length;i++){if(s.options[i].value===t){s.selectedIndex=i;break;}}}
 if(m){var ta=f.querySelector('[name="お問い合わせ内容"]');if(ta&&!ta.value)ta.value=m+'\n\n（上の試算を見ながら、対象になる設備投資の形を相談したい）';}
 })();

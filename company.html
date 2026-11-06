@@ -95,6 +95,63 @@
 .concept-overlay .cl{max-width:none}.concept-overlay .cl .ln{display:block}
 </style>
 <link rel="stylesheet" href="/css/sp.css?v=7">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://ngraph.jp/company#page",
+      "url": "https://ngraph.jp/company",
+      "name": "会社情報 | 株式会社NGraph",
+      "inLanguage": "ja",
+      "about": { "@id": "https://ngraph.jp/#organization" },
+      "mainEntity": { "@id": "https://ngraph.jp/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://ngraph.jp/#organization",
+      "name": "株式会社NGraph",
+      "alternateName": ["NGraph Inc.", "エヌグラフ"],
+      "url": "https://ngraph.jp/",
+      "logo": "https://ngraph.jp/assets/ngraph-logo-circle.png",
+      "foundingDate": "2025-12-11",
+      "identifier": { "@type": "PropertyValue", "propertyID": "法人番号", "value": "5210001020418" },
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "918-8231",
+        "addressCountry": "JP",
+        "addressRegion": "福井県",
+        "addressLocality": "福井市",
+        "streetAddress": "問屋町1丁目124番地ラフォーレ北野201"
+      },
+      "founder": { "@id": "https://ngraph.jp/company#takahashi" },
+      "employee": [
+        { "@id": "https://ngraph.jp/company#takahashi" },
+        { "@id": "https://ngraph.jp/company#chana" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ngraph.jp/company#takahashi",
+      "name": "髙橋 真吾",
+      "alternateName": "Shingo Takahashi",
+      "jobTitle": "代表取締役 / AIプランナー",
+      "worksFor": { "@id": "https://ngraph.jp/#organization" },
+      "url": "https://ngraph.jp/company#takahashi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ngraph.jp/company#chana",
+      "name": "Matt Chana",
+      "alternateName": "Matthew John Chana",
+      "jobTitle": "CTO / AIエンジニア",
+      "worksFor": { "@id": "https://ngraph.jp/#organization" },
+      "url": "https://ngraph.jp/company#chana"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -223,7 +280,7 @@
     </div>
     <!-- fig:team -->
     <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
+      <div class="tm-person tm-l" id="takahashi">
         <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="髙橋 真吾" loading="lazy">
         <div class="tm-txt">
           <p class="tm-role">現場・事業</p>
@@ -247,7 +304,7 @@
         <p class="tm-lead">企画と実装が直結</p>
         <p class="tm-sub">2名が直接担当</p>
       </div>
-      <div class="tm-person tm-r">
+      <div class="tm-person tm-r" id="chana">
         <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
         <div class="tm-txt">
           <p class="tm-role">技術・実装</p>
@@ -284,6 +341,7 @@
         <tr><th>所在地</th><td><span class="nb">福井県福井市問屋町1丁目124番地</span><span class="nb">ラフォーレ北野201</span></td></tr>
         <tr><th>設立</th><td>2025年12月</td></tr>
         <tr><th>資本金</th><td>300万円</td></tr>
+        <tr><th>法人番号</th><td>5210001020418</td></tr>
         <tr><th>事業内容</th><td><span class="biz">AI導入支援（FDE）</span><span class="biz"><span class="nb">セキュリティ点検（NGraph Cyber Drill）</span><span class="sep">・</span><span class="nb">社内に置くAI（Local AI Pack）</span></span><span class="biz">生成AI導入 初期セット</span><span class="biz"><span class="nb">AIプロダクトの開発・運営</span><span class="nb">（OMISEAI / Teles / AutoWrite ほか）</span></span><span class="biz"><span class="nb">意味データの構造化技術</span><span class="nb">（NFG / NCG / NHG）の研究・開発</span></span></td></tr>
       </table>
     </div>
