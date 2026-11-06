@@ -21,6 +21,8 @@
   .section{padding:56px 0}
   .section-head{margin-bottom:28px;max-width:none}
   .section-label{font-size:.8125rem;letter-spacing:.26em;margin-bottom:10px}
+  /* 30pxだと1行10字まで＝11字以上の句の箱が割れていた（2026-11-07 nb_split_check）。26pxで12字まで */
+  .section-title{font-size:1.625rem}
   .section-title::after{width:32px;margin-top:14px}
   .section-sub{font-size:.875rem;line-height:1.85}
   .fg-statement{margin-top:22px;line-height:1.7}

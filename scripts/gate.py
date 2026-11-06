@@ -37,6 +37,7 @@ REPORT_ONLY = {
     "cta_service_check.py",  # CTA の型
     "unpushed_check.py",
     "title_sync_check.py",
+    "nb_split_check.py",     # 見出しの割れ方＝見た目（本番は壊れない）。ブログ一覧の抜粋で毎日の公開を止めないため（2026-11-07）
 }
 
 # (表示名, スクリプト, 追加引数, 記事ファイルを引数に取るか)
@@ -52,6 +53,7 @@ CHECKS = [
     ("サイト内リンクの飛び先（ページと #アンカーが実在するか）", "link_check.py", [], False),
     ("図の文字が枠からはみ出していないか（ブラウザで実測）", "svg_fit_check.py", [], False),
     ("句読点だけが1行に落ちていないか（ブラウザで3幅を実測）", "orphan_punct_check.py", [], False),
+    ("句の箱（nb）が箱の中で割れていないか（ブラウザで4幅を実測・report-only）", "nb_split_check.py", [], False),
     ("文字が小さすぎないか（本文12px・図の中11px・ブラウザでPCとスマホを実測）", "type_floor_check.py", [], False),
     ("変えたページが iPhone と同じエンジン（WebKit）のスマホ幅で落ちないか（実際に開く）", "webkit_crash_check.py", [], False),
     ("アルケー（cases/）と元ソース・sitemap のズレ（直すのは _arche で npm run build・report-only）", "arche_check.py", [], False),

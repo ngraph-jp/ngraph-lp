@@ -64,7 +64,7 @@ function page({ title, desc, path, body, slug, ld }) {
    元の画面の余白を全部消す（2026-10-17 実測）。 */
 @layer theme, base, ngraph, components, utilities;
 @import url("/css/ngraph-zen.css?v=14") layer(ngraph);
-@import url("/css/sp.css?v=3") layer(ngraph);
+@import url("/css/sp.css?v=7") layer(ngraph);
 </style>
 <link rel="stylesheet" href="/cases/_assets/${css}">
 ${ldTag(ld)}
