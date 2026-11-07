@@ -35,6 +35,15 @@ LOAD_LIMIT = 60
 # 2026-11-08 本人の iPhone で /drill/ の最初の画面の表と「無料で相談する」が右に切れていた（共通 sp.css の列幅 1fr が
 # 中身の幅まで広がった）。落ちはしないので見つからなかった。開いたついでに、文字・リンク・画像が画面の外へ
 # はみ出していないかも測る（はみ出しても親が切り取っている＝見えない装飾は除く。画面外に隠したスパム除けの欄も除く）
+# 2026-11-08 本人「スマホの改行、何回指摘しても毎回崩れてる」。iPhone は語句で折る機能が無く、jp-wrap.js（BudouX）が
+# 当たっていない文字は「社長を名／乗って」と語の途中で折れる。本番では worker.js が差し込むので、ここでも差し込んで、
+# 折り返しているのに語句の折返しが当たっていない日本語を報告する（フォームの中・住所などは当たらないので、止めずに報告だけ）
+MIDWORD_JS = r"""async()=>{if(!document.documentElement.classList.contains('bdx-on')){await new Promise(res=>{const s=document.createElement('script');s.src='/js/jp-wrap.js?t='+Date.now();s.onload=res;s.onerror=res;document.head.appendChild(s)});for(let i=0;i<40&&!document.documentElement.classList.contains('bdx-on');i++)await new Promise(r=>setTimeout(r,100))}
+if(!document.documentElement.classList.contains('bdx-on'))return ['jp-wrap が動かない'];
+const out=[];const tw=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;
+while((n=tw.nextNode())){const t=n.nodeValue;if(!/[\u3040-\u30ff\u4e00-\u9fff]{3}/.test(t))continue;const e=n.parentElement;if(!e||e.closest('svg,script,style,pre,code,[aria-hidden=true],.no-bdx'))continue;const s=getComputedStyle(e);if(s.display==='none'||s.visibility==='hidden'||s.whiteSpace==='nowrap'||s.wordBreak==='keep-all')continue;
+const r=document.createRange();r.selectNodeContents(n);const rs=[...r.getClientRects()].filter(x=>x.width>1);if(rs.length<2||rs[0].left<-1000)continue;
+out.push(e.tagName.toLowerCase()+(e.className?'.'+String(e.className).split(' ')[0]:'')+' "'+t.trim().slice(0,24)+'"');if(out.length>=5)break}return out}"""
 OVERFLOW_JS = r"""(()=>{const W=innerWidth,out=[];const clipped=e=>{for(let a=e.parentElement;a&&a!==document.body&&a!==document.documentElement;a=a.parentElement){const s=getComputedStyle(a);if(s.overflowX!=='visible'||s.position==='fixed'){const r=a.getBoundingClientRect();if(r.right<=W+1&&r.left>=-1)return true}}return false};
 for(const e of document.body.querySelectorAll('*')){const s=getComputedStyle(e);if(s.display==='none'||s.visibility==='hidden'||s.position==='fixed'||s.position==='sticky')continue;const hasText=[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim());if(!hasText&&!/^(A|BUTTON|IMG|INPUT)$/.test(e.tagName))continue;const r=e.getBoundingClientRect();if(r.width===0||r.height===0)continue;if(r.left>-1000&&(r.right>W+1||r.left<-1)&&!clipped(e)){out.push(e.tagName.toLowerCase()+'.'+(e.className&&e.className.baseVal===undefined?e.className:'')+' "'+(e.textContent||e.alt||'').trim().slice(0,20)+'" '+Math.round(r.left)+'-'+Math.round(r.right))}if(out.length>=4)break}return out})()"""
 
@@ -106,6 +115,10 @@ def one(url, width):
                 over = pg.evaluate(OVERFLOW_JS)
                 if over:
                     out = {"state": "overflow", "msg": " / ".join(over[:3])}
+                elif width in (375, 393):
+                    mid = pg.evaluate(MIDWORD_JS)
+                    if mid:
+                        out = {"state": "ok", "warn": " / ".join(mid[:3])}
         except Exception as e:
             msg = str(e).splitlines()[0][:80]
             out = {"state": "crash" if (crashed or "crash" in msg.lower()) else "error", "msg": msg}
@@ -149,6 +162,7 @@ def main(argv):
         srv.shutdown()
         return 1
     bad = []
+    warns = []
     label = {"overflow": "画面の外にはみ出し", "crash": "落ちた", "notfound": "開けない", "error": "読み込みに失敗", "timeout": "時間切れ"}
     def probe_one(job):
         t, w = job
@@ -167,6 +181,8 @@ def main(argv):
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for t, w, res in ex.map(probe_one, jobs):
             if res["state"] == "ok":
+                if res.get("warn"):
+                    warns.append("%s（幅%d）語句の折返しが当たっていない: %s" % (t, w, res["warn"]))
                 continue
             # 並列の負荷で読み込みが切れることがあるので、落ちた以外は1つずつ開き直して確かめる
             if res["state"] not in ("crash", "overflow"):
@@ -174,6 +190,8 @@ def main(argv):
             if res["state"] != "ok":
                 bad.append("%s（幅%d）%s: %s" % (t, w, label[res["state"]], res.get("msg", "")))
     srv.shutdown()
+    for x in warns:
+        print("  WARN（止めない） " + x)
     if bad:
         print("WebKit（iPhone と同じエンジン）で問題 %d 件。落ちたなら、直前に足した部品を1つずつ外して原因を探す" % len(bad))
         for x in bad:
