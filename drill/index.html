@@ -490,12 +490,13 @@
 /* 頼む理由：見出しは得られること、上に小さく手段 */
 .tc-k{font-size:.8125rem!important;font-weight:700;color:var(--accent);margin:0 0 4px!important}
 /* やられたら（危なさを具体に） */
-.harm{max-width:1000px;margin:26px auto 0;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:#fff4f2;border:1px solid #f1c9c2;border-left:5px solid #c0392b;border-radius:10px;padding:16px 22px}
+.harm{max-width:1000px;margin:26px auto 0;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center;background:#fff4f2;border:1px solid #f1c9c2;border-left:5px solid #c0392b;border-radius:10px;padding:16px 22px}
 .harm>b{font-size:1.125rem;color:#b03a2e;white-space:nowrap}
-.harm ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 22px}
-.harm li{font-weight:700;font-size:.9375rem;line-height:1.6;color:var(--text)}
-.harm li small{display:block;font-weight:400;font-size:.75rem;color:var(--text-3);margin-top:2px}
-@media(max-width:760px){.harm{grid-template-columns:1fr;gap:8px;padding:14px 16px}.harm ul{grid-template-columns:1fr}}
+.harm ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 22px;align-items:center}
+.harm li{position:relative;padding-left:16px;font-weight:700;font-size:.9375rem;line-height:1.6;color:var(--text)}
+.harm li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:#c0392b}
+.harm-src{grid-column:2;margin:0;font-size:.75rem;color:var(--text-3);line-height:1.6}
+@media(max-width:760px){.harm{grid-template-columns:1fr;gap:8px;padding:14px 16px}.harm ul{grid-template-columns:1fr}.harm-src{grid-column:1}}
 .cmp .p3{background:#faf7ef}
 .cmp-h.p3{box-shadow:inset 0 3px 0 var(--hot)}
 .cmp-h.p3 small{color:#8a6a1f}
@@ -619,7 +620,7 @@
 
     </div>
     <p class="what-cap2 reveal"><span class="nb">実際の報告書と同じ形式の見本です</span><span class="nb">（架空の会社）。</span><span class="nb">初回はこの形で、</span><span class="nb">2回目からは前回から変わったところを、</span><span class="nb">IT担当がいなくても読める言葉でお届けします。</span></p>
-    <div class="harm reveal"><b>やられたら</b><ul><li><span class="nb">業務が止まる</span><span class="nb">（受注・出荷・会計）</span></li><li><span class="nb">取引先に、</span><span class="nb">御社の名前で偽メール</span></li><li><span class="nb">調査・復旧に</span><span class="nb">1,000万円以上かかった</span><span class="nb">会社が約6割</span><small>警察庁・2026年1〜6月のランサムウェア被害（回答35件中21件）</small></li></ul></div>
+    <div class="harm reveal"><b>やられたら</b><ul><li><span class="nb">業務が止まる</span><span class="nb">（受注・出荷・会計）</span></li><li><span class="nb">取引先に、</span><span class="nb">御社の名前で偽メール</span></li><li><span class="nb">復旧に1,000万円以上：</span><span class="nb">約6割</span></li></ul><p class="harm-src">3つめの出典：警察庁「令和8年上半期におけるサイバー空間をめぐる脅威の情勢等について」ランサムウェア被害（回答35件中21件）</p></div>
     <p class="selfcheck reveal"><span class="nb">社内のルールは、IPAの</span><a href="https://www.ipa.go.jp/security/guide/sme/5minutes.html" target="_blank" rel="noopener"><span class="nb">「5分でできる！</span><span class="nb">情報セキュリティ</span><span class="nb">自社診断」</span></a><span class="nb">（25問）で</span><span class="nb">確かめられます。</span></p>
   </div>
 </section>
