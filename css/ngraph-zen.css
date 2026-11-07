@@ -562,3 +562,12 @@ button,input,select,textarea{font-family:inherit}
 @media(max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.steps4{gap:14px 10px}.steps4 .step img{width:72px;height:66px;margin-bottom:6px}.steps4 .step .n{left:calc(50% - 52px);width:24px;height:24px}.steps4 .step h3{font-size:1rem}.steps4 .step p{font-size:.8125rem}}
 @media(prefers-reduced-motion:reduce){.steps4 .step .n{animation:none}}
+
+/* 進め方をカードに（2026-11-07 本人「小さくないか」KAGUYA比・Cyber Drill の3ステップとそろえる） */
+.steps4{gap:20px;max-width:1160px}
+.steps4 .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px 18px 26px;box-shadow:0 10px 28px rgba(36,66,122,.06)}
+.steps4 .step img{width:100%;max-width:200px;height:150px;margin:0 auto 16px}
+.steps4 .step .n{left:18px;top:18px;width:38px;height:38px;font-size:.875rem}
+.steps4 .step h3{font-size:1.25rem;margin-bottom:8px}
+.steps4 .step p{font-size:.9375rem;line-height:1.85}
+@media(max-width:768px){.steps4{gap:12px}.steps4 .step{padding:18px 12px 18px;border-radius:12px}.steps4 .step img{width:100%;max-width:130px;height:96px;margin-bottom:10px}.steps4 .step .n{left:10px;top:10px;width:28px;height:28px;font-size:.75rem}.steps4 .step h3{font-size:1rem}.steps4 .step p{font-size:.8125rem;line-height:1.75}}
