@@ -132,6 +132,8 @@
 .tcard h3{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.6;margin-bottom:12px}
 .tcard p{font-size:.875rem;color:var(--text-2);line-height:2}
 @media(max-width:900px){.trio{grid-template-columns:1fr}}
+.trio.quad{grid-template-columns:repeat(4,1fr);gap:18px}.trio.quad .tcard{padding:28px 20px}
+@media(max-width:1000px){.trio.quad{grid-template-columns:1fr 1fr}}@media(max-width:600px){.trio.quad{grid-template-columns:1fr}}
 /* 締めの一文 */
 .close-line{text-align:center;margin-top:48px;padding-top:26px;border-top:1px solid var(--accent)}
 .close-line p{font-family:var(--serif);font-size:var(--fs-h3);font-weight:700;line-height:1.7}
@@ -334,35 +336,95 @@
 .stage .st-time{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:999px;background:var(--accent);color:#fff;letter-spacing:.06em;font-size:.8125rem}
 .stage ol b em{font-style:normal;font-weight:400;font-size:.82em;color:var(--text-3);margin-left:4px}
 @media(max-width:900px){.what{grid-template-columns:1fr;gap:22px}.what-sample{max-width:420px;margin:0 auto}}
-/* 攻撃者から見た地図（見本） */
-.amap{max-width:1000px;margin:0 auto 44px}
-.amap-h{font-family:var(--serif);font-size:1.25rem;font-weight:700;text-align:center;margin:0 0 6px}
-.amap-sub{text-align:center;font-size:.875rem;color:var(--text-2);margin:0 0 18px}
-.amap-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 26px}
+/* 攻撃者の画面（地図・見本） */
+.scan{position:relative;overflow:hidden;color:#eaf6ff;padding:100px 0 90px;background:radial-gradient(900px 520px at 50% 58%,rgba(54,230,255,.12),transparent 62%),radial-gradient(700px 420px at 10% 10%,rgba(120,60,255,.14),transparent 60%),linear-gradient(160deg,#070b16 0%,#0b1226 52%,#140b2a 100%)}
+.scan::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(54,230,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(54,230,255,.06) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(800px 560px at 50% 55%,#000,transparent 78%);mask-image:radial-gradient(800px 560px at 50% 55%,#000,transparent 78%)}
+.scan .container{position:relative;z-index:1}
+.scan-h{text-align:center;font-size:var(--fs-h2);font-weight:900;line-height:1.35;color:#fff;margin:0 0 14px;text-shadow:0 0 22px rgba(54,230,255,.35)}
+.scan-sub{text-align:center;color:#a9bdd0;font-size:1rem;line-height:1.8;margin:0 0 34px}
+.scan-stats{display:flex;justify-content:center;gap:clamp(24px,7vw,84px);margin:0 0 44px;padding:0;list-style:none}
+.scan-stats li{text-align:center}
+.scan-stats b{display:block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:clamp(2.75rem,6vw,4rem);line-height:1;font-weight:700;color:#7af1ff;text-shadow:0 0 24px rgba(54,230,255,.45)}
+.scan-stats .fix b{color:#ff5566;text-shadow:0 0 24px rgba(255,77,94,.5)}
+.scan-stats .chk b{color:#ffb547;text-shadow:0 0 24px rgba(255,181,71,.4)}
+.scan-stats span{display:block;margin-top:10px;font-size:.875rem;color:#a9bdd0}
+.amap-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:20px 28px;max-width:1060px;margin:0 auto}
 .amap-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.amap-lines line{stroke:var(--border-strong);stroke-width:1.5;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
-.amap-n{position:relative;z-index:1;background:#fff;border:1px solid var(--border);border-left:4px solid #9aa3ad;border-radius:8px;padding:12px 14px}
-.amap-n b{display:block;font-size:.9375rem;line-height:1.45}
-.amap-n small{display:block;font-size:.8125rem;color:var(--text-2);line-height:1.6;margin-top:2px}
-.amap-n .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:1px 9px;margin-bottom:6px;color:#fff;background:#8a939d}
-.amap-n.ok{border-left-color:#8a939d}
-.amap-n.chk{border-left-color:#c58a12}.amap-n.chk .tag{background:#c58a12}
-.amap-n.fix{border-left-color:#b8402a}.amap-n.fix .tag{background:#b8402a}
-.amap-c{position:relative;z-index:1;align-self:center;text-align:center;background:var(--text);color:#fff;border-radius:10px;padding:18px 12px}
-.amap-c b{display:block;font-family:var(--serif);font-size:1.0625rem}
-.amap-c small{display:block;font-size:.8125rem;opacity:.8;margin-top:4px}
-.amap-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;padding:0;list-style:none;font-size:.8125rem;color:var(--text-2)}
-.amap-legend li::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:#8a939d}
-.amap-legend .chk::before{background:#c58a12}.amap-legend .fix::before{background:#b8402a}
-.amap-note{text-align:center;font-size:.8125rem;color:var(--text-3);margin:8px 0 0}
-@media(max-width:760px){.amap-grid{grid-template-columns:1fr 1fr;gap:8px}.amap-lines{display:none}.amap-c{order:-1;grid-column:1/-1;margin-bottom:4px;padding:12px}.amap-n{padding:10px 10px}.amap-n b{font-size:.875rem}.amap-n small{font-size:.75rem}}
-/* 毎月のレポート（見本） */
-.rpt{background:#fff;border:1px solid var(--border-strong);border-radius:8px;box-shadow:0 18px 40px rgba(20,30,50,.12);overflow:hidden;font-size:.875rem}
-.rpt-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 18px;background:var(--text);color:#fff}
-.rpt-hd b{font-family:var(--serif);font-size:1rem}.rpt-hd small{font-size:.75rem;opacity:.8}
-.rpt-sec{padding:14px 18px;border-top:1px solid var(--border)}
-.rpt-sec:first-of-type{border-top:0}
-.rpt-k{font-size:.75rem;font-weight:700;letter-spacing:.14em;color:var(--text-3);margin:0 0 8px}
+.amap-lines line{stroke:rgba(54,230,255,.4);stroke-width:1.2;stroke-dasharray:3 6;vector-effect:non-scaling-stroke;animation:amapflow 2.4s linear infinite}
+@keyframes amapflow{to{stroke-dashoffset:-18}}
+.amap-n{position:relative;z-index:1;background:rgba(9,16,34,.86);border:1px solid rgba(127,155,181,.35);border-radius:10px;padding:14px 16px}
+.amap-n .tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;border-radius:3px;padding:2px 8px;margin-bottom:8px;color:#0b1226;background:#7f9bb5}
+.amap-n b{display:block;font-size:1rem;line-height:1.45;color:#fff}
+.amap-n small{display:block;font-size:.8125rem;color:#a9bdd0;line-height:1.6;margin-top:3px}
+.amap-n q{display:block;quotes:none;margin-top:10px;padding-top:8px;border-top:1px dashed rgba(127,155,181,.3);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.8125rem;line-height:1.6;color:#7af1ff}
+.amap-n q::before{content:"> ";color:#36e6ff}
+.amap-n.fix{border-color:rgba(255,85,102,.65);box-shadow:0 0 24px rgba(255,77,94,.2)}
+.amap-n.fix .tag{background:#ff5566;color:#fff}
+.amap-n.fix q{color:#ffa3ad}.amap-n.fix q::before{color:#ff5566}
+.amap-n.chk{border-color:rgba(255,181,71,.55)}
+.amap-n.chk .tag{background:#ffb547}
+.amap-n.chk q{color:#ffd08a}.amap-n.chk q::before{color:#ffb547}
+.amap-c{position:relative;z-index:1;align-self:center;justify-self:center;width:min(100%,210px);aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,rgba(54,230,255,.24),rgba(9,16,34,.92) 70%);border:1px solid rgba(54,230,255,.6);box-shadow:0 0 44px rgba(54,230,255,.32)}
+.amap-c::before,.amap-c::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(54,230,255,.45);animation:amappulse 3s ease-out infinite}
+.amap-c::after{animation-delay:1.5s}
+@keyframes amappulse{from{transform:scale(.92);opacity:.9}to{transform:scale(1.4);opacity:0}}
+.amap-c b{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.9375rem;color:#fff;white-space:nowrap}
+.amap-c small{font-size:.8125rem;color:#a9bdd0;margin-top:4px}
+.scan .amap-n{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease;transition-delay:var(--d,0s)}
+.scan .amap.in .amap-n{opacity:1;transform:none}
+.scan .amap.in .amap-n.ok{opacity:.72}
+.amap-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 20px;margin:26px 0 0;padding:0;list-style:none;font-size:.8125rem;color:#a9bdd0}
+.amap-legend li::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:#7f9bb5}
+.amap-legend .chk::before{background:#ffb547}.amap-legend .fix::before{background:#ff5566}
+.amap-note{text-align:center;font-size:.8125rem;color:#8aa6c0;margin:10px 0 0}
+@media(prefers-reduced-motion:reduce){.amap-lines line,.amap-c::before,.amap-c::after{animation:none}.scan .amap-n{opacity:1;transform:none;transition:none}}
+@media(max-width:760px){.scan{padding:68px 0 60px}.scan-stats{gap:26px;margin-bottom:30px}.amap-grid{grid-template-columns:1fr 1fr;gap:10px}.amap-lines{display:none}.amap-c{order:-1;grid-column:1/-1;width:168px;margin:6px auto 16px}.amap-c b{font-size:.8125rem}.amap-n{padding:11px 11px}.amap-n b{font-size:.9375rem}.amap-n small,.amap-n q{font-size:.75rem}}
+/* 毎月のレポート（紙1枚の見本） */
+.paper-wrap{position:relative;isolation:isolate;padding:10px 6px 18px}
+.paper-wrap::before{content:"";position:absolute;inset:22px 0 4px 18px;background:#e6e9ee;border-radius:4px;transform:rotate(2.4deg);z-index:-1;box-shadow:0 14px 30px rgba(20,30,50,.10)}
+.paper{position:relative;background:#fff;border-radius:4px;padding:24px 24px 20px;transform:rotate(-1.4deg);box-shadow:0 30px 60px rgba(20,30,50,.18),0 8px 18px rgba(20,30,50,.08);font-size:.875rem}
+.pp-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--text);padding-bottom:10px;margin-bottom:16px}
+.pp-top b{font-size:1rem}.pp-top small{font-size:.75rem;color:var(--text-3)}
+.pp-verdict{display:flex;align-items:center;gap:16px;margin:0 0 6px}
+.pp-big{font-size:3.5rem;font-weight:900;line-height:1;color:#c2283a;white-space:nowrap}
+.pp-big small{font-size:1.125rem;margin-left:2px}
+.pp-verdict p{margin:0;font-weight:700;font-size:1.0625rem;line-height:1.5}
+.pp-verdict p small{display:block;font-weight:400;color:var(--text-2);font-size:.8125rem}
+.pp-k{font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--text-3);margin:18px 0 8px}
+.pp-bars{display:flex;align-items:flex-end;gap:16px;height:104px;padding:0 4px;border-bottom:1px solid var(--border-strong)}
+.pp-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.pp-bar em{font-style:normal;font-weight:700;font-size:.875rem;margin-bottom:4px}
+.pp-bar i{display:block;width:70%;max-width:56px;height:calc(var(--v) * 13px);background:#c3ccd8;border-radius:3px 3px 0 0}
+.pp-bar.now i{background:var(--accent)}.pp-bar.now em{color:var(--accent)}
+.pp-mon{display:flex;gap:16px;padding:6px 4px 0}
+.pp-mon span{flex:1;text-align:center;font-size:.75rem;color:var(--text-3)}
+.pp-note{position:absolute;right:-12px;top:96px;transform:rotate(5deg);color:#c2283a;font-weight:700;font-size:.8125rem;line-height:1.5;background:#fff8f8;border:2px solid #c2283a;border-radius:4px;padding:6px 10px;box-shadow:0 6px 14px rgba(194,40,58,.18);max-width:12em}
+.what-cap2{text-align:center;font-size:.875rem;color:var(--text-2);margin:16px 0 0}
+@media(max-width:900px){.paper{transform:rotate(-.8deg);padding:20px 18px 16px}.pp-note{position:static;display:inline-block;transform:rotate(-2deg);margin:4px 0 12px;max-width:none}.pp-big{font-size:3rem}}
+/* プラン（2枚） */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:1060px;margin:0 auto 40px}
+.plan{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border-strong);border-radius:12px;padding:26px 28px 24px}
+.plan.p2{border:2px solid var(--accent);box-shadow:0 22px 44px rgba(36,66,122,.14)}
+.plan-ill{display:block;width:100%;max-width:260px;height:auto;margin:0 auto 14px;color:var(--accent)}
+.plan-ill .hot{stroke:#c2283a}
+.plan-k{display:flex;align-items:center;gap:10px;font-size:.8125rem;font-weight:700;letter-spacing:.1em;color:var(--text-3)}
+.plan-k span{letter-spacing:.04em;font-size:.75rem;color:#fff;background:var(--accent);border-radius:999px;padding:2px 10px}
+.plan-name{font-size:1.75rem;font-weight:900;line-height:1.3;margin:6px 0 4px}
+.plan-for{font-size:1rem;font-weight:700;color:var(--accent);line-height:1.6;margin:0 0 18px}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.plan li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.plan li svg{width:20px;height:20px;margin-top:3px;fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.plan li b{display:block;font-size:1rem;line-height:1.5}
+.plan li small{display:block;font-size:.875rem;color:var(--text-2);line-height:1.7;margin-top:2px}
+.plan-ft{margin-top:auto;padding-top:18px;font-size:.875rem;color:var(--text-2);line-height:1.8}
+@media(max-width:860px){.plans{grid-template-columns:1fr;gap:18px}.plan{padding:22px 20px}.plan-name{font-size:1.5rem}.plan-ill{max-width:220px}}
+/* 点検メニュー（たたむ） */
+.menu-fold{max-width:960px;margin:0 auto;border:1px solid var(--border-strong);border-radius:8px;background:rgba(255,255,255,.7)}
+.menu-fold>summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:700;font-size:1rem;text-align:center;color:var(--accent)}
+.menu-fold>summary::-webkit-details-marker{display:none}
+.menu-fold>summary::after{content:"＋";display:inline-block;margin-left:8px}
+.menu-fold[open]>summary::after{content:"－"}
+.menu-fold .menu{margin:0;border:0;background:none;padding-top:4px}
 .rpt-chg{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .rpt-chg li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;line-height:1.6}
 .rpt-chg .tag{font-size:.75rem;font-weight:700;border-radius:4px;padding:1px 7px;color:#fff;background:#b8402a;white-space:nowrap}
@@ -370,7 +432,6 @@
 .rpt-ord{margin:0;padding-left:1.4em;display:grid;gap:6px;line-height:1.6}
 .rpt-ord li::marker{font-weight:700;color:#b8402a}
 .rpt-ord small{color:var(--text-3);font-size:.8125rem}
-.rpt-ft{padding:10px 18px;background:var(--bg-2);font-size:.75rem;color:var(--text-3);text-align:center}
 
 @media(max-width:768px){
   .hero .hero-lead{order:4;text-align:center;font-size:.875rem;line-height:1.85;margin:0 auto 14px}
@@ -386,7 +447,7 @@
 
 /* ===== 構成（2026-10-23）：困りごと → なぜ今 → 受け取るもの → 進め方 → 特徴 → 考え方 → 安心 → 人 → FAQ → 相談 ===== */
 #problem,#what,#feature,#safety,#faq{background:var(--bg)}
-#threat,#steps,#policy,#team,#apply{background:var(--bg-2)}
+#threat,#steps,#safety,#faq{background:var(--bg-2)}
 .section+.section{border-top:none}
 #team .fg-statement{margin-top:32px}
 </style>
@@ -439,30 +500,13 @@
   </div>
 </section>
 
-<!-- ── もし明日 ── -->
-<section class="section" id="problem">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">こんな不安に</div>
-      <h2 class="section-title"><span class="nb">もし明日、</span><span class="nb">パソコンが</span><span class="nb">使えなくなったら。</span></h2>
-      <p class="section-sub"><span class="nb">攻撃者もAIを使う時代です。</span><span class="nb">業務が止まる不安と、今の備えを、</span><span class="nb">一緒に点検しませんか。</span></p>
-    </div>
-    <ul class="ifq reveal">
-      <li><svg class="ifq-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13h22v19H5z"/><path d="M27 19h8l6 7v6H27z"/><circle cx="13" cy="34" r="3.5"/><circle cx="34" cy="34" r="3.5"/><path d="M10 19h10M10 24h7"/></svg><span>01</span>受注・出荷は<br>続けられる？</li>
-      <li><svg class="ifq-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 6h24a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H12z"/><path d="M8 13h6M8 21h6M8 29h6M8 37h6"/><circle cx="25" cy="18" r="4"/><path d="M18 30c1.5-4 4-5.5 7-5.5s5.5 1.5 7 5.5"/><path d="M19 35h12"/></svg><span>02</span>連絡先は紙でも<br>手元にある？</li>
-      <li><svg class="ifq-ic" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="22" cy="11" rx="12" ry="4.5"/><path d="M10 11v20c0 2.5 5.4 4.5 12 4.5"/><path d="M34 11v9"/><path d="M10 21c0 2.5 5.4 4.5 12 4.5s12-2 12-4.5"/><path d="M42 33a8 8 0 1 1-2.6-5.9"/><path d="M40 22.5v5h-5"/></svg><span>03</span>バックアップから<br>戻せる？</li>
-      <li><svg class="ifq-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h28a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H18l-8 7v-7H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path d="M20 15l7 2.5v4.5c0 4-3 6.5-7 7.5-4-1-7-3.5-7-7.5v-4.5z"/><path d="M17 22l2.2 2.2 4-4"/></svg><span>04</span>取引先に対策を<br>説明できる？</li>
-    </ul>
-  </div>
-</section>
-
 <!-- ── 脅威動向 ── -->
 <section class="section section-alt" id="threat">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">いま、何が起きているか</div>
-      <h2 class="section-title"><span class="nb">攻撃は、</span><span class="nb">確実に増えています。</span></h2>
-      <p class="section-sub"><span class="nb">数字は2026年上半期（1〜6月）の警察庁の統計。</span><span class="nb">煽りではなく、事実です。</span></p>
+      <h2 class="section-title"><span class="nb">うちは小さいから、</span><span class="nb">狙われない？</span></h2>
+      <p class="section-sub"><span class="nb">いいえ。ランサムウェア被害の報告123件のうち、</span><span class="nb">79件が中小企業です。</span><span class="nb">数字は2026年上半期（1〜6月）の警察庁の統計です。</span></p>
     </div>
     <div class="stats reveal">
       <div class="stat"><div class="num" data-to="123" data-suffix="件">123件</div><div class="lb"><span class="nb">ランサムウェア被害の報告</span><span class="nb">（2026年1〜6月）</span></div><div class="meta"><b>半期として過去最多</b>。うち中小企業が79件</div></div>
@@ -475,42 +519,70 @@
   </div>
 </section>
 
+<!-- ── 攻撃者の画面 ── -->
+<section class="scan" id="scan">
+  <div class="container">
+    <h2 class="scan-h reveal"><span class="nb">攻撃者には、</span><span class="nb">こう見えています。</span></h2>
+    <p class="scan-sub reveal"><span class="nb">ドメイン1つから、</span><span class="nb">外に見えているものを洗い出します。</span><span class="nb">（架空の会社の、初回の点検の見本）</span></p>
+    <ul class="scan-stats reveal"><li><b>8</b><span>見えていた入口</span></li><li class="fix"><b>3</b><span>すぐ直す</span></li><li class="chk"><b>3</b><span>要確認</span></li></ul>
+    <div class="amap reveal">
+      <div class="amap-grid">
+        <svg class="amap-lines" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><line x1="150" y1="150" x2="50" y2="50"/><line x1="150" y1="150" x2="150" y2="50"/><line x1="150" y1="150" x2="250" y2="50"/><line x1="150" y1="150" x2="50" y2="150"/><line x1="150" y1="150" x2="250" y2="150"/><line x1="150" y1="150" x2="50" y2="250"/><line x1="150" y1="150" x2="150" y2="250"/><line x1="150" y1="150" x2="250" y2="250"/></svg>
+        <div class="amap-n ok" style="--d:0.12s"><span class="tag">問題なし</span><b>公開しているサイト</b><small>暗号化・基本の設定は足りている</small><q>ここは固い。ほかを探す</q></div>
+        <div class="amap-n fix" style="--d:0.24s"><span class="tag">直す</span><b>使っていない古いサイト</b><small>3年前のキャンペーンページが古いまま公開</small><q>直されていない。入口はここ</q></div>
+        <div class="amap-n chk" style="--d:0.36s"><span class="tag">要確認</span><b>管理画面</b><small>ログイン画面が外から開ける</small><q>パスワードを試せる</q></div>
+        <div class="amap-n chk" style="--d:0.48s"><span class="tag">要確認</span><b>メールの設定</b><small>なりすましメールを止める設定が弱い</small><q>この会社の名前でメールを送れる</q></div>
+        <div class="amap-c"><b>example-kaisha.jp</b><small>架空の会社</small></div>
+        <div class="amap-n fix" style="--d:0.60s"><span class="tag">直す</span><b>VPN機器</b><small>弱点が公表された版を使っている</small><q>公表された弱点がそのまま使える</q></div>
+        <div class="amap-n chk" style="--d:0.72s"><span class="tag">要確認</span><b>外から分かる契約先</b><small>サーバー・メール・決済の3社</small><q>「更新のお知らせ」を装えば開く</q></div>
+        <div class="amap-n fix" style="--d:0.84s"><span class="tag">直す</span><b>解約したサービスの残り</b><small>使っていない設定が1件残っている</small><q>乗っ取れる設定が残っている</q></div>
+        <div class="amap-n ok" style="--d:0.96s"><span class="tag">問題なし</span><b>似た名前のドメイン</b><small>なりすましに使えるものは見つからない</small><q>取れる偽ドメインがない</q></div>
+      </div>
+      <ul class="amap-legend"><li>問題なし</li><li class="chk">要確認（ご確認ください）</li><li class="fix">直す（順番を付けてお知らせ）</li></ul>
+      <p class="amap-note">架空の会社の見本です。実際の点検では、見つかったものと、確かめていない範囲を載せます。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── 点検で分かること ── -->
 <section class="section" id="what">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">点検で分かること</div>
-      <h2 class="section-title"><span class="nb">毎月、</span><span class="nb">この3つが分かります。</span></h2>
-      <p class="section-sub"><span class="nb">結果は毎月のレポートでお渡しします。</span><span class="nb">前回から変わったところと、</span><span class="nb">確かめていない範囲も、はっきり書きます。</span></p>
+      <div class="section-label">なぜ毎月なのか</div>
+      <h2 class="section-title"><span class="nb">一度の点検では、</span><span class="nb">次の月が見えない。</span></h2>
+      <p class="section-sub"><span class="nb">外から見える姿は、毎月変わります。</span><span class="nb">だから毎月点検して、</span><span class="nb">1枚にまとめてお届けします。</span></p>
     </div>
     <div class="what reveal">
       <ol class="what-list">
-        <li><span class="n">1</span><div><b>外から見えている入口</b><p><span class="nb">使っていない古いサイト、</span><span class="nb">外から開ける管理画面、</span><span class="nb">古いままのVPN機器など、</span><span class="nb">攻撃者に見えている入口。</span></p></div></li>
-        <li><span class="n">2</span><div><b>なりすましメールの材料</b><p><span class="nb">自社を名乗る偽メールを防ぐ</span><span class="nb">設定（SPF・DKIM・DMARC）と、</span><span class="nb">取引先や契約先を装う偽メールに</span><span class="nb">使われそうな情報を確かめます。</span></p></div></li>
-        <li><span class="n">3</span><div><b>何から直せばいいか</b><p><span class="nb">業務への影響と、直す順番。</span><span class="nb">自社で直すときにも、</span><span class="nb">他社に頼むときにも</span><span class="nb">使える形にします。</span></p></div></li>
+        <li><span class="n">1</span><div><b>新しい弱点が公表される</b><p><span class="nb">使っている機器やソフトに、</span><span class="nb">毎月のように</span><span class="nb">新しい弱点が見つかります。</span><span class="nb">先月は大丈夫だった機器が、</span><span class="nb">今月は入口になります。</span></p></div></li>
+        <li><span class="n">2</span><div><b>知らないうちに、外から見えるようになる</b><p><span class="nb">テスト用のサイト、</span><span class="nb">新しく契約したサービス、</span><span class="nb">設定を変えた機器。</span><span class="nb">社内の誰かの作業で、入口は増えます。</span></p></div></li>
+        <li><span class="n">3</span><div><b>期限と、残った設定</b><p><span class="nb">ドメインの期限、</span><span class="nb">解約したサービスの残り、</span><span class="nb">メールの設定。</span><span class="nb">放っておくと、</span><span class="nb">なりすましの材料になります。</span></p></div></li>
       </ol>
-      <div class="rpt" role="img" aria-label="毎月のレポートの見本。今月の変化3件と、直す順番3つが並んでいる">
-        <div class="rpt-hd"><b>11月のレポート</b><small>架空の会社 example-kaisha.jp・見本</small></div>
-        <div class="rpt-sec">
-          <p class="rpt-k">今月の変化</p>
+      <div class="paper-wrap" role="img" aria-label="毎月のレポートの見本。今月すぐ直すもの1件、直す・要確認の数が6から3に減ったグラフ、今月の変化と直す順番が並んでいる">
+        <div class="paper">
+          <div class="pp-top"><b>月次レポート　2026年11月</b><small>example-kaisha.jp（架空）・見本</small></div>
+          <div class="pp-verdict"><div class="pp-big">1<small>件</small></div><p>今月すぐ直すもの<small>VPN機器の更新。今週中に</small></p></div>
+          <p class="pp-k">直す・要確認の数</p>
+          <div class="pp-bars"><div class="pp-bar" style="--v:6"><em>6</em><i></i></div><div class="pp-bar" style="--v:4"><em>4</em><i></i></div><div class="pp-bar now" style="--v:3"><em>3</em><i></i></div></div>
+          <div class="pp-mon"><span>9月（初回）</span><span>10月</span><span>11月</span></div>
+          <p class="pp-k">今月の変化</p>
           <ul class="rpt-chg">
             <li><span class="tag">新しい弱点</span><span>使っているVPN機器の版に、弱点が公表された</span></li>
             <li><span class="tag chk">新しく見えた</span><span>テスト用のサイトが1つ、外から見えるようになった</span></li>
-            <li><span class="tag chk">期限</span><span>ドメインの期限まで、あと25日</span></li>
             <li><span class="tag ok">解消</span><span>先月お知らせしたメールの設定は、直っていた</span></li>
           </ul>
-        </div>
-        <div class="rpt-sec">
-          <p class="rpt-k">直す順番</p>
+          <p class="pp-k">直す順番</p>
           <ol class="rpt-ord">
-            <li>VPN機器を更新する <small>（今週中・業者に頼む場合はこの1枚を渡す）</small></li>
+            <li>VPN機器を更新する <small>（今週中）</small></li>
             <li>テスト用のサイトを閉じる <small>（今月中）</small></li>
             <li>ドメインの自動更新を確かめる <small>（管理画面で1分）</small></li>
           </ol>
+          <div class="pp-note">業者には、この1枚を渡すだけ</div>
         </div>
-        <div class="rpt-ft">IT担当がいなくても読める言葉で、毎月1枚お届けします</div>
       </div>
+
     </div>
+    <p class="what-cap2 reveal">IT担当がいなくても読める言葉で、毎月1枚お届けします。</p>
     <p class="selfcheck reveal"><span class="nb">社内のルールは、IPAの</span><a href="https://www.ipa.go.jp/security/guide/sme/5minutes.html" target="_blank" rel="noopener"><span class="nb">「5分でできる！</span><span class="nb">情報セキュリティ</span><span class="nb">自社診断」</span></a><span class="nb">（25問）で</span><span class="nb">確かめられます。</span></p>
   </div>
 </section>
@@ -523,58 +595,35 @@
       <h2 class="section-title"><span class="nb">外だけか、</span><span class="nb">中までか。</span></h2>
       <p class="section-sub"><span class="nb">どちらも毎月の定期点検です。</span><span class="nb">御社の機器やシステムには当たらないので、</span><span class="nb">仕事は止まりません。</span></p>
     </div>
-    <div class="amap reveal">
-      <h3 class="amap-h"><span class="nb">攻撃者から見た、</span><span class="nb">御社の地図</span></h3>
-      <p class="amap-sub"><span class="nb">「外から見る」では、ドメイン1つを起点に、</span><span class="nb">外から見えるものを洗い出して色を付けます。</span></p>
-      <div class="amap-grid">
-        <svg class="amap-lines" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><line x1="150" y1="150" x2="50" y2="50"/><line x1="150" y1="150" x2="150" y2="50"/><line x1="150" y1="150" x2="250" y2="50"/><line x1="150" y1="150" x2="50" y2="150"/><line x1="150" y1="150" x2="250" y2="150"/><line x1="150" y1="150" x2="50" y2="250"/><line x1="150" y1="150" x2="150" y2="250"/><line x1="150" y1="150" x2="250" y2="250"/></svg>
-        <div class="amap-n ok"><span class="tag">問題なし</span><b>公開しているサイト</b><small>暗号化・基本の設定は足りている</small></div>
-        <div class="amap-n fix"><span class="tag">直す</span><b>使っていない古いサイト</b><small>3年前のキャンペーンページが古いまま公開</small></div>
-        <div class="amap-n chk"><span class="tag">要確認</span><b>管理画面</b><small>ログイン画面が外から開ける</small></div>
-        <div class="amap-n chk"><span class="tag">要確認</span><b>メールの設定</b><small>なりすましメールを止める設定が弱い</small></div>
-        <div class="amap-c"><b>example-kaisha.jp</b><small>架空の会社</small></div>
-        <div class="amap-n fix"><span class="tag">直す</span><b>VPN機器</b><small>弱点が公表された版を使っている</small></div>
-        <div class="amap-n chk"><span class="tag">要確認</span><b>外から分かる契約先</b><small>サーバー・メール・決済の3社。偽の通知メールの材料になる</small></div>
-        <div class="amap-n fix"><span class="tag">直す</span><b>解約したサービスの残り</b><small>使っていない設定が1件残っている</small></div>
-        <div class="amap-n ok"><span class="tag">問題なし</span><b>似た名前のドメイン</b><small>なりすましに使われそうなものは見つからない</small></div>
+    <div class="plans reveal">
+      <div class="plan p1">
+        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 108h160"/><path d="M40 108V44l50-26 50 26v64"/><rect x="56" y="56" width="16" height="16"/><rect x="108" y="56" width="16" height="16"/><path d="M82 108V84h16v24"/><circle class="hot" cx="186" cy="58" r="22"/><path class="hot" d="M202 74l22 22"/><path d="M176 50a12 12 0 0 1 12-5" opacity=".6"/></svg>
+        <div class="plan-k">プラン1<span>毎月</span></div>
+        <h3 class="plan-name">外から見る</h3>
+        <p class="plan-for">まず、狙われる入口を知りたい会社に</p>
+        <ul>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>外から見える入口を、毎月洗い出す</b><small>公開されている情報だけ。御社への依頼も、システムへのアクセスもありません</small></div></li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>毎月のレポート</b><small>前回から変わったところ、影響、直す順番。確かめていない範囲も書きます</small></div></li>
+        </ul>
+        <p class="plan-ft">機器やシステムには当たらないので、仕事は止まりません。</p>
       </div>
-      <ul class="amap-legend"><li>問題なし</li><li class="chk">要確認（ご確認ください）</li><li class="fix">直す（順番を付けてお知らせ）</li></ul>
-      <p class="amap-note">架空の会社の見本です。実際の点検では、見つかったものと、確かめていない範囲を載せます。</p>
-    </div>
-    <div class="guard reveal">
-      <h3 class="guard-h"><span class="nb">守りは、</span><span class="nb">3段で考えます。</span></h3>
-      <ol class="guard-row">
-        <li><span class="g-n">1 入られる前に</span><b>入口を減らす</b><span class="g-we">毎月見つけ、直す順番を出す</span></li>
-        <li><span class="g-n">2 入られたら</span><b>被害を広げない</b><span class="g-we">「中まで見る」で止め方と連絡先を確かめる</span></li>
-        <li><span class="g-n">3 起きたあと</span><b>報告し、説明する</b><span class="g-we">「中まで見る」で取引先への知らせ方を確かめる</span></li>
-      </ol>
-      <p class="guard-note"><span class="nb">監視や駆けつけ・</span><span class="nb">復旧作業は行いません。</span></p>
-    </div>
-    <div class="stages reveal">
-      <div class="stage s1">
-        <div class="st">プラン1 <span class="st-time">毎月</span></div>
-        <h3>外から見る</h3>
-        <ol>
-          <li><span class="n">01</span><div><b><span class="nb">外から見える入口を</span><span class="nb">洗い出す</span><em class="nb">（偵察）</em></b><small><span class="nb">公開されている情報だけで調べます。</span><span class="nb">御社への依頼も、</span><span class="nb">システムへのアクセスもありません</span></small></div></li>
-        </ol>
-        <div class="rep"><b>毎月のレポート</b>前回から変わったところ、業務への影響、直す順番。確かめていない範囲も書きます。</div>
-      </div>
-      <div class="stage-mid"><svg viewBox="0 0 36 20"><path d="M2 10h30m-7-7l7 7-7 7"/></svg>中まで<br>見るなら</div>
-      <div class="stage">
-        <div class="st">プラン2 <span class="st-time">毎月＋半年ごと</span></div>
-        <h3>中まで見る</h3>
-        <ol>
-          <li><span class="n">01</span><div><b>外から見る</b><small><span class="nb">プラン1の点検を毎月</span></small></div></li>
-          <li><span class="n">02</span><div><b>メールとアカウントの設定</b><small><span class="nb">Google Workspace・Microsoft 365 を</span><span class="nb">読み取りだけで点検。</span><span class="nb">終わったら権限を外します</span></small></div></li>
-          <li><span class="n">03</span><div><b>漏えいの照会</b><small><span class="nb">社員のアドレスが過去の漏えいに</span><span class="nb">含まれていないか。</span><span class="nb">パスワードは見ません</span></small></div></li>
-          <li><span class="n">04</span><div><b>備えの聞き取り</b><small><span class="nb">振込先の変更、バックアップ、</span><span class="nb">事故のときの連絡と知らせ方。</span><span class="nb">オンラインで30分</span></small></div></li>
-          <li><span class="n">05</span><div><b>社員への訓練メール</b><small><span class="nb">偽のメールを見分けられるか。</span><span class="nb">パスワードは入力させません</span></small></div></li>
-        </ol>
-        <p class="after"><span class="nb">02〜05は半年ごとに行います。</span><span class="nb">範囲を書面で決めてから始めます。</span></p>
+      <div class="plan p2">
+        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 108h212"/><path d="M30 108V40l90-24 90 24v68"/><path d="M104 108V80h20v28"/><path d="M124 80l12 5v23"/><circle class="hot" cx="66" cy="66" r="8"/><path class="hot" d="M74 66h24M90 66v8M96 66v6"/><rect x="152" y="56" width="34" height="22" rx="2"/><path d="M152 58l17 12 17-12"/></svg>
+        <div class="plan-k">プラン2<span>毎月＋半年ごと</span></div>
+        <h3 class="plan-name">中まで見る</h3>
+        <p class="plan-for">取引先に、対策を説明できるようにしたい会社に</p>
+        <ul>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>外から見る（プラン1のすべて）</b></div></li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>メールとアカウントの設定</b><small>Google Workspace・Microsoft 365 を読み取りだけで点検。終わったら権限を外します</small></div></li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>漏えいの照会</b><small>社員のアドレスが過去の漏えいに含まれていないか。パスワードは見ません</small></div></li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>備えの聞き取り</b><small>振込先の変更、バックアップ、事故のときの連絡と知らせ方。オンラインで30分</small></div></li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>社員への訓練メール</b><small>偽のメールを見分けられるか。パスワードは入力させません</small></div></li>
+        </ul>
+        <p class="plan-ft">設定・漏えい・聞き取り・訓練メールは半年ごと。範囲を書面で決めてから始めます。</p>
       </div>
     </div>
-    <div class="menu reveal">
-      <h3 class="menu-h"><span class="nb">点検メニュー</span></h3>
+    <details class="menu-fold reveal"><summary>見る項目を、すべて見る（13項目）</summary>
+    <div class="menu">
       <div class="menu-g"><span class="n">01</span><b><span class="nb">外から見る</span></b><small>プラン1・2・公開情報だけ</small></div>
       <ul class="menu-list">
         <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M8 24h32M24 8c5 5 7 10 7 16s-2 11-7 16M24 8c-5 5-7 10-7 16s2 11 7 16"/></svg><b>公開しているサイトの棚卸し</b><small>使っていない古いサイトが残っていないか</small></li>
@@ -595,6 +644,7 @@
         <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="26" height="18" rx="2"/><path d="M5 10l13 9 13-9"/><path d="M38 14v18a6 6 0 0 1-12 0v-2l3 3"/></svg><b>社員への訓練メール</b><small>偽のメールを見分けられるか</small></li>
       </ul>
     </div>
+    </details>
     <p class="stage-note reveal"><span class="nb">見つかった弱点を直す作業は、</span><span class="nb">別にお見積りして一緒に進めます。</span><span class="nb">機器やシステムに実際に当てて試す点検や、</span><span class="nb">現地での機器の確認も、</span><span class="nb">ご希望があれば別途ご相談ください。</span></p>
   </div>
 </section>
@@ -603,49 +653,36 @@
 <section class="section" id="feature">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">特徴</div>
-      <h2 class="section-title"><span class="nb">毎月の点検から、</span><span class="nb">直すところまで。</span></h2>
+      <div class="section-label">NGraph に頼む理由</div>
+      <h2 class="section-title"><span class="nb">画面ではなく、</span><span class="nb">人が読んで伝えます。</span></h2>
     </div>
-    <div class="trio reveal">
+    <div class="trio quad reveal">
+      <div class="tcard">
+        <img src="/assets/drill/icon16_people.png" alt="">
+        <h3>2人が直接やる</h3>
+        <p><span class="nb">聞いた本人と、</span><span class="nb">調べる本人が同じ。</span><span class="nb">伝言で中身が薄まりません。</span></p>
+      </div>
       <div class="tcard">
         <img src="/assets/starter/icon17_ai.png" alt="">
         <h3>AIで、攻撃者の目線に立つ</h3>
-        <p><span class="nb">攻撃者もAIを使う時代。</span><span class="nb">こちらもAIと検証ツールで、</span><span class="nb">入口を毎月洗い出す。</span></p>
+        <p><span class="nb">攻撃者もAIを使う時代。</span><span class="nb">こちらもAIと検証ツールで、</span><span class="nb">入口を毎月洗い出します。</span></p>
       </div>
       <div class="tcard">
-        <img src="/assets/drill/icon13_face2face.png" alt="">
-        <h3>直すところまで、相談できる</h3>
-        <p><span class="nb">レポートを渡して終わりにしない。</span><span class="nb">直す作業は別にお見積りし、</span><span class="nb">業務を見ながら一緒に進める。</span></p>
+        <img src="/assets/drill/icon_law_folder.png" alt="">
+        <h3>IT担当がいなくても読める</h3>
+        <p><span class="nb">専門用語の一覧ではなく、</span><span class="nb">何から直すかを1枚で。</span><span class="nb">業者にはそのまま渡せます。</span></p>
       </div>
       <div class="tcard">
         <img src="/assets/drill/icon16_shield.png" alt="">
-        <h3>製品ありきにしない</h3>
-        <p><span class="nb">設定・権限・バックアップ・</span><span class="nb">紙の手順で守り、</span><span class="nb">製品は足りない所にだけ。</span></p>
+        <h3>製品を売らない</h3>
+        <p><span class="nb">まず設定と運用の見直しから。</span><span class="nb">直す作業は別にお見積りし、</span><span class="nb">製品は足りない所にだけ。</span></p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 考え方 ── -->
-<section class="section section-alt" id="policy">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">考え方</div>
-      <h2 class="section-title"><span class="nb">目的は、</span><span class="nb">会社を止めないこと。</span></h2>
-      <p class="section-sub"><span class="nb">高価な製品が正解とは限りません。</span><span class="nb">直す作業では現場を見て、</span><span class="nb">次のような対策から組み合わせを選びます。</span></p>
-    </div>
-    <div class="pols reveal">
-      <div class="pol"><img src="/assets/drill/icon18_trash.png" alt=""><b>持たない・絞る</b><p>件数が多いほど、漏れたときの対応も増えます。保存の義務と業務上の必要を確かめたうえで、持たなくてよいデータを整理。見られる人・操作できる人を、必要な分だけに。</p></div>
-      <div class="pol"><img src="/assets/starter/icon09_data.png" alt=""><b>切り離して残す</b><p>ネットワークから切り離したバックアップと、合意したデータで本当に戻せるかの確認。</p></div>
-      <div class="pol"><img src="/assets/drill/icon_law_folder.png" alt=""><b>紙でも動ける</b><p>緊急連絡先や、受注・出荷の代わりの手順を紙でも用意。紙の置き場所と更新のしかたも決める。</p></div>
-      <div class="pol"><img src="/assets/drill/icon16_people.png" alt=""><b>人が備える</b><p>怪しいメールの見分け方と報告のしかたを社員と共有する。訓練メールを行った場合は、その結果も使う。</p></div>
-      <div class="pol acc"><img src="/assets/drill/icon16_shield.png" alt=""><b>必要な製品を、必要な範囲で</b><p>まず、運用の改善と既存システムの設定見直しから。追加の製品は、効果・費用・運用の負担を比べて選びます（自社製品も同じ基準）。</p></div>
     </div>
   </div>
 </section>
 
 <!-- ── 安全のために ── -->
-<section class="section" id="safety">
+<section class="section section-alt" id="safety">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">安全のために</div>
@@ -662,7 +699,7 @@
 </section>
 
 <!-- ── 担当 ── -->
-<section class="section section-alt" id="team">
+<section class="section" id="team">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">担当</div>
@@ -713,7 +750,7 @@
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section" id="faq">
+<section class="section section-alt" id="faq">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">よくある質問</div>
@@ -734,12 +771,12 @@
 </section>
 
 <!-- ── 申込フォーム ── -->
-<section class="section section-alt" id="apply">
+<section class="section" id="apply">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">ご相談</div>
-      <h2 class="section-title">実証パートナーとして相談する</h2>
-      <p class="section-sub"><span class="nb">オンラインで30分、</span><span class="nb">業務が止まる不安と今の備えを伺います。</span><span class="nb">その場で契約を求めることはありません。</span><span class="nb">通常2〜3営業日以内にご返信します。</span></p>
+      <h2 class="section-title"><span class="nb">まず、御社の地図を</span><span class="nb">見てみませんか。</span></h2>
+      <p class="section-sub"><span class="nb">実証パートナーとして、オンラインで30分。</span><span class="nb">気になっていることと、今の備えを伺います。</span><span class="nb">その場で契約を求めることはありません。</span><span class="nb">通常2〜3営業日以内にご返信します。</span></p>
     </div>
     <div class="lp-form reveal">
       <form id="lpForm" action="https://script.google.com/macros/s/AKfycbwapQO_yL3jQ4CmxaaLsZwiXsI3GR-dbgDiGmYEs_HGsbWeuZ7okov9jxGSS5J9bfit/exec" method="POST">
