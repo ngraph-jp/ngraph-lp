@@ -508,6 +508,12 @@
 .amap-bld{width:58px;height:58px;color:#cfe0f5;margin-bottom:8px}
 .amap-c small{font-size:.875rem!important;font-weight:700;color:#e3c46f!important;margin-top:4px}
 @media(max-width:760px){.amap-c{padding:14px 12px!important;width:180px}.amap-bld{width:44px;height:44px;margin-bottom:4px}}
+/* やること3ステップ */
+.steps3{grid-template-columns:repeat(3,1fr);max-width:920px}
+.loop-note{display:flex;align-items:center;justify-content:center;gap:10px;margin:30px auto 0;font-weight:700;color:var(--accent);font-size:1rem;text-align:center;flex-wrap:wrap}
+.loop-note svg{width:24px;height:24px;fill:none;stroke:var(--hot);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+@media(max-width:900px){.steps3{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.steps3{grid-template-columns:1fr;max-width:340px;gap:22px}.loop-note{font-size:.9375rem}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <link rel="stylesheet" href="/css/sp.css?v=7">
@@ -535,8 +541,8 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="lp-badge"><img src="/assets/drill/icon_drill.png" alt=""><span class="nm">Cyber Drill</span><small class="kana">サイバードリル</small></span>
-      <h1 class="hero-tagline" style="font-size:clamp(1.75rem,8.4vw,3.125rem);line-height:1.4"><span class="nb">攻撃される前に、</span><br><span class="nb"><span class="hl">弱点を知る。</span></span></h1>
-      <p class="hero-lead"><span class="nb">中小企業の、外から見える入口を、</span><span class="nb">攻撃者と同じやり方で毎月点検します。</span></p>
+      <h1 class="hero-tagline" style="font-size:clamp(1.75rem,8.4vw,3.125rem);line-height:1.4"><span class="nb">攻撃者の目で、</span><br><span class="nb">御社を<span class="hl">毎月点検</span>します。</span></h1>
+      <p class="hero-lead"><span class="nb">ホームページ・メール・採用サイトなど、</span><span class="nb">外から見える入口を</span><span class="nb">攻撃者と同じやり方で調べ、</span><span class="nb">何から直すかを毎月お知らせする</span><span class="nb">定期点検です。</span></p>
       <dl class="hero-facts">
         <div><dt>対象</dt><dd><span class="nb">福井県内の</span><span class="nb">企業</span></dd></div>
         <div><dt>頻度</dt><dd><span class="nb">毎月</span><small><span class="nb">初回は申込から</span><span class="nb">約2週間</span></small></dd></div>
@@ -550,6 +556,22 @@
     <div class="hero-visual" aria-hidden="true">
       <img src="/assets/drill/flat/hero.webp" alt="" width="1200" height="896">
     </div>
+  </div>
+</section>
+
+<!-- ── やること（2026-11-07 何のサービスかを先に） ── -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Cyber Drill でやること</div>
+      <h2 class="section-title"><span class="nb">調べて、伝えて、</span><span class="nb">直すまで。</span></h2>
+    </div>
+    <ol class="steps4 steps3 reveal">
+      <li class="step"><span class="n">01</span><img src="/assets/drill/flat/plan-outside.webp" alt=""><h3>外から調べる</h3><p><span class="nb">攻撃者と同じ道具で、</span><span class="nb">外から見える入口を洗い出します。</span><span class="nb">御社の作業はありません。</span></p></li>
+      <li class="step"><span class="n">02</span><img src="/assets/drill/flat/reason-report.webp" alt=""><h3>報告書が届く</h3><p><span class="nb">見つかったものと影響を、</span><span class="nb">何から直すかの順番つきで。</span><span class="nb">IT担当がいなくても読めます。</span></p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/fde-s1.webp" alt=""><h3>直す相談</h3><p><span class="nb">直し方が分からなければ、</span><span class="nb">一緒に進めます。</span><span class="nb">業者にそのまま渡してもかまいません。</span></p></li>
+    </ol>
+    <p class="loop-note reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><span><span class="nb">これを毎月くり返します。</span><span class="nb">先月なかった入口も、</span><span class="nb">次の月に見つけます。</span></span></p>
   </div>
 </section>
 
