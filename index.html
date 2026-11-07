@@ -383,26 +383,27 @@
 .pi-go:hover i{transform:translateX(3px)}.pi-go i{font-style:normal;transition:transform .2s}
 @media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:640px}}
 @media(max-width:640px){.pillars{padding:64px 0 72px}.pi-card{padding:24px 20px 22px}.pi-t2{font-size:1.25rem}.pi-card.main .pi-t2{font-size:1.375rem}}
-.pi-links{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--border)}
-.pi-links li{border-bottom:1px solid var(--border)}
-.pi-links a{display:flex;justify-content:space-between;align-items:center;padding:11px 2px;font-size:.9375rem;font-weight:700;color:var(--text)}
-.pi-links i{font-style:normal;color:var(--text-3);transition:transform .2s,color .2s}
-.pi-links a:hover,.pi-links a:hover i{color:var(--accent)}.pi-links a:hover i{transform:translateX(3px)}
+
+
+
+
+
 /* 2026-11-07 KAGUYA型に：中央揃え・絵は低め・3枚同じ幅・一覧は横並びの小さなボタン */
 .pi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pi-card{text-align:center;align-items:center;padding:26px 24px 24px}
-.pi-art{height:200px;justify-content:center;margin:0 0 14px}.pi-card.main .pi-art{height:236px;margin-top:-8px}.pi-card.main .pi-art img{max-width:100%}
+.pi-art{height:220px;justify-content:center;margin:0 0 14px}.pi-card.main .pi-art img{max-width:100%}
 .pi-t1{font-size:1.0625rem}.pi-t2,.pi-card.main .pi-t2{font-size:1.5rem}
 .pi-d{max-width:22em;margin-left:auto;margin-right:auto}
-.pi-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;border:0;margin-top:16px}
-.pi-links li{border:0}
-.pi-links a{gap:6px;padding:7px 14px;border:1px solid var(--border-strong,#c9ccd3);border-radius:999px;font-size:.875rem;background:#fff}
-.pi-links a:hover{border-color:var(--accent)}
+
+
+
+
 .pi-art img{max-width:86%}
 .pi-go{padding-top:18px}
 @media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:560px}}
 @media(max-width:640px){.pi-art{height:160px}.pi-t2,.pi-card.main .pi-t2{font-size:1.3125rem}}
 .pi-first{margin:26px 0 0;text-align:center;font-size:.9375rem;color:var(--text-2)}.pi-first a{font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}.pi-first i{font-style:normal}
+.pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent)}
 </style>
 <script type="application/ld+json">
 {
@@ -522,8 +523,9 @@
 <section class="pillars" id="services">
   <div class="container">
     <div class="section-head reveal">
-      <h2 class="section-title">何を頼めるか。</h2>
-      <p class="section-sub"><span class="nb">頼み方は3つ。</span><span class="nb">どれを頼めばいいか分からなければ、</span><span class="nb">そのままご相談ください。</span></p>
+      <p class="pi-eyebrow">福井から、3つの仕事で</p>
+      <h2 class="section-title"><span class="nb">NGraphは、</span><span class="nb"><em>AIを現場に実装する</em></span><span class="nb">会社です。</span></h2>
+      <p class="section-sub"><span class="nb">エンジニアが御社の現場に入る実装、</span><span class="nb">攻撃者の目線のセキュリティ、</span><span class="nb">それを支える構造化の技術。</span><span class="nb">3つの仕事で、</span><span class="nb">AIを御社の資産にします。</span></p>
     </div>
     <div class="pi-grid reveal">
       <article class="pi-card main">
@@ -537,14 +539,14 @@
       <article class="pi-card">
         <figure class="pi-art"><img src="/assets/brain/ill/card-menu.webp" alt="" loading="lazy"></figure>
         <h3><span class="pi-t1">攻撃者の目線で、御社を守る</span><span class="pi-t2">セキュリティ対策</span></h3>
-        <p class="pi-d"><span class="nb">外から見える入口を毎月点検し、</span><span class="nb">直す順番までお伝えします。</span><span class="nb">社外に出さない社内専用AIも置けます。</span></p>
-        <ul class="pi-links"><li><a href="/drill/">Cyber Drill<i aria-hidden="true">→</i></a></li><li><a href="/security/">Local AI Pack<i aria-hidden="true">→</i></a></li></ul>
+        <p class="pi-d"><span class="nb">外から見える入口を、</span><span class="nb">攻撃者と同じやり方で毎月点検し、</span><span class="nb">直す順番までお伝えします。</span></p>
+        <a class="pi-go" href="/drill/">Cyber Drill を見る <i aria-hidden="true">→</i></a>
       </article>
       <article class="pi-card">
         <figure class="pi-art"><img src="/assets/brain/ill/card-brain.webp" alt="" loading="lazy"></figure>
-        <h3><span class="pi-t1">自分たちで作り、本番で使っている</span><span class="pi-t2">AIプロダクト</span></h3>
-        <p class="pi-d"><span class="nb">まず自社で作って、</span><span class="nb">本番で回しているものです。</span></p>
-        <ul class="pi-links"><li><a href="https://omiseai.com/" target="_blank" rel="noopener">OMISEAI<i aria-hidden="true">→</i></a></li><li><a href="https://nicomachos.com/" target="_blank" rel="noopener">テレス<i aria-hidden="true">→</i></a></li><li><a href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">政策トラッカー<i aria-hidden="true">→</i></a></li><li><a href="/cases/">アルケー<i aria-hidden="true">→</i></a></li></ul>
+        <h3><span class="pi-t1">すべての土台になる</span><span class="pi-t2">構造化の技術</span></h3>
+        <p class="pi-d"><span class="nb">業務の知識や判断を、</span><span class="nb">AIが読める形（オントロジー）に</span><span class="nb">整理する技術です。</span><span class="nb">OMISEAIやテレスなど、</span><span class="nb">自社のプロダクトで本番運用しています。</span></p>
+        <a class="pi-go" href="/company#tech">構造化の技術を見る <i aria-hidden="true">→</i></a>
       </article>
     </div>
     <p class="pi-first reveal"><span class="nb">はじめての方へ：</span><a href="/starter/"><span class="nb">生成AI導入 初期セット</span> <i aria-hidden="true">→</i></a></p>
