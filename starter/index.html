@@ -336,6 +336,24 @@
   .faq-list details p{font-size:.875rem;line-height:1.8}
   .float-cta a{font-size:.875rem}
 }
+/* 2026-11-07 困りごと→やること を1段に（3枚が2段続いていた） */
+.pairs{max-width:980px;margin:0 auto;display:grid;gap:14px}
+.pr-head{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1.25fr);font-size:.8125rem;font-weight:700;letter-spacing:.08em;color:var(--text-3);padding:0 4px}
+.pr-head span:last-child{color:var(--accent)}
+.pr{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1.25fr);align-items:stretch}
+.pr-q{padding:18px 20px;border:1px dashed var(--border-strong,#c9ccd3);border-radius:10px;color:var(--text-2)}
+.pr-n{display:block;font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--text-3);margin-bottom:4px}
+.pr-q b{display:block;font-size:1rem;line-height:1.55;color:var(--text-2)}
+.pr-q p{margin:6px 0 0;font-size:.875rem;line-height:1.75;color:var(--text-3)}
+.pr-ar{display:flex;align-items:center;justify-content:center;color:var(--hot);font-size:1.375rem;font-weight:700}
+.pr-a{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:center;padding:16px 20px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 22px rgba(36,66,122,.06)}
+.pr-a img{width:76px;height:76px;object-fit:contain}
+.pr-k{display:block;font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--hot-ink)}
+.pr-a b{display:block;font-size:1.125rem;line-height:1.5;color:var(--text);margin-top:2px}
+.pr-a p{margin:4px 0 0;font-size:.875rem;line-height:1.75;color:var(--text-2)}
+.pr-note{text-align:center;font-size:.875rem;color:var(--text-3);margin:22px 0 0;line-height:1.8}
+@media(max-width:760px){.pr-head{display:none}.pr{grid-template-columns:1fr}.pr-ar{height:30px}.pr-ar span{transform:rotate(90deg)}.pr-a{grid-template-columns:60px 1fr;gap:12px;padding:14px 16px}.pr-a img{width:60px;height:60px}.pr-a b{font-size:1rem}}
+.pr-k{display:none}@media(max-width:760px){.pr-k{display:block}}
 </style>
 <link rel="stylesheet" href="/css/sp.css?v=7">
 </head>
@@ -351,7 +369,7 @@
       <a href="/cases/">企業分析</a>
       <a href="/blog/">ブログ</a>
       <a href="/company">会社概要</a>
-      <a href="#apply" class="nav-cta">無料オンライン説明</a>
+      <a href="#apply" class="nav-cta">無料で相談する</a>
       <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/starter/">EN</a></span>
     </nav>
   </div>
@@ -385,60 +403,27 @@
     <div class="section-head reveal">
       <div class="section-label">よくある止まり方</div>
       <h2 class="section-title"><span class="nb">入れたのに、</span><span class="nb">使われていない。</span></h2>
-      <p class="section-sub"><span class="nb">よくある止まり方は、</span><span class="nb">この3つです。</span></p>
+      <p class="section-sub"><span class="nb">止まる理由は3つ。</span><span class="nb">御社に訪問して、</span><span class="nb">その場で1つずつ外します。</span></p>
     </div>
-    <div class="trio reveal">
-      <div class="tcard">
-        <div class="num">01</div>
-        <img src="/assets/starter/icon09_data.png" alt="">
-        <h3>パソコンに土台がない</h3>
-        <p><span class="nb">AIがExcelもPDFも触れず、</span><span class="nb">相談相手で終わる。</span></p>
+    <div class="pairs reveal" id="what">
+      <div class="pr-head" aria-hidden="true"><span>よくある止まり方</span><span></span><span>訪問してやること</span></div>
+      <div class="pr">
+        <div class="pr-q"><span class="pr-n">01</span><b>パソコンに土台がない</b><p><span class="nb">AIがExcelもPDFも触れず、</span><span class="nb">相談相手で終わる。</span></p></div>
+        <div class="pr-ar" aria-hidden="true"><span>→</span></div>
+        <div class="pr-a"><img src="/assets/starter/icon19_setup.png" alt=""><div><span class="pr-k">訪問してやること</span><b>パソコンを整える</b><p><span class="nb">AIが仕事の道具として動く</span><span class="nb">土台を入れる。</span></p></div></div>
       </div>
-      <div class="tcard">
-        <div class="num">02</div>
-        <img src="/assets/starter/icon14_q2.png" alt="">
-        <h3>AIに渡していい範囲が決まっていない</h3>
-        <p><span class="nb">給与や口座が混ざったフォルダを前に、</span><span class="nb">怖くて使えない。</span></p>
+      <div class="pr">
+        <div class="pr-q"><span class="pr-n">02</span><b>AIに渡していい範囲が決まっていない</b><p><span class="nb">給与や口座が混ざったフォルダを前に、</span><span class="nb">怖くて使えない。</span></p></div>
+        <div class="pr-ar" aria-hidden="true"><span>→</span></div>
+        <div class="pr-a"><img src="/assets/starter/icon14_q2.png" alt=""><div><span class="pr-k">訪問してやること</span><b>AIに渡していい範囲を決める</b><p><span class="nb">読ませない場所を設定し、</span><span class="nb">掲示できる1枚にする。</span></p></div></div>
       </div>
-      <div class="tcard">
-        <div class="num">03</div>
-        <img src="/assets/starter/icon13_taisho.png" alt="">
-        <h3>誰も教えてくれない</h3>
-        <p><span class="nb">開き方も頼み方も分からないまま、</span><span class="nb">契約だけが続く。</span></p>
+      <div class="pr">
+        <div class="pr-q"><span class="pr-n">03</span><b>誰も教えてくれない</b><p><span class="nb">開き方も頼み方も分からないまま、</span><span class="nb">契約だけが続く。</span></p></div>
+        <div class="pr-ar" aria-hidden="true"><span>→</span></div>
+        <div class="pr-a"><img src="/assets/starter/icon11_soudan.png" alt=""><div><span class="pr-k">訪問してやること</span><b>一緒に1件やってみる</b><p><span class="nb">ふだんの仕事を、</span><span class="nb">ご自身の手で最後まで。</span></p></div></div>
       </div>
     </div>
-    <div class="close-line reveal"><p><span class="nb">AIの性能ではなく、</span><span class="nb"><span class="hl">最初の設定</span>の問題です。</span></p></div>
-  </div>
-</section>
-
-<!-- ── やること ── -->
-<section class="section" id="what">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">やること</div>
-      <h2 class="section-title"><span class="nb">御社に訪問し、</span><span class="nb">この3つをやります。</span></h2>
-      <p class="section-sub"><span class="nb">訪問は1日1.5時間ずつ2〜3日に分けても、</span><span class="nb">1回にまとめても。</span><span class="nb">パソコンは最大5台まで。</span></p>
-    </div>
-    <div class="trio reveal">
-      <div class="tcard">
-        <div class="num">01</div>
-        <img src="/assets/starter/icon19_setup.png" alt="">
-        <h3>パソコンを整える</h3>
-        <p><span class="nb">AIが仕事の道具として動く</span><span class="nb">土台を入れる。</span></p>
-      </div>
-      <div class="tcard">
-        <div class="num">02</div>
-        <img src="/assets/starter/icon14_q2.png" alt="">
-        <h3>AIに渡していい範囲を決める</h3>
-        <p><span class="nb">読ませない場所を設定し、</span><span class="nb">掲示できる1枚にする。</span></p>
-      </div>
-      <div class="tcard">
-        <div class="num">03</div>
-        <img src="/assets/starter/icon11_soudan.png" alt="">
-        <h3>一緒に1件やってみる</h3>
-        <p><span class="nb">ふだんの仕事を、</span><span class="nb">ご自身の手で最後まで。</span></p>
-      </div>
-    </div>
+    <p class="pr-note reveal"><span class="nb">訪問は1日1.5時間ずつ2〜3日に分けても、</span><span class="nb">1回にまとめても。</span><span class="nb">パソコンは最大5台まで。</span></p>
     <div class="close-line reveal"><p><span class="nb">帰るときには、</span><span class="nb"><span class="hl">使える状態</span>になっています。</span></p></div>
   </div>
 </section>

@@ -95,10 +95,10 @@ NAVJS = ('<script data-chrome="navjs">(function(){var h=document.querySelector("
          'if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>')
 # 申込フォームがページ内にあるLPは、ヘッダーのボタンをそのフォームへ
 CTA = {
-    "starter/index.html": ("#apply", "無料オンライン説明"),
-    "security/index.html": ("#apply", "無料オンライン説明"),
+    "starter/index.html": ("#apply", "無料で相談する"),
+    "security/index.html": ("#apply", "無料で相談する"),
     "drill/index.html": ("#apply", "無料で相談する"),
-    "fde/index.html": ("#contact", "無料相談"),
+    "fde/index.html": ("#contact", "無料で相談する"),
     "en/fde/index.html": ("#contact", "Free Consultation"),
     "en/starter/index.html": ("#apply", "Free Online Briefing"),
     "en/security/index.html": ("#apply", "Free Online Briefing"),
@@ -131,7 +131,7 @@ def header(path, cls):
     lang = lang_of(path)
     with open(os.path.join(CHROME, f"header_{lang}.html"), encoding="utf-8") as f:
         h = f.read().strip()
-    href, label = CTA.get(path, ("/en/entry", "Free Consultation") if lang == "en" else ("/entry", "無料相談"))
+    href, label = CTA.get(path, ("/en/entry", "Free Consultation") if lang == "en" else ("/entry", "無料で相談する"))
     alt = ALT.get(path, "/" if lang == "en" else "/en/")
     h = h.replace("{{CLASS}}", cls).replace("{{CTA_HREF}}", href).replace("{{CTA_LABEL}}", label).replace("{{ALT}}", alt)
     url = page_url(path)

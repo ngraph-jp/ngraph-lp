@@ -330,6 +330,15 @@
   .faq-list details p{font-size:.875rem;line-height:1.8}
   .float-cta a{font-size:.875rem}
 }
+/* 2026-11-07 悩みは絵なしのチェックリストに（次の段の絵付きカードと続けて同じ形にしない） */
+.chk{list-style:none;max-width:760px;margin:0 auto;padding:8px 28px;background:#fff;border:1px solid var(--border);border-radius:12px}
+.chk li{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:18px 0;border-bottom:1px dashed var(--border)}
+.chk li:last-child{border-bottom:0}
+.chk .ck{width:22px;height:22px;border:2px solid var(--accent);border-radius:5px;margin-top:3px;position:relative}
+.chk .ck::after{content:"";position:absolute;left:5px;top:1px;width:7px;height:12px;border-right:2.5px solid var(--hot);border-bottom:2.5px solid var(--hot);transform:rotate(40deg)}
+.chk b{display:block;font-size:1.0625rem;line-height:1.6;color:var(--text)}
+.chk p{margin:4px 0 0;font-size:.875rem;line-height:1.75;color:var(--text-2)}
+@media(max-width:640px){.chk{padding:4px 18px}.chk b{font-size:1rem}}
 </style>
 <style>
 /* 違い（比較表） */
@@ -383,7 +392,7 @@
       <a href="/cases/">企業分析</a>
       <a href="/blog/">ブログ</a>
       <a href="/company">会社概要</a>
-      <a href="#apply" class="nav-cta">無料オンライン説明</a>
+      <a href="#apply" class="nav-cta">無料で相談する</a>
       <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/security/">EN</a></span>
     </nav>
   </div>
@@ -419,26 +428,7 @@
       <h2 class="section-title"><span class="nb">AIは使いたい。</span><span class="nb">でも、</span><span class="nb">社外には出せない。</span></h2>
       <p class="section-sub"><span class="nb">1つでも当てはまれば、</span><span class="nb">Local AI Packの対象です。</span></p>
     </div>
-    <div class="trio reveal">
-      <div class="tcard">
-        <div class="num">01</div>
-        <img src="/assets/starter/icon14_q2.png" alt="">
-        <h3>顧客名簿や図面を、AIに入れるのが怖い</h3>
-        <p><span class="nb">入れていいか判断できず、</span><span class="nb">結局使わないまま。</span></p>
-      </div>
-      <div class="tcard">
-        <div class="num">02</div>
-        <img src="/assets/starter/icon09_tomeru.png" alt="">
-        <h3>社員が勝手にChatGPTへ入れていないか心配</h3>
-        <p><span class="nb">禁止しても、</span><span class="nb">使う場所が無ければ隠れて使われる。</span></p>
-      </div>
-      <div class="tcard">
-        <div class="num">03</div>
-        <img src="/assets/starter/icon11_kakunin.png" alt="">
-        <h3>取引先から、情報の管理体制を問われている</h3>
-        <p><span class="nb">「どこに送っているか」を、</span><span class="nb">自社で説明できない。</span></p>
-      </div>
-    </div>
+    <ul class="chk reveal"><li><span class="ck" aria-hidden="true"></span><div><b>顧客名簿や図面を、AIに入れるのが怖い</b><p><span class="nb">入れていいか判断できず、</span><span class="nb">結局使わないまま。</span></p></div></li><li><span class="ck" aria-hidden="true"></span><div><b>社員が勝手にChatGPTへ入れていないか心配</b><p><span class="nb">禁止しても、</span><span class="nb">使う場所が無ければ隠れて使われる。</span></p></div></li><li><span class="ck" aria-hidden="true"></span><div><b>取引先から、情報の管理体制を問われている</b><p><span class="nb">「どこに送っているか」を、</span><span class="nb">自社で説明できない。</span></p></div></li></ul>
   </div>
 </section>
 
