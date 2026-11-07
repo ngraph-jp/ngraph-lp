@@ -42,7 +42,7 @@
    .hero-copy を display:contents にして、見出し→絵→本文→CTA の順に並べ替える。 */
 @media(max-width:900px){
   .hero{padding:88px 0 40px !important}
-  .hero .hero-grid{display:grid;grid-template-columns:1fr;gap:0;text-align:center}
+  .hero .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0;text-align:center}
   .hero .hero-copy{display:contents}
   .hero .eyebrow,.hero .lp-badge{order:1;justify-self:center;margin:0 auto 14px}
   .hero .hero-h1{order:2;margin-bottom:8px}

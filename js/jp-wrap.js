@@ -26,9 +26,10 @@
     document.querySelectorAll(sel).forEach(function (el) { apply(el); });
     // 第2パス（2026-10-31）：p・li などに入っていない div / span 直下の文字も語句で折る。
     // 比較表のセルや図の札が div なので、iPhone では「AI会／社の」「保管され／るかを」と語の途中で折れていた。
+    // 2026-11-08 q・cite・mark も足す（/drill/ の地図の札の「→ 社長を名／乗って」が q で、ここから漏れていた）
     // 記事（/blog/<記事>・/cases/<事例>）は計算ツールなど個別のJSを持つものがあり全件の実機確認ができないため、第2パスの対象外にする
     var isArticle = /^\/(blog|cases)\/[^/]+/.test(location.pathname);
-    if (!isArticle) document.querySelectorAll('div,span,small,b,strong,em').forEach(function (el) {
+    if (!isArticle) document.querySelectorAll('div,span,small,b,strong,em,q,cite,mark').forEach(function (el) {
       var own = false;
       for (var i = 0; i < el.childNodes.length; i++) { var n = el.childNodes[i]; if (n.nodeType === 3 && /\S/.test(n.nodeValue)) { own = true; break; } }
       if (own) apply(el, skip2);

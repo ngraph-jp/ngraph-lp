@@ -32,6 +32,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WIDTHS = (320, 375, 390, 393, 402, 414, 430)  # 2026-10-31 393・402 は実機に多い幅。ここを測らず本番の全ページが落ちていた
 WORKERS = 4
 LOAD_LIMIT = 60
+# 2026-11-08 本人の iPhone で /drill/ の最初の画面の表と「無料で相談する」が右に切れていた（共通 sp.css の列幅 1fr が
+# 中身の幅まで広がった）。落ちはしないので見つからなかった。開いたついでに、文字・リンク・画像が画面の外へ
+# はみ出していないかも測る（はみ出しても親が切り取っている＝見えない装飾は除く。画面外に隠したスパム除けの欄も除く）
+OVERFLOW_JS = r"""(()=>{const W=innerWidth,out=[];const clipped=e=>{for(let a=e.parentElement;a&&a!==document.body&&a!==document.documentElement;a=a.parentElement){const s=getComputedStyle(a);if(s.overflowX!=='visible'||s.position==='fixed'){const r=a.getBoundingClientRect();if(r.right<=W+1&&r.left>=-1)return true}}return false};
+for(const e of document.body.querySelectorAll('*')){const s=getComputedStyle(e);if(s.display==='none'||s.visibility==='hidden'||s.position==='fixed'||s.position==='sticky')continue;const hasText=[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim());if(!hasText&&!/^(A|BUTTON|IMG|INPUT)$/.test(e.tagName))continue;const r=e.getBoundingClientRect();if(r.width===0||r.height===0)continue;if(r.left>-1000&&(r.right>W+1||r.left<-1)&&!clipped(e)){out.push(e.tagName.toLowerCase()+'.'+(e.className&&e.className.baseVal===undefined?e.className:'')+' "'+(e.textContent||e.alt||'').trim().slice(0,20)+'" '+Math.round(r.left)+'-'+Math.round(r.right))}if(out.length>=4)break}return out})()"""
 
 
 def git_paths(*a):
@@ -96,6 +101,11 @@ def one(url, width):
                 pg.evaluate("document.fonts ? document.fonts.ready.then(() => document.body.scrollHeight) : 0")
                 pg.wait_for_timeout(300)
                 pg.evaluate("document.body.scrollHeight")
+                pg.evaluate("document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))")
+                pg.wait_for_timeout(700)
+                over = pg.evaluate(OVERFLOW_JS)
+                if over:
+                    out = {"state": "overflow", "msg": " / ".join(over[:3])}
         except Exception as e:
             msg = str(e).splitlines()[0][:80]
             out = {"state": "crash" if (crashed or "crash" in msg.lower()) else "error", "msg": msg}
@@ -139,7 +149,7 @@ def main(argv):
         srv.shutdown()
         return 1
     bad = []
-    label = {"crash": "落ちた", "notfound": "開けない", "error": "読み込みに失敗", "timeout": "時間切れ"}
+    label = {"overflow": "画面の外にはみ出し", "crash": "落ちた", "notfound": "開けない", "error": "読み込みに失敗", "timeout": "時間切れ"}
     def probe_one(job):
         t, w = job
         url = "http://127.0.0.1:%d/%s" % (port, t[:-len("index.html")] if t.endswith("index.html") else t)
@@ -159,7 +169,7 @@ def main(argv):
             if res["state"] == "ok":
                 continue
             # 並列の負荷で読み込みが切れることがあるので、落ちた以外は1つずつ開き直して確かめる
-            if res["state"] != "crash":
+            if res["state"] not in ("crash", "overflow"):
                 t, w, res = probe_one((t, w))
             if res["state"] != "ok":
                 bad.append("%s（幅%d）%s: %s" % (t, w, label[res["state"]], res.get("msg", "")))
@@ -169,7 +179,7 @@ def main(argv):
         for x in bad:
             print("  - " + x)
         return 1
-    print("OK: WebKit のスマホ幅で落ちない（%d ページ × %d 幅）" % (len(targets), len(WIDTHS)))
+    print("OK: WebKit のスマホ幅で落ちない・はみ出さない（%d ページ × %d 幅）" % (len(targets), len(WIDTHS)))
     return 0
 
 
