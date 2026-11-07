@@ -315,7 +315,7 @@ img{max-width:100%;display:block}
   .venn-wrap{grid-template-columns:1fr;gap:28px;padding:32px 24px}
   .venn{max-width:300px}
   .schema-flow{padding:32px 22px}
-  .sf-row{grid-template-columns:1fr}
+  .sf-row{grid-template-columns:minmax(0,1fr)}
   .sf-arrow{flex-direction:row-reverse;gap:10px;padding:14px 0}
   .sf-arrow::after{transform:rotate(90deg)}
   .sf-s{margin-top:10px}

@@ -311,7 +311,7 @@ html[lang="en"] body,html[lang="en"] body *{overflow-wrap:break-word}
 .sf-arrow::after{content:"→";color:var(--accent);opacity:.7;font-size:1.125rem}
 @media(max-width:900px){
   .schema-flow{padding:28px 20px}
-  .sf-row{grid-template-columns:1fr}
+  .sf-row{grid-template-columns:minmax(0,1fr)}
   .sf-arrow{flex-direction:row-reverse;gap:10px;padding:12px 0}
   .sf-arrow::after{content:"↓"}
   .sf-s{margin-top:10px}
