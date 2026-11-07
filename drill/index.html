@@ -258,44 +258,6 @@
   .float-cta a{font-size:.875rem}
 }
 
-/* ==== Cyber Drill ダークヒーロー（A: dark hero + light body・2026-10-18）==== */
-.header:not(.scrolled){background:#f5f6f7;box-shadow:0 1px 0 rgba(20,40,70,.05)}
-.hero{position:relative;overflow:hidden;color:#eaf6ff;
- background:radial-gradient(1200px 700px at 80% 45%,rgba(54,230,255,.14),transparent 60%),radial-gradient(900px 560px at 12% 16%,rgba(120,60,255,.18),transparent 60%),linear-gradient(160deg,#070b16 0%,#0b1226 46%,#140b2a 100%)}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
- background-image:linear-gradient(rgba(54,230,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(54,230,255,.06) 1px,transparent 1px);background-size:46px 46px;
- -webkit-mask-image:radial-gradient(900px 600px at 72% 52%,#000,transparent 75%);mask-image:radial-gradient(900px 600px at 72% 52%,#000,transparent 75%)}
-.hero .container{position:relative;z-index:3}
-.hero .hud{position:absolute;top:94px;left:0;right:0;z-index:4;display:flex;justify-content:space-between;padding:0 clamp(20px,5vw,52px);
- font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.8125rem;letter-spacing:.12em;color:#7f9bb5}
-.hero .hud b{color:#36e6ff;font-weight:700}
-.hero .lp-badge{font-family:"JetBrains Mono",ui-monospace,monospace;color:#7af1ff;border-color:rgba(54,230,255,.4);background:rgba(54,230,255,.06);box-shadow:inset 0 0 18px rgba(54,230,255,.14),0 0 12px rgba(54,230,255,.08)}
-.hero .lp-badge img{filter:brightness(0) invert(1);opacity:.85}
-.hero .lp-badge .kana{color:#8aa6c0;border-left-color:rgba(54,230,255,.3)}
-.hero .hero-sub{font-family:"JetBrains Mono",ui-monospace,monospace;color:#7af1ff;opacity:.9}
-.hero .hero-sub::before{content:"> ";color:#36e6ff}
-.hero .hero-tagline{color:#fff;text-shadow:0 0 22px rgba(54,230,255,.4),0 0 2px rgba(54,230,255,.7)}
-.hero .hero-tagline .hl{color:#ff5566;text-shadow:0 0 26px rgba(255,77,94,.6),0 0 2px rgba(255,77,94,.9)}
-.hero .hero-chips span{border-color:rgba(138,166,192,.45);color:#eaf6ff;background:rgba(255,255,255,.03)}
-.hero .hero-chips span.acc{border-color:#36e6ff;color:#7af1ff;box-shadow:0 0 16px rgba(54,230,255,.2)}
-.hero .hero-cta .btn{background:linear-gradient(180deg,#ff5b6b,#d6293c);border:1px solid rgba(255,150,160,.5);color:#fff;box-shadow:0 0 28px rgba(255,77,94,.4),0 8px 26px rgba(214,41,60,.3)}
-.hero .hero-note{font-family:"JetBrains Mono",ui-monospace,monospace;color:#8aa6c0}
-.hero .hero-note::before{content:"// "}
-.hero .hero-visual img{filter:invert(1) hue-rotate(160deg) saturate(1.45) brightness(1.12) drop-shadow(0 0 30px rgba(54,230,255,.32))}
-/* スマホ: 左上の「NGraph // Cyber Drill」はバッジと同じ内容でヘッダー直下に重なるので消し、ヘッダーとの間と各行の間をあける（css/sp.css が .hero を 88px !important にしているので section.hero で上書き・2026-10-26 本人「SPだとめちゃくちゃ詰まって見える」） */
-@media(max-width:768px){.hero .hud{display:none}section.hero{padding-top:112px!important}.hero .lp-badge{flex-wrap:nowrap;border-radius:3px;margin-bottom:18px}.hero .lp-badge .kana{flex-basis:auto;border-left:1px solid rgba(54,230,255,.3);padding-left:10px;margin-left:2px}.hero .hero-sub{margin-bottom:18px}}
-@media(max-width:360px){.hero .lp-badge{flex-wrap:wrap;border-radius:3px}.hero .lp-badge .kana{flex-basis:100%;border-left:none;padding-left:0;margin-left:0}}
-@media(max-width:380px){.hero .hero-tagline{font-size:2rem!important}}
-@media(max-width:768px){.hero .hero-tagline{white-space:normal}}
-
-
-/* ==== WebGLシェーダー背景（Stripe系・2026） ==== */
-.hero-shader{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%}
-.hero::before{z-index:1}
-.hero .container{position:relative;z-index:3}
-.hero .hero-copy{z-index:3}
-.hero .hero-visual{z-index:2}
-
 /* ==== 脅威動向セクション ==== */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
 .stat{text-align:center;padding:28px 20px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.62)}
@@ -305,10 +267,6 @@
 .src-note{text-align:center;font-size:.8125rem;color:var(--text-3);margin:18px auto 0;max-width:760px;line-height:1.7}
 .bridge{text-align:center;font-family:var(--serif);font-size:var(--fs-h3);font-weight:700;margin-top:28px;line-height:1.7;color:var(--text)}
 @media(max-width:768px){.stats{grid-template-columns:1fr;gap:12px}.stat{padding:20px 16px}}
-.hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
-/* ドームの中のオフィスだけ元の色で重ねる（ドームは反転で光らせたまま） */
-.hero .hero-visual img.hero-office{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;z-index:2;pointer-events:none;filter:brightness(.97) drop-shadow(0 0 18px rgba(54,230,255,.25))}
-.hero-people{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
 
 /* ==== 2026-10-19 訴求の組み替え：何の商品か・対象・期間・受け取るもの ==== */
 .hero .hero-lead{color:#d6e7f5;font-size:1rem;line-height:1.95;margin:0 0 20px;max-width:34em}
@@ -450,6 +408,61 @@
 #threat,#steps,#safety,#faq{background:var(--bg-2)}
 .section+.section{border-top:none}
 #team .fg-statement{margin-top:32px}
+/* ==== 2026-11-07 トップ/FDEと同じ見た目に（明るい地・平たい絵・金のボタン・紺の網目） ==== */
+.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hero .hero-visual{margin:0}
+.hero .hero-visual img{max-height:520px;width:100%;height:auto;object-fit:contain}
+.hero .hero-tagline .hl{color:var(--accent-hi,var(--accent))}
+.hero .hero-lead{font-size:1.125rem;line-height:1.95;color:var(--text-2);margin:0 0 22px}
+.hero-facts{background:#fff;border:1px solid var(--border);border-radius:10px}
+.hero-facts>div{border-left:1px solid var(--border)}
+.hero-facts dt{font-family:var(--sans);letter-spacing:.06em;color:var(--accent);font-weight:700}
+.hero-facts dd{color:var(--text)}
+.hero-facts dd small{color:var(--text-3)}
+.hero .hero-sample{color:var(--text-2)}
+@media(max-width:900px){.hero .hero-grid{grid-template-columns:1fr;gap:20px}.hero .hero-visual{max-width:460px;margin:0 auto}.hero .hero-visual img{max-height:340px}}
+@media(max-width:768px){section.hero{padding-top:104px!important}.hero .lp-badge{margin-bottom:14px}.hero .hero-lead{font-size:.9375rem}}
+@media(max-width:360px){.hero-facts>div{border-top:1px solid var(--border)}}
+@media(max-width:768px){.hero .lp-badge{flex-wrap:nowrap;border-radius:3px}.hero .lp-badge .kana{flex-basis:auto;text-align:left;border-left:1px solid var(--border);padding-left:10px;margin-left:2px}}
+@media(max-width:360px){.hero .lp-badge{flex-wrap:wrap}.hero .lp-badge .kana{flex-basis:100%;border-left:none;padding-left:0;margin-left:0;text-align:center}}
+/* 攻撃者の地図：トップの最後の相談と同じ紺＋細い網目。ネオンの光と等幅の字はやめる */
+.scan{background:#0b1424;color:#fff}
+.scan::before{background-size:30px 52px}
+.scan{background:radial-gradient(900px 520px at 90% 6%,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(760px 480px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+.scan::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2252%22 viewBox=%220 0 30 52%22%3E%3Cpolygon points=%2215.00%2C8.66 0.00%2C17.32 -15.00%2C8.66 -15.00%2C-8.66 -0.00%2C-17.32 15.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C8.66 30.00%2C17.32 15.00%2C8.66 15.00%2C-8.66 30.00%2C-17.32 45.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2230.00%2C34.66 15.00%2C43.32 0.00%2C34.66 0.00%2C17.34 15.00%2C8.68 30.00%2C17.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2215.00%2C60.66 0.00%2C69.32 -15.00%2C60.66 -15.00%2C43.34 -0.00%2C34.68 15.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C60.66 30.00%2C69.32 15.00%2C60.66 15.00%2C43.34 30.00%2C34.68 45.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3C/svg%3E");opacity:.34;-webkit-mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%);mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%)}
+@media (max-width:640px){
+  .scan{background:radial-gradient(420px 360px at 100% 0,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(380px 360px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+  .scan::before{-webkit-mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%);mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%)}
+}
+.scan-h{text-shadow:none}
+.scan-sub,.scan-stats span,.amap-legend,.amap-c small{color:#b8c4d4}
+.scan-stats b{font-family:var(--sans);font-weight:700;color:#fff;text-shadow:none}
+.scan-stats .fix b{color:#ff8a8a;text-shadow:none}
+.scan-stats .chk b{color:#e3c46f;text-shadow:none}
+.amap-n{background:rgba(16,28,48,.92);border-color:rgba(160,180,205,.28)}
+.amap-n q{font-family:var(--sans);color:#cfd8e4}
+.amap-n q::before{content:"→ ";color:#8fa3bd}
+.amap-n.fix{border-color:rgba(255,138,138,.6);box-shadow:none}
+.amap-n.fix .tag{background:#e05a5a}
+.amap-n.fix q{color:#ffc2c2}.amap-n.fix q::before{color:#ff8a8a}
+.amap-n.chk{border-color:rgba(227,196,111,.55)}
+.amap-n.chk .tag{background:#c8a24a;color:#14213a}
+.amap-n.chk q{color:#f0dca4}.amap-n.chk q::before{color:#e3c46f}
+.amap-lines line{stroke:rgba(160,190,230,.35)}
+.amap-c{background:radial-gradient(circle,#1b3a63 0,#0f1d33 70%);border:1px solid rgba(160,190,230,.4)}
+.amap-c::before,.amap-c::after{border-color:rgba(160,190,230,.4)}
+.amap-c b{font-family:var(--sans)}
+.amap-legend .chk::before{background:#c8a24a}.amap-legend .fix::before{background:#e05a5a}
+.amap-note{color:#9fb0c6}
+/* プランの絵・頼む理由の絵を平たい絵に */
+.plan-ill{display:block;width:auto;max-width:200px;height:150px;object-fit:contain;margin:0 auto 14px}
+.tcard img{width:110px;height:96px;object-fit:contain}
+/* 「なぜ毎月」の数字も、ほかのページの進め方と同じくゆっくり浮く */
+@keyframes wnfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.what.in .what-list .n{animation:wnfloat 3.2s ease-in-out infinite}
+.what.in .what-list li:nth-child(2) .n{animation-delay:.8s}
+.what.in .what-list li:nth-child(3) .n{animation-delay:1.6s}
+@media(prefers-reduced-motion:reduce){.what.in .what-list .n{animation:none}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <link rel="stylesheet" href="/css/sp.css?v=7">
@@ -474,8 +487,6 @@
 
 <!-- ── Hero ── -->
 <section class="hero">
-  <canvas id="heroShader" class="hero-shader" aria-hidden="true"></canvas>
-  <div class="hud"><span><b>NGraph</b> // Cyber Drill</span></div>
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="lp-badge"><img src="/assets/drill/icon_drill.png" alt=""><span class="nm">Cyber Drill</span><small class="kana">サイバードリル</small></span>
@@ -492,10 +503,7 @@
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <img src="/assets/drill/dome-shield.webp" alt="" width="954" height="800">
-      <img class="hero-office" src="/assets/drill/dome-office.webp" alt="" width="954" height="800">
-      <canvas class="hero-people" id="heroPeople" aria-hidden="true"></canvas>
-      <canvas class="hero-fx" id="heroFx" aria-hidden="true"></canvas>
+      <img src="/assets/drill/flat/hero.webp" alt="" width="1093" height="790">
     </div>
   </div>
 </section>
@@ -597,7 +605,7 @@
     </div>
     <div class="plans reveal">
       <div class="plan p1">
-        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 108h160"/><path d="M40 108V44l50-26 50 26v64"/><rect x="56" y="56" width="16" height="16"/><rect x="108" y="56" width="16" height="16"/><path d="M82 108V84h16v24"/><circle class="hot" cx="186" cy="58" r="22"/><path class="hot" d="M202 74l22 22"/><path d="M176 50a12 12 0 0 1 12-5" opacity=".6"/></svg>
+        <img class="plan-ill" src="/assets/drill/flat/plan-outside.webp" alt="" loading="lazy">
         <div class="plan-k">プラン1<span>毎月</span></div>
         <h3 class="plan-name">外から見る</h3>
         <p class="plan-for">まず、狙われる入口を知りたい会社に</p>
@@ -608,7 +616,7 @@
         <p class="plan-ft">機器やシステムには当たらないので、仕事は止まりません。</p>
       </div>
       <div class="plan p2">
-        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 108h212"/><path d="M30 108V40l90-24 90 24v68"/><path d="M104 108V80h20v28"/><path d="M124 80l12 5v23"/><circle class="hot" cx="66" cy="66" r="8"/><path class="hot" d="M74 66h24M90 66v8M96 66v6"/><rect x="152" y="56" width="34" height="22" rx="2"/><path d="M152 58l17 12 17-12"/></svg>
+        <img class="plan-ill" src="/assets/drill/flat/plan-inside.webp" alt="" loading="lazy">
         <div class="plan-k">プラン2<span>毎月＋半年ごと</span></div>
         <h3 class="plan-name">中まで見る</h3>
         <p class="plan-for">取引先に、対策を説明できるようにしたい会社に</p>
@@ -658,7 +666,7 @@
     </div>
     <div class="trio quad reveal">
       <div class="tcard">
-        <img src="/assets/drill/icon16_people.png" alt="">
+        <img src="/assets/brain/ill/fde-s1.webp" alt="">
         <h3>2人が直接やる</h3>
         <p><span class="nb">聞いた本人と、</span><span class="nb">調べる本人が同じ。</span><span class="nb">伝言で中身が薄まりません。</span></p>
       </div>
@@ -668,12 +676,12 @@
         <p><span class="nb">攻撃者もAIを使う時代。</span><span class="nb">こちらもAIと検証ツールで、</span><span class="nb">入口を毎月洗い出します。</span></p>
       </div>
       <div class="tcard">
-        <img src="/assets/drill/icon_law_folder.png" alt="">
+        <img src="/assets/drill/flat/reason-report.webp" alt="">
         <h3>IT担当がいなくても読める</h3>
         <p><span class="nb">専門用語の一覧ではなく、</span><span class="nb">何から直すかを1枚で。</span><span class="nb">業者にはそのまま渡せます。</span></p>
       </div>
       <div class="tcard">
-        <img src="/assets/drill/icon16_shield.png" alt="">
+        <img src="/assets/starter/icon14_q2.png" alt="">
         <h3>製品を売らない</h3>
         <p><span class="nb">まず設定と運用の見直しから。</span><span class="nb">直す作業は別にお見積りし、</span><span class="nb">製品は足りない所にだけ。</span></p>
       </div>
@@ -698,59 +706,8 @@
   </div>
 </section>
 
-<!-- ── 担当 ── -->
-<section class="section" id="team">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">担当</div>
-      <h2 class="section-title"><span class="nb">担当するのは、</span><span class="nb">この2人です。</span></h2>
-    </div>
-    <!-- fig:team -->
-    <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
-        <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="髙橋 真吾" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">現場・事業</p>
-          <p class="tm-name">髙橋 真吾</p>
-          <p class="tm-en">Shingo Takahashi</p>
-          <p class="tm-title"><span class="nb">代表取締役 /</span> <span class="nb">AIプランナー</span></p>
-          <p class="tm-tag"><span class="nb">現場を聞き、</span><br><span class="nb">要件にする。</span></p>
-          <ul class="tm-list">
-            <li><span class="nb">現場ヒアリング・</span><span class="nb">業務設計</span></li>
-            <li><span class="nb">導入支援・</span><span class="nb">補助金対応</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="tm-center">
-        <div class="tm-link">
-          <span class="tm-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 8h14l6 6v22H20z"/><path d="M34 8v6h6"/><path d="M30 22h6M30 27h6M30 32h4"/><circle class="w" cx="16" cy="27" r="9.5"/><path class="w" d="M10.5 34.5L7.5 40.5 14.5 37"/><circle class="dot" cx="12.5" cy="27" r="1.3"/><circle class="dot" cx="16" cy="27" r="1.3"/><circle class="dot" cx="19.5" cy="27" r="1.3"/></svg></span>
-          <span class="tm-line" aria-hidden="true"></span>
-          <span class="tm-ic"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="8" cy="8" r="5"/><circle cx="48" cy="8" r="5"/><circle cx="8" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><path d="M11.6 11.6l7.9 7.9M44.4 11.6l-7.9 7.9M11.6 44.4l7.9-7.9M44.4 44.4l-7.9-7.9"/><circle class="w" cx="28" cy="28" r="12"/><text x="28" y="28" class="ai">AI</text></svg></span>
-        </div>
-        <p class="tm-lead">企画と実装が直結</p>
-        <p class="tm-sub">2名が直接担当</p>
-      </div>
-      <div class="tm-person tm-r">
-        <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">技術・実装</p>
-          <p class="tm-name tm-name-en">Matt Chana</p>
-          <p class="tm-en">Matthew John Chana</p>
-          <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AIエンジニア</span></p>
-          <p class="tm-tag"><span class="nb">要件を、</span><br><span class="nb">動くAIにする。</span></p>
-          <ul class="tm-list">
-            <li><span class="nb">米国シリコンバレーの</span><span class="nb">ロボティクス・AI企業で約10年</span></li>
-            <li><span class="nb">AIエージェント /</span> <span class="nb">RAG / MCP</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <p class="fg-statement reveal"><span class="nb">聞いた本人と、</span><span class="nb">作る本人が<em>直接つながる。</em></span><br><small class="fg-team-sub"><span class="nb">伝言による劣化なく、</span><span class="nb">現場の現実をAIへ。</span></small></p>
-  </div>
-</section>
-
 <!-- ── FAQ ── -->
-<section class="section section-alt" id="faq">
+<section class="section" id="faq">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">よくある質問</div>
@@ -771,7 +728,7 @@
 </section>
 
 <!-- ── 申込フォーム ── -->
-<section class="section" id="apply">
+<section class="section section-alt" id="apply">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">ご相談</div>
@@ -893,303 +850,6 @@ if(window.gtag&&src)gtag('event','drill_src',{src:src});
  /* HTML には最初から本当の数字を書く（JS を動かさない検索・AI 要約が 0 と読んでいた）。動くときだけ 0 にしてから数え上げる */
  if('IntersectionObserver' in window&&!reduce){nums.forEach(function(el){el.textContent=(el.getAttribute('data-prefix')||'')+'0'+(el.getAttribute('data-suffix')||'');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.4});nums.forEach(function(n){io.observe(n);});}
  else nums.forEach(run);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：WebGLシェーダーの流れる光の場（Stripe系・暗め上品／reduced-motion・WebGL無しはCSSグラデにフォールバック） */
-(function(){try{
- var cv=document.getElementById('heroShader');if(!cv)return;
- var gl=cv.getContext('webgl',{antialias:false,alpha:false})||cv.getContext('experimental-webgl');if(!gl)return;
- var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
- var fs=[
- 'precision highp float;',
- 'uniform vec2 uRes;uniform float uT;uniform vec2 uM;',
- 'vec2 h(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return -1.0+2.0*fract(sin(p)*43758.5453);}',
- 'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
- 'return mix(mix(dot(h(i),f),dot(h(i+vec2(1,0)),f-vec2(1,0)),u.x),mix(dot(h(i+vec2(0,1)),f-vec2(0,1)),dot(h(i+vec2(1,1)),f-vec2(1,1)),u.x),u.y);}',
- 'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.0;a*=0.5;}return v;}',
- 'void main(){vec2 uv=gl_FragCoord.xy/uRes.xy;vec2 p=uv;p.x*=uRes.x/uRes.y;',
- 'float t=uT*0.045;',
- 'vec2 q=vec2(fbm(p*1.4+t),fbm(p*1.4-t+5.2));',
- 'float f=fbm(p*2.0+q*1.6+uM*0.25);',
- 'vec3 navy=vec3(0.025,0.045,0.095);vec3 cyan=vec3(0.10,0.55,0.75);vec3 violet=vec3(0.33,0.16,0.55);',
- 'vec3 col=navy;',
- 'col=mix(col,violet,smoothstep(0.02,0.72,f)*0.78);',
- 'col=mix(col,cyan,smoothstep(0.3,0.95,f+q.x*0.35)*0.72);',
- 'col+=cyan*0.1*smoothstep(0.55,1.0,fbm(p*4.0+t*2.0));',
- 'col*=1.0-0.28*length(uv-0.5);',
- 'gl_FragColor=vec4(col,1.0);}'].join(' ');
- function sh(t,src){var s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);return s;}
- var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
- if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;gl.useProgram(pr);
- var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
- var lp=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
- var uRes=gl.getUniformLocation(pr,'uRes'),uT=gl.getUniformLocation(pr,'uT'),uM=gl.getUniformLocation(pr,'uM');
- var mx=0,my=0,tmx=0,tmy=0;
- var hero=document.querySelector('.hero');
- if(hero&&!reduce)hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();tmx=(e.clientX-r.left)/r.width-0.5;tmy=(e.clientY-r.top)/r.height-0.5;},{passive:true});
- function size(){var d=Math.min(window.devicePixelRatio||1,1.5);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;gl.viewport(0,0,cv.width,cv.height);}
- window.addEventListener('resize',size);size();
- var start=performance.now();
- function frame(now){var t=(now-start)/1000;mx+=(tmx-mx)*0.05;my+=(tmy-my)*0.05;
-  gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uT,t);gl.uniform2f(uM,mx,my);
-  gl.drawArrays(gl.TRIANGLES,0,3);if(!reduce)requestAnimationFrame(frame);}
- if(reduce){gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uT,8.0);gl.uniform2f(uM,0,0);gl.drawArrays(gl.TRIANGLES,0,3);}
- else requestAnimationFrame(frame);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：ドームの中のオフィスで人が動く。会議の3人は座って話し、ときどき1人ずつ立って用事（扉の出入り・コピー・自席でPC作業）を済ませて戻る。倉庫は作業台と荷物の見回り・箱運び。30fpsに間引き・タブ非表示で停止・reduced-motion対応
-   歩き方：道は床の2つの向き（右下へ約29°・左下へ約158°）だけでできている（画像から床と家具を読み取り、曲がる回数が少ない道を探して作った）。向きは区間に入るときに1回だけ決め、足の動きは進んだ距離に合わせる。 */
-(function(){try{
- var cv=document.getElementById('heroPeople');if(!cv)return;var ctx=cv.getContext('2d');if(!ctx)return;
- if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- var img=cv.parentNode.querySelector('img'),IW=954,IH=800,dpr=Math.min(window.devicePixelRatio||1,2),W,H,gx,gy,gs;
- function size(){var r=cv.getBoundingClientRect();W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
-  var ir=img?img.getBoundingClientRect():r,s=Math.min(ir.width/IW,ir.height/IH);
-  gx=(ir.left-r.left+(ir.width-IW*s)/2)*dpr;gy=(ir.top-r.top+(ir.height-IH*s)/2)*dpr;gs=s*dpr;}
- window.addEventListener('resize',size);if(img&&!img.complete)img.addEventListener('load',size);size();
- function X(x){return gx+x*gs;}function Y(y){return gy+y*gs;}
- function R(a,b){return a+Math.random()*(b-a);}
- function poly(p){ctx.beginPath();ctx.moveTo(X(p[0][0]),Y(p[0][1]));for(var i=1;i<p.length;i++)ctx.lineTo(X(p[i][0]),Y(p[i][1]));ctx.closePath();}
- /* 座標はすべて dome-office.webp(954x800)上の実測。部屋ごとの切り抜き（手前の壁の上端より下は壁に隠れる） */
- var OFFICE=[[150,250],[427,250],[427,400],[578,479],[390,554],[330,516],[200,443],[150,418]];
- var WARE=[[427,250],[800,250],[800,495],[750,500],[583,557],[578,479],[427,400]];
- /* 小物：扉（奥の白い扉）・コピー機の読み取り面 */
- var DOOR={p:[[337,387],[354,396],[354,439],[337,430]],o:0,goal:0};
- var COPY={p:[[487.5,462.5],[498.75,458.75],[509.4,464.4],[498.75,469.4]],f:0};
- /* 人物の絵：/assets/drill/people.webp（1コマ64x140・足元 y=133・腰 y=86）。行＝人ごとに [歩く手前向き, 歩く奥向き, その他]、最後の2行は箱を運ぶ人
-    その他の列：0 立つ手前 1 立つ奥 2 座る手前 3 座る奥 4 座って話す 5 手を伸ばす。手前向き＝右下、奥向き＝左上へ向く（反対は左右反転） */
- var SPR=new Image();SPR.src='/assets/drill/people.webp';
- var FW=64,FH=140,U=60/124; /* 絵の人物は身長およそ60px（画像座標） */
- var SPEED=1.0,STRIDE=30,TURN=3; /* 1コマ(1/30秒)に進む距離・8コマで進む距離・角で止まるコマ数 */
- /* 道（床の向きだけでできた折れ線）。座る人は「立つ位置」から行き先まで */
- var RT={
-  M1:[[377,478],[399.2,469],[359.9,447.2]],
-  M2:[[456,506],[445.5,500.2],[470.5,490.1],[465.3,487.1]],
-  M3:[[349,522],[296.5,492.9],[313.2,486.1]],
-  W1a:[[605,486],[597.1,481.6],[655.5,458],[650.3,455.1]],
-  W1b:[[650.3,455.1],[660.5,461.8],[588.2,491.1],[640.7,520.2]],
-  W1c:[[640.7,520.2],[590.1,492.4],[605,486]],
-  W2go:[[643.1,440.6],[615.2,452.2],[659.8,477],[593.1,504],[619.3,518.5],[599.9,526.4]],
-  W2back:[[599.9,526.4],[627.8,514.8],[583.2,490],[658.3,459.6],[632,445.1],[643.1,440.6]]};
- function rev(a){return a.slice().reverse();}
- function P(o){o.ph=0;o.a=1;o.walk=0;o.back=false;o.flip=false;o.pause=0;o.seg=-1;o.face=-1;return o;}
- var M1=P({ci:0,seat:[371,489],sit:[2,0],stand:RT.M1[0],go:RT.M1,act:'door',room:OFFICE});
- var M2=P({ci:1,seat:[441,509],sit:[2,1],stand:RT.M2[0],go:RT.M2,act:'copy',room:OFFICE});
- var M3=P({ci:2,seat:[361,514],sit:[3,1],stand:RT.M3[0],go:RT.M3,act:'desk',desk:[307,480],room:OFFICE});
- var W1=P({ci:3,room:WARE,plan:[[RT.W1a,60],[RT.W1b,45],[RT.W1c,50]],k:0});
- var W2=P({ci:4,room:WARE,plan:[[RT.W2go,30,'drop'],[RT.W2back,30,'pick']],k:0,box:1});
- [M1,M2,M3].forEach(function(o){o.mode='sit';o.x=o.seat[0];o.y=o.seat[1];});
- [W1,W2].forEach(function(o){o.mode='route';start(o,o.plan[0][0]);});
- var DBG=/[?&]pdebug/.test(location.search),MEET=[M1,M2,M3],ALL=[M1,M2,M3,W1,W2],away=null,nextTrip=DBG?20:R(150,260);
- if(DBG)window.__ppl=ALL;
- function start(o,route){o.route=route;o.seg=0;o.face=-1;o.pause=0;o.x=route[0][0];o.y=route[0][1];}
- /* 折れ線を進む。返り値 true＝終点に着いた。余った移動量は次の区間へ持ち越す。角では少し止まる */
- function follow(o){
-  if(o.pause>0){o.pause--;o.walk=0;return false;}
-  var left=SPEED;
-  while(left>0){
-   var t=o.route[o.seg+1];if(!t){o.walk=0;return true;}
-   var dx=t[0]-o.x,dy=t[1]-o.y,d=Math.hypot(dx,dy);
-   if(o.face!==o.seg){/* 区間に入るときに1回だけ向きを決める */
-    o.face=o.seg;if(d>0.01){o.back=dy<0;o.flip=o.back?dx>0:dx<0;}}
-   var st=Math.min(d,left);
-   if(d>0){o.x+=dx/d*st;o.y+=dy/d*st;}
-   o.ph=(o.ph+6.2832*st/STRIDE)%6.2832;left-=st;o.walk=1;
-   if(st>=d){o.x=t[0];o.y=t[1];o.seg++;
-    if(o.seg>=o.route.length-1){o.walk=0;return true;}
-    o.pause=TURN;return false;}}
-  return false;}
- /* 会議の人：sit → up（立つ位置へ）→ go → act → back → down → sit */
- function stepMeet(o){
-  if(o.mode==='sit')return;
-  if(o.mode==='up'){if(--o.w<=0){o.mode='go';start(o,o.go);}return;}
-  if(o.mode==='go'){if(follow(o)){o.mode='act';o.w=0;}return;}
-  if(o.mode==='act'){o.w++;
-   if(o.act==='door'){o.back=true;o.flip=false;if(o.w===1)DOOR.goal=1;if(o.w>14&&o.w<26)o.a=Math.max(0,o.a-0.09);if(o.w===26)DOOR.goal=0;if(o.w===120)DOOR.goal=1;if(o.w>132&&o.w<146)o.a=Math.min(1,o.a+0.09);if(o.w===150)DOOR.goal=0;if(o.w>=158){o.a=1;o.mode='back';start(o,rev(o.go));}}
-   else if(o.act==='copy'){o.back=true;o.flip=true;if(o.w%40===10)COPY.f=1;if(o.w>=130){o.mode='back';start(o,rev(o.go));}}
-   else if(o.act==='desk'){if(o.w>=210){o.mode='back';start(o,rev(o.go));}}
-   return;}
-  if(o.mode==='back'){if(follow(o)){o.mode='down';o.w=8;}return;}
-  if(o.mode==='down'){if(--o.w<=0){o.mode='sit';o.x=o.seat[0];o.y=o.seat[1];away=null;}}}
- /* 倉庫の人：plan の道を順に歩き、着いたら決めた時間だけ作業（箱を置く・取る） */
- function stepWorker(o){
-  if(o.mode==='work'){o.walk=0;if(--o.w===8){var ev=o.plan[o.k][2];if(ev==='drop')o.box=0;if(ev==='pick')o.box=1;}
-   if(o.w<=0){o.k=(o.k+1)%o.plan.length;o.mode='route';start(o,o.plan[o.k][0]);}return;}
-  if(follow(o)){o.mode='work';o.w=o.plan[o.k][1];}}
- /* 1コマ描く。row/col＝スプライトの位置、(x,y)＝足元（座りは腰）の画像座標、ay＝コマ内の基準の高さ、flip＝左右反転 */
- function spr(row,col,x,y,ay,flip){if(!SPR.complete||!SPR.naturalWidth)return;var k=gs*U;
-  ctx.save();ctx.translate(X(x),Y(y));if(flip)ctx.scale(-1,1);
-  ctx.drawImage(SPR,col*FW,row*FH,FW,FH,-32*k,-ay*k,FW*k,FH*k);ctx.restore();}
- function chairBack(cb){ctx.fillStyle='#181a1e';ctx.strokeStyle='#5c626c';ctx.lineWidth=1*gs;ctx.beginPath();
-  if(ctx.roundRect)ctx.roundRect(X(cb[0]),Y(cb[1]),cb[2]*gs,cb[3]*gs,4*gs);else ctx.rect(X(cb[0]),Y(cb[1]),cb[2]*gs,cb[3]*gs);ctx.fill();ctx.stroke();}
- function drawPerson(o){if(o.a<=0)return;ctx.save();poly(o.room);ctx.clip();ctx.globalAlpha=o.a;
-  var base=o.ci*3;
-  if(o.seat&&o.mode==='sit'){/* 座る：sit=[列, 反転] */
-   var col=o.sit[0];if(o===speaker&&col===2&&talkT%24<12)col=4;
-   spr(base+2,col,o.seat[0],o.seat[1]-1,86,o.sit[1]);if(o===M3)chairBack([353.5,497.5,11,17]);}
-  else if(o.mode==='act'&&o.act==='desk'){spr(base+2,3,o.desk[0],o.desk[1]-1,86,0);chairBack([294,461,14,16]);}
-  else{
-   /* 地面の影 */
-   ctx.fillStyle='rgba(20,28,40,.18)';ctx.beginPath();ctx.ellipse(X(o.x),Y(o.y),9*gs,3.4*gs,0,0,6.2832);ctx.fill();
-   var fr=Math.floor(o.ph/6.2832*8)%8;
-   if(o.box)spr(o.back?16:15,o.walk?fr:0,o.x,o.y,133,o.flip);
-   else if(o.walk)spr(base+(o.back?1:0),fr,o.x,o.y,133,o.flip);
-   else spr(base+2,o.back?1:0,o.x,o.y,133,o.flip);}
-  ctx.restore();}
- function drawProps(){
-  if(DOOR.o>0.02){var d=DOOR.p,f=DOOR.o;ctx.fillStyle='rgba(18,26,40,'+(0.9*f)+')';poly([d[0],[d[0][0]+(d[1][0]-d[0][0])*f,d[0][1]+(d[1][1]-d[0][1])*f],[d[3][0]+(d[2][0]-d[3][0])*f,d[3][1]+(d[2][1]-d[3][1])*f],d[3]]);ctx.fill();
-   ctx.fillStyle='#f4f6f8';ctx.strokeStyle='#2a2f38';ctx.lineWidth=1*gs;poly([[d[0][0],d[0][1]],[d[0][0]-9*f,d[0][1]+6*f],[d[3][0]-9*f,d[3][1]+6*f],[d[3][0],d[3][1]]]);ctx.fill();ctx.stroke();}
-  if(COPY.f>0.02){ctx.fillStyle='rgba(170,240,255,'+(0.85*COPY.f)+')';poly(COPY.p);ctx.fill();COPY.f*=0.86;}}
- /* 会議の吹き出し：座っている2人以上のうち1人が話す */
- var speaker=null,talkT=0;
- function drawTalk(){var seated=MEET.filter(function(o){return o.mode==='sit';});
-  if(seated.length<2){speaker=null;return;}
-  if(!speaker||speaker.mode!=='sit'||talkT>100){talkT=0;var c=seated.filter(function(o){return o!==speaker;});speaker=c[(Math.random()*c.length)|0];}
-  talkT++;var a=Math.min(1,talkT/10,(100-talkT)/10);if(a<=0)return;
-  var x=X(speaker.seat[0]+(speaker.sit[1]?-6:6)),y=Y(speaker.seat[1]-34),k=gs;ctx.globalAlpha=a;
-  ctx.fillStyle='#ffffff';ctx.strokeStyle='#1b2430';ctx.lineWidth=1.2*k;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-12*k,y-14*k,24*k,13*k,6*k);else ctx.rect(x-12*k,y-14*k,24*k,13*k);ctx.fill();ctx.stroke();
-  ctx.beginPath();ctx.moveTo(x-2*k,y-1.5*k);ctx.lineTo(x+1*k,y+4*k);ctx.lineTo(x+3*k,y-1.5*k);ctx.fill();
-  ctx.fillStyle='#1b2430';for(var d=0;d<3;d++){ctx.globalAlpha=a*(((talkT/8|0)%3)>=d?1:0.3);ctx.beginPath();ctx.arc(x+(d-1)*5*k,y-7.5*k,1.5*k,0,6.2832);ctx.fill();}
-  ctx.globalAlpha=1;}
- function zy(o){return o.mode==='sit'?o.seat[1]:(o.mode==='act'&&o.act==='desk')?o.desk[1]:o.y;}
- var last=0;
- function loop(ti){if(ti-last>=32){last=ti;
-   /* 一度に席を立つのは1人だけ */
-   if(!away&&--nextTrip<=0){away=MEET[(Math.random()*3)|0];away.mode='up';away.w=10;away.x=away.stand[0];away.y=away.stand[1];away.back=false;away.walk=0;nextTrip=DBG?30:R(240,420);}
-   MEET.forEach(stepMeet);stepWorker(W1);stepWorker(W2);
-   DOOR.o+=(DOOR.goal-DOOR.o)*0.18;
-   ctx.clearRect(0,0,W,H);drawProps();
-   ALL.slice().sort(function(a,b){return zy(a)-zy(b);}).forEach(drawPerson);drawTalk();}
-  if(!document.hidden)requestAnimationFrame(loop);else setTimeout(function(){requestAnimationFrame(loop);},400);}
- requestAnimationFrame(loop);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：赤い攻撃→ドームのシールドがハニカムで弾く。攻撃は7種（一斉射撃・掃射・散弾・誘導弾・重い一撃・レーザー・全方位）をランダムに切替、角度も着弾点もランダム。画像のドーム楕円に合わせる・上限あり・タブ非表示で停止・reduced-motion対応 */
-(function(){try{
- var cv=document.getElementById('heroFx');if(!cv)return;var ctx=cv.getContext('2d');if(!ctx)return;
- var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
- var img=cv.parentNode.querySelector('img');
- /* dome-shield.webp(954x800・ドームが左右中央に来るよう切り抜き済み)上のドーム外殻＝中心(477,500)・半径(455,435) */
- var IW=954,IH=800,DX=477,DY=500,DRX=455,DRY=435;
- var dpr=Math.min(window.devicePixelRatio||1,2),W,H,cx,cy,rx,ry,u;
- function size(){var r=cv.getBoundingClientRect();W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
-  var ir=img?img.getBoundingClientRect():r,s=Math.min(ir.width/IW,ir.height/IH);
-  var ox=ir.left-r.left+(ir.width-IW*s)/2,oy=ir.top-r.top+(ir.height-IH*s)/2;
-  cx=(ox+DX*s)*dpr;cy=(oy+DY*s)*dpr;rx=DRX*s*dpr;ry=DRY*s*dpr;u=s*dpr*1.6;}
- window.addEventListener('resize',size);if(img&&!img.complete)img.addEventListener('load',size);size();
- var shots=[],hits=[],sparks=[],lasers=[],pulses=[],glow=0,nextAt=0,lastP=-1;
- function R(a,b){return a+Math.random()*(b-a);}
- function later(ms,f){setTimeout(f,ms);}
- function pt(t){var nx=Math.cos(t)/rx,ny=Math.sin(t)/ry,nl=Math.hypot(nx,ny);return {x:cx+rx*Math.cos(t),y:cy+ry*Math.sin(t),nx:nx/nl,ny:ny/nl};}
- function nrm(t){var p=pt(t);return Math.atan2(p.ny,p.nx);}
- /* 着弾点：ドーム上半分のどこでも／飛来角：外向きの法線から最大±60度 */
- function rndT(){return R(-2.95,-0.2);}
- function rndA(t){return nrm(t)+R(-1.05,1.05);}
- /* kind: b=ビーム p=散弾 h=重い一撃 m=誘導弾。sz=着弾の大きさ */
- function fire(t,a,d,sp,kind,sz){if(shots.length>=60)return;var p=pt(t);
-  var s={x:p.x+Math.cos(a)*d,y:p.y+Math.sin(a)*d,vx:-Math.cos(a),vy:-Math.sin(a),sp:sp,t:t,px:p.x,py:p.y,nx:p.nx,ny:p.ny,st:1,life:1,k:kind||'b',sz:sz||1,tr:[],age:0};
-  if(s.k==='m'){var h=a+Math.PI+(Math.random()<0.5?1:-1)*R(0.8,1.3);s.vx=Math.cos(h);s.vy=Math.sin(h);}
-  shots.push(s);}
- /* 1) 一斉射撃：同じ方向から n 本が同じ所へ */
- function volley(t,n,big){var base=rndA(t);
-  for(var k=0;k<n;k++)(function(k){later(k*(big?35:45),function(){fire(t+R(-0.025,0.025),base+R(-0.11,0.11),R(260,350)*u,(big?28:R(20,27))*u,'b',big?1.5:1);});})(k);}
- /* 2) 掃射：連射しながら着弾点が殻の上を流れる */
- function sweep(){var a=rndT(),b=Math.max(-2.95,Math.min(-0.2,a+R(0.8,1.6)*(Math.random()<0.5?1:-1))),n=14,off=R(-0.9,0.9);
-  for(var k=0;k<n;k++)(function(k){later(k*42,function(){var t=a+(b-a)*k/(n-1);fire(t,nrm(t)+off+R(-0.08,0.08),R(280,330)*u,24*u,'b',0.8);});})(k);}
- /* 3) 散弾：あちこちから短い弾が一度に */
- function scatter(){for(var k=0;k<12;k++)later(R(0,160),function(){var t=rndT();fire(t,rndA(t),R(150,230)*u,R(17,23)*u,'p',0.6);});}
- /* 4) 誘導弾：曲がりながら飛んで、煙の尾を引いて当たる */
- function missiles(){for(var k=0;k<3;k++)later(k*170,function(){var t=rndT();fire(t,rndA(t),R(300,380)*u,13*u,'m',1.1);});}
- /* 5) 重い一撃：太い一発→ドーム全体に衝撃波 */
- function heavy(){var t=rndT();fire(t,rndA(t),R(380,440)*u,19*u,'h',2.2);}
- /* 6) レーザー：殻をなぞりながら焼く */
- function laser(){var a=rndT(),b=Math.max(-2.95,Math.min(-0.2,a+R(0.6,1.3)*(Math.random()<0.5?1:-1))),m=(a+b)/2,mid=pt(m),ang=rndA(m),d=Math.max(W,H)*0.9;
-  lasers.push({sx:mid.x+Math.cos(ang)*d,sy:mid.y+Math.sin(ang)*d,a:a,b:b,t0:performance.now(),dur:1100,f:0});}
- /* 7) 全方位：3方向から同時に一斉射撃 */
- function wave(){for(var q=0;q<3;q++)volley(rndT(),4,0);}
- function volleyAuto(){volley(rndT(),3+((Math.random()*3)|0),0);}
- /* [関数, 次の攻撃までのms, 出やすさ]。同じ種類は続けない */
- var PAT=[[volleyAuto,700,26],[sweep,1050,16],[scatter,850,14],[missiles,1350,14],[heavy,1250,10],[laser,1400,10],[wave,1300,10]];
- function pick(){var tot=0,i;for(i=0;i<PAT.length;i++)if(i!==lastP)tot+=PAT[i][2];var r=Math.random()*tot;
-  for(i=0;i<PAT.length;i++){if(i===lastP)continue;r-=PAT[i][2];if(r<=0)break;}
-  if(i>=PAT.length)i=lastP===0?1:0;lastP=i;PAT[i][0]();return PAT[i][1];}
- cv.parentNode.style.cursor='crosshair';
- /* クリック（タップ）した所を狙って一斉射撃→ドームの殻で弾く。ドームの下半分は上半分へ折り返す */
- cv.parentNode.addEventListener('pointerdown',function(e){var r=cv.getBoundingClientRect();
-  var x=(e.clientX-r.left)*dpr,y=(e.clientY-r.top)*dpr,t=Math.atan2((y-cy)/ry,(x-cx)/rx);
-  if(t>0)t=-t;t=Math.max(-3.0,Math.min(-0.14,t));volley(t,6,1);});
- function hex(x,y,s){ctx.beginPath();for(var i=0;i<6;i++){var a=i*1.0472+0.5236;ctx[i?'lineTo':'moveTo'](x+Math.cos(a)*s,y+Math.sin(a)*s);}ctx.closePath();}
- function hitAt(t,sz){if(hits.length>=40)return;var p=pt(t);glow=Math.min(1,glow+0.15*sz);
-  hits.push({t:t,x:p.x,y:p.y,life:1,sz:sz});
-  for(var k=0;k<Math.round(4*sz)&&sparks.length<180;k++){var a=Math.atan2(p.ny,p.nx)+R(-1.2,1.2),v=R(2,6)*u*Math.min(sz,1.6);
-   sparks.push({x:p.x,y:p.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:1});}
-  if(sz>=2){glow=1;pulses.push({life:1});}}
- function beam(x,y,dx,dy,L,al,w,core){var ex=x-dx*L,ey=y-dy*L;
-  var g=ctx.createLinearGradient(x,y,ex,ey);g.addColorStop(0,'rgba(255,60,80,'+(0.55*al)+')');g.addColorStop(1,'rgba(255,40,70,0)');
-  ctx.strokeStyle=g;ctx.lineWidth=w*dpr;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ex,ey);ctx.stroke();
-  var g2=ctx.createLinearGradient(x,y,ex,ey);g2.addColorStop(0,'rgba(255,235,240,'+al+')');g2.addColorStop(0.35,'rgba(255,90,110,'+(0.8*al)+')');g2.addColorStop(1,'rgba(255,60,80,0)');
-  ctx.strokeStyle=g2;ctx.lineWidth=core*dpr;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ex,ey);ctx.stroke();}
- function drawShot(s){
-  if(s.k==='m'){/* 誘導弾：煙の尾＋弾頭 */
-   for(var j=2;j<s.tr.length;j+=2){var fa=j/s.tr.length;ctx.strokeStyle='rgba(255,'+((90+fa*80)|0)+',90,'+(fa*0.7)+')';ctx.lineWidth=(1+fa*4)*dpr;ctx.beginPath();ctx.moveTo(s.tr[j-2],s.tr[j-1]);ctx.lineTo(s.tr[j],s.tr[j+1]);ctx.stroke();}
-   if(s.st===1){ctx.fillStyle='rgba(255,230,235,1)';ctx.beginPath();ctx.arc(s.x,s.y,3*dpr,0,6.2832);ctx.fill();}
-   return;}
-  var L=(s.st===1?(s.k==='h'?260:s.k==='p'?70:170):40)*u;
-  beam(s.x,s.y,s.vx,s.vy,L,Math.max(0,s.life),s.k==='h'?18:s.k==='p'?4:6,s.k==='h'?5:s.k==='p'?1.4:1.8);}
- function stepShot(s){
-  if(s.k==='m'){
-   if(s.st===1){s.age++;var dx=s.px-s.x,dy=s.py-s.y,dl=Math.hypot(dx,dy)||1,kk=Math.min(0.35,0.05+s.age*0.006);
-    s.vx=s.vx*(1-kk)+dx/dl*kk;s.vy=s.vy*(1-kk)+dy/dl*kk;var vl=Math.hypot(s.vx,s.vy)||1;s.vx/=vl;s.vy/=vl;
-    s.tr.push(s.x,s.y);if(s.tr.length>36)s.tr.splice(0,2);
-    if(dl<=s.sp*1.2){s.x=s.px;s.y=s.py;s.st=0;hitAt(s.t,s.sz);}else{s.x+=s.vx*s.sp;s.y+=s.vy*s.sp;}}
-   else s.tr.splice(0,4);
-   return s.st===1||s.tr.length>2;}
-  s.x+=s.vx*s.sp;s.y+=s.vy*s.sp;
-  if(s.st===1&&(s.x-s.px)*s.nx+(s.y-s.py)*s.ny<=0){
-   s.x=s.px;s.y=s.py;var dt=s.vx*s.nx+s.vy*s.ny;s.vx-=2*dt*s.nx;s.vy-=2*dt*s.ny;s.st=0;s.sp*=0.5;hitAt(s.t,s.sz);}
-  if(s.st===0)s.life-=0.05;
-  return s.life>0&&s.x>-200&&s.x<W+200&&s.y>-200&&s.y<H+200;}
- function loop(ti){ctx.clearRect(0,0,W,H);
-  if(ti>=nextAt)nextAt=ti+pick();
-  ctx.globalCompositeOperation='lighter';ctx.lineCap='round';ctx.lineJoin='round';
-  /* ドーム全体のうっすら発光（着弾が重なるほど強く） */
-  if(glow>0.01){ctx.strokeStyle='rgba(54,230,255,'+(glow*0.35)+')';ctx.lineWidth=(3+glow*6)*dpr;ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,Math.PI,6.2832);ctx.stroke();glow*=0.95;}
-  /* 重い一撃の衝撃波：殻全体が外へ広がる */
-  for(var q=pulses.length-1;q>=0;q--){var pu=pulses[q];pu.life-=0.03;if(pu.life<=0){pulses.splice(q,1);continue;}var e0=1-pu.life;
-   ctx.strokeStyle='rgba(120,240,255,'+(pu.life*0.8)+')';ctx.lineWidth=(2+5*pu.life)*dpr;ctx.beginPath();ctx.ellipse(cx,cy,rx*(1+e0*0.14),ry*(1+e0*0.14),0,Math.PI,6.2832);ctx.stroke();}
-  /* レーザー */
-  var now=performance.now();
-  for(var z=lasers.length-1;z>=0;z--){var lz=lasers[z],pr=(now-lz.t0)/lz.dur;if(pr>=1){lasers.splice(z,1);continue;}
-   var tt=lz.a+(lz.b-lz.a)*pr,pp=pt(tt),fa=Math.min(1,Math.min(pr,1-pr)*6);
-   ctx.strokeStyle='rgba(255,50,75,'+(0.35*fa)+')';ctx.lineWidth=14*dpr;ctx.beginPath();ctx.moveTo(lz.sx,lz.sy);ctx.lineTo(pp.x,pp.y);ctx.stroke();
-   ctx.strokeStyle='rgba(255,220,228,'+fa+')';ctx.lineWidth=2.6*dpr;ctx.beginPath();ctx.moveTo(lz.sx,lz.sy);ctx.lineTo(pp.x,pp.y);ctx.stroke();
-   if((lz.f++)%4===0)hitAt(tt,0.55);
-   else if(sparks.length<180){var sa=Math.atan2(pp.ny,pp.nx)+R(-1.3,1.3),sv=R(2,5)*u;sparks.push({x:pp.x,y:pp.y,vx:Math.cos(sa)*sv,vy:Math.sin(sa)*sv,life:1});}}
-  for(var i=shots.length-1;i>=0;i--){if(!stepShot(shots[i])){shots.splice(i,1);continue;}drawShot(shots[i]);}
-  for(var j=hits.length-1;j>=0;j--){var p=hits[j];p.life-=p.sz>=2?0.014:p.sz<0.7?0.045:0.024;if(p.life<=0){hits.splice(j,1);continue;}
-   var k=p.life,e=1-k,sz=p.sz,sp=0.07*sz+e*0.45*Math.min(sz,1.8);
-   /* 殻に沿って広がる波紋 */
-   ctx.strokeStyle='rgba(54,230,255,'+(k*0.85)+')';ctx.lineWidth=(1.5+4*Math.min(sz,1.8)*k)*dpr;
-   ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,p.t-sp,p.t+sp);ctx.stroke();
-   /* ハニカムのシールド片（中心＋周り6枚。小さい着弾は1枚） */
-   var hs=9*u*Math.min(sz,1.8),cnt=sz<0.7?1:7;
-   for(var m=0;m<cnt;m++){var ox=0,oy=0;if(m){var a=(m-1)*1.0472;ox=Math.cos(a)*hs*1.75;oy=Math.sin(a)*hs*1.75;}
-    var al=k*(m?0.55:0.95);
-    ctx.fillStyle='rgba(54,230,255,'+(al*0.18)+')';ctx.strokeStyle='rgba(150,245,255,'+al+')';ctx.lineWidth=1.3*dpr;
-    hex(p.x+ox,p.y+oy*0.85,hs*(0.9+e*0.15));ctx.fill();ctx.stroke();}
-   /* 中心の白い閃光 */
-   var fr=30*u*Math.min(sz,2.2),rg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,fr);rg.addColorStop(0,'rgba(255,255,255,'+(k*k)+')');rg.addColorStop(0.3,'rgba(120,240,255,'+(0.5*k*k)+')');rg.addColorStop(1,'rgba(54,230,255,0)');
-   ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p.x,p.y,fr,0,6.2832);ctx.fill();}
-  for(var n=sparks.length-1;n>=0;n--){var f=sparks[n];f.x+=f.vx;f.y+=f.vy;f.vx*=0.94;f.vy=f.vy*0.94+0.06*u;f.life-=0.035;
-   if(f.life<=0){sparks.splice(n,1);continue;}
-   ctx.strokeStyle='rgba(180,250,255,'+f.life+')';ctx.lineWidth=1.4*dpr;ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.lineTo(f.x-f.vx*2.2,f.y-f.vy*2.2);ctx.stroke();}
-  ctx.globalCompositeOperation='source-over';
-  if(!document.hidden)requestAnimationFrame(loop);else setTimeout(function(){requestAnimationFrame(loop);},400);}
- requestAnimationFrame(loop);
 }catch(e){}})();
 </script>
 </body>
