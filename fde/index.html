@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/ngraph-zen.css?v=17">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=18">
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <script type="application/ld+json">
 {
@@ -307,15 +307,6 @@
 /* スマホではSTEPがアイコン｜文字の2列になる（sp.css 640px）。リンクは文字の列の下に置く */
 @media(max-width:640px){.fg-fde .fde-steps li .fde-step-link{grid-column:2;justify-self:start;margin-top:4px}}
 /* 進め方と費用（2026-10-18 土台＋Projectから置き換え） */
-.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto;list-style:none;padding:0}
-.steps4 .step{text-align:center;position:relative}
-.steps4 .step img{width:110px;height:100px;object-fit:contain;margin:0 auto 12px;display:block}
-.steps4 .step .n{position:absolute;left:calc(50% - 78px);top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#ffffff;font-family:var(--sans);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.steps4 .step h3{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.6;margin-bottom:6px}
-.steps4 .step p{font-size:.875rem;color:var(--text-2);line-height:1.8}
-.steps4 .step .free{display:inline-block;font-size:.8125rem;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 10px;margin-top:8px}
-@media(max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.steps4{gap:14px 10px}.steps4 .step img{width:72px;height:66px;margin-bottom:6px}.steps4 .step .n{left:calc(50% - 52px);width:24px;height:24px}.steps4 .step h3{font-size:1rem}.steps4 .step p{font-size:.8125rem}}
 .flow4-note{text-align:center;font-size:.875rem;color:var(--text-2);margin-top:26px}.flow4-note2{margin-top:4px}
 /* 型として戻す（2026-10-18） */
 .loop{max-width:980px;margin:0 auto}
@@ -385,6 +376,12 @@
 .flw-box.in .flw .seam-i{opacity:1}
 @media(prefers-reduced-motion:reduce){.flw .seam-i{opacity:1;transition:none}}
 .flw .st-in .st{fill:var(--accent);stroke:var(--accent)}.flw .st-in .sn{fill:#fff;font-weight:700}
+/* 継ぎ目のアイコンをふわっと浮かせる（本人 2026-11-07「ここもアイコンぷかぷか動かそう」） */
+@keyframes seamfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.flw-box.in .flw .seam-g{animation:seamfloat 2.6s ease-in-out 1.8s infinite}
+.flw-box.in .flw .seam-g:nth-of-type(2n){animation-delay:2.25s}
+.flw-box.in .flw .seam-g:nth-of-type(3n){animation-delay:2.7s}
+@media(prefers-reduced-motion:reduce){.flw-box.in .flw .seam-g{animation:none}}
 </style>
 <link rel="stylesheet" href="/css/sp.css?v=7">
 </head>
@@ -511,61 +508,6 @@
   </div>
 </section>
 
-<!-- ── 安心 ── -->
-<section class="section section-alt" id="trust">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Promise</div>
-      <h2 class="section-title"><span class="nb">現場を要件にする人と、</span><span class="nb">要件をAIにする人。</span></h2>
-    </div>
-    <!-- fig:team -->
-    <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
-        <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="髙橋 真吾" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">現場・事業</p>
-          <p class="tm-name">髙橋 真吾</p>
-          <p class="tm-en">Shingo Takahashi</p>
-          <p class="tm-title"><span class="nb">代表取締役 /</span> <span class="nb">AIプランナー</span></p>
-          <p class="tm-tag"><span class="nb">現場を聞き、</span><br><span class="nb">要件にする。</span></p>
-          <ul class="tm-list">
-            <li><span class="nb">現場ヒアリング・</span><span class="nb">業務設計</span></li>
-            <li><span class="nb">導入支援・</span><span class="nb">補助金対応</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="tm-center">
-        <div class="tm-link">
-          <span class="tm-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 8h14l6 6v22H20z"/><path d="M34 8v6h6"/><path d="M30 22h6M30 27h6M30 32h4"/><circle class="w" cx="16" cy="27" r="9.5"/><path class="w" d="M10.5 34.5L7.5 40.5 14.5 37"/><circle class="dot" cx="12.5" cy="27" r="1.3"/><circle class="dot" cx="16" cy="27" r="1.3"/><circle class="dot" cx="19.5" cy="27" r="1.3"/></svg></span>
-          <span class="tm-line" aria-hidden="true"></span>
-          <span class="tm-ic"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="8" cy="8" r="5"/><circle cx="48" cy="8" r="5"/><circle cx="8" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><path d="M11.6 11.6l7.9 7.9M44.4 11.6l-7.9 7.9M11.6 44.4l7.9-7.9M44.4 44.4l-7.9-7.9"/><circle class="w" cx="28" cy="28" r="12"/><text x="28" y="28" class="ai">AI</text></svg></span>
-        </div>
-        <p class="tm-lead">企画と実装が直結</p>
-        <p class="tm-sub">2名が直接担当</p>
-      </div>
-      <div class="tm-person tm-r">
-        <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">技術・実装</p>
-          <p class="tm-name tm-name-en">Matt Chana</p>
-          <p class="tm-en">Matthew John Chana</p>
-          <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AIエンジニア</span></p>
-          <p class="tm-tag"><span class="nb">要件を、</span><br><span class="nb">動くAIにする。</span></p>
-          <ul class="tm-list">
-            <li><span class="nb">米国シリコンバレーの</span><span class="nb">ロボティクス・AI企業で約10年</span></li>
-            <li><span class="nb">AIエージェント /</span> <span class="nb">RAG / MCP</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <p class="fg-statement reveal"><span class="nb">聞いた本人と、</span><span class="nb">作る本人が<em>直接つながる。</em></span><br><small class="fg-team-sub"><span class="nb">伝言による劣化なく、</span><span class="nb">現場の現実をAIへ。</span></small></p>
-    <div class="fg-local reveal" style="max-width:720px;margin:48px auto 0;padding:28px 32px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:rgba(255,255,255,.6);text-align:center">
-      <p style="font-size:1.125rem;font-weight:700;margin:0;line-height:1.8"><span class="nb">本社は福井市。</span><span class="nb">福井・石川・富山は、</span><span class="nb">現場に伺います。</span><span class="nb">それ以外の地域は、</span><span class="nb">オンラインで対応します。</span></p>
-    </div>
-    <!-- /fig -->
-  </div>
-</section>
-
 <section class="section section-alt" id="process">
   <div class="container">
     <div class="section-head reveal">
@@ -579,6 +521,9 @@
       <li class="step"><span class="n">04</span><img src="/assets/brain/ill/fde-p4.webp" alt=""><h3>継続支援（任意）</h3><p><span class="nb">保守・更新・</span><span class="nb">改善・運用代行</span></p></li>
     </ol>
     <p class="flow4-note reveal"><span class="nb">PoCの完了から1か月以内に本番へ進めば、</span><span class="nb">PoCの費用は本番に全額充当します。</span></p><p class="flow4-note flow4-note2 reveal"><span class="nb">期間は数週間〜数か月。</span><span class="nb">費用は、対象業務と接続範囲で決まります。</span></p>
+  <div class="fg-local reveal" style="max-width:720px;margin:36px auto 0;padding:28px 32px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:rgba(255,255,255,.6);text-align:center">
+      <p style="font-size:1.125rem;font-weight:700;margin:0;line-height:1.8"><span class="nb">本社は福井市。</span><span class="nb">福井・石川・富山は、</span><span class="nb">現場に伺います。</span><span class="nb">それ以外の地域は、</span><span class="nb">オンラインで対応します。</span></p>
+    </div>
   </div>
 </section>
 
