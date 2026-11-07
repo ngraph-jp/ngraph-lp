@@ -195,7 +195,7 @@
 <p>Anthropicは、記憶は予測だと書いています。ルールを書くのは、この型がまた要るという予測。検証済みの事実を書くのは、次のセッションが二重確認なしに頼るという予測です。</p>
 <p>予測が外れた例は、ポケモンの山、お月見山の入口にありました。落ちると元のルートへ戻る段差があります。Claudeは、入口の建物が山の東側にあると誤って書き、ノートを「Mt Moon DONE」にしました。数手後に段差から落ちても、「西に行き過ぎた」と結論し、正しい側にいたと思い込みます。</p>
 <p>直さなかった実行は、同じ段差から3回落ち、次の町に着かないまま終わりました。ドリーミングで直した実行は違います。記憶の誤りを、セッションの記録と突き合わせて見つけ、書き直しました。直したノートを持ったClaudeは、山に戻り、次の町に着きました。</p>
-<p>ただし、直すには計算資源が要ります。全部の記憶を常に検査するのは現実的でなく、変わりやすい情報に絞る必要があるかもしれない、とAnthropicは書いています。</p>
+<p>ただし、直すには計算資源が要ります。全部の記憶を常に検査するのは現実的でないかもしれず、変わりやすい情報に絞ることが要るかもしれない、とAnthropicは書いています。</p>
 <p>当社の「会社の脳」は、この工程を、AIではなく機械と人でやっています。知識の各ファイルに、最後に確かめた日と有効期限を持たせ、毎朝、期限切れか、確かめた日から90日を超えたものを、スクリプトが赤で一覧にします。今朝、2026年11月7日は、会社の脳で18件、代表個人の知識置き場で8件でした。当社の決まりは、中身を見ずに日付だけ動かすのを禁止すること。</p>
 
 <h2>社内文書をwikiにすると、複数の文書をまたぐ問いで伸びた</h2>
@@ -206,14 +206,14 @@
 <p class="a-fig-title">検索にwikiを足すと61%、検索だけは53%、wikiだけは48%</p>
 <svg viewBox="0 0 1200 328" width="100%" style="min-width:640px" role="img" aria-label="検索にwikiを足すと61%、検索だけは53%、wikiだけは48%"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">社内文書25問・採点基準の達成率</text><text x="169" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">検索＋wiki</text><rect x="187" y="76" width="813" height="34" rx="2" fill="#a63a24"/><text x="1012" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">61%</text><text x="169" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">検索だけ</text><rect x="187" y="128" width="706" height="34" rx="2" fill="#cfc5b4"/><text x="905" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">53%</text><text x="169" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">wikiだけ</text><rect x="187" y="180" width="639" height="34" rx="2" fill="#cfc5b4"/><text x="838" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">48%</text><text x="600.0" y="270.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">検索とwikiを組み合わせたときが、一番高い値でした</text><text x="8" y="312" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Anthropic「The components of agent memory」（2026年11月6日）図10</text></svg>
 </div>
-<p>伸びない場面もあります。Harveyの法律文書の課題で、合併の文書集の24問は、基準の大半が複数の文書にまたがり、wiki参照が87%、検索だけが73%でした。一方、57の基準の大半が1つの文書の文字検索で足りる課題では、wikiに明確な利得はありませんでした。</p>
+<p>伸びない場面もあります。Harveyの法律文書の課題と、合併の文書集で試した結果です。合併についての24問は、基準の大半が複数の文書にまたがり、wiki参照が87%、検索だけが73%でした。一方、57の基準の大半が1つの文書の文字検索で足りる課題では、wikiに明確な利得はありませんでした。</p>
 <h3>書き方の指示を直すと、残る事実が増えた</h3>
 <p>契約条項の課題では、4つのエージェントが同じ共有ページに同時に書き、1つの保存が別のエージェントの行を消しました。採点対象の事実57件のうち、残ったのは41件です。失敗を振り返って指示を直すと、契約ごとに1ページ、担当は1エージェント、条項は要約せず一字一句引用する書き方に変わり、57件が残りました。</p>
 <div class="a-fig-wrap">
 <p class="a-fig-title">共有の表に要約すると72%、1契約1ページで原文を引くと100%</p>
 <svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="共有の表に要約すると72%、1契約1ページで原文を引くと100%"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">採点対象の契約条項57件のうち、wikiに残った割合</text><rect x="220" y="261" width="220" height="151" rx="3" fill="#a63a24"/><text x="330" y="243" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#a63a24" font-weight="900" text-anchor="middle">72%</text><text x="330" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">共有の表に要約</text><rect x="700" y="202" width="220" height="210" rx="3" fill="#cfc5b4"/><text x="810" y="184" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#5c544a" font-weight="900" text-anchor="middle">100%</text><text x="810" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">1契約1ページで原文を引用</text><line x1="570" y1="76" x2="570" y2="538" stroke="#8a8172" stroke-width="1" stroke-dasharray="4 4"/><text x="570" y="219" font-family="'Zen Old Mincho',serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="middle">差 28ポイント</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">書き方の指示を直しただけで、残る事実が41件から57件に増えました</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Anthropic「The components of agent memory」（2026年11月6日）図14</text></svg>
 </div>
-<h2>中小企業が決めるのは4つ。うちの索引は、公式の上限を超えていた</h2>
+<h2>中小企業が決めるのは4つ。当社の索引は、公式の上限を超えていた</h2>
 <p>毎回読ませる1枚は、小さく保つ必要があります。間違ったノートが毎回持ち込まれ、読んでもClaudeが従うとは限らないからです。Claude Codeのauto memoryは、MEMORY.mdの最初の200行か25KBだけを読み込み、この先頭が索引になります。御社が毎回AIに読ませている1枚は、何行あるでしょうか。</p>
 <h3>今日、私たちの索引で測ったこと</h3>
 <div class="a-note"><strong>この記事を書いている側のClaude Codeの記憶</strong><br>
@@ -253,7 +253,7 @@
 <p>まず、AIに毎回読ませている1枚の行数と容量を、測ってみてください。相談は<a href="/entry">無料相談</a>から。</p>
 
 <div class="a-src">参考（一次情報）：<br>
-・Anthropic「<a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank" rel="noopener">The components of agent memory \ Anthropic</a>」（2026年11月6日）<br>
+・Anthropic「<a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank" rel="noopener">The components of agent memory</a>」（2026年11月6日）<br>
 ・arXiv「<a href="https://arxiv.org/abs/2504.13171" target="_blank" rel="noopener">Sleep-time Compute: Beyond Inference Scaling at Test-time</a>」（2025年4月17日）<br>
 ・arXiv「<a href="https://arxiv.org/abs/2606.05661" target="_blank" rel="noopener">Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments</a>」（2026年6月4日）<br>
 ・Claude Code Docs「<a href="https://docs.claude.com/en/docs/claude-code/memory" target="_blank" rel="noopener">How Claude remembers your project</a>」</div>
