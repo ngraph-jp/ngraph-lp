@@ -514,6 +514,15 @@
 .loop-note svg{width:24px;height:24px;fill:none;stroke:var(--hot);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 @media(max-width:900px){.steps3{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:640px){.steps3{grid-template-columns:1fr;max-width:340px;gap:22px}.loop-note{font-size:.9375rem}}
+/* 3ステップを大きなカードに（本人 11/7「小さくないか」KAGUYA比） */
+.steps3{max-width:1120px;gap:24px}
+.steps3 .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:30px 26px 30px;box-shadow:0 10px 28px rgba(36,66,122,.06)}
+.steps3 .step img{width:100%;max-width:240px;height:190px;margin:0 auto 18px}
+.steps3 .step .n{left:22px;top:20px;width:40px;height:40px;font-size:.9375rem}
+.steps3 .step h3{font-size:1.5rem;margin-bottom:10px}
+.steps3 .step p{font-size:1rem;line-height:1.85}
+@media(max-width:900px){.steps3 .step{padding:22px 16px}.steps3 .step img{height:140px}.steps3 .step h3{font-size:1.25rem}.steps3 .step p{font-size:.9375rem}}
+@media(max-width:640px){.steps3{max-width:360px}.steps3 .step img{height:150px}.steps3 .step .n{left:16px;top:14px;width:34px;height:34px}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <link rel="stylesheet" href="/css/sp.css?v=7">
@@ -568,8 +577,8 @@
     </div>
     <ol class="steps4 steps3 reveal">
       <li class="step"><span class="n">01</span><img src="/assets/drill/flat/plan-outside.webp" alt=""><h3>外から調べる</h3><p><span class="nb">攻撃者と同じ道具で、</span><span class="nb">外から見える入口を洗い出します。</span><span class="nb">御社の作業はありません。</span></p></li>
-      <li class="step"><span class="n">02</span><img src="/assets/drill/flat/reason-report.webp" alt=""><h3>報告書が届く</h3><p><span class="nb">見つかったものと影響を、</span><span class="nb">何から直すかの順番つきで。</span><span class="nb">IT担当がいなくても読めます。</span></p></li>
-      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/fde-s1.webp" alt=""><h3>直す相談</h3><p><span class="nb">直し方が分からなければ、</span><span class="nb">一緒に進めます。</span><span class="nb">業者にそのまま渡してもかまいません。</span></p></li>
+      <li class="step"><span class="n">02</span><img src="/assets/drill/flat/reason-report.webp" alt=""><h3>報告書が届く</h3><p><span class="nb">見つかったものと影響を、</span><span class="nb">何から直すかの順番つきで。</span><span class="nb">IT担当がいなくても</span><span class="nb">読めます。</span></p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/fde-s1.webp" alt=""><h3>直す相談</h3><p><span class="nb">直し方が分からなければ、</span><span class="nb">一緒に進めます。</span><span class="nb">業者にそのまま</span><span class="nb">渡してもかまいません。</span></p></li>
     </ol>
     <p class="loop-note reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><span><span class="nb">これを毎月くり返します。</span><span class="nb">先月なかった入口も、</span><span class="nb">次の月に見つけます。</span></span></p>
   </div>
