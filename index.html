@@ -296,7 +296,7 @@
 /* ===== 構成と強弱（2026-10-23）：課題 → 考え方 → 頼めること → 実績 → 人 → 相談 ===== */
 .tz-h1{font-family:var(--mincho)}
 /* 背景のリズム：黒 → 白 → 灰 → 白 → 灰 → 白 → 藍 */
-#problem{background:var(--bg)}#ownership{background:var(--bg-2)}#services{background:var(--bg)}#products{background:var(--bg-2)}
+#problem{background:var(--bg)}#services{background:var(--bg)}
 /* 考え方の2段（置き場所／時間がたつと） */
 .as-h{font-weight:700;font-size:var(--fs-h3);text-align:center;margin:8px 0 18px}
 .as-h em{font-style:normal;color:var(--accent)}
@@ -388,6 +388,20 @@
 .pi-links a{display:flex;justify-content:space-between;align-items:center;padding:11px 2px;font-size:.9375rem;font-weight:700;color:var(--text)}
 .pi-links i{font-style:normal;color:var(--text-3);transition:transform .2s,color .2s}
 .pi-links a:hover,.pi-links a:hover i{color:var(--accent)}.pi-links a:hover i{transform:translateX(3px)}
+/* 2026-11-07 KAGUYA型に：中央揃え・絵は低め・3枚同じ幅・一覧は横並びの小さなボタン */
+.pi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pi-card{text-align:center;align-items:center;padding:26px 24px 24px}
+.pi-art{height:180px;justify-content:center;margin:0 0 14px}
+.pi-t1{font-size:1.0625rem}.pi-t2,.pi-card.main .pi-t2{font-size:1.5rem}
+.pi-d{max-width:22em;margin-left:auto;margin-right:auto}
+.pi-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;border:0;margin-top:16px}
+.pi-links li{border:0}
+.pi-links a{gap:6px;padding:7px 14px;border:1px solid var(--border-strong,#c9ccd3);border-radius:999px;font-size:.875rem;background:#fff}
+.pi-links a:hover{border-color:var(--accent)}
+.pi-art img{max-width:86%}
+.pi-go{padding-top:18px}
+@media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:560px}}
+@media(max-width:640px){.pi-art{height:160px}.pi-t2,.pi-card.main .pi-t2{font-size:1.3125rem}}
 </style>
 <script type="application/ld+json">
 {
@@ -521,9 +535,9 @@
       </article>
       <article class="pi-card">
         <figure class="pi-art"><img src="/assets/brain/ill/card-menu.webp" alt="" loading="lazy"></figure>
-        <h3><span class="pi-t1">範囲と目安が決まっていて、小さく頼める</span><span class="pi-t2">用途別のサービス</span></h3>
+        <h3><span class="pi-t1">決まった範囲で、小さく頼める</span><span class="pi-t2">用途別のサービス</span></h3>
         <p class="pi-d"><span class="nb">セキュリティの点検、</span><span class="nb">社外に出さない社内専用AI、</span><span class="nb">はじめての初期設定。</span></p>
-        <ul class="pi-links"><li><a href="/drill/">NGraph Cyber Drill<i aria-hidden="true">→</i></a></li><li><a href="/security/">Local AI Pack<i aria-hidden="true">→</i></a></li><li><a href="/starter/">生成AI導入 初期セット<i aria-hidden="true">→</i></a></li></ul>
+        <ul class="pi-links"><li><a href="/drill/">Cyber Drill<i aria-hidden="true">→</i></a></li><li><a href="/security/">Local AI Pack<i aria-hidden="true">→</i></a></li><li><a href="/starter/">初期セット<i aria-hidden="true">→</i></a></li></ul>
       </article>
       <article class="pi-card">
         <figure class="pi-art"><img src="/assets/brain/ill/card-brain.webp" alt="" loading="lazy"></figure>
@@ -548,7 +562,7 @@
           <figcaption class="pb-cap">前日｜同じセッション</figcaption>
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="前日：同じ会話の中で、AIと理解を積み上げている場面">
-              <image href="/assets/brain/deck/8d7debe512.webp" x="0" y="217" width="1000" height="558"/>
+              <image href="/assets/brain/ill/comic-before.webp" x="0" y="217" width="1000" height="558"/>
               <g class="bub" transform="translate(30,120)"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">ここまで</text><text x="125" y="88" text-anchor="middle">分かってくれた</text></g>
               <g class="bub" transform="translate(560,70)"><rect width="360" height="150" rx="16"/><path class="tail" d="M120 150 l-14 32 l40 -32z"/><text x="180" y="46" text-anchor="middle">素晴らしいですね。</text><text x="180" y="88" text-anchor="middle">はい、続きも</text><text x="180" y="130" text-anchor="middle">任せてください</text></g>
             </svg>
@@ -569,7 +583,7 @@
           <figcaption class="pb-cap">翌日｜別セッション・別のAI</figcaption>
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="翌日：別の会話・別のAIで、初対面のように戻ってしまう場面">
-              <image href="/assets/brain/deck/c6d5225bfd.webp" x="0" y="142" width="1000" height="633"/>
+              <image href="/assets/brain/ill/comic-after.webp" x="0" y="142" width="1000" height="633"/>
               <g class="bub" transform="translate(40,40)"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">え？</text><text x="135" y="88" text-anchor="middle">昨日の続き</text><text x="135" y="130" text-anchor="middle">なんだけど…</text></g>
               <g class="bub big" transform="translate(560,14)"><rect width="420" height="160" rx="18"/><path class="tail" d="M110 160 l-30 40 l60 -40z"/><text x="210" y="62" text-anchor="middle">はじめまして。</text><text x="210" y="120" text-anchor="middle">どちら様ですか?</text></g>
             </svg>
@@ -592,7 +606,7 @@
         <div class="own-tag"><span class="pill">これまで</span><span class="nb">一人が、</span><span class="nb">自分のAIに覚えさせる</span></div>
         <div class="own-art">
         <svg class="own-svg" viewBox="0 0 1000 780" role="img" aria-label="一人の担当者が自分のAIに預け、解約や乗り換えで知識が消えていく場面">
-          <image href="/assets/brain/ill/own-before.webp" x="0" y="30" width="1000" height="750"/>
+          <image href="/assets/brain/ill/own-before-flat.webp" x="0" y="30" width="1000" height="750"/>
           <g class="lab" transform="translate(470,62)"><rect width="480" height="130" rx="14"/><text x="30" y="52">AIを解約・乗り換えすると、</text><text x="30" y="102">知識を引き継げない</text></g>
           <g class="lab sub" transform="translate(600,214)"><rect width="350" height="64" rx="32"/><text x="175" y="40" text-anchor="middle">知識の置き場所＝会話の中</text></g>
         </svg>
@@ -607,7 +621,7 @@
         <div class="own-tag"><span class="pill red">NGraph</span><span class="nb">会社の記録を、</span><span class="nb">全員で使う</span></div>
         <div class="own-art">
         <svg class="own-svg" viewBox="0 0 1000 780" role="img" aria-label="社長・部長・社員がそれぞれの端末から、宙に浮かぶ一つの会社の脳につながっている場面">
-          <image href="/assets/brain/ill/own-after.webp" x="0" y="33" width="1000" height="747"/>
+          <image href="/assets/brain/ill/own-after-flat.webp" x="0" y="33" width="1000" height="747"/>
           <g class="lab red small" transform="translate(6,44)"><rect width="352" height="120" rx="14"/><text x="24" y="48">人はAIを選び、</text><text x="24" y="94">AIは会社の脳を参照する</text></g>
           <path class="lead" d="M720 140 L665 185"/>
           <g class="lab brain" transform="translate(696,26)"><rect width="300" height="112" rx="14"/><text class="k" x="150" y="42" text-anchor="middle">一つの記録 ＝</text><text class="b" x="150" y="92" text-anchor="middle">会社の脳</text></g>
@@ -634,10 +648,10 @@
       <h2 class="section-title"><span class="nb">どのサービスも、</span><span class="nb">この順で進めます。</span></h2>
     </div>
     <ol class="steps4 reveal">
-      <li class="step"><span class="n">01</span><img src="/assets/starter/icon11_soudan.png" alt=""><h3>無料で相談</h3><p><span class="nb">困っている業務と、</span><span class="nb">扱う情報を伺います</span></p><span class="free">無料</span></li>
-      <li class="step"><span class="n">02</span><img src="/assets/starter/icon11_mitsumori.png" alt=""><h3>お見積り</h3><p><span class="nb">範囲と費用、</span><span class="nb">期間をお出しします</span></p></li>
-      <li class="step"><span class="n">03</span><img src="/assets/starter/icon19_setup.png" alt=""><h3>小さく始める</h3><p><span class="nb">まず1つの業務から、</span><span class="nb">現場で動かします</span></p></li>
-      <li class="step"><span class="n">04</span><img src="/assets/starter/icon20_support.png" alt=""><h3>引き渡す</h3><p><span class="nb">使い方と記録をお渡しします。</span><span class="nb">保守はご希望に応じて</span></p></li>
+      <li class="step"><span class="n">01</span><img src="/assets/brain/ill/step-1.webp" alt=""><h3>無料で相談</h3><p><span class="nb">困っている業務と、</span><span class="nb">扱う情報を伺います</span></p><span class="free">無料</span></li>
+      <li class="step"><span class="n">02</span><img src="/assets/brain/ill/step-2.webp" alt=""><h3>お見積り</h3><p><span class="nb">範囲と費用、</span><span class="nb">期間をお出しします</span></p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/step-3.webp" alt=""><h3>小さく始める</h3><p><span class="nb">まず1つの業務から、</span><span class="nb">現場で動かします</span></p></li>
+      <li class="step"><span class="n">04</span><img src="/assets/brain/ill/step-4.webp" alt=""><h3>引き渡す</h3><p><span class="nb">使い方と記録をお渡しします。</span><span class="nb">保守はご希望に応じて</span></p></li>
     </ol>
     <p class="steps-note reveal"><span class="nb">福井・石川・富山は、現場に伺います。</span><span class="nb">それ以外の地域は、オンラインで対応します。</span></p>
   </div>
