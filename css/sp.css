@@ -80,6 +80,15 @@
   /* 吹き出しは語塊を1行ずつ積み、箱は一番長い行の幅に縮める（右上に空白が残らない） */
   .fg-problem .pb-list li,.fg-problem .pb-list li.ai{width:max-content;text-align:left;padding:6px 10px}
   .fg-problem .pb-list li .nb{display:block}
+  /* 2場面を1画面に収める（本人 2026-11-07「SPは一画面で収まるぐらいのサイズに」）：絵を290pxまで・昨日→今日を1行に */
+  .fg-problem .pb-stage{gap:8px}
+  .fg-problem .pb-scene{max-width:290px;gap:6px}
+  .fg-problem .pb-mid{flex-direction:row;align-items:center;justify-content:center;gap:8px;padding:0}
+  .fg-problem .pb-mid::before{display:none}
+  .fg-problem .pb-cal svg{width:28px;height:28px}
+  .fg-problem .pb-cal .pb-arrow{width:26px;height:12px}
+  .fg-problem .pb-midcap .nb{display:inline}
+  .fg-problem .pb-list li,.fg-problem .pb-list li.ai{font-size:.8125rem;line-height:1.45;padding:5px 9px}
 }
 
 /* ── 3. 所有（自分のAI → 会社の脳） ── */
