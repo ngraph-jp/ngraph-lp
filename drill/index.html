@@ -464,7 +464,7 @@
 .amap-n.chk .amap-ic{background:rgba(200,162,74,.18);color:#e3c46f}
 @media(max-width:760px){.amap-n{padding-right:44px}.amap-ic{top:10px;right:10px;width:28px;height:28px}.amap-ic svg{width:16px;height:16px}}
 /* サービスと契約：比較表（1画面に収める） */
-.cmp{max-width:1000px;margin:0 auto 20px;display:grid;grid-template-columns:132px minmax(0,1fr) minmax(0,1fr);background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cmp{max-width:1120px;margin:0 auto 20px;display:grid;grid-template-columns:118px minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .cmp>div{padding:12px 18px;border-top:1px solid var(--border);font-size:.9375rem;line-height:1.65}
 .cmp-h0,.cmp-h{border-top:none!important}
 .cmp-h{display:flex;align-items:center;gap:14px;padding:16px 18px!important}
@@ -496,6 +496,17 @@
 .harm li{font-weight:700;font-size:.9375rem;line-height:1.6;color:var(--text)}
 .harm li small{display:block;font-weight:400;font-size:.75rem;color:var(--text-3);margin-top:2px}
 @media(max-width:760px){.harm{grid-template-columns:1fr;gap:8px;padding:14px 16px}.harm ul{grid-template-columns:1fr}}
+.cmp .p3{background:#faf7ef}
+.cmp-h.p3{box-shadow:inset 0 3px 0 var(--hot)}
+.cmp-h.p3 small{color:#8a6a1f}
+@media(max-width:1000px){.cmp-h{flex-direction:column;align-items:flex-start;gap:6px}.cmp-h img{width:60px;height:52px}.cmp-h b{font-size:1.125rem}}
+@media(max-width:760px){.cmp{grid-template-columns:1fr 1fr 1fr}.cmp>div{padding:9px 8px;font-size:.8125rem}.cmp-h{padding:10px 8px!important}.cmp-h small{font-size:.75rem}.cmp-v.p2{border-right:1px solid var(--border)}}
+/* 地図の中心：丸ではなく会社（ビルの印） */
+.amap-c{border-radius:22px!important;aspect-ratio:auto!important;padding:22px 18px!important;width:min(100%,210px)}
+.amap-c::before,.amap-c::after{border-radius:26px!important}
+.amap-bld{width:58px;height:58px;color:#cfe0f5;margin-bottom:8px}
+.amap-c small{font-size:.875rem!important;font-weight:700;color:#e3c46f!important;margin-top:4px}
+@media(max-width:760px){.amap-c{padding:14px 12px!important;width:180px}.amap-bld{width:44px;height:44px;margin-bottom:4px}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <link rel="stylesheet" href="/css/sp.css?v=7">
@@ -564,7 +575,7 @@
 <section class="scan" id="scan">
   <div class="container">
     <h2 class="scan-h reveal"><span class="nb">攻撃者には、</span><span class="nb">こう見えています。</span></h2>
-    <p class="scan-sub reveal"><span class="nb">ドメイン1つから、</span><span class="nb">外に見えているものを洗い出します。</span><span class="nb">（架空の会社の、初回の点検の見本）</span></p>
+    <p class="scan-sub reveal"><span class="nb">ドメイン1つから、</span><span class="nb">外に見えているものを洗い出します。</span><span class="nb">（初回の点検の見本）</span></p>
     <ul class="scan-stats reveal"><li><b>8</b><span>見えていた入口</span></li><li class="fix"><b>3</b><span>すぐ直す</span></li><li class="chk"><b>3</b><span>要確認</span></li></ul>
     <div class="amap reveal">
       <div class="amap-grid">
@@ -573,14 +584,14 @@
         <div class="amap-n fix" style="--d:0.24s"><span class="tag">直す</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="13" rx="1.5"/><path d="M3.5 8.5h17"/><circle cx="12" cy="13.5" r="3"/><path d="M12 12v1.6l1 .8"/></svg></i><b>使っていない古いサイト</b><small>3年前のキャンペーンページが古いまま公開</small><q>直されていない。入口はここ</q></div>
         <div class="amap-n chk" style="--d:0.36s"><span class="tag">要確認</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="14" rx="1.5"/><path d="M3.5 8h17"/><rect x="9" y="12" width="6" height="4.5" rx="1"/><path d="M10.3 12v-1.3a1.7 1.7 0 0 1 3.4 0V12"/></svg></i><b>管理画面</b><small>ログイン画面が外から開ける</small><q>パスワードを試せる</q></div>
         <div class="amap-n chk" style="--d:0.48s"><span class="tag">要確認</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg></i><b>メールの設定</b><small>なりすましメールを止める設定が弱い</small><q>この会社の名前でメールを送れる</q></div>
-        <div class="amap-c"><b>example-kaisha.jp</b><small>架空の会社</small></div>
+        <div class="amap-c"><svg class="amap-bld" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 56V14l20-8v50M32 56V22h20v34M6 56h52"/><path d="M19 20h6M19 28h6M19 36h6M19 44h6M39 30h6M39 38h6M39 46h6"/></svg><b>example-kaisha.jp</b><small>御社</small></div>
         <div class="amap-n fix" style="--d:0.60s"><span class="tag">直す</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="10" width="17" height="7" rx="1.5"/><path d="M7 13.5h1M10 13.5h1M15 10l-2-4M18 10l2-4"/></svg></i><b>VPN機器</b><small>弱点が公表された版を使っている</small><q>公表された弱点がそのまま使える</q></div>
         <div class="amap-n chk" style="--d:0.72s"><span class="tag">要確認</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/></svg></i><b>外から分かる契約先</b><small>サーバー・メール・決済の3社</small><q>「更新のお知らせ」を装えば開く</q></div>
         <div class="amap-n fix" style="--d:0.84s"><span class="tag">直す</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M9.5 7V4.5h5V7M7 7l1 13h8l1-13"/></svg></i><b>解約したサービスの残り</b><small>使っていない設定が1件残っている</small><q>乗っ取れる設定が残っている</q></div>
         <div class="amap-n ok" style="--d:0.96s"><span class="tag">問題なし</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M8 10.5h5"/></svg></i><b>似た名前のドメイン</b><small>なりすましに使えるものは見つからない</small><q>取れる偽ドメインがない</q></div>
       </div>
       <ul class="amap-legend"><li>問題なし</li><li class="chk">要確認（ご確認ください）</li><li class="fix">直す（順番を付けてお知らせ）</li></ul>
-      <p class="amap-note">架空の会社の見本です。実際の点検では、見つかったものと、確かめていない範囲を載せます。</p>
+      <p class="amap-note">見本です。実際の点検では、見つかったものと、確かめていない範囲を載せます。</p>
     </div>
   </div>
 </section>
@@ -619,18 +630,19 @@
     <div class="section-head reveal">
       <div class="section-label">サービスと契約</div>
       <h2 class="section-title"><span class="nb">毎月の定期点検。</span><span class="nb">外だけか、中までか。</span></h2>
-      <p class="section-sub"><span class="nb">どちらも月額の定期契約です。</span><span class="nb">御社の機器やシステムには当たらないので、</span><span class="nb">仕事は止まりません。</span></p>
+      <p class="section-sub"><span class="nb">プランは2つ、</span><span class="nb">どちらも月額の定期契約です。</span><span class="nb">御社の機器やシステムには当たらないので、</span><span class="nb">仕事は止まりません。</span><span class="nb">実際に当てて試す点検は、</span><span class="nb">ご依頼のときだけのオプションです。</span></p>
     </div>
     <div class="cmp reveal">
       <div class="cmp-k cmp-h0"></div>
       <div class="cmp-h"><img src="/assets/drill/flat/plan-outside.webp" alt="" loading="lazy"><div><span class="cmp-n">プラン1</span><b>外から見る</b><small><span class="nb">まず、狙われる入口を</span><span class="nb">知りたい会社に</span></small></div></div>
       <div class="cmp-h p2"><img src="/assets/drill/flat/plan-inside.webp" alt="" loading="lazy"><div><span class="cmp-n">プラン2</span><b>中まで見る</b><small><span class="nb">取引先に、対策を</span><span class="nb">説明できるように</span><span class="nb">したい会社に</span></small></div></div>
-      <div class="cmp-k">見るところ</div><div class="cmp-v"><span class="nb">外から見える入口</span><span class="nb">（公開情報だけ）</span></div><div class="cmp-v p2"><span class="nb">外から見る</span><span class="nb">（プラン1のすべて）</span><span class="nb">＋メールと</span><span class="nb">アカウントの設定・</span><span class="nb">漏えいの照会・</span><span class="nb">備えの聞き取り・</span><span class="nb">社員への訓練メール</span></div>
-      <div class="cmp-k">頻度</div><div class="cmp-v">毎月</div><div class="cmp-v p2"><span class="nb">外は毎月、</span><span class="nb">中は半年ごと</span></div>
-      <div class="cmp-k">届くもの</div><div class="cmp-v"><span class="nb">毎月のレポート</span><span class="nb">（変わったところ・</span><span class="nb">影響・直す順番）</span></div><div class="cmp-v p2"><span class="nb">毎月のレポート</span><span class="nb">＋半年ごとの報告</span></div>
-      <div class="cmp-k">御社の手間</div><div class="cmp-v"><span class="nb">ありません</span><span class="nb">（ドメインを</span><span class="nb">伺うだけ）</span></div><div class="cmp-v p2"><span class="nb">30分の聞き取りと、</span><span class="nb">読み取りだけの権限</span></div>
-      <div class="cmp-k">契約</div><div class="cmp-v">月額の定期契約</div><div class="cmp-v p2">月額の定期契約</div>
-      <div class="cmp-k">料金</div><div class="cmp-v"><span class="nb">無料のご相談で</span><span class="nb">ご案内します</span></div><div class="cmp-v p2"><span class="nb">無料のご相談で</span><span class="nb">ご案内します</span></div>
+      <div class="cmp-h p3"><img src="/assets/drill/flat/plan-test.webp" alt="" loading="lazy"><div><span class="cmp-n">オプション</span><b>実際に試す</b><small><span class="nb">本当に入れるかまで</span><span class="nb">確かめたい会社に</span></small></div></div>
+      <div class="cmp-k">見るところ</div><div class="cmp-v"><span class="nb">外から見える入口</span><span class="nb">（公開情報だけ）</span></div><div class="cmp-v p2"><span class="nb">外から見る</span><span class="nb">（プラン1のすべて）</span><span class="nb">＋メールと</span><span class="nb">アカウントの設定・</span><span class="nb">漏えいの照会・</span><span class="nb">備えの聞き取り・</span><span class="nb">社員への訓練メール</span></div><div class="cmp-v p3"><span class="nb">機器の弱点の確認・</span><span class="nb">Webアプリのテスト・</span><span class="nb">現地での機器の確認</span></div>
+      <div class="cmp-k">頻度</div><div class="cmp-v">毎月</div><div class="cmp-v p2"><span class="nb">外は毎月、</span><span class="nb">中は半年ごと</span></div><div class="cmp-v p3"><span class="nb">ご依頼のとき</span></div>
+      <div class="cmp-k">届くもの</div><div class="cmp-v"><span class="nb">毎月のレポート</span><span class="nb">（変わったところ・</span><span class="nb">影響・直す順番）</span></div><div class="cmp-v p2"><span class="nb">毎月のレポート</span><span class="nb">＋半年ごとの報告</span></div><div class="cmp-v p3"><span class="nb">試した結果の報告</span><span class="nb">（入れた所・</span><span class="nb">入れなかった所）</span></div>
+      <div class="cmp-k">御社の手間</div><div class="cmp-v"><span class="nb">ありません</span><span class="nb">（ドメインを</span><span class="nb">伺うだけ）</span></div><div class="cmp-v p2"><span class="nb">30分の</span><span class="nb">聞き取りと、</span><span class="nb">読み取り</span><span class="nb">だけの権限</span></div><div class="cmp-v p3"><span class="nb">書面で範囲と</span><span class="nb">許可を決める</span></div>
+      <div class="cmp-k">契約</div><div class="cmp-v">月額の定期契約</div><div class="cmp-v p2">月額の定期契約</div><div class="cmp-v p3"><span class="nb">都度のお見積り</span></div>
+      <div class="cmp-k">料金</div><div class="cmp-v"><span class="nb">無料のご相談で</span><span class="nb">ご案内します</span></div><div class="cmp-v p2"><span class="nb">無料のご相談で</span><span class="nb">ご案内します</span></div><div class="cmp-v p3"><span class="nb">範囲を伺って</span><span class="nb">お見積り</span></div>
     </div>
     <details class="menu-fold reveal"><summary>見る項目を、すべて見る（13項目）</summary>
     <div class="menu">
@@ -655,7 +667,7 @@
       </ul>
     </div>
     </details>
-    <p class="stage-note reveal"><span class="nb">見つかった弱点を直す作業は、</span><span class="nb">別にお見積りして一緒に進めます。</span><span class="nb">機器やシステムに実際に当てて試す点検や、</span><span class="nb">現地での機器の確認も、</span><span class="nb">ご希望があれば別途ご相談ください。</span></p>
+    <p class="stage-note reveal"><span class="nb">見つかった弱点を直す作業は、</span><span class="nb">別にお見積りして一緒に進めます。</span></p>
   </div>
 </section>
 
