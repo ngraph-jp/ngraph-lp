@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/ngraph-zen.css?v=19">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=20">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -440,11 +440,10 @@
 .amap-note{color:#9fb0c6}
 /* プランの絵・頼む理由の絵を平たい絵に */
 .tcard img{width:110px;height:96px;object-fit:contain}
-/* 「なぜ毎月」の数字も、ほかのページの進め方と同じくゆっくり浮く */
-@keyframes wnfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.what.in .what-list .n{animation:wnfloat 3.2s ease-in-out infinite}
-.what.in .what-list li:nth-child(2) .n{animation-delay:.8s}
-.what.in .what-list li:nth-child(3) .n{animation-delay:1.6s}
+/* 「なぜ毎月」の数字：ほかのページの進め方と同じく、丸は動かさず順に色が灯る */
+.what.in .what-list .n{animation:stepnum 3.6s ease-in-out infinite}
+.what.in .what-list li:nth-child(2) .n{animation-delay:1.2s}
+.what.in .what-list li:nth-child(3) .n{animation-delay:2.4s}
 @media(prefers-reduced-motion:reduce){.what.in .what-list .n{animation:none}}
 /* 報告書：本物の見本のページを重ねる */
 .rpt-stack{position:relative;display:block;width:100%;max-width:380px;aspect-ratio:900/1273;margin:0 auto 34px;text-decoration:none}
@@ -523,6 +522,11 @@
 .steps3 .step p{font-size:1rem;line-height:1.85}
 @media(max-width:900px){.steps3 .step{padding:22px 16px}.steps3 .step img{height:140px}.steps3 .step h3{font-size:1.25rem}.steps3 .step p{font-size:.9375rem}}
 @media(max-width:640px){.steps3{max-width:360px}.steps3 .step img{height:150px}.steps3 .step .n{left:16px;top:14px;width:34px;height:34px}}
+/* 地図の札：丸い枠は止めて、中のアイコンだけ fuwa */
+.amap-ic>svg{animation:fuwa 2.4s ease-in-out infinite}
+.amap-n:nth-child(3n) .amap-ic>svg{animation-delay:.6s}
+.amap-n:nth-child(3n+1) .amap-ic>svg{animation-delay:1.2s}
+@media(prefers-reduced-motion:reduce){.amap-ic>svg{animation:none}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <link rel="stylesheet" href="/css/sp.css?v=7">

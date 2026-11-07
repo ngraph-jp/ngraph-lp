@@ -555,7 +555,7 @@ button,input,select,textarea{font-family:inherit}
 .steps4 .step:nth-child(2) .n{animation-delay:1.2s}
 .steps4 .step:nth-child(3) .n{animation-delay:2.4s}
 .steps4 .step:nth-child(4) .n{animation-delay:3.6s}
-@keyframes stepnum{0%,22%,100%{transform:translateY(0) scale(1);background:var(--accent)}8%{transform:translateY(-6px) scale(1.14);background:var(--hot)}16%{transform:translateY(0) scale(1);background:var(--hot)}50%{transform:translateY(-3px) scale(1)}}
+@keyframes stepnum{0%,24%,100%{background:var(--accent)}6%,18%{background:var(--hot)}}
 .steps4 .step h3{font-size:1.125rem;font-weight:700;line-height:1.6;margin-bottom:6px}
 .steps4 .step p{font-size:.875rem;color:var(--text-2);line-height:1.8}
 .steps4 .step .free{display:inline-block;font-size:.8125rem;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 10px;margin-top:8px}
@@ -571,3 +571,11 @@ button,input,select,textarea{font-family:inherit}
 .steps4 .step h3{font-size:1.25rem;margin-bottom:8px}
 .steps4 .step p{font-size:.9375rem;line-height:1.85}
 @media(max-width:768px){.steps4{gap:12px}.steps4 .step{padding:18px 12px 18px;border-radius:12px}.steps4 .step img{width:100%;max-width:130px;height:96px;margin-bottom:10px}.steps4 .step .n{left:10px;top:10px;width:28px;height:28px;font-size:.75rem}.steps4 .step h3{font-size:1rem}.steps4 .step p{font-size:.8125rem;line-height:1.75}}
+
+/* 動きの規則（2026-11-07）：枠・カード・絵は動かさない。動くのは枠の中のアイコンだけ（ぼんた一番ガニLP・AutoWrite と同じ fuwa）。番号の丸は動かさず、順に色が灯るだけ */
+@keyframes fuwa{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-3px) rotate(-6deg)}75%{transform:translateY(-1.5px) rotate(5deg)}}
+@media(prefers-reduced-motion:reduce){.steps4 .step .n{animation:none}}
+.cb-ic>svg,.amap-ic>svg,.t-ic>svg,.tm-ic>svg,.fw{animation:fuwa 2.4s ease-in-out infinite}
+.fw{transform-box:fill-box;transform-origin:center}
+.trio>*:nth-child(2) .t-ic>svg{animation-delay:.6s}.trio>*:nth-child(3) .t-ic>svg{animation-delay:1.2s}.trio>*:nth-child(4) .t-ic>svg{animation-delay:1.8s}
+@media(prefers-reduced-motion:reduce){.cb-ic>svg,.amap-ic>svg,.t-ic>svg,.tm-ic>svg,.fw{animation:none}}
