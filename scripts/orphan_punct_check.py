@@ -68,7 +68,11 @@ JS = r"""() => {
 }"""
 
 NG_SAMPLE = '<div style="width:290px;font-size:24px;letter-spacing:0"><span style="display:inline-block;word-break:keep-all;overflow-wrap:anywhere">パソコンが使えなくなった。</span></div>'
-OK_SAMPLE = '<div style="width:400px;font-size:24px">パソコンが使えなくなった。</div>'
+OK_SAMPLE = ('<div style="width:400px;font-size:24px">パソコンが使えなくなった。</div>'
+             # 傾けた紙（transform:rotate）の中の1行。傾いたまま測ると行末の「)」が別の行に見える（2026-11-07 /en/drill/ の誤検出）
+             '<div style="width:600px;font-size:14px;transform:rotate(-1.4deg)">Update the VPN device <small>(this week)</small> and close the test site <small>(this month)</small></div>')
+# 傾き・動きを外してから測る。行の判定は文字の高さで行うので、傾いた要素の中では1行が何行にも見える
+FLAT = '*,*::before,*::after{transform:none!important;rotate:none!important;animation:none!important;transition:none!important}'
 
 
 def pages():
@@ -108,6 +112,7 @@ def main():
         pg.set_content("<html lang=ja><meta charset=utf-8><body>" + NG_SAMPLE)
         ng = pg.evaluate(JS)
         pg.set_content("<html lang=ja><meta charset=utf-8><body>" + OK_SAMPLE)
+        pg.add_style_tag(content=FLAT)
         ok = pg.evaluate(JS)
         if not ng or ok:
             print("orphan_punct_check の自己テストに失敗（検査が壊れている）", ng, ok)
@@ -117,6 +122,7 @@ def main():
             for t in targets:
                 pg.goto("http://127.0.0.1:%d/%s?noreveal" % (port, t), wait_until="networkidle")
                 pg.evaluate("document.fonts && document.fonts.ready")
+                pg.add_style_tag(content=FLAT)
                 for x in pg.evaluate(JS):
                     bad.append("%s（幅%d）: %s" % (t, w, x))
         b.close()
