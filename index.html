@@ -341,12 +341,13 @@
 .tz-btn:hover{background:var(--hot-2);transform:translateY(-1px)}
 .tz-link{color:var(--tz-txt);font-size:.9375rem;border-bottom:1px solid var(--tz-line2);padding-bottom:2px}
 .tz-link:hover{border-bottom-color:var(--tz-txt)}
-@keyframes fuwa{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-4px) rotate(-6deg)}75%{transform:translateY(-2px) rotate(5deg)}}
-.steps4 .step img{animation:fuwa 2.4s ease-in-out infinite;transform-origin:50% 60%}
-.steps4 .step:nth-child(2) img{animation-delay:.6s}
-.steps4 .step:nth-child(3) img{animation-delay:1.2s}
-.steps4 .step:nth-child(4) img{animation-delay:1.8s}
-@media(prefers-reduced-motion:reduce){.steps4 .step img{animation:none}}
+/* 絵は動かさず、01→04の数字が順に跳ねて灯る（本人 2026-11-07「イラストは動かさない。動かすのは数字」） */
+@keyframes stepnum{0%,22%,100%{transform:translateY(0) scale(1);background:var(--accent)}8%{transform:translateY(-6px) scale(1.14);background:var(--hot)}16%{transform:translateY(0) scale(1);background:var(--hot)}}
+.steps4 .step .n{animation:stepnum 4.8s ease-in-out infinite}
+.steps4 .step:nth-child(2) .n{animation-delay:1.2s}
+.steps4 .step:nth-child(3) .n{animation-delay:2.4s}
+.steps4 .step:nth-child(4) .n{animation-delay:3.6s}
+@media(prefers-reduced-motion:reduce){.steps4 .step .n{animation:none}}
 .why-turn{height:1px;background:var(--border);max-width:1080px;margin:88px auto 72px}
 .why-h{font-size:var(--fs-h2)}
 .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto;list-style:none;padding:0}
