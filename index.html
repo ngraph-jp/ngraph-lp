@@ -414,6 +414,12 @@
 @media(max-width:900px){.cbs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.cbs{grid-template-columns:1fr;gap:16px}.cb-q{font-size:.9375rem;padding:13px 16px;border-radius:14px}.cb-q::after{width:14px;height:14px;bottom:-8px;left:24px}.cb-go{margin:12px 0 0 14px;font-size:.8125rem}.cb-band{flex-direction:column;align-items:stretch;text-align:center;padding:22px 20px}.cb-band p{font-size:1.0625rem}.cb-band .btn{justify-content:center}}
 @media(prefers-reduced-motion:reduce){.cbs.in .cb-q{animation:none}}
+.cb-q{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center}
+.cb-ic{width:52px;height:52px;border-radius:50%;background:rgba(36,66,122,.08);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.cb-ic>svg{width:28px!important;height:28px!important;flex:none}
+.cb-q{flex:1}
+.cb:nth-child(4) .cb-ic,.cb:nth-child(5) .cb-ic{background:rgba(200,162,74,.16);color:#8a6a1f}
+@media(max-width:640px){.cb-q{grid-template-columns:38px minmax(0,1fr);gap:12px}.cb-ic{width:38px;height:38px}.cb-ic>svg{width:21px!important;height:21px!important}}
 /* 自社プロダクト（実際の画面） */
 .pds{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
 .pd{display:block;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
@@ -600,12 +606,12 @@
       <h2 class="section-title"><span class="nb">こんなご相談から、</span><span class="nb">始めます。</span></h2>
     </div>
     <ul class="cbs reveal">
-      <li class="cb"><p class="cb-q"><span class="nb">ChatGPTを契約したけど、</span><span class="nb">使っているのは</span><span class="nb">一部の人だけ。</span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
-      <li class="cb"><p class="cb-q"><span class="nb">毎月の集計や転記に、</span><span class="nb">人の手が</span><span class="nb">かかりすぎている。</span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
-      <li class="cb"><p class="cb-q"><span class="nb">社内の決まりや手順を、</span><span class="nb">新人に毎回</span><span class="nb">説明している。</span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
-      <li class="cb"><p class="cb-q"><span class="nb">顧客の情報を</span><span class="nb">AIに入れていいのか、</span><span class="nb">判断できない。</span></p><a class="cb-go" href="/security/">Local AI Pack <i aria-hidden="true">→</i></a></li>
-      <li class="cb"><p class="cb-q"><span class="nb">うちのサイトやメールが</span><span class="nb">狙われていないか、</span><span class="nb">心配。</span></p><a class="cb-go" href="/drill/">Cyber Drill <i aria-hidden="true">→</i></a></li>
-      <li class="cb"><p class="cb-q"><span class="nb">何から始めればいいか、</span><span class="nb">相談できる相手がいない。</span></p><a class="cb-go" href="/starter/">生成AI導入 初期セット <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-5 4z"/><path d="M8.5 10h.01M12 10h.01M15.5 10h.01"/></svg></span><span class="cb-t"><span class="nb">ChatGPTを契約したけど、</span><span class="nb">使っているのは</span><span class="nb">一部の人だけ。</span></span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9h17M3.5 14.5h17M9.5 4v16M15 4v16"/></svg></span><span class="cb-t"><span class="nb">毎月の集計や転記に、</span><span class="nb">人の手が</span><span class="nb">かかりすぎている。</span></span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 0 1 6 4h13v14H6a2 2 0 0 0-2 2z"/><path d="M4 20V5.5M8 8h7M8 11.5h5"/></svg></span><span class="cb-t"><span class="nb">社内の決まりや手順を、</span><span class="nb">新人に毎回</span><span class="nb">説明している。</span></span></p><a class="cb-go" href="/fde/">AI現場実装 <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4"/><rect x="9.5" y="13" width="6" height="4.5" rx="1"/><path d="M11 13v-1.5a1.5 1.5 0 0 1 3 0V13"/></svg></span><span class="cb-t"><span class="nb">顧客の情報を</span><span class="nb">AIに入れていいのか、</span><span class="nb">判断できない。</span></span></p><a class="cb-go" href="/security/">Local AI Pack <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 7.7-7 9.5-4-1.8-7-5.1-7-9.5V6z"/><path d="M12 8v4.5M12 15.8h.01"/></svg></span><span class="cb-t"><span class="nb">うちのサイトやメールが</span><span class="nb">狙われていないか、</span><span class="nb">心配。</span></span></p><a class="cb-go" href="/drill/">Cyber Drill <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="cb-t"><span class="nb">何から始めればいいか、</span><span class="nb">相談できる相手がいない。</span></span></p><a class="cb-go" href="/starter/">生成AI導入 初期セット <i aria-hidden="true">→</i></a></li>
     </ul>
     <div class="cb-band reveal">
       <p><span class="nb">どれか1つでも当てはまれば、</span><span class="nb">まずはご相談ください。</span><small><span class="nb">対象の業務を1つ決めるところから、</span><span class="nb">一緒に進めます。</span></small></p>
