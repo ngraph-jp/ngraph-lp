@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/ngraph-zen.css?v=16">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=17">
 <link rel="stylesheet" href="/css/figures.css?v=35">
 <style>
 /* 構造化パターンのこだま演出: 時々1つが首をかしげ、朱に灯る */
@@ -393,7 +393,7 @@
 .pi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pi-card{text-align:center;align-items:center;padding:26px 24px 24px}
 .pi-art{height:220px;justify-content:center;margin:0 0 14px}.pi-card.main .pi-art img{max-width:100%}
-.pi-t1{font-size:1.0625rem}.pi-t2,.pi-card.main .pi-t2{font-size:1.5rem}
+.pi-t1,.pi-t2,.pi-card.main .pi-t2{font-size:1.375rem;letter-spacing:-.01em}.pi-t2{color:var(--accent-hi)}
 .pi-d{max-width:22em;margin-left:auto;margin-right:auto}
 
 
@@ -402,9 +402,10 @@
 .pi-art img{max-width:86%}
 .pi-go{padding-top:18px}
 @media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:560px}}
-@media(max-width:640px){.pi-art{height:160px}.pi-t2,.pi-card.main .pi-t2{font-size:1.3125rem}}
+@media(max-width:640px){.pi-art{height:160px}.pi-t1,.pi-t2,.pi-card.main .pi-t2{font-size:1.1875rem}}
 .pi-first{margin:26px 0 0;text-align:center;font-size:.9375rem;color:var(--text-2)}.pi-first a{font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}.pi-first i{font-style:normal}
-.pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent)}
+.pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent-hi)}
+#services .section-sub{font-size:.9375rem;line-height:1.9;color:var(--text-2)}
 </style>
 <script type="application/ld+json">
 {

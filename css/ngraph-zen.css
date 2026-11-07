@@ -542,3 +542,7 @@ button,input,select,textarea{font-family:inherit}
   h3,h4,summary,figcaption,.btn,button,.tm-title,.sf-s{text-wrap:balance}
   p,li,dd,td{text-wrap:pretty}
 }
+/* 2026-11-07 見出しを締め、強調色を黒と明るさで分ける（KAGUYAとの比較：字間・強調色・カード見出し） */
+:root{--accent-hi:#2f5fc4}
+.section-title{letter-spacing:-.01em}
+.section-title em,.section-title .hl{color:var(--accent-hi)}
