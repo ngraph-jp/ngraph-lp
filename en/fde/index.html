@@ -326,6 +326,7 @@
 .sp-legend{list-style:none;margin:18px 0 0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px}
 .sp-legend li{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:1rem}
 .sp-legend svg{width:28px;height:28px}
+.sp-facts{list-style:none;margin:22px auto 0;padding:16px 0 0;border-top:1px solid var(--border);max-width:520px;display:grid;gap:6px;font-size:.875rem;color:var(--text-2);line-height:1.8}
 .sp-next{margin:18px 0 0;font-family:var(--serif);font-weight:700;color:var(--accent);font-size:1.0625rem}
 .sp-pause{display:inline-flex;align-items:center;gap:6px;margin:14px 0 0;padding:4px 2px;background:none;border:0;font:inherit;font-size:.8125rem;color:var(--text-3);cursor:pointer}
 .sp-pause::before{content:"";width:9px;height:11px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
@@ -334,7 +335,7 @@
 @media(max-width:768px){.sp-fig{max-width:320px}.sp-task,.sp-up{font-size:14px}.sp-legend{gap:8px 16px}.sp-legend li{font-size:.9375rem}.sp-next{font-size:1rem}}
 
 /* ===== 構成（2026-10-23）：違い → やり方 → 最初の一歩 → 続け方 → 人 → 進め方と費用 → まず試したい方へ → FAQ → 相談 ===== */
-#model{background:var(--bg)}#howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
+#howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
 #shindan,#download{background:var(--bg-2)}#faq{background:var(--bg)}#contact{background:var(--bg-2)}
 /* 「やり方」と「最初の一歩」、「診断」と「PDF」は、それぞれ1つの章に見せる */
 #howwework{padding-bottom:48px}#flow{padding-top:24px}
@@ -415,68 +416,6 @@
 
 
 
-<!-- ── NGraph model ── -->
-<section class="section dks" id="model">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">NGRAPH MODEL</div>
-      <h2 class="section-title" id="kM_model-t">From build-and-done <span class="hl">to a team that can fix it themselves.</span></h2>
-    </div>
-    <!-- fig:model -->
-    <div class="fg fg-model reveal">
-      <div class="model-grid">
-        <div class="model-head before"><span class="nb">Until now ──</span> <span class="nb">Order an app</span></div>
-        <div class="model-head after"><span class="nb">NGraph ──</span> <span class="nb">Come inside and grow it together</span></div>
-
-        <div class="model-lab"><span class="num">01</span><strong>How it's built</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">Until now</span>
-          <strong class="ttl"><span class="nb">Built for you,</span> <span class="nb">delivered, done</span></strong>
-          <p>You hope it fits the work. Every time the work changes, it fits less</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">We come inside your company</span> <span class="nb">and grow it with you</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/enter-office.webp" alt="" loading="lazy">
-          <p>The person who comes inside learns the work and takes responsibility for results. We add AI tools on top of the tools you use now</p>
-        </div>
-
-        <div class="model-lab"><span class="num">02</span><strong>What you get</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">Until now</span>
-          <strong class="ttl"><span class="nb">An app:</span> <span class="nb">an asset that ages</span></strong>
-          <p>It's at its newest the moment it's delivered. From that day it ages, and its value falls</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">An asset that builds up in your company</span> <span class="nb">and gets smarter</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/grow-ledger.png" alt="" loading="lazy">
-          <p>Procedures and rules are kept in a form AI can read. The more they're used, the more your staff refine them, and their value grows. The design documents and data are yours too</p>
-        </div>
-
-        <div class="model-lab"><span class="num">03</span><strong>How it's fixed</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">Until now</span>
-          <strong class="ttl">Request, then wait</strong>
-          <p>A change request travels from staff to vendor to developers, and takes days to weeks to come back. The smaller the fix, the more it gets put off</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">Staff × AI</span> <span class="nb">fix it on the spot</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/fix-onsite.png" alt="" loading="lazy">
-          <p>A procedure is one page of plain text. Staff fix it with AI on the spot, and from the next day everyone's AI works the new way</p>
-        </div>
-      </div>
-      <hr class="fg-rule">
-    </div>
-    <p class="fg-statement reveal"><span class="nb">We don't deliver AI.</span> <span class="nb">We build <em>an organization that can fix its own AI</em>.</span></p>
-    <!-- /fig -->
-  </div>
-</section>
-
 <!-- ── NGraph model (deck figure, kM1-3 merged) ── -->
 <section class="section section-alt dks" id="howwework">
   <div class="container">
@@ -551,6 +490,7 @@
           <li><svg viewBox="-17 -17 34 34" aria-hidden="true"><circle r="16" style="fill:#c0573e"/><path class="sp-ic" d="M-2.4 4.6 H2.4 M-1.6 6.8 H1.6 M-2.4 3 C-2.4 0.6 -5 -0.4 -5 -3 A5 5 0 0 1 5 -3 C5 -0.4 2.4 0.6 2.4 3 Z"/></svg>Lessons</li>
         </ul>
         <p class="sp-next">The more we keep, the faster the next task starts.</p>
+        <ul class="sp-facts"><li>A procedure is one page of plain text. Your staff can fix it with AI on the spot</li><li>The design documents and data are yours</li></ul>
         <button class="sp-pause" type="button" aria-pressed="false" data-pause="Pause" data-play="Play">Pause</button>
       </div>
     </div>

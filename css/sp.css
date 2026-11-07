@@ -229,17 +229,6 @@
   .fg-fde .fde-return span{font-size:.875rem}
   .fg-fde+.fg-statement{margin-top:24px}
 
-  .fg-model .model-grid{gap:8px}
-  .fg-model .model-lab{padding-top:6px}
-  .fg-model .model-lab strong{font-size:1.125rem}
-  .fg-model .model-card,.fg-model .model-card.after{padding:12px 14px 12px}
-  .fg-model .model-card .ttl{font-size:1rem;padding-bottom:6px;margin-bottom:6px}
-  .fg-model .model-card p{font-size:.875rem;line-height:1.65}
-  .fg-model .model-side{margin-bottom:8px}
-  .fg-model .model-ex{padding:10px 14px}
-  .fg-model .model-ex p{font-size:.875rem;line-height:1.65}
-  .fg-model .model-chart{padding-top:10px}
-
   .fg-process .pr-formula{font-size:.875rem;margin-bottom:10px}
   .fg-process .pr-steps{grid-template-columns:1fr 1fr;gap:8px}
   .fg-process .pr-step{padding:12px 8px 10px;gap:2px}

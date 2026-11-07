@@ -330,6 +330,7 @@
 .sp-legend{list-style:none;margin:18px 0 0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px}
 .sp-legend li{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:1rem}
 .sp-legend svg{width:28px;height:28px}
+.sp-facts{list-style:none;margin:22px auto 0;padding:16px 0 0;border-top:1px solid var(--border);max-width:520px;display:grid;gap:6px;font-size:.875rem;color:var(--text-2);line-height:1.8}
 .sp-next{margin:18px 0 0;font-family:var(--serif);font-weight:700;color:var(--accent);font-size:1.0625rem}
 .sp-pause{display:inline-flex;align-items:center;gap:6px;margin:14px 0 0;padding:4px 2px;background:none;border:0;font:inherit;font-size:.8125rem;color:var(--text-3);cursor:pointer}
 .sp-pause::before{content:"";width:9px;height:11px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
@@ -338,7 +339,7 @@
 @media(max-width:768px){.sp-fig{max-width:320px}.sp-task,.sp-up{font-size:14px}.sp-legend{gap:8px 16px}.sp-legend li{font-size:.9375rem}.sp-next{font-size:1rem}}
 
 /* ===== 構成（2026-10-23）：違い → やり方 → 最初の一歩 → 続け方 → 人 → 進め方と費用 → まず試したい方へ → FAQ → 相談 ===== */
-#model{background:var(--bg)}#howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
+#howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
 #shindan,#download{background:var(--bg-2)}#faq{background:var(--bg)}#contact{background:var(--bg-2)}
 /* 「やり方」と「最初の一歩」、「診断」と「PDF」は、それぞれ1つの章に見せる */
 #howwework{padding-bottom:48px}#flow{padding-top:24px}
@@ -420,68 +421,6 @@
 
 
 
-<!-- ── NGraphモデル ── -->
-<section class="section dks" id="model">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">NGRAPH MODEL</div>
-      <h2 class="section-title" id="kM_model-t"><span class="nb">作って終わり、から。</span><span class="nb"><span class="hl">自分たちで直せる組織へ。</span></span></h2>
-    </div>
-    <!-- fig:model -->
-    <div class="fg fg-model reveal">
-      <div class="model-grid">
-        <div class="model-head before"><span class="nb">これまで ──</span> <span class="nb">アプリを、発注する</span></div>
-        <div class="model-head after"><span class="nb">NGraph ──</span> <span class="nb">中に入って、一緒に育てる</span></div>
-
-        <div class="model-lab"><span class="num">01</span><strong>作り方</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">これまで</span>
-          <strong class="ttl"><span class="nb">作ってもらい、</span><span class="nb">納品されて終わり</span></strong>
-          <p>業務に合っていることを祈る。業務が変わるたびに、合わなくなっていく</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">御社の中に入り、</span><span class="nb">一緒に育てる</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/enter-office.webp" alt="" loading="lazy">
-          <p>中に入る担当が業務を知り、成果に責任を持つ。いま使う道具の上にAIの道具を足して組む</p>
-        </div>
-
-        <div class="model-lab"><span class="num">02</span><strong>納品物</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">これまで</span>
-          <strong class="ttl"><span class="nb">アプリという、</span><span class="nb">古くなる資産</span></strong>
-          <p>納品された瞬間がいちばん新しい。その日から古くなり、価値が減っていく</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">御社に貯まる、</span><span class="nb">賢くなる資産</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/grow-ledger.png" alt="" loading="lazy">
-          <p>手順・ルールをAIが読める形で持つ。使うほど社員の手で直され、価値が増える。設計書・データも御社のもの</p>
-        </div>
-
-        <div class="model-lab"><span class="num">03</span><strong>直し方</strong></div>
-        <div class="fg-panel model-card before">
-          <span class="model-side">これまで</span>
-          <strong class="ttl">依頼して、待つ</strong>
-          <p>変更依頼が担当者→業者→開発と伝わり、戻るまで数日〜数週間。小さな直しほど後回しになる</p>
-        </div>
-        <div class="model-arrow" aria-hidden="true">→</div>
-        <div class="fg-panel model-card after">
-          <span class="model-side">NGraph</span>
-          <strong class="ttl"><span class="nb">社員×AIで、</span><span class="nb">その場で直す</span></strong>
-          <img class="model-ill" src="/assets/brain/ill/fix-onsite.png" alt="" loading="lazy">
-          <p>手順は日本語の1枚のテキスト。社員がAIとその場で直し、翌日から全員のAIが新しいやり方で動く</p>
-        </div>
-      </div>
-      <hr class="fg-rule">
-    </div>
-    <p class="fg-statement reveal"><span class="nb">AIを納品するのではなく、</span><span class="nb"><em>AIを自分たちで直せる</em></span><span class="nb"><em>組織</em>をつくる。</span></p>
-    <!-- /fig -->
-  </div>
-</section>
-
 <!-- ── NGraphモデル（資料の図・kM1〜3統合） ── -->
 <section class="section section-alt dks" id="howwework">
   <div class="container">
@@ -556,6 +495,7 @@
           <li><svg viewBox="-17 -17 34 34" aria-hidden="true"><circle r="16" style="fill:#c0573e"/><path class="sp-ic" d="M-2.4 4.6 H2.4 M-1.6 6.8 H1.6 M-2.4 3 C-2.4 0.6 -5 -0.4 -5 -3 A5 5 0 0 1 5 -3 C5 -0.4 2.4 0.6 2.4 3 Z"/></svg>教訓</li>
         </ul>
         <p class="sp-next"><span class="nb">残すほど、</span><span class="nb">次の課題は速く始まる。</span></p>
+        <ul class="sp-facts"><li><span class="nb">手順は、日本語のテキスト1枚。</span><span class="nb">社員がAIとその場で直せる</span></li><li><span class="nb">設計書もデータも、</span><span class="nb">御社のもの</span></li></ul>
         <button class="sp-pause" type="button" aria-pressed="false" data-pause="動きを止める" data-play="動かす">動きを止める</button>
       </div>
     </div>
