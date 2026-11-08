@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/ngraph-zen.css?v=22">
-<style>.b-thumb{display:block;margin:-6px -6px 14px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}.b-thumb img{width:100%;height:auto;display:block;transition:transform .3s}.blog-card:hover .b-thumb img{transform:scale(1.02)}.b-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.b-tab{font:inherit;font-size:.875rem;padding:7px 14px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--text-2,#5c544a);cursor:pointer}.b-tab.is-on{background:var(--accent);border-color:var(--accent);color:#fdfaf4;font-weight:700}.b-tabs-note{font-size:.875rem;color:var(--text-2,#5c544a);margin:-10px 0 20px}.blog-card[hidden]{display:none}@media(max-width:600px){.b-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-left:-4px;padding-left:4px}.b-tab{white-space:nowrap;flex:0 0 auto}}</style>
+<style>.b-thumb{display:block;margin:-6px -6px 14px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}.b-thumb img{width:100%;height:auto;display:block;transition:transform .3s}.blog-card:hover .b-thumb img{transform:scale(1.02)}.b-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.b-tab{font:inherit;font-size:.875rem;padding:7px 14px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--text-2,#5c544a);cursor:pointer}.b-tab.is-on{background:var(--accent);border-color:var(--accent);color:#fdfaf4;font-weight:700}.b-tabs-note{font-size:.875rem;color:var(--text-2,#5c544a);margin:-10px 0 20px}.blog-card[hidden]{display:none}.b-pager{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin:40px 0 0}.b-pager:empty{display:none}.b-pg{font:inherit;font-size:.9375rem;min-width:44px;height:44px;padding:0 12px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text);cursor:pointer;font-variant-numeric:tabular-nums}.b-pg:hover{border-color:var(--accent);color:var(--accent)}.b-pg.is-on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700;cursor:default}.b-pg[disabled]{opacity:.35;cursor:default}.b-pg-gap{color:var(--text-3);padding:0 2px}@media(max-width:600px){.b-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-left:-4px;padding-left:4px}.b-tab{white-space:nowrap;flex:0 0 auto}}</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -982,6 +982,7 @@
         <a href="/blog/ai-roadmap" class="b-more">読む →</a>
       </div>
     </div>
+    <nav class="b-pager" id="bPager" aria-label="ページ"></nav>
   </div>
 </section>
 
@@ -1013,18 +1014,40 @@ function t(){if(window.scrollY>420)f.classList.add('show');else f.classList.remo
 window.addEventListener('scroll',t,{passive:true});t();})();
 </script>
 <script>
+/* 2026-11-08 本人「ブログページ下に長すぎるから、ページかえよう1.2.3....」：カテゴリの絞り込み＋1ページ12本のページ分け。
+   記事のリンクは全部 HTML に残す（検索エンジンは全部たどれる）。表示だけを切り替え、?cat= と ?page= で URL に残す */
 (function(){
-  var tabs=document.querySelectorAll('.b-tab'),cards=document.querySelectorAll('.blog-card'),notes=document.querySelectorAll('.b-tabs-note');
+  var PER=12;
+  var tabs=document.querySelectorAll('.b-tab'),cards=[].slice.call(document.querySelectorAll('.blog-card')),notes=document.querySelectorAll('.b-tabs-note'),pager=document.getElementById('bPager'),list=document.querySelector('.blog-list');
   var allowed={all:1,news:1,adoption:1,subsidy:1,security:1,tech:1};
-  function show(cat,push){
-    if(!allowed[cat])cat='all';
+  var cur='all';
+  function btn(label,page,opts){var b=document.createElement('button');b.type='button';b.classList.add('b-pg');if(opts&&opts.on)b.classList.add('is-on');b.textContent=label;if(opts&&opts.aria)b.setAttribute('aria-label',opts.aria);if(opts&&opts.on)b.setAttribute('aria-current','page');if(opts&&opts.dis)b.disabled=true;else if(!(opts&&opts.on))b.addEventListener('click',function(){show(cur,page,true,true)});return b}
+  function gap(){var s=document.createElement('span');s.className='b-pg-gap';s.textContent='…';return s}
+  function show(cat,page,push,scroll){
+    if(!allowed[cat])cat='all';cur=cat;
     tabs.forEach(function(t){t.classList.toggle('is-on',t.dataset.cat===cat)});
-    cards.forEach(function(c){c.hidden=!(cat==='all'||c.dataset.cat===cat)});
     notes.forEach(function(n){n.hidden=n.dataset.for!==cat});
-    if(push){var u=new URL(location.href);cat==='all'?u.searchParams.delete('cat'):u.searchParams.set('cat',cat);history.replaceState(null,'',u)}
+    var hit=cards.filter(function(c){return cat==='all'||c.dataset.cat===cat});
+    var pages=Math.max(1,Math.ceil(hit.length/PER));
+    page=Math.min(Math.max(1,parseInt(page,10)||1),pages);
+    cards.forEach(function(c){c.hidden=true});
+    hit.slice((page-1)*PER,page*PER).forEach(function(c){c.hidden=false});
+    pager.innerHTML='';
+    if(pages>1){
+      pager.appendChild(btn('←',page-1,{aria:'前のページ',dis:page===1}));
+      var seen=0;
+      for(var i=1;i<=pages;i++){
+        if(i===1||i===pages||Math.abs(i-page)<=1){pager.appendChild(btn(String(i),i,{on:i===page,aria:i+'ページ目'}));seen=i}
+        else if(seen===i-1){pager.appendChild(gap());seen=-1}
+      }
+      pager.appendChild(btn('→',page+1,{aria:'次のページ',dis:page===pages}));
+    }
+    if(push){var u=new URL(location.href);cat==='all'?u.searchParams.delete('cat'):u.searchParams.set('cat',cat);page===1?u.searchParams.delete('page'):u.searchParams.set('page',page);history.replaceState(null,'',u)}
+    if(scroll&&list){var y=list.getBoundingClientRect().top+window.scrollY-110;window.scrollTo({top:y,behavior:'smooth'})}
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.cat,true)})});
-  show(new URLSearchParams(location.search).get('cat')||'all',false);
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.cat,1,true,false)})});
+  var q=new URLSearchParams(location.search);
+  show(q.get('cat')||'all',q.get('page')||1,false,false);
 })();
 </script>
 </body>
