@@ -18,14 +18,14 @@
 
 
 /* ── 会社の脳に聞く（ボット） ── */
-.ask{max-width:820px;margin:44px auto 0;background:#ffffff;border:1.5px solid var(--accent);border-radius:12px;padding:30px 30px 22px;box-shadow:0 0 0 1px rgba(36,66,122,.12)}
+.ask{max-width:820px;margin:44px auto 0;background:#ffffff;border:1.5px solid var(--accent);border-radius:12px;padding:30px 30px 22px;box-shadow:0 0 0 1px rgba(26,46,82,.12)}
 .ask-head{text-align:center;margin-bottom:18px}
 .ask-kicker{display:inline-block;font-size:.8125rem;font-weight:700;letter-spacing:.2em;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 12px;margin-bottom:10px;font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif}
 .ask-title{font-family:var(--serif);font-size:1.25rem;font-weight:700;line-height:1.6;margin:0 0 6px}
 .ask-sub{font-size:.875rem;color:var(--text-2);line-height:1.8;margin:0}
 .ask-form{display:flex;gap:10px}
 .ask-form input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:12px 14px;border:1px solid rgba(22,32,44,.3);border-radius:6px;background:#fff;color:var(--text)}
-.ask-form input:focus{outline:2px solid rgba(36,66,122,.35);outline-offset:1px}
+.ask-form input:focus{outline:2px solid rgba(26,46,82,.35);outline-offset:1px}
 .ask-form .btn{padding:12px 22px;white-space:nowrap}
 .ask-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .ask-chips button{font:inherit;font-size:.875rem;color:var(--text-2);background:transparent;border:1px solid rgba(22,32,44,.25);border-radius:999px;padding:6px 12px;cursor:pointer}
@@ -357,7 +357,7 @@ html[lang="en"] .fg-own .own-tag{gap:0 .3em}
 .fg-own .own-svg .lab.red text{fill:var(--red)}
 .fg-own .own-svg .lab.small text{font-size:27px;letter-spacing:0}
 .fg-own .own-svg .cap{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;font-size:30px;fill:var(--sub)}
-.fg-own .own-svg .hl{fill:rgba(36,66,122,.06);stroke:var(--red);stroke-width:2.5;stroke-dasharray:10 8}
+.fg-own .own-svg .hl{fill:rgba(26,46,82,.06);stroke:var(--red);stroke-width:2.5;stroke-dasharray:10 8}
 .fg-own .own-svg .lead{stroke:var(--red);stroke-width:2.5;fill:none}
 .fg-own .own-svg .hint{font-family:var(--serif);font-size:28px;font-weight:700;fill:var(--red);paint-order:stroke;stroke:#f5f6f7;stroke-width:10px;stroke-linejoin:round}
 .fg-own .own-svg .lab.brain rect{fill:var(--tint);stroke:var(--red);stroke-width:3}
@@ -679,7 +679,7 @@ html[lang="en"] .fg-structure .st-hub-sub .nb{display:inline}}
 
 /* ── 強弱（2026-10-23）：結論の一文は大きく、図の小見出しは小さく薄く ── */
 .fg-statement{font-size:var(--fs-lead);line-height:1.6;margin-top:40px}
-.fg-statement em{background:linear-gradient(transparent 68%,rgba(36,66,122,.14) 68%)}
+.fg-statement em{background:linear-gradient(transparent 68%,rgba(26,46,82,.14) 68%)}
 .fg-problem .pb-cap{color:var(--text-3);font-size:.8125rem;letter-spacing:.06em;font-weight:500}
 .fg-problem .pb-midcap{color:var(--text-3);font-size:.8125rem}
 .fg-own .own-tag{font-size:.875rem;color:var(--text-2)}
