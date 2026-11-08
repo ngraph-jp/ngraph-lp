@@ -659,7 +659,7 @@ html[lang="en"] .fg-structure .st-hub-sub .nb{display:inline}}
   .fg-team .tm-tag{grid-column:1/-1;grid-row:6}
   .fg-team .tm-list{grid-column:1/-1;grid-row:7}
 }
-@media(max-width:360px){.fg-team .tm-person{grid-template-columns:76px 1fr;column-gap:12px;padding:16px}.fg-team .tm-name{font-size:1.25rem}:lang(en) .fg-team .tm-name{font-size:1.125rem}.fg-team .tm-en{letter-spacing:.06em}}
+@media(max-width:360px){.fg-team{grid-template-columns:minmax(0,1fr)}.fg-team .tm-center{white-space:normal;max-width:calc(100% - 16px);border-radius:18px}.fg-team .nb{white-space:normal}.fg-team .tm-person{grid-template-columns:76px minmax(0,1fr);column-gap:12px;padding:16px}.fg-team .tm-name{font-size:1.25rem}:lang(en) .fg-team .tm-name{font-size:1.125rem}.fg-team .tm-en{letter-spacing:.06em}}
 
 /* ── 強弱（2026-10-23）：結論の一文は大きく、図の小見出しは小さく薄く ── */
 .fg-statement{font-size:var(--fs-lead);line-height:1.6;margin-top:40px}
