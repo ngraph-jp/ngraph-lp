@@ -463,6 +463,9 @@
 .svc-i:hover svg{transform:translate(2px,-2px)}
 @media(max-width:1180px){.svc-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.svc{padding-top:56px;padding-bottom:56px}.svc-h{margin-bottom:22px}.svc-lead{font-size:.9375rem}.svc-row{grid-template-columns:minmax(0,1fr);gap:10px}.svc-i{padding:18px 18px}}
+/* 2026-11-08 本人の案：見出しを「NGraphは、／AIを現場に実装する会社」の2行で言い切る。320px 幅だけ「社」が落ちるので字を1段小さく */
+.top-claim .tc-l{display:block}
+@media(max-width:340px){h2.section-title.top-claim{font-size:24px!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -583,7 +586,7 @@
   <div class="container">
     <div class="section-head reveal">
       <p class="pi-eyebrow">福井から、3つの仕事で</p>
-      <h2 class="section-title"><span class="nb">NGraphは、<em>AIを現場に</em></span><span class="nb"><em>実装する</em>会社です。</span></h2>
+      <h2 class="section-title top-claim"><span class="nb tc-l">NGraphは、</span><span class="nb tc-l"><em>AIを現場に実装する</em>会社</span></h2>
       <p class="section-sub"><span class="nb">エンジニアが御社の現場に入る実装、</span><span class="nb">攻撃者の目線のセキュリティ、</span><span class="nb">それを支える構造化の技術。</span><span class="nb">3つの仕事で、</span><span class="nb">AIを御社の資産にします。</span></p>
     </div>
     <div class="pi-grid reveal">
