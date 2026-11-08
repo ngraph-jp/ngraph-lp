@@ -514,9 +514,9 @@
   "article_h1": "「今後は確認しない」とAIに答えた命令は、パスワードごと公開リポジトリに残っていた",
   "fs": 42,
   "pattern": "c7-chara",
-  "scene": "c13_security_monitor",
   "sub": "公開リポジトリ1,122件で確認",
-  "title": "「今後は確認しない」とAIに答えた命令は、パスワードごと公開に残っていた"
+  "title": "「今後は確認しない」とAIに答えた命令は、パスワードごとGitHubに残っていた",
+  "scene": "c13_security_monitor"
  },
  "20261109-hokuriku-kensa-ai": {
   "article_h1": "北陸の工場で検査をAIにした会社は、まず品番を絞っていた",
