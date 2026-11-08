@@ -387,6 +387,10 @@ def main():
     if len(sys.argv) < 4 or sys.argv[1] not in ("doodle", "cards"):
         print(__doc__)
         sys.exit(1)
+    # 2026-11-03以降の新記事は7型（eyecatch_gen3.py）。cards の連投で表紙が単調になったため止める
+    if not any(x.startswith("--out=") and len(x) > 6 for x in sys.argv) and sys.argv[2][:8].isdigit() and sys.argv[2][:8] >= "20261103":
+        print("ERROR: 新記事の表紙は scripts/eyecatch_gen3.py で作る（BLOG-OPS §3）。")
+        sys.exit(3)
     mode, slug, title = sys.argv[1], sys.argv[2], sys.argv[3]
     chip, beats, asof, out_override = "現場の顛末記", None, "", None
     cards = []
