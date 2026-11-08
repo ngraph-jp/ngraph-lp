@@ -845,10 +845,20 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
   // 防御: idx が変わったら eraOverride を確実に解除する（go 経由以外の遷移が将来追加されても安全）
   useEffect(() => { setEraOverride(null); }, [idx]);
 
-  // body scroll lock
+  // 裏のページを固定する（iOS Safari は body の overflow:hidden だけでは裏がスクロールする・2026-11-08）
   useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    const y = window.scrollY;
+    const b = document.body.style;
+    const prev = { position: b.position, top: b.top, left: b.left, right: b.right, overflow: b.overflow };
+    const html = document.documentElement.style;
+    const prevHtml = html.overflow;
+    html.overflow = "hidden";
+    Object.assign(b, { position: "fixed", top: `-${y}px`, left: "0", right: "0", overflow: "hidden" });
+    return () => {
+      Object.assign(b, prev);
+      html.overflow = prevHtml;
+      window.scrollTo(0, y);
+    };
   }, []);
 
   const prev = idx > 0 ? items[idx - 1] : null;
@@ -889,7 +899,7 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md" onClick={onClose}>
+    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md overscroll-none" onClick={onClose}>
       {/* 閉じる + ページ番号（控えめ） */}
       <div className="absolute top-3 left-4 z-20">
         <button onClick={onClose} aria-label="閉じる" className="p-2.5 rounded-full bg-card text-foreground shadow-lg hover:text-primary transition-colors">
@@ -913,7 +923,7 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
         )}
 
         {/* カードの束 */}
-        <div className="relative w-full max-w-2xl lg:max-w-5xl xl:max-w-6xl max-h-[88dvh] mx-3 sm:mx-16 -mt-14 sm:mt-0" onClick={e => e.stopPropagation()}>
+        <div className="relative w-full max-w-2xl lg:max-w-5xl xl:max-w-6xl max-h-[88dvh] mx-2 sm:mx-16 -mt-6 sm:mt-0" onClick={e => e.stopPropagation()}>
           {/* -2枚目（最背面） */}
           {stack[0] && (
             <div className="hidden md:block absolute inset-x-0 top-0 h-full pointer-events-none" style={{ transform: "translateX(-24px) scale(0.92)", opacity: 0.08, zIndex: 1 }}>
@@ -939,7 +949,7 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
 
           {/* メインカード */}
           <div className="relative" style={{ zIndex: 5 }}>
-            <div className="rounded-2xl overflow-hidden bg-card border border-border/60 shadow-2xl max-h-[calc(100dvh-140px)] sm:max-h-[85vh] overflow-y-auto" ref={scrollRef}>
+            <div className="rounded-2xl overflow-hidden bg-card border border-border/60 shadow-2xl h-[calc(100dvh-132px)] sm:h-auto max-h-[calc(100dvh-132px)] sm:max-h-[85vh] overflow-y-auto overscroll-contain" ref={scrollRef}>
               <div className="text-foreground/90">
                 {/* eraGroup を持つ企業は、時系列タブで「現在 ⇄ 苦闘期」を切り替える。
                     左は常に現在版（canonical=baseCurr）、右に過去エントリを年昇順で並べる。 */}
