@@ -309,11 +309,11 @@
 
 /* ===== 構成（2026-10-23）：違い → やり方 → 最初の一歩 → 続け方 → 人 → 進め方と費用 → まず試したい方へ → FAQ → 相談 ===== */
 #howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
-#shindan,#download{background:var(--bg-2)}#faq{background:var(--bg)}#contact{background:var(--bg-2)}
+#download{background:var(--bg-2)}#faq{background:var(--bg)}#contact{background:var(--bg-2)}
 /* 「やり方」と「最初の一歩」、「診断」と「PDF」は、それぞれ1つの章に見せる */
 #howwework{padding-bottom:48px}#flow{padding-top:24px}
-#shindan{padding-bottom:40px}#download{padding-top:40px}
-#shindan .section-title,#download .section-title{font-size:var(--fs-lead)}
+#download{padding-top:40px}
+#download .section-title{font-size:var(--fs-lead)}
 /* 業務フロー図 */
 .flw-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px 24px 18px}
 .flw-k{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
@@ -424,7 +424,7 @@
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
       </div>
-      <p class="cta-micro">Want to try first? — <a href="#shindan" style="text-decoration:underline">Free 1-minute AI check</a></p>
+      <p class="cta-micro">Want to read first? — <a href="#download" style="text-decoration:underline">AI adoption checklist (PDF)</a></p>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src="/assets/brain/ill/fde-hero.webp" alt="" class="hero-enter" width="1000" height="750" fetchpriority="high">
@@ -538,22 +538,6 @@
 
 
 <!-- ── Free AI check ── -->
-<section class="section" id="shindan">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Free Check</div>
-      <h2 class="section-title">Free AI adoption check (8 questions, about 1 minute)</h2>
-      <p class="section-sub">Pick your industry and answer 8 questions. We show on the spot where to start: AX1, AX2, or AX2 + AX3 (no sign-up needed).</p>
-    </div>
-    <div class="quiz-wrap reveal" id="quizBox">
-      <!-- rendered by JS -->
-    </div>
-  </div>
-</section>
-
-
-
-
 <!-- ── Download ── -->
 <section class="section section-alt" id="download">
   <div class="container">
@@ -816,206 +800,6 @@ form.addEventListener('submit',function(e){
   })();
 
 
-// ── AI adoption check v3 (pick industry -> 8 questions -> entry point AX1 / AX2 / AX2+AX3) ──
-(function(){
-var QUIZ_LOG_URL='';
-var QUIZ_NAME='ai_shindan_v3_triage_en';
-var INDS=[
- ['transport','Transport & logistics'],['care','Nursing care & disability support'],
- ['security_bm','Security & building maintenance'],['cleaning','Cleaning & housekeeping'],
- ['construction','Construction & facility work'],['manufacturing','Manufacturing'],
- ['funeral','Funeral services'],['staffing','Staffing & contracting'],
- ['auto','Auto repair & sales'],['waste','Industrial waste & recycling'],
- ['hotel','Inns & hotels'],['childcare','Childcare & nursery schools'],
- ['clinic','Medical, dental & pharmacy'],['realestate','Property management'],
- ['agri','Agricultural corporations'],['printing','Printing'],
- ['retail_chain','Retail chains'],['school','Cram schools & classes'],
- ['consult','Consulting, professional services & planning'],['other','Other']
-];
-var TIPS={
- transport:["A quick answer desk for \"What are this shipper's rules again?\"","Drafts of daily reports, accident reports and routine messages to shippers","Automating the \"same explanation\" given to every new driver"],
- care:["A quick answer desk for \"Do we meet the requirements for this add-on payment?\"","Drafts of records and reports that follow the same format every time","Automating the \"same explanation\" repeated at every new hire"],
- security_bm:["A quick answer desk for \"What is the procedure at this site?\"","Drafts of security and inspection reports that follow the same format every time","Automating the \"same explanation\" repeated at every new posting"],
- cleaning:["A quick answer desk for \"What are the specs for this site?\"","Drafts of work reports and quotes that follow the same format every time","Automating the \"same explanation\" given to newcomers"],
- construction:["A quick answer desk for \"How did we finish that project?\"","Drafts of the routine parts of safety documents, daily reports and quotes","Automating the \"same explanation\" given to newcomers and partner companies"],
- manufacturing:["A quick answer desk for \"How did we machine this last time?\"","Drafts of daily reports, inspection records and quote replies","Automating the \"same explanation\" given to new operators"],
- funeral:["A quick answer desk for customs and procedures by sect and region","Drafts of meeting records, quotes and arrangement messages","Automating the \"same explanation\" given to newcomers"],
- staffing:["A quick answer desk for each client's rules and procedures","Drafts of routine notices to staff and contract documents","First replies to the \"same questions\" from registered staff"],
- auto:["A quick answer desk for service points by vehicle model","Drafts of quotes, service records and inspection notices","Automating the \"same explanation\" given to customers"],
- waste:["A quick answer desk for \"Can we accept this item?\"","Drafts of manifest-related documents and reports","Automating the \"same explanation\" given to newcomers"],
- hotel:["A quick answer desk for house rules and past group handling","Drafts of replies to bookings and inquiries","Automating the \"same explanation\" given to new staff"],
- childcare:["A quick answer desk for the facility's rules and forms","Drafts of newsletters, contact notebooks and plan documents","Automating the \"same explanation\" given to new teachers"],
- clinic:["A quick answer desk for billing rules and in-house rules","Drafts of notices and routine documents","Automating the \"same explanation\" given to new staff"],
- realestate:["A quick answer desk for agreements and repair history by property","Drafts of routine tenant replies and owner reports","Automating the \"same explanation\" given to newcomers"],
- agri:["A quick answer desk for cultivation and shipping procedures","Drafts of shipping documents and records","Automating the \"same explanation\" given to seasonal staff"],
- printing:["A quick answer desk for \"What were this client's specs last time?\"","Drafts of routine wording for quotes and proof exchanges","Automating the \"same explanation\" given to newcomers"],
- retail_chain:["A quick answer desk for store-level display rules and ordering decisions","Drafts of reports to headquarters and notices to stores","Automating the \"same explanation\" given to staff at new stores"],
- school:["A quick answer desk for each classroom's approach and the history of student handling","Drafts of notices to parents and meeting reports","Automating the \"same explanation\" given to new instructors"],
- consult:["First drafts of proposals and plans","Research, summarizing and translating documents","Sorting out next steps from meeting minutes"],
- other:["A quick answer desk for questions that come up again and again","Drafts of documents that follow a set format","Automating the same explanation given to new people"]
-};
-// the second value of each option is a key used for scoring (not shown)
-var QS=[
- {id:'q1',q:'Which of these is closest to the work that takes the most effort?',
-  o:[['Thinking through and writing proposals, plans or documents','write'],['Research, translation or summarizing','write'],['Answering the same questions and explanations again and again','info'],['Copying, data entry or totaling','info'],['Arranging shifts, schedules or logistics','info'],['Handovers and checks between departments or steps','flow']]},
- {id:'q2',q:'Where is the information that work needs right now?',
-  o:[['In one person\'s head or at their desk','head'],['Scattered across paper, Excel and chat','scatter'],['In separate sheets or systems for each department or step','silo'],['All in one place','one']]},
- {id:'q3',q:'If all the information you need were in one place, would that effort go away?',
-  o:[['Almost entirely','info'],['No. We would still need to change the order of work, owners or approvals','flow'],['It is not about information (we lack time to think and write)','work'],['I\'m not sure','unk']]},
- {id:'q4',q:'Who would mainly use AI for this work?',
-  o:[['The person in charge asks AI directly','self'],['People on site or newcomers, by looking at a screen','view'],['People from several departments','multi']]},
- {id:'q5',q:'How often does this work come up?',
-  o:[['Every day','daily'],['A few times a week','weekly'],['A few times a month','monthly'],['Once in a while','rare']]},
- {id:'q6',q:'Does this work involve information that cannot leave the company? (personal data, client information, recipes or processing conditions, etc.)',
-  o:[['A lot','hi'],['Some','mid'],['Hardly any','lo'],['I\'m not sure','unk']]},
- {id:'q7',q:'Who can decide to change how this work is done?',
-  o:[['The person in charge or the people on site','staff'],['The department head','mgr'],['It crosses departments, so management has to decide','exec'],['It is not clear who decides','none']]},
- {id:'q8',q:'Are you using AI (such as ChatGPT) at work right now?',
-  o:[['No','none'],['Individually, from time to time','some'],['Yes, as a company','org']]}
-];
-var STAGES={
- ax1:{code:'AX1',name:'Start with staff using generative AI',desc:'The person in charge asks generative AI directly, cutting the time spent writing, researching and thinking.'},
- ax2:{code:'AX2',name:'Start by connecting company information and data',desc:'We gather scattered information and build AI into how the work runs. Users do not have to learn how to use AI.'},
- ax23:{code:'AX2 + AX3',name:'Connect the data and change the workflow too',desc:'We connect information split across departments and steps, and review the order of handovers and owners at the same time.'}
-};
-// Public cases (sources confirmed in the original text, 2026-10-23). A similar industry does not guarantee the same result.
-var CASES={
- ax1:[{t:'Optical equipment importer (Tokyo, 33 employees)',d:'The president led the adoption of generative AI and held prompt workshops. They use it to summarize papers, translate English manuals, and choose products and write catchphrases for ads. Inquiries from ads increased.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-3 (Optscience Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_1.html'}],
- ax2:[{t:'Metal products manufacturer (Ishikawa, 85 employees)',d:'Work was managed on paper and Excel, and copying data and searching for documents took time. They used generative AI to build their own in-house system and put inspection results, inventory and other data in one place. Working hours fell by about 530 hours a month.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-14 (Okada Kenma Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'},
-      {t:'Head office of a restaurant group (Fukui, 12 restaurants)',d:'An effort to turn new-hire onboarding into an AI that answers from the head office\'s documents. It starts not by teaching staff how to use AI, but by building the system.',src:'NGraph project (in progress; results not yet measured)',url:''}],
- ax23:[{t:'Plastic parts manufacturer (Aichi, 126 employees)',d:'Orders and inventory were in the core system, production results in several Excel files, and defect rates on paper, so data was entered two or three times. They put the data in one place, then built an alert that notifies managers when the defect rate is high, and a function that issues production instructions automatically from orders and inventory, across departments.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-15 (Takase Kanagata Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'}]
-};
-var box=document.getElementById('quizBox'),answers=[],step=-1,ind=null;
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function ev(n,p){if(typeof gtag==='function')gtag('event',n,p);}
-function indLabel(){for(var i=0;i<INDS.length;i++)if(INDS[i][0]===ind)return INDS[i][1];return '';}
-function k(i){return answers[i]?answers[i].k:'';}
-function renderInd(){
-  box.innerHTML='<div class="q-progress">To start</div>'
-    +'<div class="q-text">Choose your industry</div>'
-    +'<div class="q-inds">'+INDS.map(function(x,i){return '<button data-i="'+i+'">'+esc(x[1])+'</button>';}).join('')+'</div>';
-  box.querySelectorAll('.q-inds button').forEach(function(b){
-    b.addEventListener('click',function(){
-      ind=INDS[+b.getAttribute('data-i')][0];
-      ev('quiz_start',{quiz_name:QUIZ_NAME,industry:ind});
-      answers=[];step=0;renderQ();
-    });
-  });
-}
-function renderQ(){
-  var q=QS[step];
-  box.innerHTML='<div class="q-progress">Q'+(step+1)+' / '+QS.length+'</div>'
-    +'<div class="q-text">'+esc(q.q)+'</div>'
-    +'<div class="q-opts">'+q.o.map(function(o,i){return '<button data-i="'+i+'">'+esc(o[0])+'</button>';}).join('')+'</div>'
-    +'<button class="q-back" id="qBack">← Back</button>';
-  box.querySelectorAll('.q-opts button').forEach(function(b){
-    b.addEventListener('click',function(){
-      var i=+b.getAttribute('data-i');
-      answers[step]={i:i,k:q.o[i][1],t:q.o[i][0]};
-      ev('quiz_answer',{quiz_name:QUIZ_NAME,question_id:q.id,answer_index:i,answer_label:q.o[i][0]});
-      step++;
-      if(step<QS.length)renderQ();else renderResult();
-    });
-  });
-  document.getElementById('qBack').addEventListener('click',function(){
-    step--;
-    if(step<0){ind=null;renderInd();}else renderQ();
-  });
-}
-// Scoring: first split by Q3 ("would the effort go away if the information were complete?"); use other answers only when unsure
-function judge(){
-  var q1=k(0),q2=k(1),q3=k(2),q4=k(3);
-  if(q3==='work')return 'ax1';
-  if(q3==='info')return 'ax2';
-  if(q3==='flow')return 'ax23';
-  var p={ax1:0,ax2:0,ax23:0};
-  if(q1==='write')p.ax1+=2;else if(q1==='info')p.ax2+=2;else if(q1==='flow')p.ax23+=2;
-  if(q2==='head')p.ax1+=1;else if(q2==='scatter'||q2==='one')p.ax2+=1;else if(q2==='silo'){p.ax2+=1;p.ax23+=1;}
-  if(q4==='self')p.ax1+=1;else if(q4==='view')p.ax2+=1;else if(q4==='multi')p.ax23+=1;
-  var best='ax2';['ax1','ax2','ax23'].forEach(function(s){if(p[s]>p[best])best=s;});
-  return best;
-}
-function reasons(stage){
-  var r=[],q1=answers[0],q2=k(1),q3=k(2),q4=k(3);
-  if(q1)r.push('Biggest effort: "'+q1.t+'"');
-  if(q3==='work')r.push('This is work where cutting the time spent thinking and writing helps more than gathering information.');
-  if(q3==='info')r.push('This is work where the effort goes away once the information is in one place. Gathering the information is the core task.');
-  if(q3==='flow')r.push('Even with all the information, effort remains unless the order of work, owners or approvals change.');
-  if(q3==='unk')r.push('You are not sure whether the effort would go away with complete information, so we based the suggestion on your other answers.');
-  if(q2==='scatter')r.push('Your information is scattered across paper, Excel and chat.');
-  if(q2==='silo')r.push('Your information is split by department and step.');
-  if(q2==='one'&&stage!=='ax1')r.push('Your information is already in one place, so this is an easy place to start.');
-  if(q4==='view'&&stage!=='ax1')r.push('We can build it so users only need to look at a screen.');
-  if(k(7)==='none'&&stage!=='ax1')r.push('You can start from this entry point even if you do not use AI yet.');
-  return r;
-}
-function checks(stage){
-  var c=[],q5=k(4),q6=k(5),q7=k(6);
-  if(k(2)==='unk')c.push('Whether the effort would go away if the information were complete (we trace one real case together to find out)');
-  if(q6==='hi'||q6==='unk')c.push('The line between information that can go into AI and information that cannot');
-  if(stage==='ax23'&&(q7==='none'||q7==='staff'))c.push('Who decides when the workflow changes across departments');
-  else if(q7==='none')c.push('Who decides to change how the work is done');
-  if(q5==='monthly'||q5==='rare')c.push('Whether the benefit is worth the frequency (sometimes reviewing your current tools or routine is enough, without AI)');
-  if(!c.length)c.push('The scope to try first, and how we will judge that it worked');
-  return c;
-}
-function stagesHtml(stage){
-  return '<ol class="tri-stages">'+['ax1','ax2','ax23'].map(function(s){
-    var st=STAGES[s];
-    return '<li class="'+(s===stage?'on':'')+'"><b>'+esc(st.code)+'</b><span>'+esc(st.name)+'</span></li>';
-  }).join('')+'</ol>';
-}
-function casesHtml(stage){
-  return '<ul class="tri-cases">'+CASES[stage].map(function(c){
-    return '<li><b>'+esc(c.t)+'</b><p>'+esc(c.d)+'</p><span class="tri-src">'
-      +(c.url?'<a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.src)+'</a>':esc(c.src))
-      +'</span></li>';
-  }).join('')+'</ul>';
-}
-function renderResult(){
-  var stage=judge(),st=STAGES[stage],label=indLabel();
-  var low=(k(4)==='rare');
-  var tips=TIPS[ind]||TIPS.other;
-  var rs=reasons(stage),cs=checks(stage);
-  ev('quiz_complete',{quiz_name:QUIZ_NAME,result_type:stage,industry:ind,low_frequency:low});
-  if(QUIZ_LOG_URL){
-    try{
-      fetch(QUIZ_LOG_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({
-        ts:new Date().toISOString(),industry:ind,
-        answers:answers.map(function(a,i){return {id:QS[i].id,index:a?a.i:null,label:a?a.t:null};}),
-        result:stage
-      })}).catch(function(){});
-    }catch(e){}
-  }
-  box.innerHTML='<div class="result-head">'
-    +'<div class="q-progress">Your result</div>'
-    +'<div class="result-score">Suggested entry point</div>'
-    +'<div class="result-type">'+esc(st.code)+'<span class="tri-name">'+esc(st.name)+'</span></div>'
-    +'</div>'
-    +stagesHtml(stage)
-    +'<p class="result-mirror">'+esc(st.desc)+'</p>'
-    +(low?'<p class="result-start">For work that comes up only once in a while, we suggest also considering not using AI. If you do go ahead, this is the suggested entry point.</p>':'')
-    +'<div class="result-tips"><h4>Why we suggest this</h4><ul class="result-notes">'+rs.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-    +'<div class="result-tips"><h4>What we would like to check together in a meeting</h4><ul class="result-notes">'+cs.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-    +'<div class="result-tips"><h4>Work in '+esc(label)+' that AI could take on first</h4><ul class="result-notes">'+tips.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-    +'<div class="result-tips"><h4>Efforts that started from the same entry point</h4>'+casesHtml(stage)
-    +'<p class="tri-note">Even in a similar industry, the same entry point does not always lead to the same result.</p></div>'
-    +'<p class="tri-note">This is a suggestion from a one-minute set of answers. We decide the entry point in a meeting by looking at your actual work together. You do not have to go through AX1 first.</p>'
-    +'<div class="lead-gate">'
-    +'<button class="btn btn-primary" id="qConsult">Talk about this result (free, 30 minutes)</button>'
-    +'</div>'
-    +'<button class="q-back" id="qRetry">← Take the check again</button>';
-  document.getElementById('qRetry').addEventListener('click',function(){answers=[];step=-1;ind=null;renderInd();});
-  document.getElementById('qConsult').addEventListener('click',function(){
-    ev('quiz_consult_click',{quiz_name:QUIZ_NAME,result_type:stage});
-    var ta=document.querySelector('#lpForm [name="お問い合わせ内容"]');
-    if(ta)ta.value='[Free check result] Industry: '+label+' / Suggested entry point: '+st.code+' ('+st.name+') / Biggest effort: '+((answers[0]&&answers[0].t)||'')+' / Where the information is: '+((answers[1]&&answers[1].t)||'');
-    var tgt=document.getElementById('contact');
-    if(tgt)tgt.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-}
-renderInd();
-})();
 </script>
 </body>
 </html>
