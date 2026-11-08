@@ -1,8 +1,10 @@
 import { renderToString } from "react-dom/server";
 import { App, type PageProps } from "./app";
 import { CASE_STUDIES, slugifyCase, findCaseBySlug, getCombinedScore } from "./cases/case-studies-data";
+import { setArcheLocale } from "./shims/i18n";
 
-export function render(props: PageProps): string {
+export function render(props: PageProps, locale: "ja" | "en" = "ja"): string {
+  setArcheLocale(locale);
   return renderToString(<App {...props} />);
 }
 
@@ -14,7 +16,7 @@ export function slugs(): string[] {
 
 export function meta(slug: string) {
   const c = findCaseBySlug(slug)!;
-  return { name: c.name, nameEn: c.nameEn ?? "", year: String(c.year), score: getCombinedScore(c), insight: c.insight ?? "" };
+  return { name: c.name, nameEn: c.nameEn ?? "", year: String(c.year), score: getCombinedScore(c), insight: c.insight ?? "", insightEn: c.insightEn ?? "" };
 }
 
 export const COUNT = CASE_STUDIES.length;

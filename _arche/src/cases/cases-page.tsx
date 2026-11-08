@@ -635,7 +635,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
           {/* SP */}
           <div className="sm:hidden flex items-start gap-3">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur text-xl font-black text-white drop-shadow">
-              {c.initial}
+              {locale === "en" ? ((c.nameEn || c.name).trim().charAt(0) || c.initial).toUpperCase() : c.initial}
             </div>
             <div className="min-w-0 flex-1">
               <h2 className="text-lg font-black tracking-tight leading-tight break-words">
@@ -660,7 +660,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
                   </>
                 )}
                 <span className="opacity-50">·</span>
-                <span className="whitespace-nowrap">{countryName(c.flag)}{countryName(c.flag) ? "・" : ""}{ja ? `${c.year}年` : c.year}</span>
+                <span className="whitespace-nowrap">{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `${c.year}年` : c.year}</span>
               </div>
             </div>
             <div className="relative w-20 h-20 shrink-0 self-center">
@@ -685,7 +685,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-3">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/20 backdrop-blur text-2xl font-black text-white drop-shadow">
-                  {c.initial}
+                  {locale === "en" ? ((c.nameEn || c.name).trim().charAt(0) || c.initial).toUpperCase() : c.initial}
                 </div>
                 <div className="flex min-w-0 flex-wrap items-center gap-1 text-xs font-medium leading-tight text-white/85">
                   {tierInfo.emoji && <span>{tierInfo.emoji}</span>}
@@ -706,7 +706,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
               {locale !== "en" && c.nameEn && c.nameEn !== c.name && (
                 <p className="text-xs text-white/70 mt-0.5 font-mono tracking-wide break-words">{c.nameEn}</p>
               )}
-              <p className="text-sm text-white/85 mt-1">{countryName(c.flag)}{countryName(c.flag) ? "・" : ""}{ja ? `創業 ${c.year}年` : `Founded ${c.year}`}</p>
+              <p className="text-sm text-white/85 mt-1">{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `創業 ${c.year}年` : `Founded ${c.year}`}</p>
             </div>
             <div className="hidden md:block w-[300px] shrink-0">
               <HeroSummary axes={c.axes} score={score} virtue={localizedVirtue} ja={ja} />
@@ -1428,30 +1428,38 @@ export default function CasesPage() {
         {/* 冒頭は3段に詰める（メインの一覧まで遠かった・2026-10-19 本人）。英字の見出しは外した */}
         <header className="space-y-2">
           <h1 className="[font-family:var(--font-serif)] text-[24px] sm:text-[30px] font-bold leading-[1.35] text-foreground">
-            企業の構造分析<span className="ml-3 text-base sm:text-lg font-bold text-muted-foreground">アルケー</span>
+            {locale === "en" ? "Company Analysis" : "企業の構造分析"}<span className="ml-3 text-base sm:text-lg font-bold text-muted-foreground">{locale === "en" ? "Arche" : "アルケー"}</span>
           </h1>
           {/* 説明の一文と「採点のしかた」を同じ行に。開くと説明が下に出る */}
           <details className="group max-w-3xl text-[14px] leading-[1.9] text-muted-foreground">
             <summary className="flex cursor-pointer list-none flex-wrap items-baseline gap-x-3 gap-y-1 [&::-webkit-details-marker]:hidden">
               <span className="text-[15px] leading-[1.6] text-foreground">
                 {/* 読点で折れるように2つのかたまりにする（「た。」だけが2行目に落ちていた） */}
-                <span className="inline-block">世界を変えた企業{canonicalCases.length}社を、</span>
-                <span className="inline-block">同じ物差しで並べました。</span>
+                {locale === "en" ? (
+                  <>{canonicalCases.length} companies that changed the world, measured with the same ruler.</>
+                ) : (
+                  <>
+                    <span className="inline-block">世界を変えた企業{canonicalCases.length}社を、</span>
+                    <span className="inline-block">同じ物差しで並べました。</span>
+                  </>
+                )}
               </span>
               <span className="inline-flex items-center gap-1 text-[13px] font-bold text-primary">
-                採点のしかた
+                {locale === "en" ? "How we score" : "採点のしかた"}
                 <span className="transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
               </span>
             </summary>
             <p className="mt-1">
-              市場・課題・チームなど12項目（各5点）と、世間・相手・自己の三軸（各10点）で採点し、100点満点で表しています。長く続いた会社と消えた会社の差が、どこに出るかを見るための一覧です。
+              {locale === "en"
+                ? "Each company is scored on 12 items such as market, problem and team (5 points each) and on three axes, society, customers and self (10 points each), for a total out of 100. The list shows where companies that lasted differ from those that disappeared."
+                : "市場・課題・チームなど12項目（各5点）と、世間・相手・自己の三軸（各10点）で採点し、100点満点で表しています。長く続いた会社と消えた会社の差が、どこに出るかを見るための一覧です。"}
             </p>
           </details>
           <ul className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-foreground">
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-ex)" />卓越 {EXCELLENT_LINE}点以上</li>
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-mean)" />中庸 {SURVIVAL_LINE}点以上</li>
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-weak)" />脆弱 {SURVIVAL_LINE}点未満</li>
-            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-fail)" />失敗した企業</li>
+            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-ex)" />{locale === "en" ? `Excellent: ${EXCELLENT_LINE}+` : `卓越 ${EXCELLENT_LINE}点以上`}</li>
+            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-mean)" />{locale === "en" ? `Mean: ${SURVIVAL_LINE}+` : `中庸 ${SURVIVAL_LINE}点以上`}</li>
+            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-weak)" />{locale === "en" ? `Fragile: under ${SURVIVAL_LINE}` : `脆弱 ${SURVIVAL_LINE}点未満`}</li>
+            <li className="flex items-center gap-2"><span className="h-3 w-3 rounded-sm bg-(--c-fail)" />{locale === "en" ? "Failed companies" : "失敗した企業"}</li>
           </ul>
         </header>
 
@@ -1503,7 +1511,7 @@ export default function CasesPage() {
                       className="w-12 h-12 shrink-0 rounded-lg flex items-center justify-center relative"
                       style={{ backgroundColor: c.color }}
                     >
-                      <span className="text-lg font-black text-white drop-shadow-md">{c.initial}</span>
+                      <span className="text-lg font-black text-white drop-shadow-md">{locale === "en" ? ((c.nameEn || c.name).trim().charAt(0) || c.initial).toUpperCase() : c.initial}</span>
                     </div>
                     {/* 情報 */}
                     <div className="flex-1 min-w-0">

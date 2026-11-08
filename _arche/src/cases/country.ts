@@ -7,12 +7,20 @@ const NAMES: Record<string, string> = {
   AT: "オーストリア", BE: "ベルギー", NO: "ノルウェー", GH: "ガーナ", BS: "バハマ",
 };
 
-export function countryName(flag?: string): string {
+const NAMES_EN: Record<string, string> = {
+  US: "USA", JP: "Japan", CN: "China", IT: "Italy", FR: "France", GB: "UK", DE: "Germany",
+  SE: "Sweden", KR: "South Korea", IN: "India", BD: "Bangladesh", AU: "Australia",
+  NL: "Netherlands", CH: "Switzerland", DK: "Denmark", CA: "Canada", IL: "Israel", BR: "Brazil",
+  TW: "Taiwan", SG: "Singapore", KE: "Kenya", FI: "Finland", ES: "Spain",
+  AT: "Austria", BE: "Belgium", NO: "Norway", GH: "Ghana", BS: "Bahamas",
+};
+
+export function countryName(flag?: string, locale: string = "ja"): string {
   if (!flag) return "";
   const code = [...flag]
     .map((ch) => ch.codePointAt(0) ?? 0)
     .filter((cp) => cp >= 0x1f1e6 && cp <= 0x1f1ff)
     .map((cp) => String.fromCharCode(cp - 0x1f1e6 + 65))
     .join("");
-  return NAMES[code] ?? code;
+  return (locale === "en" ? NAMES_EN : NAMES)[code] ?? code;
 }

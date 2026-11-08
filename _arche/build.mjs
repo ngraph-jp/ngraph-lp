@@ -29,9 +29,10 @@ const crumbs = (items) => ({
 });
 const ldTag = (graph) => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>`;
 
-function page({ title, desc, path, body, slug, ld }) {
+function page({ title, desc, path, body, slug, ld, lang = "ja" }) {
+  const jaPath = path.replace(/^\/en\//, "/"), enPath = lang === "en" ? path : `/en${path}`;
   return `<!DOCTYPE html>
-<html lang="ja">
+<html lang="${lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -48,12 +49,16 @@ function page({ title, desc, path, body, slug, ld }) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}${path}">
-<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:site_name" content="${lang === "en" ? "NGraph Inc." : "株式会社NGraph"}">
+<meta property="og:locale" content="${lang === "en" ? "en_US" : "ja_JP"}">
 <meta property="og:image" content="${SITE}/assets/ogp.jpg?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="${SITE}${path}">
+<link rel="alternate" hreflang="ja" href="${SITE}${jaPath}">
+<link rel="alternate" hreflang="en" href="${SITE}${enPath}">
+<link rel="alternate" hreflang="x-default" href="${SITE}${jaPath}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,50 +84,77 @@ ${ldTag(ld)}
 `;
 }
 
+// 日本語（/cases/）と英語（/en/cases/）の2つを書き出す（2026-11-08 本人「企業の構造分析って英語もあるよね？」→「作って」）。
+// JS/CSS は /cases/_assets/ の1組を両方で使う。英語の文章は元データの *En（全133社にある）。
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(`${OUT}/_assets`, { recursive: true });
 cpSync("dist/client", `${OUT}/_assets`, { recursive: true });
+const OUT_EN = "../en/cases";
+rmSync(OUT_EN, { recursive: true, force: true });
 
 const n = server.COUNT;
-writeFileSync(`${OUT}/index.html`, page({
-  title: "アルケー — 企業の構造分析 | 株式会社NGraph",
-  desc: `アルケーが世界を変えた企業${n}社を12項目×3軸で採点。NCG（Nicomachos Company Graph）100点満点、存続ライン47点、卓越ライン75点。`,
-  path: "/cases/",
-  body: server.render({ kind: "list" }),
-  ld: [
-    { "@type": "CollectionPage", "@id": `${SITE}/cases/#page`, url: `${SITE}/cases/`, name: "アルケー — 企業の構造分析", inLanguage: "ja", publisher: ORG },
-    crumbs([["ホーム", "/"], ["企業の構造分析", "/cases/"]]),
-  ],
-}));
-
 const slugs = server.slugs();
-for (const slug of slugs) {
-  const m = server.meta(slug);
-  mkdirSync(`${OUT}/${slug}`, { recursive: true });
-  const d = `${m.name}（NCG ${m.score}/100点）${m.insight}`;
-  writeFileSync(`${OUT}/${slug}/index.html`, page({
-    title: `${m.name} | アルケー — 企業の構造分析 | 株式会社NGraph`,
-    desc: d.length > 156 ? d.slice(0, 155) + "…" : d,
-    path: `/cases/${slug}/`,
-    body: server.render({ kind: "detail", slug }),
-    slug,
+const ORG_EN = { ...ORG, name: "NGraph Inc." };
+const T = {
+  ja: {
+    dir: OUT, base: "/cases/", home: "/", org: ORG,
+    listTitle: "アルケー — 企業の構造分析 | 株式会社NGraph",
+    listDesc: `アルケーが世界を変えた企業${n}社を12項目×3軸で採点。NCG（Nicomachos Company Graph）100点満点、存続ライン47点、卓越ライン75点。`,
+    listName: "アルケー — 企業の構造分析", crumbHome: "ホーム", crumbList: "企業の構造分析",
+    name: (m) => m.name,
+    title: (m) => `${m.name} | アルケー — 企業の構造分析 | 株式会社NGraph`,
+    desc: (m) => `${m.name}（NCG ${m.score}/100点）${m.insight}`,
+    headline: (m) => `${m.name}の企業の構造分析（NCG ${m.score}/100点）`,
+  },
+  en: {
+    dir: OUT_EN, base: "/en/cases/", home: "/en/", org: ORG_EN,
+    listTitle: "Arche — Companies Deconstructed | NGraph Inc.",
+    listDesc: `Arche scores ${n} companies that changed the world on 12 items across 3 axes. NCG (Nicomachos Company Graph): out of 100, survival line 47, excellence line 75.`,
+    listName: "Arche — Companies Deconstructed", crumbHome: "Home", crumbList: "Company Analysis",
+    name: (m) => m.nameEn || m.name,
+    title: (m) => `${m.nameEn || m.name} | Arche — Companies Deconstructed | NGraph Inc.`,
+    desc: (m) => `${m.nameEn || m.name} (NCG ${m.score}/100) ${m.insightEn || ""}`.trim(),
+    headline: (m) => `Structural analysis of ${m.nameEn || m.name} (NCG ${m.score}/100)`,
+  },
+};
+const cut = (d) => (d.length > 156 ? d.slice(0, 155) + "…" : d);
+for (const lang of ["ja", "en"]) {
+  const t = T[lang];
+  mkdirSync(t.dir, { recursive: true });
+  writeFileSync(`${t.dir}/index.html`, page({
+    lang, title: t.listTitle, desc: t.listDesc, path: t.base,
+    body: server.render({ kind: "list" }, lang),
     ld: [
-      {
-        "@type": "Article",
-        "@id": `${SITE}/cases/${slug}/#article`,
-        url: `${SITE}/cases/${slug}/`,
-        headline: `${m.name}の企業の構造分析（NCG ${m.score}/100点）`,
-        description: d,
-        inLanguage: "ja",
-        image: `${SITE}/assets/ogp.jpg?v=3`,
-        about: { "@type": "Organization", name: m.name, ...(m.nameEn && m.nameEn !== m.name ? { alternateName: m.nameEn } : {}) },
-        author: ORG,
-        publisher: ORG,
-        isPartOf: { "@type": "CollectionPage", "@id": `${SITE}/cases/#page` },
-      },
-      crumbs([["ホーム", "/"], ["企業の構造分析", "/cases/"], [m.name, `/cases/${slug}/`]]),
+      { "@type": "CollectionPage", "@id": `${SITE}${t.base}#page`, url: `${SITE}${t.base}`, name: t.listName, inLanguage: lang, publisher: t.org },
+      crumbs([[t.crumbHome, t.home], [t.crumbList, t.base]]),
     ],
   }));
+  for (const slug of slugs) {
+    const m = server.meta(slug);
+    mkdirSync(`${t.dir}/${slug}`, { recursive: true });
+    const d = t.desc(m);
+    writeFileSync(`${t.dir}/${slug}/index.html`, page({
+      lang, title: t.title(m), desc: cut(d), path: `${t.base}${slug}/`,
+      body: server.render({ kind: "detail", slug }, lang),
+      slug,
+      ld: [
+        {
+          "@type": "Article",
+          "@id": `${SITE}${t.base}${slug}/#article`,
+          url: `${SITE}${t.base}${slug}/`,
+          headline: t.headline(m),
+          description: d,
+          inLanguage: lang,
+          image: `${SITE}/assets/ogp.jpg?v=3`,
+          about: { "@type": "Organization", name: m.name, ...(m.nameEn && m.nameEn !== m.name ? { alternateName: m.nameEn } : {}) },
+          author: t.org,
+          publisher: t.org,
+          isPartOf: { "@type": "CollectionPage", "@id": `${SITE}${t.base}#page` },
+        },
+        crumbs([[t.crumbHome, t.home], [t.crumbList, t.base], [t.name(m), `${t.base}${slug}/`]]),
+      ],
+    }));
+  }
 }
 // 元ソースの指紋を残す（scripts/arche_check.py が「複写を直したのに作り直していない」を止める）
 const h = createHash("sha256");
@@ -134,9 +166,9 @@ writeFileSync(`${OUT}/_assets/build.json`, JSON.stringify({ orig_sha256: h.diges
 const SM = "../sitemap.xml", A = "<!-- cases:start -->", B = "<!-- cases:end -->";
 const today = new Date().toISOString().slice(0, 10);
 const NL = "\n";
-const block = A + NL + ["/cases/", ...slugs.map((s) => `/cases/${s}/`)]
+const block = A + NL + ["/cases/", ...slugs.map((s) => `/cases/${s}/`), "/en/cases/", ...slugs.map((s) => `/en/cases/${s}/`)]
   .map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod></url>`).join(NL) + NL + "  " + B;
 let sm = readFileSync(SM, "utf-8");
 sm = sm.includes(A) ? sm.slice(0, sm.indexOf(A)) + block + sm.slice(sm.indexOf(B) + B.length) : sm.replace("</urlset>", "  " + block + NL + "</urlset>");
 writeFileSync(SM, sm);
-console.log(`cases/ に一覧1＋各社${slugs.length}ページ（データ${n}件）を書き出し、sitemap.xml を更新しました`);
+console.log(`cases/ と en/cases/ に一覧1＋各社${slugs.length}ページずつ（データ${n}件）を書き出し、sitemap.xml を更新しました`);

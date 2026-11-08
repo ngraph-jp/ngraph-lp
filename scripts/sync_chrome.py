@@ -133,10 +133,15 @@ def header(path, cls):
         h = f.read().strip()
     href, label = CTA.get(path, ("/en/entry", "Free consultation") if lang == "en" else ("/entry", "無料で相談する"))
     alt = ALT.get(path, "/" if lang == "en" else "/en/")
+    # 企業分析は日英が同じ並び（2026-11-08 英語版を追加）：同じ会社の反対の言語へ
+    if path.startswith("cases/"):
+        alt = "/en/" + page_url(path).lstrip("/")
+    elif path.startswith("en/cases/"):
+        alt = page_url(path)[len("/en"):]
     h = h.replace("{{CLASS}}", cls).replace("{{CTA_HREF}}", href).replace("{{CTA_LABEL}}", label).replace("{{ALT}}", alt)
     url = page_url(path)
     # 記事や各社ページの中でも、上の階層のメニュー（ブログ／企業分析）を今いる場所として示す
-    key = "/blog/" if url.startswith("/blog/") else "/cases/" if url.startswith("/cases/") else url
+    key = "/blog/" if url.startswith("/blog/") else "/cases/" if url.startswith("/cases/") else "/en/cases/" if url.startswith("/en/cases/") else url
     return h.replace('<a href="%s">' % key, '<a href="%s" aria-current="page">' % key, 1)
 
 

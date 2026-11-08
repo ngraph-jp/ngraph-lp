@@ -5479,6 +5479,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     total: 49,
     tier: "earth",
     tierLabel: "アース20",
+    tierLabelEn: "Earth 20",
     color: "#635BFF",
     initial: "S",
     flag: "🇺🇸",
