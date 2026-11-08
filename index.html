@@ -379,8 +379,11 @@
 /* 3本の絵を同じ高さの枠にそろえる（2026-11-08 本人「イラストの大きさバラバラ」） */
 .pi-art{height:190px;justify-content:center;margin:0 0 14px}
 .pi-art img,.pi-card.main .pi-art img{width:100%;height:100%;max-width:100%;object-fit:contain}
-@media(max-width:640px){.pi-art{height:160px}.pi-card.main .pi-art{height:210px}}
+@media(min-width:1001px){.pi-art{height:220px}}
+@media(min-width:641px) and (max-width:1000px){.pi-art{height:190px}.pi-card.main .pi-art{height:230px}.pi-card:last-child .pi-art{height:260px}}
+@media(max-width:640px){.pi-art{height:160px}.pi-card.main .pi-art{height:210px}.pi-card:last-child .pi-art{height:230px}}
 /* 2026-11-08 本人「2人のイラストのほうが小さくないか」：2人の絵は左右の棚と足元を切り、スマホは1枚目だけ枠を高くする（PCは3枚並ぶので高さはそろえたまま） */
+/* 同日「構造化の絵も横の余白多く見える。揃えて」：正方形の絵は高さで縮むので、PCは3枚とも枠を220pxに、スマホは3枚目だけ230px */
 .pi-first{margin:26px 0 0;text-align:center;font-size:.9375rem;color:var(--text-2)}.pi-first a{font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}.pi-first i{font-style:normal}
 .pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent-hi)}
 #services .section-sub{font-size:.9375rem;line-height:1.9;color:var(--text-2)}
