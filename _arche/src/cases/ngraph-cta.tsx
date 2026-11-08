@@ -5,7 +5,7 @@ export function NgraphCta() {
   return (
     <section className="rounded-xl border border-border bg-card p-5 sm:p-6">
       <p className="text-xs font-bold tracking-[0.3em] text-primary">NGRAPH — AI導入支援</p>
-      <h2 className="mt-2 [font-family:var(--font-serif)] text-lg sm:text-xl font-bold leading-[1.5] text-foreground">
+      <h2 className="mt-2 [font-family:var(--font-serif)] text-lg sm:text-xl font-bold leading-[1.5] text-foreground [text-wrap:balance]">
         事業を構造でつかむところから、AI導入に入ります
       </h2>
       <p className="mt-2 text-[15px] leading-[1.9] text-foreground">

@@ -86,7 +86,8 @@ html[lang="en"] body,html[lang="en"] body *{overflow-wrap:break-word}
 .hero .eyebrow .dot{width:7px;height:7px;border-radius:1px;background:var(--accent)}
 .hero .hero-tagline{font-family:var(--serif);font-weight:700;color:var(--text);line-height:1.6;word-break:auto-phrase;margin-bottom:26px;letter-spacing:.04em}
 .hero .hero-tagline .hl{color:var(--accent);background:none;-webkit-text-fill-color:currentColor}
-.hero p.lead{font-size:var(--fs-h3);color:var(--text-2);max-width:560px;margin:0;line-height:2.1}
+/* 2026-11-08 本人「テキストあってない・全部そろってる？」：ヒーローのリードは全ページ 18px/1.95（SPは15px/1.85） */
+.hero p.lead{font-size:1.125rem;color:var(--text-2);max-width:560px;margin:0;line-height:1.95}
 .hero-stats{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .hero-stats .hstat{display:flex;flex-direction:column;gap:4px;padding:14px 20px;border:1px solid var(--border);border-radius:4px;background:var(--bg-card);min-width:96px}
 .hero-stats .num{font-family:var(--serif);font-size:1.5rem;font-weight:700;line-height:1;color:var(--accent)}
