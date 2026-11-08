@@ -30,7 +30,8 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   word-break:auto-phrase;
-  text-wrap:pretty;
+  /* 2026-11-08 本人「まだまだ入るのにあえておかしなとこで改行してる」：本文は text-wrap:pretty をやめる。
+     Chrome が最後の行を長くするため、まだ4〜6字入る位置で先に折っていた（iPhone の Safari は効かず端まで詰める） */
   overflow-wrap:anywhere;
 }
 a{color:inherit;text-decoration:none}
@@ -541,7 +542,6 @@ button,input,select,textarea{font-family:inherit}
 /* ── SPの折返し（2026-10-31）：見出し・札・ボタンは行を均し、本文は1〜2字の孤立行を作らない ── */
 @media(max-width:768px){
   h3,h4,summary,figcaption,.btn,button,.tm-title,.sf-s{text-wrap:balance}
-  p,li,dd,td{text-wrap:pretty}
 }
 /* 2026-11-07 見出しを締め、強調色を黒と明るさで分ける（KAGUYAとの比較：字間・強調色・カード見出し） */
 :root{--accent-hi:#2f5fc4}
