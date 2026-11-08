@@ -456,13 +456,15 @@
 .rs-cap{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;font-weight:700;color:var(--accent);border-bottom:1px solid currentColor}
 @media(max-width:900px){.rpt-stack{max-width:300px}}
 @media(max-width:480px){.rpt-stack{max-width:250px;left:-14px}}
+/* 2026-11-08 本人「無駄に切ってる」：2列だと1枚の文の幅が約9文字しかなく、語句ごとに折れて段々になる。スマホは1列にして1行を長く */
+@media(max-width:560px){.amap-grid{grid-template-columns:minmax(0,1fr)}.amap-n{padding:14px 16px}.amap-n b{font-size:1rem;padding-right:44px}.amap-n small,.amap-n q{font-size:.8125rem}}
 /* 攻撃者の地図：札のアイコン */
 .amap-n{padding-right:58px}
 .amap-ic{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(160,180,205,.12);color:#c9d4e2}
 .amap-ic svg{width:23px;height:23px}
 .amap-n.fix .amap-ic{background:rgba(224,90,90,.16);color:#ff9d9d}
 .amap-n.chk .amap-ic{background:rgba(200,162,74,.18);color:#e3c46f}
-@media(max-width:760px){.amap-n{padding-right:11px}.amap-n b{padding-right:30px}.amap-ic{top:10px;right:10px;width:28px;height:28px}.amap-ic svg{width:16px;height:16px}}
+@media(max-width:760px){.amap-n{padding-right:11px}.amap-ic{top:10px;right:10px;width:28px;height:28px}.amap-ic svg{width:16px;height:16px}}
 /* サービスと契約：比較表（1画面に収める） */
 .cmp{max-width:1120px;margin:0 auto 20px;display:grid;grid-template-columns:118px minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .cmp>div{padding:12px 18px;border-top:1px solid var(--border);font-size:.9375rem;line-height:1.65}
