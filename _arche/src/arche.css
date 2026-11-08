@@ -49,23 +49,23 @@
 
 .arche-page {
   /* ngraph.jp の色（和紙・墨・朱）に合わせる。2026-10-17 本人「カラーも含めてブラッシュアップ」 */
-  --background: #f6f2e9;
+  --background: #f5f6f7; /* 2026-11-08 本人「このページだけ背景の色がちがう」→ ほかのページ（ngraph-zen.css --bg）にそろえる */
   --foreground: #2b2620;
-  --card: #fffdf8;
+  --card: #ffffff;
   --card-foreground: #2b2620;
-  --popover: #fffdf8;
+  --popover: #ffffff;
   --popover-foreground: #2b2620;
   --primary: #a63a24;
   --primary-foreground: #fdfaf4;
-  --secondary: #efe9dc;
+  --secondary: #eceef1;
   --secondary-foreground: #2b2620;
-  --muted: #efe9dc;
+  --muted: #eceef1;
   --muted-foreground: #5d564b;
-  --accent: #efe9dc;
+  --accent: #eceef1;
   --accent-foreground: #2b2620;
   --destructive: #a63a24;
-  --border: #ddd5c7;
-  --input: #ddd5c7;
+  --border: #d5dae0;
+  --input: #d5dae0;
   --ring: #a63a24;
   --radius: 0.625rem;
   /* 点数の色（卓越・中庸・脆弱・逸脱）。WCAG AA を和紙の上で満たす濃さ */
