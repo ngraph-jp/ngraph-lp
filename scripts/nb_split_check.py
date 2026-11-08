@@ -102,7 +102,7 @@ def pages():
     out = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, encoding="utf-8").stdout.split()
     keep = []
     for p in out:
-        if p.startswith(("_", ".", "scripts/", "figures/", "cases/")) or "/_" in p:
+        if p.startswith(("_", ".", "scripts/", "figures/", "cases/", "en/cases/")) or "/_" in p:
             continue
         if p.startswith(("blog/", "en/blog/")) and not p.endswith("index.html"):
             continue
