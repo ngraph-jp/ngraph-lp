@@ -64,13 +64,30 @@ def main():
         sm = set(re.findall(r"<loc>https://ngraph\.jp(/cases/[^<]*)</loc>", fp.read()))
     if sm != set(pages):
         ng.append(f"sitemap.xml の /cases/ が書き出しと違う（sitemapだけ{len(sm - set(pages))}件・ページだけ{len(set(pages) - sm)}件）")
+    # 2026-11-08 英語版 /en/cases/ を追加。build.mjs は日英を同時に書き出すので、ページの集合と sitemap が日本語と同じはず
+    en_root = os.path.join(ROOT, "en", "cases")
+    en_pages = set()
+    for d, _, files in os.walk(en_root):
+        if "index.html" in files:
+            rel = os.path.relpath(d, en_root).replace("\\", "/")
+            en_pages.add("/cases/" if rel == "." else f"/cases/{rel}/")
+            with open(os.path.join(d, "index.html"), encoding="utf-8") as fp:
+                for ref in re.findall(r'/cases/_assets/([^"\s)]+)', fp.read()):
+                    if ref not in assets:
+                        ng.append(f"en/cases/{rel}/index.html が読む _assets/{ref} が無い")
+    if en_pages != set(pages):
+        ng.append(f"英語版 en/cases/ のページが日本語版と違う（英語だけ{len(en_pages - set(pages))}件・日本語だけ{len(set(pages) - en_pages)}件）→ cd _arche && npm run build")
+    with open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8") as fp:
+        sm_en = set(re.findall(r"<loc>https://ngraph\.jp/en(/cases/[^<]*)</loc>", fp.read()))
+    if sm_en != set(pages):
+        ng.append(f"sitemap.xml の /en/cases/ が書き出しと違う（sitemapだけ{len(sm_en - set(pages))}件・ページだけ{len(set(pages) - sm_en)}件）")
 
     if ng:
         print(f"アルケー（cases/）のズレ {len(ng)}件")
         for n in ng[:15]:
             print("  -", n)
         return 1
-    print(f"OK: アルケー（cases/）はソース・sitemap と一致（{len(pages)}ページ）")
+    print(f"OK: アルケー（cases/・en/cases/）はソース・sitemap と一致（各{len(pages)}ページ）")
     return 0
 
 
