@@ -294,7 +294,7 @@
 }
 
 /* ===== 構成と強弱（2026-10-23）：課題 → 考え方 → 頼めること → 実績 → 人 → 相談 ===== */
-.tz-h1{font-family:var(--mincho)}
+.tz-h1{font-family:var(--serif);font-weight:700;letter-spacing:.03em} /* 2026-11-08 本人「ヒーローとそれ以下がフォントもまるっきり変わって統一感うすい」：下の見出しと同じゴシックに */
 /* 背景のリズム：黒 → 白 → 灰 → 白 → 灰 → 白 → 藍 */
 #problem{background:var(--bg)}#services{background:var(--bg)}
 /* 考え方の2段（置き場所／時間がたつと） */
@@ -306,7 +306,7 @@
 .fg-problem .pb-svg .bub text{font-family:var(--serif);font-weight:700}
 /* 実績：補足なので一段小さく */
 #products{padding:96px 0}
-#products .section-title{font-size:var(--fs-lead)}
+
 #products .section-head{margin-bottom:36px}
 /* 相談：色を反転させて一番強く */
 #start{background:var(--accent);padding:120px 0}
@@ -456,8 +456,8 @@
 @media(max-width:768px){.own2{grid-template-columns:1fr}.o2-ar{height:44px;transform:rotate(90deg)}.o2{padding:18px 16px}.o2 figcaption b{font-size:1.0625rem}.o2-art{min-height:0}.o2-art img{max-height:220px}.o2 p{font-size:.875rem}}
 /* SERVICE 一覧（2026-11-08） */
 .svc{padding-top:72px;padding-bottom:72px}
-.svc-h{font-family:var(--serif);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;letter-spacing:-.01em;line-height:1;color:var(--text);margin:0 0 36px}
-.svc-lead{max-width:none;font-size:1rem;line-height:1.9;color:var(--text-2);margin:0 0 28px}
+.svc-h{font-family:var(--serif);font-size:var(--fs-h2);font-weight:700;letter-spacing:.03em;line-height:1.4;color:var(--text);margin:0 0 20px;text-align:center}
+.svc-lead{max-width:none;font-size:1rem;line-height:1.9;color:var(--text-2);margin:0 0 32px;text-align:center}
 .svc-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .svc-i{display:flex;align-items:center;gap:10px;padding:22px 18px;background:#fff;border:1px solid var(--border);border-radius:10px;color:var(--text);text-decoration:none;transition:border-color .2s ease,box-shadow .2s ease}
 .svc-i:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(22,32,44,.08)}
@@ -597,7 +597,6 @@
         <h3><span class="pi-t1">Build AI into your operations</span><span class="pi-t2">On-site implementation</span></h3>
         <p class="pi-name">AI Adoption Support (FDE)</p>
         <p class="pi-d"><span class="nb">Our engineers come into your workplace,</span> <span class="nb">connect your internal data to AI,</span> <span class="nb">and redesign how the work flows.</span></p>
-        <p class="pi-meta"><span class="nb">Duration: a few weeks to a few months /</span> <span class="nb">Cost: by quote (consultation is free)</span></p>
         <a class="pi-go" href="/en/fde/">See AI Adoption Support <i aria-hidden="true">→</i></a>
       </article>
       <article class="pi-card">
@@ -617,6 +616,42 @@
   </div>
 </section>
 
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Our products</div>
+      <h2 class="section-title"><span class="nb">We run our structuring technology</span> <span class="nb">in products of our own.</span></h2>
+      <p class="section-sub"><span class="nb">Technology that puts business knowledge into a form AI can read:</span> <span class="nb">we use it ourselves first,</span> <span class="nb">before bringing it into your workplace.</span></p>
+    </div>
+    <div class="pds reveal">
+      <a class="pd" href="https://omiseai.com/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/omiseai.webp" alt="OMISEAI screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>OMISEAI</b><span class="pd-st live">In live use</span></p><p class="pd-d"><span class="nb">Multilingual QR menus</span> <span class="nb">for restaurants.</span> <span class="nb">Ingredients and allergens too,</span> <span class="nb">in each guest's language.</span></p></div>
+      </a>
+      <a class="pd" href="https://nicomachos.com/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/teles.webp" alt="Teles screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Teles</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">An AI that answers</span> <span class="nb">your hard choices, based on</span> <span class="nb">how great figures would have decided.</span></p></div>
+      </a>
+      <a class="pd" href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/tracker.webp" alt="Seisaku Tracker screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Seisaku Tracker (JA)</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">Search national laws and systems</span> <span class="nb">by industry.</span></p></div>
+      </a>
+      <a class="pd" href="https://seisaku-tracker.jp/fukui" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/tracker-fukui.webp" alt="Fukui Budget Tracker screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Fukui Budget Tracker</b><span class="pd-st">Prototype</span></p><p class="pd-d"><span class="nb">Find Fukui Prefecture budget programs</span> <span class="nb">related to your industry.</span></p></div>
+      </a>
+      <a class="pd" href="https://autowrite.jp/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/autowrite.webp" alt="AutoWrite screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>AutoWrite</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">Register your business once,</span> <span class="nb">and AI fills in subsidy plans,</span> <span class="nb">notifications and applications.</span></p></div>
+      </a>
+      <a class="pd" href="/en/cases/">
+        <figure class="pd-shot"><img src="/assets/brain/prod/arche.webp" alt="Arche screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Arche</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">A structural analysis of</span> <span class="nb">114 companies worldwide,</span> <span class="nb">all on the same yardstick.</span></p></div>
+      </a>
+    </div>
+    <p class="pd-more reveal"><a href="/en/company#tech">About our structuring technology <i aria-hidden="true">→</i></a></p>
+  </div>
+</section>
 <!-- ── SERVICE (index of services) ── -->
 <section class="section svc" id="service-list">
   <div class="container">
@@ -704,7 +739,7 @@
   </div>
 </section>
 <!-- ── Common concerns ── -->
-<section class="section section-alt" id="consult">
+<section class="section" id="consult">
   <div class="container">
     <div class="section-head reveal">
       <h2 class="section-title"><span class="nb">We start from concerns</span> <span class="nb">like these.</span></h2>
@@ -717,42 +752,10 @@
       <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 7.7-7 9.5-4-1.8-7-5.1-7-9.5V6z"/><path d="M12 8v4.5M12 15.8h.01"/></svg></span><span class="cb-t"><span class="nb">We worry that our website</span> <span class="nb">or email</span> <span class="nb">is being targeted.</span></span></p><a class="cb-go" href="/en/drill/">Cyber Drill <i aria-hidden="true">→</i></a></li>
       <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="cb-t"><span class="nb">We don't know where to start,</span> <span class="nb">and have no one to ask.</span></span></p><a class="cb-go" href="/en/starter/">Generative AI Starter Set <i aria-hidden="true">→</i></a></li>
     </ul>
-    <div class="cb-band reveal">
-      <p><span class="nb">If even one of these sounds familiar,</span> <span class="nb">please get in touch.</span><small><span class="nb">We start by choosing one task,</span> <span class="nb">and work through it together.</span></small></p>
-      <a href="/en/entry" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
-    </div>
   </div>
 </section>
 
 <!-- ── Our products ── -->
-<section class="section" id="products">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Our products</div>
-      <h2 class="section-title"><span class="nb">We run our structuring technology</span> <span class="nb">in products of our own.</span></h2>
-      <p class="section-sub"><span class="nb">Technology that puts business knowledge into a form AI can read:</span> <span class="nb">we use it ourselves first,</span> <span class="nb">before bringing it into your workplace.</span></p>
-    </div>
-    <div class="pds reveal">
-      <a class="pd" href="https://omiseai.com/" target="_blank" rel="noopener">
-        <figure class="pd-shot"><img src="/assets/brain/prod/omiseai.webp" alt="OMISEAI screen" loading="lazy" width="960" height="600"></figure>
-        <div class="pd-body"><p class="pd-h"><b>OMISEAI</b><span class="pd-st live">In live use</span></p><p class="pd-d"><span class="nb">Multilingual QR menus</span> <span class="nb">for restaurants.</span> <span class="nb">Ingredients and allergens too,</span> <span class="nb">in each guest's language.</span></p></div>
-      </a>
-      <a class="pd" href="https://nicomachos.com/" target="_blank" rel="noopener">
-        <figure class="pd-shot"><img src="/assets/brain/prod/teles.webp" alt="Teles screen" loading="lazy" width="960" height="600"></figure>
-        <div class="pd-body"><p class="pd-h"><b>Teles</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">An AI that answers</span> <span class="nb">your hard choices, based on</span> <span class="nb">how great figures would have decided.</span></p></div>
-      </a>
-      <a class="pd" href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">
-        <figure class="pd-shot"><img src="/assets/brain/prod/tracker.webp" alt="Seisaku Tracker screen" loading="lazy" width="960" height="600"></figure>
-        <div class="pd-body"><p class="pd-h"><b>Seisaku Tracker (JA)</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">Search national laws and systems</span> <span class="nb">and prefectural budgets</span> <span class="nb">by industry.</span></p></div>
-      </a>
-      <a class="pd" href="/en/cases/">
-        <figure class="pd-shot"><img src="/assets/brain/prod/arche.webp" alt="Arche screen" loading="lazy" width="960" height="600"></figure>
-        <div class="pd-body"><p class="pd-h"><b>Arche</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">A structural analysis of</span> <span class="nb">114 companies worldwide,</span> <span class="nb">all on the same yardstick.</span></p></div>
-      </a>
-    </div>
-    <p class="pd-more reveal"><a href="/en/company#tech">About our structuring technology <i aria-hidden="true">→</i></a></p>
-  </div>
-</section>
 
 <!-- ── Process (common to all four services) ── -->
 <section class="section section-alt" id="process">
@@ -761,7 +764,7 @@
       <h2 class="section-title"><span class="nb">Every service</span> <span class="nb">follows these steps.</span></h2>
     </div>
     <ol class="steps4 reveal">
-      <li class="step"><span class="n">01</span><img src="/assets/brain/ill/step-1.webp" alt=""><h3>Free consultation</h3><p><span class="nb">We hear about the work</span> <span class="nb">that troubles you and the information involved</span></p><span class="free">Free</span></li>
+      <li class="step"><span class="n">01</span><img src="/assets/brain/ill/step-1.webp" alt=""><h3>Consultation</h3><p><span class="nb">We hear about the work</span> <span class="nb">that troubles you and the information involved</span></p></li>
       <li class="step"><span class="n">02</span><img src="/assets/brain/ill/step-2.webp" alt=""><h3>Estimate</h3><p><span class="nb">We give you the scope,</span> <span class="nb">cost and timeline</span></p></li>
       <li class="step"><span class="n">03</span><img src="/assets/brain/ill/step-3.webp" alt=""><h3>Start small</h3><p><span class="nb">We begin with one task</span> <span class="nb">and make it work on site</span></p></li>
       <li class="step"><span class="n">04</span><img src="/assets/brain/ill/step-4.webp" alt=""><h3>Hand over</h3><p><span class="nb">We hand over how to use it</span> <span class="nb">and the records.</span> <span class="nb">Maintenance is optional</span></p></li>
