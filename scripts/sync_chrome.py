@@ -99,10 +99,10 @@ CTA = {
     "security/index.html": ("#apply", "無料で相談する"),
     "drill/index.html": ("#apply", "無料で相談する"),
     "fde/index.html": ("#contact", "無料で相談する"),
-    "en/fde/index.html": ("#contact", "Free Consultation"),
-    "en/starter/index.html": ("#apply", "Free Online Briefing"),
-    "en/security/index.html": ("#apply", "Free Online Briefing"),
-    "en/drill/index.html": ("#apply", "Talk to us free"),
+    "en/fde/index.html": ("#contact", "Free consultation"),
+    "en/starter/index.html": ("#apply", "Free consultation"),
+    "en/security/index.html": ("#apply", "Free consultation"),
+    "en/drill/index.html": ("#apply", "Free consultation"),
 }
 # 日英の対になるページ（2026-10-18 英語版を主要10ページに広げた）。en_check.py もこれを使う
 EN_PAIRS = {"index.html": "en/index.html", "fde/index.html": "en/fde/index.html", "entry.html": "en/entry.html",
@@ -131,7 +131,7 @@ def header(path, cls):
     lang = lang_of(path)
     with open(os.path.join(CHROME, f"header_{lang}.html"), encoding="utf-8") as f:
         h = f.read().strip()
-    href, label = CTA.get(path, ("/en/entry", "Free Consultation") if lang == "en" else ("/entry", "無料で相談する"))
+    href, label = CTA.get(path, ("/en/entry", "Free consultation") if lang == "en" else ("/entry", "無料で相談する"))
     alt = ALT.get(path, "/" if lang == "en" else "/en/")
     h = h.replace("{{CLASS}}", cls).replace("{{CTA_HREF}}", href).replace("{{CTA_LABEL}}", label).replace("{{ALT}}", alt)
     url = page_url(path)
