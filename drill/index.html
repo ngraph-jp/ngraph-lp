@@ -432,6 +432,8 @@
 .amap-note{color:#9fb0c6}
 /* プランの絵・頼む理由の絵を平たい絵に */
 .tcard img{width:110px;height:96px;object-fit:contain}
+/* 2026-11-08 本人「余白感おかしくない？」：スマホでは小見出し（tc-k）が増えた分の行が絵の高さに引き伸ばされていた。絵を左上に固定し、文字を詰めて並べる */
+@media(max-width:768px){.trio.quad .tcard{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:16px;row-gap:0;align-items:start;text-align:left;padding:20px 18px}.trio.quad .tcard img{width:72px;height:68px;margin:0;grid-column:1;grid-row:1/span 3;align-self:start}.trio.quad .tcard .tc-k,.trio.quad .tcard h3,.trio.quad .tcard p{grid-column:2;align-self:start}.trio.quad .tcard h3{margin:2px 0 6px}.trio.quad .tcard p{margin:0}.trio.quad .tcard p .nb{display:inline-block}}
 /* 「なぜ毎月」の数字：ほかのページの進め方と同じく、丸は動かさず順に色が灯る */
 .what.in .what-list .n{animation:stepnum 3.6s ease-in-out infinite}
 .what.in .what-list li:nth-child(2) .n{animation-delay:1.2s}
@@ -728,7 +730,7 @@
       <div class="tcard">
         <img src="/assets/drill/flat/reason-report-c.webp" alt="">
         <p class="tc-k">IT担当がいなくても読める</p>
-        <h3>社内で決めて、業者にそのまま頼める</h3>
+        <h3><span class="nb">社内で決めて、</span><span class="nb">業者にそのまま頼める</span></h3>
         <p><span class="nb">専門用語の一覧ではなく、</span><span class="nb">何から直すかを順番で。</span><span class="nb">業者への依頼は、</span><span class="nb">その1枚で済みます。</span></p>
       </div>
       <div class="tcard">
