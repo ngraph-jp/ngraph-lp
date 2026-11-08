@@ -245,6 +245,10 @@ def main():
     if len(sys.argv) < 5:
         print(__doc__)
         sys.exit(1)
+    # 2026-11-03以降の新記事は7型（eyecatch_gen3.py）。cards の連投で表紙が単調になったため止める
+    if not any(x.startswith("--out=") and len(x) > 6 for x in sys.argv) and sys.argv[1][:8].isdigit() and sys.argv[1][:8] >= "20261103":
+        print("ERROR: 新記事の表紙は scripts/eyecatch_gen3.py で作る（BLOG-OPS §3）。")
+        sys.exit(3)
     slug, title, sub, pat = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     label, out_override, wide = "NGRAPH BLOG", None, False
     brand, hanko = None, None  # --brand="名前|説明" --hanko=漢字1字（note等ブログ以外の表紙用・--outと併用）

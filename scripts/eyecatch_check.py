@@ -102,6 +102,10 @@ def scan(path):
     # 文字あふれは eyecatch_gen2.py が生成時に exit 3 で止める（BLOG-OPS §3）
     if pat == "doodle":
         return 0, None
+    # c7-*（2026-11-02新設・7型）: 型ごとに地色も文字の位置も違い、書類の枠線や黒地が端まで届く。
+    # 余白帯の検査は前提が成立しない。文字あふれは eyecatch_gen3.py が実寸を測って exit 3 で止める
+    if pat and pat.startswith("c7-"):
+        return 0, None
     # k-title（2026-08-19新設・タイトル全文型）: 図案そのものが無いので「本文が図案に
     # 重なる」という前提が成立しない。ただし検査を外すと、この型で唯一起こりうる本物の
     # 事故——巨大級数の文字が左右の余白を突き破る——を誰も見なくなる。判定対象を
@@ -160,6 +164,7 @@ def main():
         print("         python scripts/eyecatch_gen.py <slug> \"<短いタイトル>\" \"<サブ>\" <pattern>")
         print("         表紙v2（cards / doodle・2026-09-01以降の新記事）なら")
         print("         python scripts/eyecatch_gen2.py <cards|doodle> <slug> \"<タイトル>\" ...")
+        print("         7型（2026-11-03以降の新記事）なら python scripts/eyecatch_gen3.py <型> <slug> ...")
         print("         （生成側は文字数に応じて自動で級数を落とすので、作り直せば解消する）")
         return 1
     print("OK: アイキャッチ %d 枚、本文と図案の重なりなし" % len(files))
