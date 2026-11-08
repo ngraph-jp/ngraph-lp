@@ -901,13 +901,14 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
   return (
     <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md overscroll-none" onClick={onClose}>
       {/* 閉じる + ページ番号（控えめ） */}
-      <div className="absolute top-3 left-4 z-20">
-        <button onClick={onClose} aria-label="閉じる" className="p-2.5 rounded-full bg-card text-foreground shadow-lg hover:text-primary transition-colors">
+      {/* SP はカードに重ねて小さく薄く（2026-11-08 本人「1行とってるのもったいない」）。PC は従来どおり */}
+      <div className="absolute top-3.5 right-3.5 sm:top-3 sm:right-auto sm:left-4 z-30">
+        <button onClick={onClose} aria-label="閉じる" className="p-1.5 sm:p-2.5 rounded-full bg-black/35 text-white/90 backdrop-blur-sm sm:bg-card sm:text-foreground shadow-lg hover:text-primary transition-colors">
           <X className="h-4 w-4" />
         </button>
       </div>
-      <div className="absolute top-4 right-4 z-20">
-        <span className="text-sm font-bold text-white/80 tabular-nums">{idx + 1} / {items.length}</span>
+      <div className="absolute top-[18px] right-[50px] sm:top-4 sm:right-4 z-30 pointer-events-none">
+        <span className="rounded-full bg-black/35 px-2 py-0.5 text-[11px] sm:bg-transparent sm:p-0 sm:text-sm font-bold text-white/90 sm:text-white/80 tabular-nums backdrop-blur-sm sm:backdrop-blur-none">{idx + 1} / {items.length}</span>
       </div>
 
       {/* カードスタック + 矢印 */}
@@ -916,14 +917,14 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
         {prev && (
           <button
             onClick={(e) => { e.stopPropagation(); go("left"); }}
-            className="absolute bottom-3 sm:bottom-auto left-[calc(50%-56px)] sm:left-4 z-20 p-3 rounded-full bg-card text-foreground shadow-lg hover:text-primary transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-3 rounded-full bg-black/35 text-white/90 backdrop-blur-sm sm:bg-card sm:text-foreground shadow-lg hover:text-primary transition-all left-1 sm:left-4" aria-label="前へ"
           >
-            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+            <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
         )}
 
         {/* カードの束 */}
-        <div className="relative w-full max-w-2xl lg:max-w-5xl xl:max-w-6xl max-h-[88dvh] mx-2 sm:mx-16 -mt-6 sm:mt-0" onClick={e => e.stopPropagation()}>
+        <div className="relative w-full max-w-2xl lg:max-w-5xl xl:max-w-6xl max-h-[calc(100dvh-16px)] sm:max-h-[88dvh] mx-2 sm:mx-16" onClick={e => e.stopPropagation()}>
           {/* -2枚目（最背面） */}
           {stack[0] && (
             <div className="hidden md:block absolute inset-x-0 top-0 h-full pointer-events-none" style={{ transform: "translateX(-24px) scale(0.92)", opacity: 0.08, zIndex: 1 }}>
@@ -949,7 +950,7 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
 
           {/* メインカード */}
           <div className="relative" style={{ zIndex: 5 }}>
-            <div className="rounded-2xl overflow-hidden bg-card border border-border/60 shadow-2xl h-[calc(100dvh-132px)] sm:h-auto max-h-[calc(100dvh-132px)] sm:max-h-[85vh] overflow-y-auto overscroll-contain" ref={scrollRef}>
+            <div className="rounded-2xl overflow-hidden bg-card border border-border/60 shadow-2xl h-[calc(100dvh-16px)] sm:h-auto max-h-[calc(100dvh-16px)] sm:max-h-[85vh] overflow-y-auto overscroll-contain" ref={scrollRef}>
               <div className="text-foreground/90">
                 {/* eraGroup を持つ企業は、時系列タブで「現在 ⇄ 苦闘期」を切り替える。
                     左は常に現在版（canonical=baseCurr）、右に過去エントリを年昇順で並べる。 */}
@@ -1013,9 +1014,9 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
         {next && (
           <button
             onClick={(e) => { e.stopPropagation(); go("right"); }}
-            className="absolute bottom-3 sm:bottom-auto right-[calc(50%-56px)] sm:right-4 z-20 p-3 rounded-full bg-card text-foreground shadow-lg hover:text-primary transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-3 rounded-full bg-black/35 text-white/90 backdrop-blur-sm sm:bg-card sm:text-foreground shadow-lg hover:text-primary transition-all right-1 sm:right-4" aria-label="次へ"
           >
-            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+            <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
         )}
       </div>
