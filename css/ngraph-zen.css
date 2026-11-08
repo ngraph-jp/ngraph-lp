@@ -78,6 +78,10 @@ html[lang="en"] body,html[lang="en"] body *{overflow-wrap:break-word}
 .brand span,.brand .brand-kana,.nav a,.lang-switch{white-space:nowrap}
 @media(min-width:769px) and (max-width:1080px){.nav{gap:16px}}
 @media(min-width:769px) and (max-width:900px){.nav{gap:10px}}
+/* 2026-11-08 メニューに「セキュリティ」を足したので、タブレット幅（769〜940px）ではカナを外し、相談ボタンと文字を詰めて1行に収める */
+@media(min-width:769px) and (max-width:940px){.brand .brand-kana{display:none}.nav a{font-size:.8125rem}.nav .nav-cta{padding:8px 12px;font-size:.8125rem;letter-spacing:.02em}}
+@media(min-width:769px) and (max-width:880px){.nav{gap:8px}.nav a,.nav .nav-cta{font-size:.75rem}.nav .nav-cta{padding:8px 10px}}
+@media(min-width:769px) and (max-width:820px){.nav{gap:6px}.brand{gap:6px}.brand span{font-size:1rem;letter-spacing:.04em}}
 
 /* ── hero ── */
 .hero{position:relative;padding:180px 0 130px;overflow:visible}
