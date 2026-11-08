@@ -379,7 +379,8 @@
 /* 3本の絵を同じ高さの枠にそろえる（2026-11-08 本人「イラストの大きさバラバラ」） */
 .pi-art{height:190px;justify-content:center;margin:0 0 14px}
 .pi-art img,.pi-card.main .pi-art img{width:100%;height:100%;max-width:100%;object-fit:contain}
-@media(max-width:640px){.pi-art{height:160px}}
+@media(max-width:640px){.pi-art{height:160px}.pi-card.main .pi-art{height:210px}}
+/* 2026-11-08 本人「2人のイラストのほうが小さくないか」：2人の絵は左右の棚と足元を切り、スマホは1枚目だけ枠を高くする（PCは3枚並ぶので高さはそろえたまま） */
 .pi-first{margin:26px 0 0;text-align:center;font-size:.9375rem;color:var(--text-2)}.pi-first a{font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}.pi-first i{font-style:normal}
 .pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent-hi)}
 #services .section-sub{font-size:.9375rem;line-height:1.9;color:var(--text-2)}
@@ -589,7 +590,7 @@
     </div>
     <div class="pi-grid reveal">
       <article class="pi-card main">
-        <figure class="pi-art"><img src="/assets/brain/ill/card-genba.webp" alt="" loading="lazy"></figure>
+        <figure class="pi-art"><img src="/assets/brain/ill/card-genba-tight.webp" alt="" loading="lazy"></figure>
         <h3><span class="pi-t1">Build AI into your operations</span><span class="pi-t2">On-site implementation</span></h3>
         <p class="pi-name">AI Adoption Support (FDE)</p>
         <p class="pi-d"><span class="nb">Our engineers come into your workplace,</span> <span class="nb">connect your internal data to AI,</span> <span class="nb">and redesign how the work flows.</span></p>
