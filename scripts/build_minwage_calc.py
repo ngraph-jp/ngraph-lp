@@ -82,7 +82,7 @@ how = ("差し替え" if n_removed else "新規挿入") + "（47県表の直後�
 h = re.sub(r'("dateModified"\s*:\s*")2026-09-01(")', r"\g<1>2026-09-04\2", h)
 
 # --- 冒頭の導線（髙橋さん 2026-09-04「冒頭にアンカーリンクなど導線追入れたりしたら？」）---
-# ①リード直後に計算機への入口 ②「この記事でわかること」に1行 ③追従CTAをこの記事だけ計算機へ
+# ①リード直後に計算機への入口 ②「この記事でわかること」に1行
 LEAD_S, LEAD_E = "<!-- calc-lead:start -->", "<!-- calc-lead:end -->"
 lead = LEAD_S + '''<p class="calc-lead"><a href="#calc">▶ 自分の県を選ぶだけ——賃上げで増える人件費と、業務改善助成金でいくら戻るかを計算する（記事内・30秒）</a></p>
 <style>.article-wrap .calc-lead{margin:-8px 0 28px}.article-wrap .calc-lead a{display:block;border:1px solid var(--accent);border-radius:4px;padding:12px 16px;font-size:.95rem;font-weight:600;color:var(--accent);text-decoration:none;background:#fff}.article-wrap .calc-lead a:hover{background:var(--bg-card)}</style>''' + LEAD_E
@@ -95,10 +95,8 @@ if "計算機へ</a>" not in h:
     h = h.replace('<div class="a-toc"><strong>この記事でわかること</strong><br>\n',
                   '<div class="a-toc"><strong>この記事でわかること</strong><br>\n' + toc_line, 1)
 assert "計算機へ</a>" in h
-h = h.replace('<div class="float-cta" id="floatCta"><a href="/entry">無料で相談する →</a>',
-              '<div class="float-cta" id="floatCta"><a href="#calc">御社の数字で計算する →</a>', 1)
 write_lf(ART, h)
-print("冒頭導線: リード直後 / わかること1行 / 追従CTA→#calc")
+print("冒頭導線: リード直後 / わかること1行")
 print("記事:", how, "/ dateModified:", re.findall(r'dateModified"\s*:\s*"([^"]+)', h))
 
 # /entry: 種別の追加＋URLパラメータで事前入力（冪等）

@@ -229,14 +229,7 @@
 .lead-done p{font-size:.875rem;color:var(--text-2);line-height:1.9}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-pre{max-width:640px;margin:0 auto 22px;font-size:.875rem;color:var(--text-2);line-height:2;text-align:center}
-/* 追従CTA */
-.float-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s}
-.float-cta.show{opacity:1;pointer-events:auto;transform:none}
-.float-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:3px;background:var(--accent);color:#ffffff;font-weight:700;font-size:.875rem;box-shadow:0 8px 24px rgba(22,32,44,.2)}
 @media(max-width:768px){
-  .float-cta{right:0;left:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(245,246,247,.94);backdrop-filter:blur(10px);border-top:1px solid var(--border);transform:translateY(100%)}
-  .float-cta.show{transform:none}
-  .float-cta a{width:100%;justify-content:center;padding:15px}
   .tcard,.lp-form{padding:28px 20px}
 }
 
@@ -317,7 +310,6 @@
   .steps4{grid-template-columns:1fr 1fr;gap:14px 10px}
   .faq-list summary{font-size:1rem}
   .faq-list details p{font-size:.875rem;line-height:1.8}
-  .float-cta a{font-size:.875rem}
 }
 /* 2026-11-07 悩みは絵なしのチェックリストに（次の段の絵付きカードと続けて同じ形にしない） */
 .chk{list-style:none;width:fit-content;max-width:760px;margin:0 auto;padding:8px 44px 8px 32px;background:#fff;border:1px solid var(--border);border-radius:12px}
@@ -607,7 +599,6 @@
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="#apply">無料のオンライン説明を申し込む →</a></div>
 
 <section class="rel" aria-label="ほかのサービス">
   <div class="rel-in">
@@ -651,9 +642,6 @@ t.addEventListener('click',function(){n.classList.toggle('open')});
 n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){if(location.search.indexOf('noreveal')>-1){el.classList.add('in');return}io.observe(el)});
-(function(){var f=document.getElementById('floatCta');
-function tg(){var ap=document.getElementById('apply').getBoundingClientRect().top;if(window.scrollY>560&&ap>window.innerHeight*0.6)f.classList.add('show');else f.classList.remove('show');}
-window.addEventListener('scroll',tg,{passive:true});tg();})();
 
 // ── 申込フォーム(GAS) ──
 // GAS は「お問い合わせ内容」だけを本文にするので、任意項目と経路(?src=)を1つの本文にまとめて送る

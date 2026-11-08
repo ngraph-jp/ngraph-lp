@@ -241,18 +241,12 @@
 .dl-form input:focus{border-color:var(--accent)}
 .dl-form .btn{width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit}
 @media(max-width:900px){.dl-wrap{grid-template-columns:1fr;padding:28px 22px}.dl-thumb{width:200px;margin:0 auto}}
-.float-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s}
-.float-cta.show{opacity:1;pointer-events:auto;transform:none}
-.float-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#ffffff;padding:14px 26px;border-radius:3px;font-weight:700;font-size:.875rem;letter-spacing:.04em;box-shadow:0 10px 28px rgba(26,46,82,.35)}
 @media(max-width:900px){
   .problem-cards,.case-grid,.article-links{grid-template-columns:1fr}
   .quiz-wrap,.lp-form{padding:28px 20px}
   .hero-trust{justify-content:center}
 }
 @media(max-width:768px){
-  .float-cta{right:0;left:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(245,246,247,.94);backdrop-filter:blur(10px);border-top:1px solid var(--border);transform:translateY(100%)}
-  .float-cta.show{transform:none}
-  .float-cta a{width:100%;justify-content:center;padding:15px}
 }
 
 /* 2026-09-03 資料の図解・土台＋Project */
@@ -646,7 +640,6 @@
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="#contact">無料相談する →</a></div>
 
 <section class="rel" aria-label="ほかのサービス">
   <div class="rel-in">
@@ -741,13 +734,6 @@
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
   })();
 
-  // 追従CTA: ヒーローを過ぎたら表示
-  (function(){
-    var f=document.getElementById('floatCta');
-    if(!f)return;
-    function t(){if(window.scrollY>560)f.classList.add('show');else f.classList.remove('show');}
-    window.addEventListener('scroll',t,{passive:true});t();
-  })();
 
 // ── ナビ・追従CTA・reveal ──
 var hd=document.querySelector('.header');
@@ -773,9 +759,6 @@ document.querySelectorAll('.reveal').forEach(function(el){if(location.search.ind
     function fade(){var o=1-Math.min(Math.max((window.scrollY-200)/420,0),1);hv.style.opacity=(o*0.95).toFixed(2);}
     window.addEventListener('scroll',fade,{passive:true});fade();
   })();
-(function(){var f=document.getElementById('floatCta');
-function tg(){if(window.scrollY>560)f.classList.add('show');else f.classList.remove('show');}
-window.addEventListener('scroll',tg,{passive:true});tg();})();
 
 // ── フォーム(GAS) ──
 (function(){
