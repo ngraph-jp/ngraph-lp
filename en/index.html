@@ -15,9 +15,9 @@
 </script>
 
 <title>NGraph Inc. — The real world's meaning, in a form AI can read.</title>
-<meta name="description" content="Purposes, roles, decisions, procedures, and progress scattered across people, documents, and conversations, brought into a Company Brain that people and AI share. NGraph is a technology company that structures the meaning of the real world into a form AI can read. Our engineers come into your workplace and leave AI in a form that actually gets used.">
+<meta name="description" content="NGraph puts AI to work in the field. Engineers who work inside your workplace, security from an attacker's point of view, and the structuring technology behind both. Three kinds of work to make AI an asset of your company. We visit sites in Fukui, Ishikawa and Toyama.">
 <meta property="og:title" content="NGraph Inc. — The real world's meaning, in a form AI can read.">
-<meta property="og:description" content="Purposes, roles, decisions, procedures, and progress scattered across people, documents, and conversations, brought into a Company Brain that people and AI share. NGraph is a technology company that structures the meaning of the real world into a form AI can read. Our engineers come into your workplace and leave AI in a form that actually gets used.">
+<meta property="og:description" content="NGraph puts AI to work in the field. Engineers who work inside your workplace, security from an attacker's point of view, and the structuring technology behind both. Three kinds of work to make AI an asset of your company. We visit sites in Fukui, Ishikawa and Toyama.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngraph.jp/en/">
 <meta property="og:site_name" content="NGraph Inc.">
@@ -116,7 +116,7 @@
 @media(max-width:700px){
   .dkfig{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-left:-24px;margin-right:-24px}
   .dkfig svg{min-width:1100px}
-  .dkfig::after{content:"→ Scroll sideways";display:block;font-size:.8125rem;color:var(--text-3);text-align:right;padding:4px 24px 0}
+  .dkfig::after{content:"→ 横にスクロールできます";display:block;font-size:.8125rem;color:var(--text-3);text-align:right;padding:4px 24px 0}
 }
 
 /* 会社の脳の5部品 */
@@ -170,20 +170,7 @@
 @media(max-width:768px){.dv-row{grid-template-columns:1fr}}
 
 /* プロダクト（1行ずつ） */
-.prod-list{list-style:none;max-width:860px;margin:0 auto;border-top:1px solid var(--border)}
-.prod-list li{border-bottom:1px solid var(--border)}
-.prod-list li>a,.prod-list li>.pl-name{display:flex}
-.prod-list li>a,.prod-list li{display:flex;gap:22px;align-items:baseline;padding:16px 8px}
-.prod-list li{padding:0}
-.prod-list li>a{width:100%;transition:background .2s}
-.prod-list li>a:hover{background:rgba(255,255,255,.5)}
-.prod-list li>.pl-name{padding:16px 0 16px 8px}
-.prod-list li>.pl-desc{padding:16px 8px 16px 0}
-.pl-name{font-family:var(--serif);font-size:1rem;font-weight:700;flex:0 0 160px;letter-spacing:.04em}
-.pl-desc{font-size:.875rem;color:var(--text-2);line-height:1.85;flex:1}
-/* OMISEAI media coverage (2026-10-23) */
-.pl-media{display:block;margin-top:6px;font-size:.8125rem;color:var(--text-3);letter-spacing:.04em;line-height:1.8}
-@media(max-width:640px){.prod-list li>a,.prod-list li{flex-direction:column;gap:4px}.pl-name{flex:none}.prod-list li>.pl-desc{padding-top:0}}
+/* OMISEAI のメディア掲載（2026-10-23） */
 
 /* チェックリスト */
 .checklist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;max-width:820px;margin:0 auto 56px}
@@ -215,6 +202,10 @@
 .tz-sky{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:var(--tz-ink);color:var(--tz-txt)}
 .tz-sky .tz-flame{position:absolute;top:0;bottom:0;left:30%;right:-6%;z-index:0;background:url(/assets/concept-visual.png) 50% 50%/cover no-repeat;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%)}
 @media(max-width:900px){.tz-sky .tz-flame{left:-35%;right:-35%;top:9%;bottom:auto;height:46%;background-image:url(/assets/concept-visual-center.webp)}}
+/* 炎をふわっと浮かせる（6月の刷新時の hv-float と同じ 9秒・12px。2026-10-19 本人「ぷかぷか浮かぶ演出またできる？」） */
+@keyframes tzFlameFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.tz-sky .tz-flame{animation:tzFlameFloat 9s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.tz-sky .tz-flame{animation:none}}
 .tz-sky::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(11,11,13,.82) 0,rgba(11,11,13,.55) 38%,rgba(11,11,13,0) 62%),radial-gradient(90% 70% at 66% 50%,transparent 45%,rgba(11,11,13,.7) 100%)}
 /* スマホは見出しが炎の下に来るので、左だけ暗くする帯をやめて左右対称にし、下側を暗くする（炎が右に寄って見えた・2026-10-18） */
 @media(max-width:900px){.tz-sky::after{background:linear-gradient(180deg,rgba(11,11,13,0) 0,rgba(11,11,13,0) 46%,rgba(11,11,13,.7) 66%),radial-gradient(90% 60% at 50% 32%,transparent 50%,rgba(11,11,13,.6) 100%)}}
@@ -234,42 +225,6 @@
 .tz-cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--tz-shu),transparent);animation:tzdrop 2.6s ease-in-out infinite}
 @keyframes tzdrop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 .tz-place{text-align:right;line-height:2}
-/* ── 2026-10-14 サービス一覧：お品書き型（細い罫線の目次。飾りの札・色の板は使わない） ── */
-.svc{padding:4vh clamp(20px,5vw,72px) 14vh}
-.svc-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
-.svc-head{position:sticky;top:110px}
-.svc-head .k{font-family:var(--serif);font-size:.8125rem;letter-spacing:.34em;color:var(--accent);font-weight:600}
-.svc-head h2{font-family:var(--serif);font-weight:600;font-size:var(--fs-h2);line-height:1.5;margin:14px 0 0;letter-spacing:.04em}
-.svc-head p{font-size:.875rem;line-height:2.05;color:var(--text-2);margin:22px 0 0}
-.svc-head .svc-ask{font-size:.875rem;margin-top:30px;padding-top:20px;border-top:1px solid var(--border)}
-.svc-ask a{color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}
-.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--text)}
-.svc-list li{border-bottom:1px solid var(--border-strong)}
-.svc-list a{display:grid;grid-template-columns:3.2em minmax(0,1fr) 12.5em 1.6em;gap:0 24px;align-items:baseline;padding:30px 4px 30px 0;color:var(--text);transition:background .35s}
-.svc-no{font-family:var(--serif);font-size:.875rem;color:var(--text-3);letter-spacing:.08em}
-.svc-body{display:block}
-.svc-pain{display:block;font-size:.875rem;line-height:1.6;color:var(--text-3);margin-bottom:4px}
-.svc-kind{display:block;font-size:.8125rem;letter-spacing:.16em;color:var(--text-3)}
-.svc-name{display:block;font-family:var(--serif);font-weight:600;font-size:var(--fs-lead);line-height:1.5;margin-top:6px;letter-spacing:.03em;transition:color .3s}
-.svc-kana{display:block;margin:2px 0 0;font-family:var(--sans);font-size:.8125rem;font-weight:400;letter-spacing:.08em;color:var(--text-3);vertical-align:middle}
-.svc-desc{display:block;font-size:.875rem;line-height:1.95;color:var(--text-2);margin-top:8px;max-width:30em}
-.svc-facts{display:grid;gap:6px;font-size:.875rem;line-height:1.6;color:var(--text-2);align-self:center}
-.svc-facts i{font-style:normal;display:inline-block;min-width:3.2em;color:var(--text-3);font-size:.8125rem;letter-spacing:.1em}
-.svc-go{font-size:1.125rem;color:var(--text-3);align-self:center;justify-self:end;transition:transform .3s,color .3s}
-.svc-list a:hover{background:none}
-.svc-list a:hover .svc-name,.svc-list a:hover .svc-go{color:var(--accent)}
-.svc-list a:hover .svc-go{transform:translateX(4px)}
-.svc-list a:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
-@media(max-width:960px){
-  .svc-in{grid-template-columns:1fr;gap:34px}
-  .svc-head{position:static}
-  .svc-head .svc-ask{display:none}
-  .svc-list a{grid-template-columns:2.4em minmax(0,1fr) 1.2em;padding:24px 0}
-  .svc-facts{grid-column:2/3;grid-row:2;display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:12px;align-self:start}
-  .svc-go{grid-column:3;grid-row:1}
-  .svc-name{font-size:1.25rem}
-}
-/* 固定ヘッダーは墨地の上では和紙色に */
 .header:not(.scrolled) .brand .brand-kana{color:var(--tz-txt3)}
 .header:not(.scrolled) .brand span,.header:not(.scrolled) .nav a:not(.nav-cta),.header:not(.scrolled) .lang-switch,.header:not(.scrolled) .lang-switch a,.header:not(.scrolled) .nav-toggle{color:var(--tz-txt)}
 .header:not(.scrolled) .brand img{filter:invert(1)}
@@ -341,63 +296,18 @@
 /* ===== 構成と強弱（2026-10-23）：課題 → 考え方 → 頼めること → 実績 → 人 → 相談 ===== */
 .tz-h1{font-family:var(--mincho)}
 /* 背景のリズム：黒 → 白 → 灰 → 白 → 灰 → 白 → 藍 */
-#problem{background:var(--bg)}#ownership{background:var(--bg-2)}#services{background:var(--bg)}#products{background:var(--bg-2)}
+#problem{background:var(--bg)}#services{background:var(--bg)}
 /* 考え方の2段（置き場所／時間がたつと） */
 .as-h{font-weight:700;font-size:var(--fs-h3);text-align:center;margin:8px 0 18px}
 .as-h em{font-style:normal;color:var(--accent)}
 /* 2026-10-29 本人「AIは借りる。資産は持つ。の次に今回の資料で作ったやつを」「やっぱ3Pの内容を入れるだけに」→ 壁打ち会資料3枚目（同じAIから、文脈で分かれる）をサイトの色で */
-.cx-part{margin:8px 0 96px;padding-bottom:72px;border-bottom:1px solid var(--border)}
-.cx-sub{text-align:center;margin:0 0 20px}
 .cx{max-width:1000px;margin:8px auto 0}
-.cx-ai{max-width:620px;margin:0 auto;background:#fff;border:1.5px solid var(--text);border-radius:12px;padding:18px 20px;text-align:center}
-.cx-ai b{display:block;font-family:var(--serif);font-size:1.125rem;line-height:1.6}
-.cx-ai ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.cx-ai li{font-size:var(--fs-small);color:var(--text-2);border:1px solid var(--border);border-radius:999px;padding:3px 12px}
-.cx-ai li{display:inline-flex;align-items:center;gap:6px}
-.cx-ai li img{width:20px;height:20px;object-fit:contain}
-.cx-gloss{margin:14px auto 0;text-align:center;font-size:var(--fs-small);color:var(--text-3);line-height:1.8}
-.cx-q{margin:22px 0 0;text-align:right;font-size:var(--fs-small);color:var(--text-3);line-height:1.8}
-}
-.as-sub{text-align:center;font-size:.875rem;color:var(--text-3);margin:-6px 0 36px}
-.fg-own .own-pts{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
-.fg-own .own-pts li{position:relative;padding-left:1.4em;font-size:.9375rem;line-height:1.7;color:var(--text-2)}
-.fg-own .own-pts li::before{content:"";position:absolute;left:.2em;top:.8em;width:9px;height:2px;background:var(--text-3)}
-.fg-own .after .own-pts li{color:var(--text);font-weight:600}
-.fg-own .after .own-pts li::before{top:.55em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.own-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.own-chips span{font-size:var(--fs-small);font-weight:700;color:var(--accent);background:rgba(36,66,122,.06);border-radius:6px;padding:4px 10px}
 .own-ip{margin:26px auto 0;text-align:center;font-size:.9375rem;color:var(--text-2);line-height:1.8}
-@media(max-width:768px){.fg-own .own-pts li{font-size:.875rem}}
-.own-capline{margin:6px 0 0;font-size:.8125rem;color:var(--text-3);text-align:center}
-.fg-own .own-svg .cap{display:none}
-.fg-problem .pb-svg .bub text,.fg-own .own-svg .lab text,.fg-own .own-svg .hint{font-family:var(--serif);font-weight:700}
-/* 頼めること：FDE（主力）だけ大きく、ほかは一段下げる */
-.svc-head .k{display:none}
-.svc-head h2{font-size:var(--fs-h2)}
-.svc-head p{font-size:.875rem;color:var(--text-3)}
-.svc-kind,.svc-kana{letter-spacing:.04em}
-.svc-list a:hover{background:none}
-.svc-list li:first-child a{padding:40px 4px 44px 0}
-.svc-list li:first-child .svc-kind{color:var(--accent);font-weight:700;font-size:.875rem}
-.svc-list li:first-child .svc-name{font-size:clamp(1.75rem,2.6vw,2.25rem);margin-top:8px;white-space:nowrap}
-.svc-list li:first-child .svc-desc{font-size:1rem;color:var(--text);max-width:32em;margin-top:12px}
-.svc-list li:first-child .svc-facts{font-size:.875rem;color:var(--text)}
-.svc-list li:first-child .svc-go{color:var(--accent);font-size:1.5rem}
-.svc-list li:not(:first-child) a{padding:20px 4px 20px 0}
-.svc-list li:not(:first-child) .svc-name{font-size:1.125rem;margin-top:2px}
-.svc-list li:not(:first-child) .svc-desc{font-size:.875rem;color:var(--text-3);margin-top:4px}
-.svc-list li:not(:first-child) .svc-facts{font-size:.8125rem;color:var(--text-3)}
-.svc-list li:not(:first-child) .svc-kind{font-size:.8125rem}
-.svc-list li:not(:first-child) .svc-no,.svc-list li:not(:first-child) .svc-go{font-size:.875rem}
-@media(max-width:640px){.svc-list li:first-child .svc-name{font-size:1.5rem}}
+.fg-problem .pb-svg .bub text{font-family:var(--serif);font-weight:700}
 /* 実績：補足なので一段小さく */
 #products{padding:96px 0}
 #products .section-title{font-size:var(--fs-lead)}
 #products .section-head{margin-bottom:36px}
-.prod-list li>a,.prod-list li{padding-top:12px;padding-bottom:12px}
-.pl-name{font-size:1rem}
-@media(min-width:641px){.pl-name{flex-basis:130px}}
-.pl-desc{font-size:.875rem}
 /* 相談：色を反転させて一番強く */
 #start{background:var(--accent);padding:120px 0}
 .contact{background:none;border:none;border-radius:0;padding:0;max-width:880px}
@@ -412,18 +322,147 @@
 @media(max-width:640px){#start{padding:80px 0}.contact .btn-primary{font-size:1rem;padding:18px 22px}}
 /* アクセント（金茶・2026-10-23） */
 .tz-h1 em{color:var(--hot)}
-.svc-list li:first-child .svc-kind{color:var(--hot-ink)}.svc-list li:first-child .svc-go{color:var(--hot)}
 .contact .btn-primary{background:var(--hot);color:#16202c}.contact .btn-primary:hover{background:var(--hot-2);color:#16202c}
 .flw .seam{fill:var(--hot)}.flw-k b{color:var(--hot-ink)}.flw-leg .d{background:var(--hot)}
 
-/* サービス一覧：アイコン＋名前＋1行（2026-10-23）。細かい条件は各ページで */
-.svc-list a{grid-template-columns:72px minmax(0,1fr) 1.6em;align-items:center;gap:0 24px}
-.svc-ic{width:52px;height:52px;color:var(--accent)}
-.svc-ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.svc-list li:first-child .svc-ic{width:68px;height:68px;color:var(--hot-ink)}
-.svc-list .svc-desc{margin-top:6px}
-.svc-list li:first-child .svc-desc{margin-top:8px}
-@media(max-width:900px){.svc-list a{grid-template-columns:48px minmax(0,1fr) 1.2em;gap:0 16px}.svc-ic{width:40px;height:40px}.svc-list li:first-child .svc-ic{width:48px;height:48px}.svc-go{grid-column:3;grid-row:1}}
+/* ── 2026-11-07 トップ再構成：ヒーローの相談・頼めることの目安・浮かぶアイコン・進め方・担当 ── */
+.tz-acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:34px}
+.tz-btn{display:inline-flex;align-items:center;gap:10px;background:var(--hot);color:#16202c;font-weight:700;font-size:1rem;padding:16px 30px;border-radius:4px;transition:background .2s,transform .2s}
+.tz-btn:hover{background:var(--hot-2);transform:translateY(-1px)}
+.tz-link{color:var(--tz-txt);font-size:.9375rem;border-bottom:1px solid var(--tz-line2);padding-bottom:2px}
+.tz-link:hover{border-bottom-color:var(--tz-txt)}
+/* 絵は動かさず、01→04の数字が順に跳ねて灯る（本人 2026-11-07「イラストは動かさない。動かすのは数字」） */
+.why-turn{height:1px;background:var(--border);max-width:1080px;margin:88px auto 72px}
+.why-h{font-size:var(--fs-h2)}
+.steps-note{text-align:center;font-size:.9375rem;color:var(--text-2);margin-top:32px;line-height:1.8}
+@media(max-width:768px){.why-turn{margin:56px auto 48px}.tz-acts{margin-top:24px}.tz-btn{padding:14px 24px;font-size:.9375rem}}
+/* ── 2026-11-07 何を頼めるか：3本の柱（本体／入口／実力の裏付け） ── */
+.pillars{padding:96px 0 104px;background:var(--bg)}
+.pi-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:22px;max-width:1180px;margin:0 auto;align-items:stretch}
+.pi-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:14px;padding:30px 28px 26px}
+.pi-card.main{border:2px solid var(--accent);box-shadow:0 18px 40px rgba(36,66,122,.10)}
+.pi-art{height:250px;margin:-4px 0 10px;display:flex;align-items:center;justify-content:flex-start}
+.pi-art img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+@media(max-width:640px){.pi-art{height:220px}}
+.pi-card h3{margin:6px 0 0;line-height:1.45}
+.pi-t1{display:block;font-size:1rem;font-weight:700;color:var(--text)}
+.pi-t2{display:block;font-size:1.375rem;font-weight:700;color:var(--accent);margin-top:2px}
+.pi-card.main .pi-t2{font-size:1.625rem}
+.pi-name{margin:8px 0 0;font-size:.875rem;color:var(--text-2)}
+.pi-d{margin:14px 0 0;font-size:.9375rem;line-height:1.85;color:var(--text-2)}
+.pi-d+.pi-d{margin-top:6px}
+.pi-meta{margin:14px 0 0;font-size:.8125rem;line-height:1.7;color:var(--text-3)}
+.pi-go{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:8px;font-size:.9375rem;font-weight:700;color:var(--accent)}
+.pi-card.main .pi-go{color:var(--hot-ink)}
+.pi-go:hover i{transform:translateX(3px)}.pi-go i{font-style:normal;transition:transform .2s}
+@media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:640px}}
+@media(max-width:640px){.pillars{padding:64px 0 72px}.pi-card{padding:24px 20px 22px}.pi-t2{font-size:1.25rem}.pi-card.main .pi-t2{font-size:1.375rem}}
+
+
+
+
+
+/* 2026-11-07 KAGUYA型に：中央揃え・絵は低め・3枚同じ幅・一覧は横並びの小さなボタン */
+.pi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pi-card{text-align:center;align-items:center;padding:26px 24px 24px}
+.pi-art{height:220px;justify-content:center;margin:0 0 14px}.pi-card.main .pi-art img{max-width:100%}
+.pi-t1,.pi-t2,.pi-card.main .pi-t2{font-size:1.375rem;letter-spacing:-.01em}.pi-t2{color:var(--accent-hi)}
+.pi-d{max-width:22em;margin-left:auto;margin-right:auto}
+
+
+
+
+.pi-art img{max-width:86%}
+.pi-go{padding-top:18px}
+@media(max-width:1000px){.pi-grid{grid-template-columns:1fr;max-width:560px}}
+@media(max-width:640px){.pi-art{height:160px}.pi-t1,.pi-t2,.pi-card.main .pi-t2{font-size:1.1875rem}}
+/* 3本の絵を同じ高さの枠にそろえる（2026-11-08 本人「イラストの大きさバラバラ」） */
+.pi-art{height:190px;justify-content:center;margin:0 0 14px}
+.pi-art img,.pi-card.main .pi-art img{width:100%;height:100%;max-width:100%;object-fit:contain}
+@media(max-width:640px){.pi-art{height:160px}}
+.pi-first{margin:26px 0 0;text-align:center;font-size:.9375rem;color:var(--text-2)}.pi-first a{font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}.pi-first i{font-style:normal}
+.pi-eyebrow{margin:0 0 10px;text-align:center;font-size:.875rem;font-weight:700;letter-spacing:.12em;color:var(--hot-ink)}#services .section-title em{font-style:normal;color:var(--accent-hi)}
+#services .section-sub{font-size:.9375rem;line-height:1.9;color:var(--text-2)}
+@media(max-width:640px){.fg-problem .pb-list li.ai::after{left:44%}.fg-problem .pb-list li.ai::before{left:calc(44% + 1px)}}
+/* 最後の相談：べた塗りをやめ、AI事例マップ「AIの現在地」と同じ濃い紺＋六角の網目（本人 2026-11-07） */
+#start{position:relative;overflow:hidden;background:#0b1424}
+#start::before{content:"";position:absolute;inset:0;pointer-events:none}
+#start{background:radial-gradient(900px 520px at 90% 6%,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(760px 480px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+#start::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2252%22 viewBox=%220 0 30 52%22%3E%3Cpolygon points=%2215.00%2C8.66 0.00%2C17.32 -15.00%2C8.66 -15.00%2C-8.66 -0.00%2C-17.32 15.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C8.66 30.00%2C17.32 15.00%2C8.66 15.00%2C-8.66 30.00%2C-17.32 45.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2230.00%2C34.66 15.00%2C43.32 0.00%2C34.66 0.00%2C17.34 15.00%2C8.68 30.00%2C17.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2215.00%2C60.66 0.00%2C69.32 -15.00%2C60.66 -15.00%2C43.34 -0.00%2C34.68 15.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C60.66 30.00%2C69.32 15.00%2C60.66 15.00%2C43.34 30.00%2C34.68 45.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3C/svg%3E");opacity:.34;-webkit-mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%);mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%)}
+@media (max-width:640px){
+  #start{background:radial-gradient(420px 360px at 100% 0,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(380px 360px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+  #start::before{-webkit-mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%);mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%)}
+}
+#start .container{position:relative}
+/* こんなご相談から（吹き出し6つ＋相談の帯） */
+.cbs{list-style:none;margin:0 auto;padding:0;max-width:1080px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px}
+.cb{display:flex;flex-direction:column;align-items:flex-start}
+.cb-q{position:relative;margin:0;width:100%;background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px 22px;font-size:1.0625rem;font-weight:700;line-height:1.7;color:var(--text);box-shadow:0 8px 22px rgba(36,66,122,.06)}
+.cb-q::after{content:"";position:absolute;left:30px;bottom:-11px;width:20px;height:20px;background:#fff;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg)}
+.cb-go{margin:20px 0 0 18px;font-size:.875rem;font-weight:700;color:var(--accent);text-decoration:none}
+.cb-go:hover{text-decoration:underline}
+.cb-ic>svg{animation:fuwa 2.4s ease-in-out infinite}
+.cb:nth-child(2) .cb-ic>svg{animation-delay:.6s}
+.cb:nth-child(3) .cb-ic>svg{animation-delay:1.2s}
+.cb:nth-child(4) .cb-ic>svg{animation-delay:1.8s}
+.cb:nth-child(5) .cb-ic>svg{animation-delay:.3s}
+.cb:nth-child(6) .cb-ic>svg{animation-delay:.9s}
+.cb-band{max-width:1080px;margin:44px auto 0;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--accent);color:#fff;border-radius:14px;padding:26px 34px}
+.cb-band p{margin:0;font-size:1.25rem;font-weight:700;line-height:1.6}
+.cb-band small{display:block;font-size:.9375rem;font-weight:400;color:rgba(255,255,255,.82);margin-top:4px}
+.cb-band .btn{flex:none}
+@media(max-width:900px){.cbs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.cbs{grid-template-columns:1fr;gap:16px}.cb-q{font-size:.9375rem;padding:13px 16px;border-radius:14px}.cb-q::after{width:14px;height:14px;bottom:-8px;left:24px}.cb-go{margin:12px 0 0 14px;font-size:.8125rem}.cb-band{flex-direction:column;align-items:stretch;text-align:center;padding:22px 20px}.cb-band p{font-size:1.0625rem}.cb-band .btn{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.cb-ic>svg{animation:none}}
+.cb-q{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center}
+.cb-ic{width:52px;height:52px;border-radius:50%;background:rgba(36,66,122,.08);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.cb-ic>svg{width:28px!important;height:28px!important;flex:none}
+.cb-q{flex:1}
+.cb:nth-child(4) .cb-ic,.cb:nth-child(5) .cb-ic{background:rgba(200,162,74,.16);color:#8a6a1f}
+@media(max-width:640px){.cb-q{grid-template-columns:38px minmax(0,1fr);gap:12px}.cb-ic{width:38px;height:38px}.cb-ic>svg{width:21px!important;height:21px!important}}
+/* 自社プロダクト（実際の画面） */
+.pds{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.pd{display:block;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.pd:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(36,66,122,.10)}
+.pd-shot{margin:0;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--border);background:#f3f4f6}
+.pd-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.pd-body{padding:18px 22px 20px}
+.pd-h{margin:0;display:flex;align-items:center;gap:10px}
+.pd-h b{font-size:1.25rem}
+.pd-st{font-size:.8125rem;font-weight:700;color:var(--text-2);border:1px solid var(--border);border-radius:999px;padding:2px 10px}
+.pd-st.live{color:#fff;background:var(--accent);border-color:var(--accent)}
+.pd-d{margin:8px 0 0;font-size:.9375rem;line-height:1.75;color:var(--text-2)}
+.pd-more{text-align:center;margin:28px 0 0;font-size:.9375rem;font-weight:700}
+.pd-more a{color:var(--accent)}
+@media(max-width:640px){.pds{grid-template-columns:1fr;gap:12px}.pd{display:grid;grid-template-columns:42% 1fr;align-items:center}.pd-shot{border-bottom:0;border-right:1px solid var(--border);height:100%;aspect-ratio:auto;min-height:104px}.pd-body{padding:10px 12px}.pd-h{flex-wrap:wrap;gap:4px 8px}.pd-h b{font-size:1rem}.pd-st{font-size:.75rem;padding:1px 8px}.pd-d{font-size:.8125rem;line-height:1.6;margin-top:4px}}
+/* 知識の置き場所：見出し→絵→2行 */
+.own2{max-width:1040px;margin:30px auto 0;display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);align-items:stretch}
+.o2{margin:0;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px 26px;display:flex;flex-direction:column}
+.o2.before{background:transparent;border-style:dashed}
+.o2 figcaption{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.o2 figcaption b{font-size:1.25rem;line-height:1.5}
+.o2 .pill{font-size:.8125rem;font-weight:700;border-radius:999px;padding:3px 14px;background:var(--text-3);color:#fff}
+.o2 .pill.red{background:var(--accent)}
+.o2-art{flex:1;display:flex;align-items:center;justify-content:center;margin:16px 0 14px;min-height:240px}
+.o2-art img{max-width:100%;max-height:300px;width:auto;height:auto;display:block}
+.o2 p{margin:0;text-align:center;font-size:.9375rem;line-height:1.85;color:var(--text-2)}
+.o2.after p{color:var(--text);font-weight:600}
+.o2.before .o2-art img{filter:grayscale(.35);opacity:.9}
+.o2-ar{display:flex;align-items:center;justify-content:center;font-size:1.75rem;font-weight:700;color:var(--hot)}
+@media(max-width:768px){.own2{grid-template-columns:1fr}.o2-ar{height:44px;transform:rotate(90deg)}.o2{padding:18px 16px}.o2 figcaption b{font-size:1.0625rem}.o2-art{min-height:0}.o2-art img{max-height:220px}.o2 p{font-size:.875rem}}
+/* SERVICE 一覧（2026-11-08） */
+.svc{padding-top:72px;padding-bottom:72px}
+.svc-h{font-family:var(--serif);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;letter-spacing:-.01em;line-height:1;color:var(--text);margin:0 0 36px}
+.svc-lead{max-width:none;font-size:1rem;line-height:1.9;color:var(--text-2);margin:0 0 28px}
+.svc-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.svc-i{display:flex;align-items:center;gap:10px;padding:22px 18px;background:#fff;border:1px solid var(--border);border-radius:10px;color:var(--text);text-decoration:none;transition:border-color .2s ease,box-shadow .2s ease}
+.svc-i:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(22,32,44,.08)}
+.svc-n{font-size:1rem;color:#d4574e;font-variant-numeric:tabular-nums;flex:none}
+.svc-t{font-weight:700;font-size:.9375rem;line-height:1.5;flex:1;min-width:0}
+.svc-i svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+.svc-i:hover svg{transform:translate(2px,-2px)}
+@media(max-width:1180px){.svc-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.svc{padding-top:56px;padding-bottom:56px}.svc-h{margin-bottom:22px}.svc-lead{font-size:.9375rem}.svc-row{grid-template-columns:minmax(0,1fr);gap:10px}.svc-i{padding:18px 18px}}
 </style>
 <script type="application/ld+json">
 {
@@ -437,7 +476,7 @@
       "logo": "https://ngraph.jp/assets/ngraph-logo-circle.png",
       "founder": { "@type": "Person", "name": "Shingo Takahashi" },
       "foundingDate": "2025-12-11",
-      "description": "Purposes, roles, decisions, procedures, and progress scattered across people, documents, and conversations, brought into a Company Brain that people and AI share. NGraph is a technology company that structures the meaning of the real world into a form AI can read. Our engineers come into your workplace and leave AI in a form that actually gets used.",
+      "description": "NGraph puts AI to work in the field. Engineers who work inside your workplace, security from an attacker's point of view, and the structuring technology behind both. Three kinds of work to make AI an asset of your company. We visit sites in Fukui, Ishikawa and Toyama.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "JP",
@@ -514,26 +553,74 @@
       <a href="/en/#services">Services</a>
       <a href="/blog/">Blog (JA)</a>
       <a href="/en/company">Company</a>
-      <a href="/en/entry" class="nav-cta">Free Consultation</a>
+      <a href="/en/entry" class="nav-cta">Free consultation</a>
       <span class="lang-switch"><a href="/">JA</a><span class="sep">/</span><span class="on">EN</span></span>
     </nav>
   </div>
 </header>
 
-<!-- ── Hero (2026-09-28: dark ground, brain line art + signal waves; same structure as JA) ── -->
+<!-- ── Hero (2026-09-28: dark ground, brain line art + signal waves) ── -->
 <section class="tz-sky" id="top">
   <div class="tz-flame" aria-hidden="true"></div>
   <div class="tz-frame">
     <div class="tz-stage">
       <div class="tz-copy">
         <div class="tz-eyebrow"><i></i>NGraph Inc. — Fukui</div>
-        <h1 class="tz-h1">The real world's <em>meaning</em>,<br>in a form AI can read.</h1>
-        <p class="tz-lede">NGraph is a company whose engineers come into your workplace and leave AI in a form your team actually uses.</p>
+        <h1 class="tz-h1" data-keep-lines>The real world's <em>meaning</em>,<br>in a form AI can read.</h1>
+        <p class="tz-lede"><span class="nb">NGraph is a company whose engineers</span> <span class="nb">come into your workplace</span> <span class="nb">and leave AI in a form</span> <span class="nb">your team actually uses.</span></p>
+        <div class="tz-acts"><a class="tz-btn" href="/en/entry">Free consultation <span aria-hidden="true">→</span></a><a class="tz-link" href="#services">See what we can do</a></div>
       </div>
     </div>
     <div class="tz-foot">
-      <a class="tz-cue" href="#problem"><i></i><span>To the workplace</span></a>
+      <a class="tz-cue" href="#services"><i></i><span>What we do</span></a>
       <div class="tz-place">FUKUI — HOKURIKU<br>2026</div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="pi-eyebrow">From Fukui, in three kinds of work</p>
+      <h2 class="section-title"><span class="nb">NGraph is a company that</span> <span class="nb"><em>puts AI to work</em> in the field.</span></h2>
+      <p class="section-sub"><span class="nb">Engineers who work inside your workplace.</span> <span class="nb">Security from an attacker's point of view.</span> <span class="nb">And the structuring technology behind both.</span> <span class="nb">Three kinds of work</span> <span class="nb">to make AI an asset of your company.</span></p>
+    </div>
+    <div class="pi-grid reveal">
+      <article class="pi-card main">
+        <figure class="pi-art"><img src="/assets/brain/ill/card-genba.webp" alt="" loading="lazy"></figure>
+        <h3><span class="pi-t1">Build AI into your operations</span><span class="pi-t2">On-site implementation</span></h3>
+        <p class="pi-name">AI Adoption Support (FDE)</p>
+        <p class="pi-d"><span class="nb">Our engineers come into your workplace,</span> <span class="nb">connect your internal data to AI,</span> <span class="nb">and redesign how the work flows.</span></p>
+        <p class="pi-meta"><span class="nb">Duration: a few weeks to a few months /</span> <span class="nb">Cost: by quote (consultation is free)</span></p>
+        <a class="pi-go" href="/en/fde/">See AI Adoption Support <i aria-hidden="true">→</i></a>
+      </article>
+      <article class="pi-card">
+        <figure class="pi-art"><img src="/assets/brain/ill/card-menu.webp" alt="" loading="lazy"></figure>
+        <h3><span class="pi-t1">Protect your company through an attacker's eyes</span><span class="pi-t2">Security</span></h3>
+        <p class="pi-d"><span class="nb">Every month we check the entry points visible from outside</span> <span class="nb">the same way an attacker would,</span> <span class="nb">and tell you what to fix first.</span></p>
+        <a class="pi-go" href="/en/drill/">See Cyber Drill <i aria-hidden="true">→</i></a>
+      </article>
+      <article class="pi-card">
+        <figure class="pi-art"><img src="/assets/brain/ill/card-brain.webp" alt="" loading="lazy"></figure>
+        <h3><span class="pi-t1">The foundation for everything</span><span class="pi-t2">Structuring technology</span></h3>
+        <p class="pi-d"><span class="nb">Technology that organizes business knowledge and decisions</span> <span class="nb">into a form AI can read (an ontology).</span> <span class="nb">It runs in production</span> <span class="nb">in our own products, such as OMISEAI and Teles.</span></p>
+        <a class="pi-go" href="/en/company#tech">See our structuring technology <i aria-hidden="true">→</i></a>
+      </article>
+    </div>
+    <p class="pi-first reveal"><span class="nb">New to AI?</span> <a href="/en/starter/"><span class="nb">Start with the Generative AI Starter Set</span> <i aria-hidden="true">→</i></a></p>
+  </div>
+</section>
+
+<!-- ── SERVICE (index of services) ── -->
+<section class="section svc" id="service-list">
+  <div class="container">
+    <h2 class="svc-h reveal">SERVICE</h2>
+    <p class="svc-lead reveal"><span class="nb">From deciding how to use AI,</span> <span class="nb">to building it into the work,</span> <span class="nb">checking your security,</span> <span class="nb">and setting up an AI that runs only inside your company.</span> <span class="nb">Choose what fits your needs.</span></p>
+    <div class="svc-row reveal">
+      <a class="svc-i" href="/en/fde/"><span class="svc-n">01</span><span class="svc-t">AI Adoption Support (FDE)</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      <a class="svc-i" href="/en/drill/"><span class="svc-n">02</span><span class="svc-t">Cyber Drill</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      <a class="svc-i" href="/en/security/"><span class="svc-n">03</span><span class="svc-t">Local AI Pack</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      <a class="svc-i" href="/en/starter/"><span class="svc-n">04</span><span class="svc-t">Generative AI Starter Set</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
     </div>
   </div>
 </section>
@@ -551,9 +638,9 @@
           <figcaption class="pb-cap">Day 1 | Same session</figcaption>
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="Day 1: building up understanding with the AI within the same conversation">
-              <image href="/assets/brain/deck/8d7debe512.webp" x="0" y="217" width="1000" height="558"/>
+              <image href="/assets/brain/ill/comic-before.webp" x="0" y="217" width="1000" height="558"/>
               <g class="bub" transform="translate(30,120)"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">It finally</text><text x="125" y="88" text-anchor="middle">gets it</text></g>
-              <g class="bub" transform="translate(560,70)"><rect width="360" height="150" rx="16"/><path class="tail" d="M120 150 l-14 32 l40 -32z"/><text x="180" y="46" text-anchor="middle">Excellent.</text><text x="180" y="88" text-anchor="middle">Yes, leave the rest</text><text x="180" y="130" text-anchor="middle">to me</text></g>
+              <g class="bub" transform="translate(500,160)"><rect width="360" height="150" rx="16"/><path class="tail" d="M150 150 l25 30 l30 -30z"/><text x="180" y="46" text-anchor="middle">Excellent.</text><text x="180" y="88" text-anchor="middle">Yes, leave the rest</text><text x="180" y="130" text-anchor="middle">to me</text></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">It finally</span> <span class="nb">gets it</span></li>
@@ -572,9 +659,9 @@
           <figcaption class="pb-cap">Day 2 | New session, different AI</figcaption>
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="Day 2: in a different conversation or with a different AI, it is back to meeting for the first time">
-              <image href="/assets/brain/deck/c6d5225bfd.webp" x="0" y="142" width="1000" height="633"/>
+              <image href="/assets/brain/ill/comic-after.webp" x="0" y="142" width="1000" height="633"/>
               <g class="bub" transform="translate(40,40)"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">Huh?</text><text x="135" y="88" text-anchor="middle">We're picking up</text><text x="135" y="130" text-anchor="middle">from yesterday…</text></g>
-              <g class="bub big" transform="translate(560,14)"><rect width="420" height="160" rx="18"/><path class="tail" d="M110 160 l-30 40 l60 -40z"/><text x="210" y="62" text-anchor="middle">Nice to meet you.</text><text x="210" y="120" text-anchor="middle">Who are you?</text></g>
+              <g class="bub big" transform="translate(500,112)"><rect width="420" height="160" rx="18"/><path class="tail" d="M150 160 l25 26 l34 -26z"/><text x="210" y="62" text-anchor="middle">Nice to meet you.</text><text x="210" y="120" text-anchor="middle">Who are you?</text></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">Huh? We're picking up</span> <span class="nb">from yesterday…</span></li>
@@ -587,116 +674,143 @@
     </div>
     <p class="fg-statement reveal"><span class="nb">As long as understanding <em>stays inside a chat</em>,</span> <span class="nb">neither the next person</span> <span class="nb">nor the next AI <em>can pick it up.</em></span></p>
     <!-- /fig -->
-  </div>
-</section>
-<section class="section dks section-alt" id="ownership">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">OWNERSHIP</div>
-      <h2 class="section-title" id="s04_ownership-t"><span class="nb">Rent the AI.</span> <span class="nb">Own the asset.</span></h2>
-      <p class="section-sub"><span class="nb">AI memory connects conversations.</span> <span class="nb">The Company Brain keeps the grounds for decisions.</span></p>
-    </div>
-    <div class="cx-part">
-    <p class="as-sub cx-sub reveal"><span class="nb">The difference is not the model.</span> <span class="nb">It is whether AI can read</span> <span class="nb">your company's rules and ways of judging.</span></p>
-    <div class="cx reveal">
-      <div class="cx-ai"><b>The same smart AI. Any company can choose and rent it.</b><ul><li><img src="/assets/brain/ill/logos/anthropic.png" alt="" width="20" height="20" loading="lazy">Anthropic</li><li><img src="/assets/brain/ill/logos/openai.png" alt="" width="20" height="20" loading="lazy">OpenAI</li><li><img src="/assets/brain/ill/logos/gemini.png" alt="" width="20" height="20" loading="lazy">Gemini</li><li><img src="/assets/brain/ill/logos/kimi.png" alt="" width="20" height="20" loading="lazy">Kimi</li></ul></div>
-      <p class="cx-q">“AI does not have an intelligence problem. It has a context problem.” — Ali Ghodsi (CEO, Databricks)</p>
-    </div>
-    <p class="fg-statement reveal"><span class="nb">What makes the difference is</span> <span class="nb"><em>moving context into a record.</em></span> <span class="nb">That is NGraph's FDE.</span></p>
-    <p class="cx-gloss reveal"><span class="nb">FDE = Forward Deployed Engineer:</span> <span class="nb">engineers who work on site</span> <span class="nb">and leave AI in a form people actually use.</span></p>
-    </div>
-    <h3 class="as-h"><span class="nb">Move knowledge from the chat</span> <span class="nb">to the company.</span></h3>
+    <div class="why-turn"></div>
+    <h3 class="as-h why-h" id="ownership"><span class="nb">So rent the AI,</span> <span class="nb">and keep the record in the company.</span></h3>
     <!-- fig:own -->
-    <div class="fg fg-own reveal">
-      <figure class="own-scene before">
-        <div class="own-tag"><span class="pill">Until now</span><span class="nb">Each person</span> <span class="nb">teaches their own AI</span></div>
-        <div class="own-art">
-        <svg class="own-svg" viewBox="0 0 1000 780" role="img" aria-label="One person entrusts knowledge to their own AI, and it is lost when they cancel or switch">
-          <image href="/assets/brain/ill/own-before.webp" x="0" y="30" width="1000" height="750"/>
-          <g class="lab" transform="translate(390,62)"><rect width="580" height="130" rx="14"/><text x="30" y="52">Cancel or switch the AI,</text><text x="30" y="102">and the knowledge can't carry over</text></g>
-          <g class="lab sub" transform="translate(560,214)"><rect width="390" height="64" rx="32"/><text x="195" y="40" text-anchor="middle">Knowledge lives in the chat</text></g>
-        </svg>
-          <div class="own-ov ov-main"><span class="nb">Cancel or switch the AI,</span> <span class="nb">and the knowledge can't carry over</span></div>
-          <div class="own-ov ov-sub"><span class="nb">Knowledge lives in the chat</span></div>
-        </div>
-        <p class="own-capline">Your own work × your own AI (Anthropic / OpenAI / Google / Kimi)</p>
-        <ul class="own-pts"><li>Everyone asks their own AI</li><li>Only generic answers come back</li><li>Switch AI, and nothing carries over</li><li>It ages over time</li></ul>
+    <div class="own2 reveal">
+      <figure class="o2 before">
+        <figcaption><span class="pill">Until now</span><b><span class="nb">One person</span> <span class="nb">teaches their own AI</span></b></figcaption>
+        <div class="o2-art"><img src="/assets/brain/ill/own-before-crop.webp" alt="One employee talking with their own AI" loading="lazy"></div>
+        <p><span class="nb">Cancel or switch the AI,</span> <span class="nb">and what you taught it can't carry over.</span></p>
+        <p><span class="nb">The knowledge lives</span> <span class="nb">only in that person's chat.</span></p>
       </figure>
-      <div class="own-turn" aria-hidden="true"><span>Knowledge<br>to the company</span><i>→</i></div>
-      <figure class="own-scene after">
-        <div class="own-tag"><span class="pill red">NGraph</span><span class="nb">The company's record,</span> <span class="nb">used by everyone</span></div>
-        <div class="own-art">
-        <svg class="own-svg" viewBox="0 0 1000 780" role="img" aria-label="The CEO, a manager, and an employee each connect from their own device to one Company Brain floating above them">
-          <image href="/assets/brain/ill/own-after.webp" x="0" y="33" width="1000" height="747"/>
-          <g class="lab red small" transform="translate(6,44)"><rect width="352" height="120" rx="14"/><text x="24" y="48">People choose the AI,</text><text x="24" y="94">the AI reads the Brain</text></g>
-          <path class="lead" d="M720 140 L665 185"/>
-          <g class="lab brain" transform="translate(696,26)"><rect width="300" height="112" rx="14"/><text class="k" x="150" y="42" text-anchor="middle">One record =</text><text class="b" x="150" y="92" text-anchor="middle" style="font-size:34px;letter-spacing:.02em">Company Brain</text></g>
-        </svg>
-          <div class="own-ov ov-red"><span class="nb">People choose the AI,</span> <span class="nb">the AI reads the Company Brain</span></div>
-          <div class="own-ov ov-brain"><span class="k">One record =</span><span class="b">Company Brain</span></div>
-        </div>
-        <ul class="own-pts"><li>Everyone reads the same company record</li><li>AI answers by the company's rules and judgment</li><li>Switch AI, and it stays</li><li>It grows the more it is used</li></ul><div class="own-chips"><span>Decisions</span><span>Where each project stands</span><span>Lessons and procedures</span></div>
+      <div class="o2-ar" aria-hidden="true">→</div>
+      <figure class="o2 after">
+        <figcaption><span class="pill red">NGraph</span><b><span class="nb">The company's record,</span> <span class="nb">used by everyone</span></b></figcaption>
+        <div class="o2-art"><img src="/assets/brain/ill/own-after-ledger.webp" alt="The CEO and employees each connect from their own device to one shared company record" loading="lazy"></div>
+        <p><span class="nb">The CEO and employees</span> <span class="nb">let their AI read</span> <span class="nb">the same single record.</span></p>
+        <p><span class="nb">Switch the AI,</span> <span class="nb">and the record stays with the company.</span></p>
       </figure>
-      <ul class="own-list" aria-hidden="true">
-        <li><strong>Until now</strong>Each person teaches their own AI. Cancel or switch, and the knowledge can't carry over</li>
-        <li><strong>NGraph</strong>People choose the AI, and the AI reads the Company Brain. The CEO, managers, and employees all read the same single record</li>
-      </ul>
     </div>
-    <p class="own-ip reveal"><span class="nb">What we deliver is not an app,</span> <span class="nb">but a record of your work that becomes your company's asset (IP).</span></p>
+    <p class="own-ip reveal"><span class="nb">What we deliver is not an app,</span> <span class="nb">but a record of your work</span> <span class="nb">that becomes your company's asset (IP).</span></p>
     <p class="fg-statement reveal"><span class="nb">However much AI memory improves,</span> <span class="nb">it does not become <em>the company's record</em>.</span></p>
     <!-- /fig -->
   </div>
 </section>
-<section class="svc" id="services">
-  <div class="svc-in">
-    <div class="svc-head reveal">
-      <div class="k">Services</div>
-      <h2>What you can ask us for.</h2>
-      <p>Our core work is bringing AI into your operations and making it stick.<br>We also handle the defenses that come before that, and the very first step.</p>
-      <p class="svc-ask">Not sure which one you need?<br><a href="/en/entry">Just ask us →</a></p>
+<!-- ── Common concerns ── -->
+<section class="section section-alt" id="consult">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title"><span class="nb">We start from concerns</span> <span class="nb">like these.</span></h2>
     </div>
-    <ol class="svc-list reveal">
-      <li><a href="/en/fde/">
-        <span class="svc-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="14" r="5"/><path d="M8 34v-4a9 9 0 0 1 18 0v4"/><rect x="26" y="20" width="16" height="12" rx="2"/><path d="M30 36h8M34 32v4"/><path d="M30 26l2.5 2.5L38 23"/></svg></span>
-        <span class="svc-body"><span class="svc-pain">“We signed up for AI. Nobody on the floor uses it.”</span><b class="svc-name">AI Adoption Support (FDE)</b><span class="svc-desc">Our engineers come on site and leave AI in a form that gets used.</span></span>
-        <span class="svc-go" aria-hidden="true">→</span>
-      </a></li>
-      <li><a href="/en/drill/">
-        <span class="svc-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l14 5v11c0 9-6 16-14 20-8-4-14-11-14-20V11z"/><path d="M18 24l4.5 4.5L31 20"/></svg></span>
-        <span class="svc-body"><span class="svc-pain">“If we were targeted, we wouldn’t know where they’d get in.”</span><b class="svc-name">NGraph Cyber Drill</b><span class="svc-desc">We look for weak spots like an attacker, then fix them with you.</span></span>
-        <span class="svc-go" aria-hidden="true">→</span>
-      </a></li>
-      <li><a href="/en/security/">
-        <span class="svc-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="12" width="28" height="24" rx="3"/><path d="M16 20h6M16 26h10"/><circle cx="32" cy="20" r="1.6"/><path d="M6 40h36"/><path d="M33 26.5v4M31 28.5h4"/></svg></span>
-        <span class="svc-body"><span class="svc-pain">“We can’t send our internal data to an outside AI.”</span><b class="svc-name">Local AI Pack</b><span class="svc-desc">An AI that stays inside your company.</span></span>
-        <span class="svc-go" aria-hidden="true">→</span>
-      </a></li>
-      <li><a href="/en/starter/">
-        <span class="svc-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="11" width="30" height="20" rx="2"/><path d="M5 37h38l-3-6H8z"/><path d="M19 21l3.5 3.5L30 17"/></svg></span>
-        <span class="svc-body"><span class="svc-pain">“We don’t know where to start.”</span><b class="svc-name">Generative AI Starter Set</b><span class="svc-desc">We visit, set things up, and finish one real task with you.</span></span>
-        <span class="svc-go" aria-hidden="true">→</span>
-      </a></li>
-    </ol>
+    <ul class="cbs reveal">
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-5 4z"/><path d="M8.5 10h.01M12 10h.01M15.5 10h.01"/></svg></span><span class="cb-t"><span class="nb">We signed up for ChatGPT,</span> <span class="nb">but only a few people</span> <span class="nb">actually use it.</span></span></p><a class="cb-go" href="/en/fde/">AI Adoption Support <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9h17M3.5 14.5h17M9.5 4v16M15 4v16"/></svg></span><span class="cb-t"><span class="nb">Monthly totals and data re-entry</span> <span class="nb">take far too much</span> <span class="nb">manual work.</span></span></p><a class="cb-go" href="/en/fde/">AI Adoption Support <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 0 1 6 4h13v14H6a2 2 0 0 0-2 2z"/><path d="M4 20V5.5M8 8h7M8 11.5h5"/></svg></span><span class="cb-t"><span class="nb">We explain our internal rules</span> <span class="nb">and procedures to every</span> <span class="nb">new hire, again and again.</span></span></p><a class="cb-go" href="/en/fde/">AI Adoption Support <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4"/><rect x="9.5" y="13" width="6" height="4.5" rx="1"/><path d="M11 13v-1.5a1.5 1.5 0 0 1 3 0V13"/></svg></span><span class="cb-t"><span class="nb">We can't tell whether</span> <span class="nb">it is safe to put customer information</span> <span class="nb">into AI.</span></span></p><a class="cb-go" href="/en/security/">Local AI Pack <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 7.7-7 9.5-4-1.8-7-5.1-7-9.5V6z"/><path d="M12 8v4.5M12 15.8h.01"/></svg></span><span class="cb-t"><span class="nb">We worry that our website</span> <span class="nb">or email</span> <span class="nb">is being targeted.</span></span></p><a class="cb-go" href="/en/drill/">Cyber Drill <i aria-hidden="true">→</i></a></li>
+      <li class="cb"><p class="cb-q"><span class="cb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="cb-t"><span class="nb">We don't know where to start,</span> <span class="nb">and have no one to ask.</span></span></p><a class="cb-go" href="/en/starter/">Generative AI Starter Set <i aria-hidden="true">→</i></a></li>
+    </ul>
+    <div class="cb-band reveal">
+      <p><span class="nb">If even one of these sounds familiar,</span> <span class="nb">please get in touch.</span><small><span class="nb">We start by choosing one task,</span> <span class="nb">and work through it together.</span></small></p>
+      <a href="/en/entry" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
+    </div>
   </div>
 </section>
 
-
-<!-- ── Products ── -->
-<section class="section section-alt" id="products">
+<!-- ── Our products ── -->
+<section class="section" id="products">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Products</div>
-      <h2 class="section-title"><span class="nb">Things we build</span> <span class="nb">and use ourselves.</span></h2>
-      <p class="section-sub"><span class="nb">We run it ourselves first,</span> <span class="nb">then bring the approach that worked.</span></p>
+      <div class="section-label">Our products</div>
+      <h2 class="section-title"><span class="nb">We run our structuring technology</span> <span class="nb">in products of our own.</span></h2>
+      <p class="section-sub"><span class="nb">Technology that puts business knowledge into a form AI can read:</span> <span class="nb">we use it ourselves first,</span> <span class="nb">before bringing it into your workplace.</span></p>
     </div>
-    <ul class="prod-list reveal">
-      <li><a href="https://omiseai.com/" target="_blank" rel="noopener"><span class="pl-name">OMISEAI</span><span class="pl-desc">Multilingual AI menus for restaurants. In live use at restaurants in Fukui and Kanazawa.<small class="pl-media">Featured in: Fukui Shimbun, Kenmin Fukui, Chunichi Shimbun (online), Fukui TV, FBC Fukui Broadcasting, Yahoo! News</small><small class="pl-media">Selected for the Fukui Industrial Support Center Startup and New Business Creation Grant</small></span></a></li>
-      <li><a href="https://nicomachos.com/" target="_blank" rel="noopener"><span class="pl-name">Teles</span><span class="pl-desc">An advisory AI built on the structured thinking of great figures.</span></a></li>
-      <li><a href="/cases/"><span class="pl-name">Arche (JA)</span><span class="pl-desc">A structural analysis that reads companies on 12 items × 3 axes.</span></a></li>
-      <li><a href="https://seisaku-tracker.jp/" target="_blank" rel="noopener"><span class="pl-name">Kokkai Tracker (JA)</span><span class="pl-desc">Find regulatory changes in Japan's national laws and systems by industry.</span></a></li>
-      <li><a href="https://seisaku-tracker.jp/fukui/" target="_blank" rel="noopener"><span class="pl-name">Fukui Budget Tracker (JA)</span><span class="pl-desc">Find support and contract opportunities in Fukui Prefecture's budget by industry.</span></a></li>
-      <li><a href="https://autowrite.jp/" target="_blank" rel="noopener"><span class="pl-name">AutoWrite</span><span class="pl-desc">AI drafts subsidy business plans.</span></a></li>
-    </ul>
+    <div class="pds reveal">
+      <a class="pd" href="https://omiseai.com/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/omiseai.webp" alt="OMISEAI screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>OMISEAI</b><span class="pd-st live">In live use</span></p><p class="pd-d"><span class="nb">Multilingual QR menus</span> <span class="nb">for restaurants.</span> <span class="nb">Ingredients and allergens too,</span> <span class="nb">in each guest's language.</span></p></div>
+      </a>
+      <a class="pd" href="https://nicomachos.com/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/teles.webp" alt="Teles screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Teles</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">An AI that answers</span> <span class="nb">your hard choices, based on</span> <span class="nb">how great figures would have decided.</span></p></div>
+      </a>
+      <a class="pd" href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/tracker.webp" alt="Policy Tracker screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Policy Tracker (JA)</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">Search national laws and systems</span> <span class="nb">and prefectural budgets</span> <span class="nb">by industry.</span></p></div>
+      </a>
+      <a class="pd" href="/cases/">
+        <figure class="pd-shot"><img src="/assets/brain/prod/arche.webp" alt="Arche screen" loading="lazy" width="960" height="600"></figure>
+        <div class="pd-body"><p class="pd-h"><b>Arche (JA)</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">A structural analysis of</span> <span class="nb">114 companies worldwide,</span> <span class="nb">all on the same yardstick.</span></p></div>
+      </a>
+    </div>
+    <p class="pd-more reveal"><a href="/en/company#tech">About our structuring technology <i aria-hidden="true">→</i></a></p>
+  </div>
+</section>
+
+<!-- ── Process (common to all four services) ── -->
+<section class="section section-alt" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title"><span class="nb">Every service</span> <span class="nb">follows these steps.</span></h2>
+    </div>
+    <ol class="steps4 reveal">
+      <li class="step"><span class="n">01</span><img src="/assets/brain/ill/step-1.webp" alt=""><h3>Free consultation</h3><p><span class="nb">We hear about the work</span> <span class="nb">that troubles you and the information involved</span></p><span class="free">Free</span></li>
+      <li class="step"><span class="n">02</span><img src="/assets/brain/ill/step-2.webp" alt=""><h3>Estimate</h3><p><span class="nb">We give you the scope,</span> <span class="nb">cost and timeline</span></p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/step-3.webp" alt=""><h3>Start small</h3><p><span class="nb">We begin with one task</span> <span class="nb">and make it work on site</span></p></li>
+      <li class="step"><span class="n">04</span><img src="/assets/brain/ill/step-4.webp" alt=""><h3>Hand over</h3><p><span class="nb">We hand over how to use it</span> <span class="nb">and the records.</span> <span class="nb">Maintenance is optional</span></p></li>
+    </ol>
+    <p class="steps-note reveal"><span class="nb">We visit sites in Fukui, Ishikawa and Toyama.</span> <span class="nb">Elsewhere, we work online.</span></p>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title"><span class="nb">These two people</span> <span class="nb">will work with you.</span></h2>
+    </div>
+    <!-- fig:team -->
+    <div class="fg fg-team reveal">
+      <div class="tm-person tm-l">
+        <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="Shingo Takahashi" loading="lazy">
+        <div class="tm-txt">
+          <p class="tm-role">Field &amp; business</p>
+          <p class="tm-name tm-name-en">Shingo Takahashi</p>
+          <p class="tm-en">Takahashi Shingo</p>
+          <p class="tm-title"><span class="nb">Representative Director /</span> <span class="nb">AI Planner</span></p>
+          <p class="tm-tag"><span class="nb">Listens to the workplace</span> <span class="nb">and turns it into requirements.</span></p>
+          <ul class="tm-list">
+            <li><span class="nb">On-site interviews</span> <span class="nb">and work design</span></li>
+            <li><span class="nb">Adoption support</span> <span class="nb">and subsidy applications</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tm-center">
+        <div class="tm-link">
+          <span class="tm-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 8h14l6 6v22H20z"/><path d="M34 8v6h6"/><path d="M30 22h6M30 27h6M30 32h4"/><circle class="w" cx="16" cy="27" r="9.5"/><path class="w" d="M10.5 34.5L7.5 40.5 14.5 37"/><circle class="dot" cx="12.5" cy="27" r="1.3"/><circle class="dot" cx="16" cy="27" r="1.3"/><circle class="dot" cx="19.5" cy="27" r="1.3"/></svg></span>
+          <span class="tm-line" aria-hidden="true"></span>
+          <span class="tm-ic"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="8" cy="8" r="5"/><circle cx="48" cy="8" r="5"/><circle cx="8" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><path d="M11.6 11.6l7.9 7.9M44.4 11.6l-7.9 7.9M11.6 44.4l7.9-7.9M44.4 44.4l-7.9-7.9"/><circle class="w" cx="28" cy="28" r="12"/><text x="28" y="28" class="ai">AI</text></svg></span>
+        </div>
+        <p class="tm-lead">Planning and building, directly linked</p>
+        <p class="tm-sub">Both of us handle your project</p>
+      </div>
+      <div class="tm-person tm-r">
+        <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
+        <div class="tm-txt">
+          <p class="tm-role">Technology &amp; build</p>
+          <p class="tm-name tm-name-en">Matt Chana</p>
+          <p class="tm-en">Matthew John Chana</p>
+          <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AI Engineer</span></p>
+          <p class="tm-tag"><span class="nb">Turns requirements</span> <span class="nb">into working AI.</span></p>
+          <ul class="tm-list">
+            <li><span class="nb">About 10 years at robotics and AI</span> <span class="nb">companies in Silicon Valley, USA</span></li>
+            <li><span class="nb">AI agents /</span> <span class="nb">RAG / MCP</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="fg-statement reveal"><span class="nb">The person who listens</span> <span class="nb">and the person who builds <em>are directly connected.</em></span><br><small class="fg-team-sub"><span class="nb">Nothing is lost in relay,</span> <span class="nb">so the reality of your workplace reaches the AI.</span></small></p>
+    <!-- /fig -->
   </div>
 </section>
 <!-- ── Closing ── -->
@@ -706,15 +820,15 @@
       <h2><span class="nb">The first thing to decide:</span> <span class="nb">just one task to start with.</span></h2>
       <p>Consultation and estimates are free.</p>
       <div class="contact-btns">
-        <a href="/en/fde/" class="btn btn-primary">See how AI Adoption Support (FDE) works <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
-        <a href="/en/entry" class="btn btn-ghost">Get a Free Consultation</a>
+        <a href="/en/entry" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
+        <a href="/en/fde/" class="btn btn-ghost">See AI Adoption Support (FDE)</a>
       </div>
       <p class="ct-note"><span class="nb">We visit sites in Fukui, Ishikawa and Toyama</span> <span class="nb">| We sign an NDA before starting if you wish</span></p>
     </div>
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="/en/entry">Get a Free Consultation →</a></div>
+<div class="float-cta" id="floatCta"><a href="/en/entry">Free consultation →</a></div>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -1048,5 +1162,3 @@ setInterval(function(){
   window.addEventListener('resize',size,{passive:true});
 })();
 </script>
-</body>
-</html>

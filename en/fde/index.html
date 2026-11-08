@@ -13,9 +13,9 @@
   gtag('config', 'G-L96HMXRK1D');
 </script>
 
-<title>Turn AI into business results — FDE-style AI adoption support with engineers on site | NGraph Inc.</title>
+<title>Turn AI into business results — AI Adoption Support (FDE) | NGraph Inc.</title>
 <meta name="description" content="Turn AI into business results. Our engineers come into your workplace, understand how your business runs, build AI into it, and leave it in a form your team keeps using. Even as staff gets harder to find, the same number of people keeps the company running. On-site in Fukui, Ishikawa and Toyama; online elsewhere. Start with the free 1-minute AI check.">
-<meta property="og:title" content="Turn AI into business results — FDE-style AI Adoption Support | NGraph">
+<meta property="og:title" content="Turn AI into business results — AI Adoption Support (FDE) | NGraph">
 <meta property="og:description" content="We understand your business first, build AI into it, and leave it in a form your team keeps using. Even as staff gets harder to find, the same number of people keeps the company running. Start with the free 1-minute AI check.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ngraph.jp/en/fde/">
@@ -42,7 +42,7 @@
     {
       "@type": "Service",
       "@id": "https://ngraph.jp/fde/#service",
-      "name": "FDE-style AI Adoption Support",
+      "name": "AI Adoption Support (FDE)",
       "alternateName": ["Forward Deployed Engineer-style AI adoption support", "Forward Deployed Engineering", "Hands-on AI adoption support"],
       "serviceType": "AI adoption support / embedded on-site engineering",
       "provider": { "@type": "Organization", "@id": "https://ngraph.jp/#organization", "name": "NGraph Inc.", "url": "https://ngraph.jp/" },
@@ -65,7 +65,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "NGraph Inc.", "item": "https://ngraph.jp/en/" },
-        { "@type": "ListItem", "position": 2, "name": "FDE-style AI Adoption Support", "item": "https://ngraph.jp/en/fde/" }
+        { "@type": "ListItem", "position": 2, "name": "AI Adoption Support (FDE)", "item": "https://ngraph.jp/en/fde/" }
       ]
     },
     {
@@ -84,9 +84,10 @@
 }
 </script>
 <style>
-/* ── /en/fde/ page styles (supplements zen) ── */
+/* ── /fde/ 専用スタイル（zen補完） ── */
 @media(min-width:901px){
-  /* fixed is viewport-relative: on wide screens right:-2% sticks to the edge. Center it between the content and the screen edge */
+  /* fixedはビューポート基準のため、広い画面では right:-2% が右端に張り付き
+     本文との間に空白ができる。本文右端〜画面右端の中間へ寄せる（狭幅は従来位置をmaxで維持） */
   .hero-visual{position:fixed;top:64px;right:max(calc(25vw - 412px), -2%)}
 }
 .lp-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:.8125rem;letter-spacing:.2em;font-weight:600;color:var(--accent);border:1px solid var(--border-strong);border-radius:3px;padding:8px 18px;margin-bottom:24px;background:rgba(255,255,255,.5)}
@@ -103,14 +104,14 @@
 .fde-def .fd-read{font-size:.8125rem;color:var(--text-3);margin-bottom:16px}
 .fde-def p{font-size:.875rem;color:var(--text-2);line-height:2.1}
 .fde-def p strong{color:var(--text);font-weight:700}
-/* .cta-micro lives in css/ngraph-zen.css */
+/* .cta-micro は css/ngraph-zen.css が持つ（ここに重複定義があり、共有CSSの修正が効かなかった） */
 .mid-cta{text-align:center;margin-top:52px}
 .mid-cta p{font-family:var(--serif);font-size:1rem;color:var(--text-2);margin-bottom:20px;line-height:1.9}
 /* Before/After */
 .ba-chart{width:100%;height:150px;margin:16px 0 6px}
 .ba-cap{font-size:.8125rem;color:var(--text-3);text-align:center}
 .vs-col .ba-face{font-family:var(--serif);font-size:.875rem;text-align:center;color:var(--text-2);margin-bottom:4px}
-/* Promise section */
+/* 安心セクション */
 .trust-grid{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:center;max-width:840px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px}
 .trust-grid img{width:100%;border-radius:4px;border:1px solid var(--border)}
 .trust-cap{font-size:.8125rem;color:var(--text-3);text-align:center;margin-top:10px}
@@ -120,7 +121,7 @@
 .trust-list li{font-size:.875rem;color:var(--text-2);line-height:2;padding-left:24px;position:relative;margin-bottom:6px}
 .trust-list li::before{content:"";position:absolute;left:0;top:9px;width:14px;height:8px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 @media(max-width:768px){.trust-grid{grid-template-columns:1fr;padding:28px 22px}.trust-grid .trust-photo{width:160px;margin:0 auto}}
-/* AI check */
+/* 診断 */
 .quiz-wrap{max-width:720px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px 36px;position:relative;overflow:hidden}
 .quiz-wrap::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
 .q-progress{font-family:var(--serif);font-size:.8125rem;letter-spacing:.14em;color:var(--accent);margin-bottom:14px}
@@ -132,8 +133,12 @@
 .q-back:hover{color:var(--accent)}
 .q-inds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .q-inds button{text-align:left;padding:13px 14px;border:1px solid var(--border-strong);border-radius:3px;background:rgba(255,255,255,.6);font-size:.875rem;line-height:1.55;color:var(--text);cursor:pointer;font-family:inherit;word-break:keep-all;overflow-wrap:normal;transition:border-color .15s,background .15s}
-/* On narrow phones the 2-column grid split words; drop to 1 column */
-@media(max-width:380px){.q-inds{grid-template-columns:1fr}}
+/* 2列グリッドで幅が足りず「ビルメンテ／ナンス」「ハウスクリー／ニング」が割れていた（320〜375px）。
+   語の内側では折らず、「・」で折らせる。狭い実機では1列に落として語を保つ */
+/* sp.css の .q-inds{1fr 1fr} は長い業種名で右の列がはみ出す（minmax(0,…) でないと縮まない）。詳細度を上げて上書き */
+.quiz-wrap .q-inds{grid-template-columns:repeat(2,minmax(0,1fr))}
+.quiz-wrap .q-inds button{min-width:0;overflow-wrap:anywhere}
+@media(max-width:380px){.quiz-wrap .q-inds{grid-template-columns:1fr}}
 .q-inds button:hover{border-color:var(--accent);background:rgba(36,66,122,.05)}
 .result-mirror{font-size:.875rem;color:var(--text-2);line-height:1.95;margin-top:18px;padding:14px 16px;background:rgba(36,66,122,.05);border-left:2px solid var(--accent);border-radius:0 3px 3px 0}
 .result-tips{margin-top:22px}
@@ -145,8 +150,8 @@
 #radar{display:block;margin:0 auto;width:420px;max-width:100%;height:auto}
 .result-notes{margin:18px 0 6px}
 .result-notes li{font-size:.875rem;color:var(--text-2);line-height:1.95;margin-bottom:4px;list-style:none;padding-left:16px;position:relative}
-.result-notes li::before{content:"•";color:var(--accent);position:absolute;left:0}
-/* Check v3: suggested entry point (AX1 / AX2 / AX2+AX3) */
+.result-notes li::before{content:"・";color:var(--accent);position:absolute;left:0}
+/* 診断 v3：入口の候補（AX1／AX2／AX2＋AX3） */
 .tri-name{display:block;font-size:.9375rem;font-weight:700;color:var(--text);margin-top:6px}
 .tri-stages{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0 6px;padding:0}
 .tri-stages li{border:1px solid var(--border);border-radius:3px;padding:10px 10px;background:rgba(255,255,255,.5);font-size:.8125rem;line-height:1.6;color:var(--text-3)}
@@ -171,7 +176,7 @@
 .lead-done{text-align:center;padding:18px 0 6px}
 .lead-done h4{font-family:var(--serif);font-size:1.125rem;font-weight:700;color:var(--accent);margin-bottom:8px}
 .lead-done p{font-size:.875rem;color:var(--text-2);line-height:1.9}
-/* Cases and articles */
+/* 事例・記事 */
 .case-feature{max-width:860px;margin:0 auto 26px;background:var(--bg-card);border:1.5px solid var(--accent);border-radius:4px;padding:32px 36px;box-shadow:0 14px 34px rgba(36,66,122,.07)}
 .case-feature .cf-tag{display:inline-block;background:var(--accent);color:#ffffff;font-size:.8125rem;font-weight:700;letter-spacing:.14em;padding:5px 14px;border-radius:999px;margin-bottom:14px}
 .case-feature h3{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.8;margin-bottom:14px}
@@ -190,10 +195,10 @@
 .faq-list{max-width:820px;margin:0 auto}
 .faq-list details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 20px}
 .faq-list summary{font-family:var(--serif);font-size:1rem;font-weight:700;line-height:1.7;padding:16px 0;cursor:pointer;list-style:none;position:relative;padding-right:28px}
-.faq-list summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
+.faq-list summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
 .faq-list details[open] summary::after{content:"−"}
 .faq-list details p{font-size:.875rem;color:var(--text-2);line-height:2;padding:0 0 18px}
-/* Form */
+/* フォーム */
 .lp-form{max-width:640px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px 36px}
 .lp-form label{display:block;font-size:.875rem;font-weight:600;margin-bottom:6px;color:var(--text)}
 .lp-form label .req{color:var(--accent);font-size:.8125rem;margin-left:5px}
@@ -202,7 +207,7 @@
 .lp-form textarea{min-height:100px;resize:vertical}
 .lp-form .btn{width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-/* Asset architecture figure (#asset) */
+/* 資産アーキテクチャ図（#asset） */
 .asset-fig{max-width:1040px;margin:0 auto 36px;text-align:center;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .asset-fig img{width:100%;min-width:860px;height:auto;display:block;border:1px solid var(--border);border-radius:4px}
 .as-layer{border:1px dashed var(--border-strong);border-radius:4px;padding:24px;background:rgba(255,255,255,.45)}
@@ -224,7 +229,7 @@
 .asset-more a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
 .asset-mei{font-family:var(--serif);text-align:center;font-size:.875rem;color:var(--text-2);margin-top:36px;line-height:2.1}
 .asset-mei .mei-mark{color:var(--accent);font-weight:700}
-/* Checklist download (#download) */
+/* 資料DL（#download） */
 .dl-wrap{display:grid;grid-template-columns:280px 1fr;gap:40px;max-width:880px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px;align-items:center}
 .dl-thumb{position:relative}
 .dl-thumb img{width:100%;border:1px solid var(--border-strong);border-radius:2px;box-shadow:6px 10px 26px rgba(43,38,32,.14);display:block}
@@ -252,7 +257,8 @@
   .float-cta a{width:100%;justify-content:center;padding:15px}
 }
 
-/* 2026-09-03 deck figures, Foundation + Project */
+/* 2026-09-03 資料の図解・土台＋Project */
+/* 資料の図解（SVG）をそのまま載せる。文字はページの書体で描かれる */
 .dkfig{margin:0 auto;max-width:1200px;width:calc(100% + 80px);margin-left:-40px;margin-right:-40px}
 @media(max-width:1280px){.dkfig{width:100%;margin-left:0;margin-right:0}}
 .dkfig svg{width:100%;height:auto;display:block}
@@ -262,10 +268,10 @@
 @media(max-width:700px){
   .dkfig{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-left:-24px;margin-right:-24px}
   .dkfig svg{min-width:1100px}
-  .dkfig::after{content:"→ Scroll sideways";display:block;font-size:.8125rem;color:var(--text-3);text-align:right;padding:4px 24px 0}
+  .dkfig::after{content:"→ 横にスクロールできます";display:block;font-size:.8125rem;color:var(--text-3);text-align:right;padding:4px 24px 0}
 }
 
-/* Foundation + Project stairs */
+/* 土台＋Project の階段 */
 .stairs{max-width:900px;margin:0 auto 44px}
 .st-projects{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:end;padding:0 18px}
 .st-p{border:1px solid var(--border);border-bottom:none;background:var(--bg-card);padding:18px 16px 16px;text-align:center;border-radius:4px 4px 0 0}
@@ -285,7 +291,7 @@
 @media(max-width:900px){.trio{grid-template-columns:1fr}}
 .hero-visual img.hero-enter{width:100%;height:100%;object-fit:contain;object-position:right center;opacity:.95}
 
-/* 2026-09-03 hero as 2 columns inside the container */
+/* 2026-09-03 ヒーローをコンテナ内の2カラムに（絵をビューポート基準で右へ逃がさない） */
 .hero{padding:150px 0 110px}
 .hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
 .hero .hero-copy{max-width:600px}
@@ -297,42 +303,15 @@
   .hero .hero-visual{max-width:460px;margin:0 auto}
   .hero .hero-visual img{max-height:380px}
 }
-/* STEP 01 link to the company structure analysis (/cases/) */
+/* STEP 01 から企業の構造分析（/cases/）へ（2026-10-18 本人「1・2・5を入れて」） */
 .fde-step-link{margin-top:6px;font-size:.875rem;font-weight:700;color:var(--accent);border-bottom:1px solid rgba(36,66,122,.35);line-height:1.6}
 .fde-step-link:hover{border-bottom-color:var(--accent)}
-/* On phones STEP is icon | text (sp.css 640px); put the link under the text column */
+/* スマホではSTEPがアイコン｜文字の2列になる（sp.css 640px）。リンクは文字の列の下に置く */
 @media(max-width:640px){.fg-fde .fde-steps li .fde-step-link{grid-column:2;justify-self:start;margin-top:4px}}
-/* Process and cost (2026-10-18, replaces Foundation + Project) */
-.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto;list-style:none;padding:0}
-.steps4 .step{text-align:center;position:relative}
-.steps4 .step img{width:110px;height:100px;object-fit:contain;margin:0 auto 12px;display:block}
-.steps4 .step .n{position:absolute;left:calc(50% - 78px);top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#ffffff;font-family:var(--sans);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.steps4 .step h3{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.6;margin-bottom:6px}
-.steps4 .step p{font-size:.875rem;color:var(--text-2);line-height:1.8}
-.steps4 .step .free{display:inline-block;font-size:.8125rem;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 10px;margin-top:8px}
-@media(max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.steps4{gap:14px 10px}.steps4 .step img{width:72px;height:66px;margin-bottom:6px}.steps4 .step .n{left:calc(50% - 52px);width:24px;height:24px}.steps4 .step h3{font-size:1rem}.steps4 .step p{font-size:.8125rem}}
+/* 進め方と費用（2026-10-18 土台＋Projectから置き換え） */
 .flow4-note{text-align:center;font-size:.875rem;color:var(--text-2);margin-top:26px}.flow4-note2{margin-top:4px}
 /* 型として戻す（2026-10-18） */
 .loop{max-width:980px;margin:0 auto}
-.sp-wrap{max-width:560px;margin:0 auto;text-align:center}
-.sp-fig{max-width:460px;margin:0 auto}
-.sp-svg{display:block;width:100%;height:auto;overflow:visible}
-.sp-rib path{fill:none;stroke-linecap:round}
-.sp-task{font-size:13px;font-weight:700;fill:var(--text-3)}
-.sp-up{font-size:13px;font-weight:700;fill:var(--accent)}
-.sp-up-arr{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.sp-ic{fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.sp-legend{list-style:none;margin:18px 0 0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px}
-.sp-legend li{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:1rem}
-.sp-legend svg{width:28px;height:28px}
-.sp-facts{list-style:none;margin:22px auto 0;padding:16px 0 0;border-top:1px solid var(--border);max-width:520px;display:grid;gap:6px;font-size:.875rem;color:var(--text-2);line-height:1.8}
-.sp-next{margin:18px 0 0;font-family:var(--serif);font-weight:700;color:var(--accent);font-size:1.0625rem}
-.sp-pause{display:inline-flex;align-items:center;gap:6px;margin:14px 0 0;padding:4px 2px;background:none;border:0;font:inherit;font-size:.8125rem;color:var(--text-3);cursor:pointer}
-.sp-pause::before{content:"";width:9px;height:11px;border-left:3px solid currentColor;border-right:3px solid currentColor;box-sizing:border-box}
-.sp-pause[aria-pressed="true"]::before{width:0;height:0;border:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
-.sp-pause:hover{color:var(--accent)}
-@media(max-width:768px){.sp-fig{max-width:320px}.sp-task,.sp-up{font-size:14px}.sp-legend{gap:8px 16px}.sp-legend li{font-size:.9375rem}.sp-next{font-size:1rem}}
 
 /* ===== 構成（2026-10-23）：違い → やり方 → 最初の一歩 → 続け方 → 人 → 進め方と費用 → まず試したい方へ → FAQ → 相談 ===== */
 #howwework,#flow{background:var(--bg-2)}#loop{background:var(--bg)}#trust{background:var(--bg-2)}#process{background:var(--bg)}
@@ -373,6 +352,52 @@
 .svc-list li:first-child .svc-kind{color:var(--hot-ink)}.svc-list li:first-child .svc-go{color:var(--hot)}
 .contact .btn-primary{background:var(--hot);color:#16202c}.contact .btn-primary:hover{background:var(--hot-2);color:#16202c}
 .flw .seam{fill:var(--hot)}.flw-k b{color:var(--hot-ink)}.flw-leg .d{background:var(--hot)}
+.flw-note{margin-left:auto;color:var(--text-3)}
+.flw-k b span{font-size:inherit;color:inherit}
+@media(max-width:560px){.flw-leg .z{display:none}}
+.flw .seam-i{fill:none;stroke:#16202c;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .3s ease 1.3s}
+.flw .seam-i .dotf{fill:#16202c;stroke:none}
+.flw-box.in .flw .seam-i{opacity:1}
+@media(prefers-reduced-motion:reduce){.flw .seam-i{opacity:1;transition:none}}
+.flw .st-in .st{fill:var(--accent);stroke:var(--accent)}.flw .st-in .sn{fill:#fff;font-weight:700}
+/* 継ぎ目のアイコンをふわっと浮かせる（本人 2026-11-07「ここもアイコンぷかぷか動かそう」） */
+.flw-box.in .flw .seam-i .fw{transform-box:fill-box;transform-origin:center;animation:fuwa 2.4s ease-in-out 1.8s infinite}
+.flw-box.in .flw .seam-g:nth-of-type(2n) .fw{animation-delay:2.4s}
+.flw-box.in .flw .seam-g:nth-of-type(3n) .fw{animation-delay:3s}
+@media(prefers-reduced-motion:reduce){.flw-box.in .flw .seam-i .fw{animation:none}}
+/* 使うほど育つ（2026-11-07 らせんを置き換え・1画面に収める） */
+.loop-sec .section-head{margin-bottom:28px}
+.grow{max-width:980px;margin:0 auto;text-align:center}
+.gr-fig{display:grid;grid-template-columns:minmax(0,1.25fr) 84px minmax(0,.85fr);align-items:center;gap:0}
+.gr-ring,.gr-stack{display:block;width:100%;height:auto;overflow:visible}
+.gr-ring{max-height:400px}
+.gr-stack{max-height:380px}
+.gr-track{fill:none;stroke:var(--border);stroke-width:10}
+.gr-run{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:22 78;transform-origin:190px 190px;animation:grrun 4.4s linear infinite;opacity:.55}
+@keyframes grrun{to{stroke-dashoffset:-100}}
+.gr-node{filter:drop-shadow(0 6px 10px rgba(36,66,122,.18))}
+.gr-ic{fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.gr-lb{font-size:16px;font-weight:700;fill:var(--text)}
+.gr-c1{font-size:15px;font-weight:700;fill:var(--text-3)}
+.gr-c2{font-size:21px;font-weight:700;fill:var(--accent)}
+.gr-flow{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--hot);font-size:.875rem;font-weight:700}
+.gr-flow svg{width:60px;height:20px;fill:none;stroke:var(--hot);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.gr-axis{fill:none;stroke:var(--text-3);stroke-width:1.6;stroke-dasharray:3 5}
+.gr-axis-h{fill:none;stroke:var(--text-3);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gr-ax{font-size:14px;font-weight:700;fill:var(--text-3)}
+.gr-base{fill:#d6dbe3}
+.gr-b{opacity:0;transform:translateY(-16px);transform-box:fill-box;transition:opacity .45s ease,transform .45s ease}
+.gr-b.on{opacity:1;transform:none}
+.paused .gr-run{animation-play-state:paused}
+.gr-legend{list-style:none;margin:14px 0 0;padding:0;display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap;font-weight:700;font-size:.9375rem}
+.gr-legend li{display:flex;align-items:center;gap:8px}
+.gr-legend i{width:22px;height:12px;border-radius:3px;display:inline-block}
+.gr-facts{margin:14px auto 0;font-size:.875rem;color:var(--text-2);line-height:1.8}
+.gr-sep{margin:0 10px;color:var(--border)}
+.gr-pause{display:inline-flex;align-items:center;gap:6px;margin:8px 0 0;padding:4px 2px;background:none;border:0;font:inherit;font-size:.8125rem;color:var(--text-3);cursor:pointer}
+.gr-pause:hover{color:var(--accent)}
+@media(max-width:760px){.gr-fig{grid-template-columns:1fr}.gr-ring{max-width:360px;margin:0 auto}.gr-lb{font-size:20px}.gr-c1{font-size:18px}.gr-c2{font-size:24px}.gr-ax{font-size:19px}.gr-flow{flex-direction:row;margin:22px 0 4px;justify-content:center}.gr-flow svg{transform:rotate(90deg);width:36px}.gr-stack{max-width:200px;margin:0 auto}.gr-sep{display:block;height:0;overflow:hidden}}
+@media(prefers-reduced-motion:reduce){.gr-run{animation:none}.gr-b{transition:none}}
 </style>
 <link rel="stylesheet" href="/css/sp.css?v=8">
 </head>
@@ -387,7 +412,7 @@
       <a href="/en/#services">Services</a>
       <a href="/blog/">Blog (JA)</a>
       <a href="/en/company">Company</a>
-      <a href="#contact" class="nav-cta">Free Consultation</a>
+      <a href="#contact" class="nav-cta">Free consultation</a>
       <span class="lang-switch"><a href="/fde/">JA</a><span class="sep">/</span><span class="on">EN</span></span>
     </nav>
   </div>
@@ -397,16 +422,16 @@
 <section class="hero" style="padding-bottom:90px">
   <div class="container hero-grid">
     <div class="hero-copy" style="max-width:680px">
-      <span class="lp-badge"><span class="dot"></span>FDE-style AI Adoption Support — Engineers on site</span>
-      <h1 class="hero-tagline" style="font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.2"><span class="nb">Turn AI into</span> <span class="nb">business <span class="hl">results</span>.</span></h1>
-      <p class="lead"><span class="nb">We understand your work first,</span> <span class="nb">build AI into it,</span> <span class="nb">and leave it in a form</span> <span class="nb">your team keeps using.</span></p>
+      <span class="lp-badge"><span class="dot"></span><span>AI Adoption Support (FDE) — <span class="nb">engineers who work on site</span></span></span>
+      <h1 class="hero-tagline" style="font-size:clamp(1.625rem,7.4vw,3.125rem);line-height:1.4">Turn AI into <span class="hl">business results</span>.</h1>
+      <p class="lead">We understand how your work runs, build AI into it, and leave it in a form your team keeps using.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Talk to us free <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
+        <a href="#contact" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
       </div>
-      <p class="cta-micro">Want to try first? — <a href="#shindan" style="text-decoration:underline">the free 1-minute AI check</a></p>
+      <p class="cta-micro">Want to try first? — <a href="#shindan" style="text-decoration:underline">Free 1-minute AI check</a></p>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <img src="/assets/brain/ill/enter-office.webp" alt="" class="hero-enter" width="1000" height="877" fetchpriority="high">
+      <img src="/assets/brain/ill/fde-hero.webp" alt="" class="hero-enter" width="1000" height="750" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -416,140 +441,83 @@
 
 
 
-<!-- ── NGraph model (deck figure, kM1-3 merged) ── -->
+<!-- ── NGraph model ── -->
 <section class="section section-alt dks" id="howwework">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">HOW WE WORK</div>
-      <h2 class="section-title" id="s03_fde-t"><span class="nb">We go into the workplace</span> <span class="nb">and leave AI in a form that gets used.</span></h2>
-      <p class="section-sub">NGraph engineers go into your workplace and leave AI in a form your work actually uses. Here is how, in four steps.</p>
+      <h2 class="section-title" id="s03_fde-t">We work on site and leave AI in a form your team uses.</h2>
+      <p class="section-sub">NGraph engineers come into your workplace and leave AI in a form your team uses every day. We work in four steps.</p>
     </div>
     <!-- fig:fde -->
     <div class="fg fg-fde reveal">
       <ol class="fde-steps">
         <li>
-          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/icons/icon03_genba.png" alt="" loading="lazy"></div>
+          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/fde-s1.webp" alt="" loading="lazy"></div>
           <span class="step">STEP 01</span>
-          <strong>Go into the workplace</strong>
-          <p><span class="nb">See the work, the decisions, the exceptions</span> <span class="nb">and the data in use</span></p>
-          <a class="fde-step-link" href="/cases/"><span class="nb">Example of seeing a company by its structure:</span> <span class="nb">Arche (JA) →</span></a>
+          <strong>Go on site</strong>
+          <p>We look at the work, the decisions, the exceptions and the data you use</p>
+          <a class="fde-step-link" href="/cases/">Example of reading a company by its structure: Arche (JA) →</a>
         </li>
         <li>
-          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/icons/icon03_seihon.png" alt="" loading="lazy"></div>
+          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/fde-s2.webp" alt="" loading="lazy"></div>
           <span class="step">STEP 02</span>
-          <strong>Organize the record</strong>
-          <p><span class="nb">Scattered documents and notes,</span> <span class="nb">gathered in one place in a form AI can read</span></p>
+          <strong>Organize the records</strong>
+          <p>Scattered documents and notes, gathered in one place in a form AI can read</p>
         </li>
         <li>
-          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/icons/icon19_setup.png" alt="" loading="lazy"></div>
+          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/fde-s3.webp" alt="" loading="lazy"></div>
           <span class="step">STEP 03</span>
           <strong>Put AI on site</strong>
-          <p><span class="nb">Install Claude Code / Codex</span> <span class="nb">on work PCs and connect them to the record</span></p>
+          <p>Claude Code / Codex on your work PCs, connected to the records</p>
         </li>
         <li class="hi">
-          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/icons/icon03_ichigyomu.png" alt="" loading="lazy"></div>
+          <div class="fg-ic fd-ill"><img src="/assets/brain/ill/fde-s4.webp" alt="" loading="lazy"></div>
           <span class="step">STEP 04</span>
           <strong>Start with one task</strong>
-          <p><span class="nb">Build the first use case,</span> <span class="nb">then fix it in use until it sticks</span></p>
+          <p>We build the first use case, then fix it as people use it until it sticks</p>
         </li>
       </ol>
 
-      <div class="fde-return"><span><span class="nb">Decisions, procedures and lessons go back into the record,</span> <span class="nb">then on to the next task</span></span></div>
+      <div class="fde-return"><span>Decisions, procedures and lessons go back into the records and spread to the next task</span></div>
     </div>
     <!-- /fig -->
   </div>
 </section>
 
-<!-- ── 業務フロー図（2026-10-23） ── -->
+<!-- ── Workflow diagram ── -->
 <section class="section" id="flow">
   <div class="container">
     <div class="section-head reveal">
-      <h2 class="section-title"><span class="nb">First, put the workflow</span> <span class="nb">on a single page.</span></h2>
-      <p class="section-sub"><span class="nb">Things fall through not at the steps,</span> <span class="nb">but at the handoffs.</span> <span class="nb">We find where the owner changes</span> <span class="nb">and decide where AI goes, starting with the busiest stretch.</span></p>
+      <h2 class="section-title">First, we draw your workflow on one page.</h2>
+      <p class="section-sub">Work doesn't fall through at steps. It falls through at handovers. We find where the owner changes, then decide where to bring in AI, starting with the densest stretch.</p>
     </div>
     <div class="flw-box reveal">
-      <p class="flw-k"><span>Example | From inquiry to payment (a fictional company)</span><b>9 steps. 6 handoffs.</b></p>
-      <div class="flw-scroll"><svg class="flw flw-h" viewBox="0 0 994 346" role="img" aria-label="Example: the workflow from inquiry to payment. 9 steps and 6 handoffs where the owner changes"><rect class="lane" x="0" y="40" width="994" height="74"/><text class="ln" x="16" y="82">Customer</text><rect class="lane alt" x="0" y="114" width="994" height="74"/><text class="ln" x="16" y="156">Sales</text><rect class="lane" x="0" y="188" width="994" height="74"/><text class="ln" x="16" y="230">Admin</text><rect class="lane alt" x="0" y="262" width="994" height="74"/><text class="ln" x="16" y="304">Accounting</text><rect class="zone" x="404" y="46" width="296" height="284" rx="8"/><text class="zl" x="552" y="28" text-anchor="middle">Where AI goes</text><path class="cn" style="transition-delay:0.00s" d="M210 77 H216 V151 H222"/><circle class="seam" style="transition-delay:0.50s" cx="216" cy="114" r="6"/><path class="cn" style="transition-delay:0.12s" d="M306 151 H312 V77 H318"/><circle class="seam" style="transition-delay:0.62s" cx="312" cy="114" r="6"/><path class="cn" style="transition-delay:0.24s" d="M402 77 H408 V225 H414"/><circle class="seam" style="transition-delay:0.74s" cx="408" cy="151" r="6"/><path class="cn" style="transition-delay:0.36s" d="M498 225 H510"/><path class="cn" style="transition-delay:0.48s" d="M594 225 H600 V151 H606"/><circle class="seam" style="transition-delay:0.98s" cx="600" cy="188" r="6"/><path class="cn" style="transition-delay:0.60s" d="M690 151 H696 V77 H702"/><circle class="seam" style="transition-delay:1.10s" cx="696" cy="114" r="6"/><path class="cn" style="transition-delay:0.72s" d="M786 77 H792 V299 H798"/><circle class="seam" style="transition-delay:1.22s" cx="792" cy="188" r="6"/><path class="cn" style="transition-delay:0.84s" d="M882 299 H894"/><g><rect class="st" x="126" y="57" width="84" height="40" rx="6"/><text class="sn" x="168" y="82" text-anchor="middle">Inquiry</text></g><g><rect class="st" x="222" y="131" width="84" height="40" rx="6"/><text class="sn" x="264" y="156" text-anchor="middle">Quote</text></g><g><rect class="st" x="318" y="57" width="84" height="40" rx="6"/><text class="sn" x="360" y="82" text-anchor="middle">Order</text></g><g><rect class="st" x="414" y="205" width="84" height="40" rx="6"/><text class="sn" x="456" y="230" text-anchor="middle">Log order</text></g><g><rect class="st" x="510" y="205" width="84" height="40" rx="6"/><text class="sn" x="552" y="230" text-anchor="middle">Arrange</text></g><g><rect class="st" x="606" y="131" width="84" height="40" rx="6"/><text class="sn" x="648" y="156" text-anchor="middle">Deliver</text></g><g><rect class="st" x="702" y="57" width="84" height="40" rx="6"/><text class="sn" x="744" y="82" text-anchor="middle">Accept</text></g><g><rect class="st" x="798" y="279" width="84" height="40" rx="6"/><text class="sn" x="840" y="304" text-anchor="middle">Invoice</text></g><g><rect class="st" x="894" y="279" width="84" height="40" rx="6"/><text class="sn" x="936" y="304" text-anchor="middle">Payment</text></g></svg><svg class="flw flw-v" viewBox="0 0 300 508" role="img" aria-label="Example: the workflow from inquiry to payment (vertical). 9 steps and 6 handoffs where the owner changes"><rect class="lane" x="0" y="0" width="75" height="508"/><text class="ln" x="37.5" y="21" text-anchor="middle">Customer</text><rect class="lane alt" x="75" y="0" width="75" height="508"/><text class="ln" x="112.5" y="21" text-anchor="middle">Sales</text><rect class="lane" x="150" y="0" width="75" height="508"/><text class="ln" x="187.5" y="21" text-anchor="middle">Admin</text><rect class="lane alt" x="225" y="0" width="75" height="508"/><text class="ln" x="262.5" y="21" text-anchor="middle">Accounts</text><rect class="zone" x="3" y="186" width="294" height="142" rx="8"/><text class="zl" x="37.5" y="253" text-anchor="middle">Where</text><text class="zl" x="37.5" y="269" text-anchor="middle">AI goes</text><path class="cn" style="transition-delay:0.00s" d="M37.5 64 V75 H112.5 V86"/><circle class="seam" style="transition-delay:0.50s" cx="75" cy="75" r="5"/><path class="cn" style="transition-delay:0.12s" d="M112.5 116 V127 H37.5 V138"/><circle class="seam" style="transition-delay:0.62s" cx="75" cy="127" r="5"/><path class="cn" style="transition-delay:0.24s" d="M37.5 168 V179 H187.5 V190"/><circle class="seam" style="transition-delay:0.74s" cx="112.5" cy="179" r="5"/><path class="cn" style="transition-delay:0.36s" d="M187.5 220 V242"/><path class="cn" style="transition-delay:0.48s" d="M187.5 272 V283 H112.5 V294"/><circle class="seam" style="transition-delay:0.98s" cx="150" cy="283" r="5"/><path class="cn" style="transition-delay:0.60s" d="M112.5 324 V335 H37.5 V346"/><circle class="seam" style="transition-delay:1.10s" cx="75" cy="335" r="5"/><path class="cn" style="transition-delay:0.72s" d="M37.5 376 V387 H262.5 V398"/><circle class="seam" style="transition-delay:1.22s" cx="150" cy="387" r="5"/><path class="cn" style="transition-delay:0.84s" d="M262.5 428 V450"/><g><rect class="st" x="2.5" y="34" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="53.5" text-anchor="middle">Inquiry</text></g><g><rect class="st" x="77.5" y="86" width="70" height="30" rx="6"/><text class="sn" x="112.5" y="105.5" text-anchor="middle">Quote</text></g><g><rect class="st" x="2.5" y="138" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="157.5" text-anchor="middle">Order</text></g><g><rect class="st" x="152.5" y="190" width="70" height="30" rx="6"/><text class="sn" x="187.5" y="209.5" text-anchor="middle">Log order</text></g><g><rect class="st" x="152.5" y="242" width="70" height="30" rx="6"/><text class="sn" x="187.5" y="261.5" text-anchor="middle">Arrange</text></g><g><rect class="st" x="77.5" y="294" width="70" height="30" rx="6"/><text class="sn" x="112.5" y="313.5" text-anchor="middle">Deliver</text></g><g><rect class="st" x="2.5" y="346" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="365.5" text-anchor="middle">Accept</text></g><g><rect class="st" x="227.5" y="398" width="70" height="30" rx="6"/><text class="sn" x="262.5" y="417.5" text-anchor="middle">Invoice</text></g><g><rect class="st" x="227.5" y="450" width="70" height="30" rx="6"/><text class="sn" x="262.5" y="469.5" text-anchor="middle">Payment</text></g></svg></div>
-      <p class="flw-leg"><i class="d"></i>Handoff (where the owner changes)<i class="z"></i>Where AI goes (decided on site)</p>
+      <p class="flw-k"><span>Example | From order to payment (a fictional company)</span><b>Work stalls at 6 handovers between owners.</b></p>
+      <div class="flw-scroll"><svg class="flw flw-h" viewBox="0 0 994 346" role="img" aria-label="Example: workflow from order to payment. 9 steps, 6 handovers between owners"><rect class="lane" x="0" y="40" width="994" height="74"/><text class="ln" x="16" y="82">Customer</text><rect class="lane alt" x="0" y="114" width="994" height="74"/><text class="ln" x="16" y="156">Sales</text><rect class="lane" x="0" y="188" width="994" height="74"/><text class="ln" x="16" y="230">Admin</text><rect class="lane alt" x="0" y="262" width="994" height="74"/><text class="ln" x="16" y="304">Finance</text><rect class="zone" x="404" y="46" width="296" height="284" rx="8"/><text class="zl" x="552" y="28" text-anchor="middle">Where AI connects first</text><path class="cn" style="transition-delay:0.00s" d="M210 77 H216 V151 H222"/><g class="seam-g"><circle class="seam" style="transition-delay:0.50s" cx="216" cy="114" r="14"/><g class="seam-i" transform="translate(216 114) scale(1.4)"><g class="fw"><rect x="-5" y="-3.5" width="10" height="7" rx="1"/><path d="M-5 -3.5 L0 0.8 L5 -3.5"/></g></g></g><path class="cn" style="transition-delay:0.12s" d="M306 151 H312 V77 H318"/><g class="seam-g"><circle class="seam" style="transition-delay:0.62s" cx="312" cy="114" r="14"/><g class="seam-i" transform="translate(312 114) scale(1.4)"><g class="fw"><circle cx="0" cy="0" r="4.6"/><path d="M0 -2.6 V0 L2 1.4"/></g></g></g><path class="cn" style="transition-delay:0.24s" d="M402 77 H408 V225 H414"/><g class="seam-g"><circle class="seam" style="transition-delay:0.74s" cx="408" cy="151" r="14"/><g class="seam-i" transform="translate(408 151) scale(1.4)"><g class="fw"><rect x="-3.6" y="-4.6" width="7.2" height="9.2" rx="1"/><path d="M-1.8 -1.6 H1.8 M-1.8 0.6 H1.8 M-1.8 2.8 H0.8"/></g></g></g><path class="cn" style="transition-delay:0.36s" d="M498 225 H510"/><path class="cn" style="transition-delay:0.48s" d="M594 225 H600 V151 H606"/><g class="seam-g"><circle class="seam" style="transition-delay:0.98s" cx="600" cy="188" r="14"/><g class="seam-i" transform="translate(600 188) scale(1.4)"><g class="fw"><path d="M-4.8 -3.8 H4.8 V1.8 H0.6 L-1.8 4.4 V1.8 H-4.8 Z"/></g></g></g><path class="cn" style="transition-delay:0.60s" d="M690 151 H696 V77 H702"/><g class="seam-g"><circle class="seam" style="transition-delay:1.10s" cx="696" cy="114" r="14"/><g class="seam-i" transform="translate(696 114) scale(1.4)"><g class="fw"><rect x="-4.2" y="-2.6" width="7" height="7" rx="1"/><path d="M-2.2 -4.6 H4.8 V2.4"/></g></g></g><path class="cn" style="transition-delay:0.72s" d="M786 77 H792 V299 H798"/><g class="seam-g"><circle class="seam" style="transition-delay:1.22s" cx="792" cy="188" r="14"/><g class="seam-i" transform="translate(792 188) scale(1.4)"><g class="fw"><path d="M0 -4.4 V1"/><circle cx="0" cy="3.6" r=".7" class="dotf"/></g></g></g><path class="cn" style="transition-delay:0.84s" d="M882 299 H894"/><g><rect class="st" x="126" y="57" width="84" height="40" rx="6"/><text class="sn" x="168" y="82" text-anchor="middle">Inquiry</text></g><g><rect class="st" x="222" y="131" width="84" height="40" rx="6"/><text class="sn" x="264" y="156" text-anchor="middle">Quote</text></g><g><rect class="st" x="318" y="57" width="84" height="40" rx="6"/><text class="sn" x="360" y="82" text-anchor="middle">Order</text></g><g class="st-in"><rect class="st" x="414" y="205" width="84" height="40" rx="6"/><text class="sn" x="456" y="230" text-anchor="middle">Log order</text></g><g class="st-in"><rect class="st" x="510" y="205" width="84" height="40" rx="6"/><text class="sn" x="552" y="230" text-anchor="middle">Arrange</text></g><g class="st-in"><rect class="st" x="606" y="131" width="84" height="40" rx="6"/><text class="sn" x="648" y="156" text-anchor="middle">Deliver</text></g><g><rect class="st" x="702" y="57" width="84" height="40" rx="6"/><text class="sn" x="744" y="82" text-anchor="middle">Sign-off</text></g><g><rect class="st" x="798" y="279" width="84" height="40" rx="6"/><text class="sn" x="840" y="304" text-anchor="middle">Invoice</text></g><g><rect class="st" x="894" y="279" width="84" height="40" rx="6"/><text class="sn" x="936" y="304" text-anchor="middle">Payment</text></g></svg><svg class="flw flw-v" viewBox="0 0 300 508" role="img" aria-label="Example: workflow from order to payment (vertical view). 9 steps, 6 handovers between owners"><rect class="lane" x="0" y="0" width="75" height="508"/><text class="ln" x="37.5" y="21" text-anchor="middle">Customer</text><rect class="lane alt" x="75" y="0" width="75" height="508"/><text class="ln" x="112.5" y="21" text-anchor="middle">Sales</text><rect class="lane" x="150" y="0" width="75" height="508"/><text class="ln" x="187.5" y="21" text-anchor="middle">Admin</text><rect class="lane alt" x="225" y="0" width="75" height="508"/><text class="ln" x="262.5" y="21" text-anchor="middle">Finance</text><rect class="zone" x="3" y="186" width="294" height="142" rx="8"/><text class="zl" x="37.5" y="245" text-anchor="middle">Where AI</text><text class="zl" x="37.5" y="261" text-anchor="middle">connects</text><text class="zl" x="37.5" y="277" text-anchor="middle">first</text><path class="cn" style="transition-delay:0.00s" d="M37.5 64 V75 H112.5 V86"/><g class="seam-g"><circle class="seam" style="transition-delay:0.50s" cx="75" cy="75" r="11"/><g class="seam-i" transform="translate(75 75) scale(1.05)"><g class="fw"><rect x="-5" y="-3.5" width="10" height="7" rx="1"/><path d="M-5 -3.5 L0 0.8 L5 -3.5"/></g></g></g><path class="cn" style="transition-delay:0.12s" d="M112.5 116 V127 H37.5 V138"/><g class="seam-g"><circle class="seam" style="transition-delay:0.62s" cx="75" cy="127" r="11"/><g class="seam-i" transform="translate(75 127) scale(1.05)"><g class="fw"><circle cx="0" cy="0" r="4.6"/><path d="M0 -2.6 V0 L2 1.4"/></g></g></g><path class="cn" style="transition-delay:0.24s" d="M37.5 168 V179 H187.5 V190"/><g class="seam-g"><circle class="seam" style="transition-delay:0.74s" cx="112.5" cy="179" r="11"/><g class="seam-i" transform="translate(112.5 179) scale(1.05)"><g class="fw"><rect x="-3.6" y="-4.6" width="7.2" height="9.2" rx="1"/><path d="M-1.8 -1.6 H1.8 M-1.8 0.6 H1.8 M-1.8 2.8 H0.8"/></g></g></g><path class="cn" style="transition-delay:0.36s" d="M187.5 220 V242"/><path class="cn" style="transition-delay:0.48s" d="M187.5 272 V283 H112.5 V294"/><g class="seam-g"><circle class="seam" style="transition-delay:0.98s" cx="150" cy="283" r="11"/><g class="seam-i" transform="translate(150 283) scale(1.05)"><g class="fw"><path d="M-4.8 -3.8 H4.8 V1.8 H0.6 L-1.8 4.4 V1.8 H-4.8 Z"/></g></g></g><path class="cn" style="transition-delay:0.60s" d="M112.5 324 V335 H37.5 V346"/><g class="seam-g"><circle class="seam" style="transition-delay:1.10s" cx="75" cy="335" r="11"/><g class="seam-i" transform="translate(75 335) scale(1.05)"><g class="fw"><rect x="-4.2" y="-2.6" width="7" height="7" rx="1"/><path d="M-2.2 -4.6 H4.8 V2.4"/></g></g></g><path class="cn" style="transition-delay:0.72s" d="M37.5 376 V387 H262.5 V398"/><g class="seam-g"><circle class="seam" style="transition-delay:1.22s" cx="150" cy="387" r="11"/><g class="seam-i" transform="translate(150 387) scale(1.05)"><g class="fw"><path d="M0 -4.4 V1"/><circle cx="0" cy="3.6" r=".7" class="dotf"/></g></g></g><path class="cn" style="transition-delay:0.84s" d="M262.5 428 V450"/><g><rect class="st" x="2.5" y="34" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="53.5" text-anchor="middle">Inquiry</text></g><g><rect class="st" x="77.5" y="86" width="70" height="30" rx="6"/><text class="sn" x="112.5" y="105.5" text-anchor="middle">Quote</text></g><g><rect class="st" x="2.5" y="138" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="157.5" text-anchor="middle">Order</text></g><g class="st-in"><rect class="st" x="152.5" y="190" width="70" height="30" rx="6"/><text class="sn" x="187.5" y="209.5" text-anchor="middle">Log order</text></g><g class="st-in"><rect class="st" x="152.5" y="242" width="70" height="30" rx="6"/><text class="sn" x="187.5" y="261.5" text-anchor="middle">Arrange</text></g><g class="st-in"><rect class="st" x="77.5" y="294" width="70" height="30" rx="6"/><text class="sn" x="112.5" y="313.5" text-anchor="middle">Deliver</text></g><g><rect class="st" x="2.5" y="346" width="70" height="30" rx="6"/><text class="sn" x="37.5" y="365.5" text-anchor="middle">Sign-off</text></g><g><rect class="st" x="227.5" y="398" width="70" height="30" rx="6"/><text class="sn" x="262.5" y="417.5" text-anchor="middle">Invoice</text></g><g><rect class="st" x="227.5" y="450" width="70" height="30" rx="6"/><text class="sn" x="262.5" y="469.5" text-anchor="middle">Payment</text></g></svg></div>
+      <p class="flw-leg"><i class="d"></i><span class="nb">Handover between owners</span><i class="z"></i><span class="nb">Where AI connects first</span><span class="flw-note"><span class="nb">* Example of a fictional company</span></span></p>
     </div>
   </div>
 </section>
 
-<!-- ── 型として戻す（2026-10-18） ── -->
+<!-- ── Loop ── -->
 <section class="section loop-sec" id="loop">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Our Loop</div>
-      <h2 class="section-title"><span class="nb">What one task leaves behind</span> <span class="nb">becomes the base for the next.</span></h2>
+      <h2 class="section-title">The more you use it, the more your company's assets grow.</h2>
+      <p class="section-sub">Use leaves records. AI reads those records and becomes more useful. Repeat this, and your assets keep growing.</p>
     </div>
-    <div class="loop reveal">
-      <div class="sp-wrap">
-        <div class="sp-fig"><svg class="sp-svg" viewBox="0 0 340 470" role="img" aria-label="A spiral with three colored badges for decisions, procedures and lessons rising from task 1 to task 3 and on to the next task"><g class="sp-rib"><path d="M302.0 390.0 L301.9 388.0 L301.7 386.0 L301.4 384.0" style="stroke-width:2.71;stroke:#7e90b0"/><path d="M301.4 384.0 L300.9 381.9 L300.3 379.9 L299.6 378.0" style="stroke-width:2.53;stroke:#8797b5"/><path d="M299.6 378.0 L298.7 376.0 L297.7 374.0 L296.5 372.0" style="stroke-width:2.36;stroke:#909fbb"/><path d="M296.5 372.0 L295.2 370.1 L293.8 368.2 L292.3 366.3" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M292.3 366.3 L290.7 364.4 L288.9 362.5 L287.0 360.7" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M287.0 360.7 L285.0 358.8 L282.9 357.1 L280.6 355.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M280.6 355.3 L278.3 353.6 L275.8 351.8 L273.2 350.2" style="stroke-width:1.73;stroke:#b0bace"/><path d="M273.2 350.2 L270.6 348.5 L267.8 346.9 L264.9 345.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M264.9 345.3 L262.0 343.8 L259.0 342.3 L255.8 340.8" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M255.8 340.8 L252.6 339.4 L249.4 338.0 L246.0 336.7" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M246.0 336.7 L242.6 335.4 L239.1 334.1 L235.6 332.9" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M235.6 332.9 L232.0 331.8 L228.3 330.6 L224.6 329.6" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M224.6 329.6 L220.9 328.5 L217.1 327.5 L213.3 326.6" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M213.3 326.6 L209.4 325.7 L205.6 324.9 L201.7 324.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M201.7 324.1 L197.8 323.3 L193.9 322.6 L190.0 322.0" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M190.0 322.0 L186.1 321.4 L182.2 320.9 L178.3 320.4" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M178.3 320.4 L174.4 319.9 L170.6 319.5 L166.7 319.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M166.7 319.1 L162.9 318.8 L159.1 318.6 L155.4 318.4" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M155.4 318.4 L151.7 318.2 L148.0 318.1 L144.4 318.0" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M144.4 318.0 L140.9 318.0 L137.4 318.0 L134.0 318.0" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M134.0 318.0 L130.6 318.1 L127.4 318.3 L124.2 318.4" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M124.2 318.4 L121.0 318.7 L118.0 318.9 L115.1 319.2" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M115.1 319.2 L112.2 319.5 L109.4 319.9 L106.8 320.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M106.8 320.3 L104.2 320.7 L101.7 321.2 L99.4 321.7" style="stroke-width:1.73;stroke:#b0bace"/><path d="M99.4 321.7 L97.1 322.2 L95.0 322.8 L93.0 323.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M93.0 323.3 L91.1 323.9 L89.3 324.6 L87.7 325.2" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M87.7 325.2 L86.2 325.9 L84.8 326.5 L83.5 327.2" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M83.5 327.2 L82.3 328.0 L81.3 328.7 L80.4 329.4" style="stroke-width:2.36;stroke:#909fbb"/><path d="M80.4 329.4 L79.7 330.2 L79.1 330.9 L78.6 331.7" style="stroke-width:2.53;stroke:#8797b5"/><path d="M78.6 331.7 L78.3 332.5 L78.1 333.2 L78.0 334.0" style="stroke-width:2.71;stroke:#7e90b0"/><path d="M302.0 278.0 L301.9 276.0 L301.7 274.0 L301.4 272.0" style="stroke-width:2.71;stroke:#7e90b0"/><path d="M301.4 272.0 L300.9 269.9 L300.3 267.9 L299.6 266.0" style="stroke-width:2.53;stroke:#8797b5"/><path d="M299.6 266.0 L298.7 264.0 L297.7 262.0 L296.5 260.0" style="stroke-width:2.36;stroke:#909fbb"/><path d="M296.5 260.0 L295.2 258.1 L293.8 256.2 L292.3 254.3" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M292.3 254.3 L290.7 252.4 L288.9 250.5 L287.0 248.7" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M287.0 248.7 L285.0 246.8 L282.9 245.1 L280.6 243.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M280.6 243.3 L278.3 241.6 L275.8 239.8 L273.2 238.2" style="stroke-width:1.73;stroke:#b0bace"/><path d="M273.2 238.2 L270.6 236.5 L267.8 234.9 L264.9 233.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M264.9 233.3 L262.0 231.8 L259.0 230.3 L255.8 228.8" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M255.8 228.8 L252.6 227.4 L249.4 226.0 L246.0 224.7" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M246.0 224.7 L242.6 223.4 L239.1 222.1 L235.6 220.9" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M235.6 220.9 L232.0 219.8 L228.3 218.6 L224.6 217.6" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M224.6 217.6 L220.9 216.5 L217.1 215.5 L213.3 214.6" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M213.3 214.6 L209.4 213.7 L205.6 212.9 L201.7 212.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M201.7 212.1 L197.8 211.3 L193.9 210.6 L190.0 210.0" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M190.0 210.0 L186.1 209.4 L182.2 208.9 L178.3 208.4" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M178.3 208.4 L174.4 207.9 L170.6 207.5 L166.7 207.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M166.7 207.1 L162.9 206.8 L159.1 206.6 L155.4 206.4" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M155.4 206.4 L151.7 206.2 L148.0 206.1 L144.4 206.0" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M144.4 206.0 L140.9 206.0 L137.4 206.0 L134.0 206.0" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M134.0 206.0 L130.6 206.1 L127.4 206.3 L124.2 206.4" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M124.2 206.4 L121.0 206.7 L118.0 206.9 L115.1 207.2" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M115.1 207.2 L112.2 207.5 L109.4 207.9 L106.8 208.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M106.8 208.3 L104.2 208.7 L101.7 209.2 L99.4 209.7" style="stroke-width:1.73;stroke:#b0bace"/><path d="M99.4 209.7 L97.1 210.2 L95.0 210.8 L93.0 211.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M93.0 211.3 L91.1 211.9 L89.3 212.6 L87.7 213.2" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M87.7 213.2 L86.2 213.9 L84.8 214.5 L83.5 215.2" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M83.5 215.2 L82.3 216.0 L81.3 216.7 L80.4 217.4" style="stroke-width:2.36;stroke:#909fbb"/><path d="M80.4 217.4 L79.7 218.2 L79.1 218.9 L78.6 219.7" style="stroke-width:2.53;stroke:#8797b5"/><path d="M78.6 219.7 L78.3 220.5 L78.1 221.2 L78.0 222.0" style="stroke-width:2.71;stroke:#7e90b0"/><path d="M302.0 166.0 L301.9 164.0 L301.7 162.0 L301.4 160.0" style="stroke-width:2.71;stroke:#7e90b0"/><path d="M301.4 160.0 L300.9 157.9 L300.3 155.9 L299.6 154.0" style="stroke-width:2.53;stroke:#8797b5"/><path d="M299.6 154.0 L298.7 152.0 L297.7 150.0 L296.5 148.0" style="stroke-width:2.36;stroke:#909fbb"/><path d="M296.5 148.0 L295.2 146.1 L293.8 144.2 L292.3 142.3" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M292.3 142.3 L290.7 140.4 L288.9 138.5 L287.0 136.7" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M287.0 136.7 L285.0 134.8 L282.9 133.1 L280.6 131.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M280.6 131.3 L278.3 129.6 L275.8 127.8 L273.2 126.2" style="stroke-width:1.73;stroke:#b0bace"/><path d="M273.2 126.2 L270.6 124.5 L267.8 122.9 L264.9 121.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M264.9 121.3 L262.0 119.8 L259.0 118.3 L255.8 116.8" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M255.8 116.8 L252.6 115.4 L249.4 114.0 L246.0 112.7" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M246.0 112.7 L242.6 111.4 L239.1 110.1 L235.6 108.9" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M235.6 108.9 L232.0 107.8 L228.3 106.6 L224.6 105.6" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M224.6 105.6 L220.9 104.5 L217.1 103.5 L213.3 102.6" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M213.3 102.6 L209.4 101.7 L205.6 100.9 L201.7 100.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M201.7 100.1 L197.8 99.3 L193.9 98.6 L190.0 98.0" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M190.0 98.0 L186.1 97.4 L182.2 96.9 L178.3 96.4" style="stroke-width:1.10;stroke:#cfd5e0"/><path d="M178.3 96.4 L174.4 95.9 L170.6 95.5 L166.7 95.1" style="stroke-width:1.12;stroke:#ced5e0"/><path d="M166.7 95.1 L162.9 94.8 L159.1 94.6 L155.4 94.4" style="stroke-width:1.16;stroke:#ccd3df"/><path d="M155.4 94.4 L151.7 94.2 L148.0 94.1 L144.4 94.0" style="stroke-width:1.21;stroke:#cad1dd"/><path d="M144.4 94.0 L140.9 94.0 L137.4 94.0 L134.0 94.0" style="stroke-width:1.29;stroke:#c6cedb"/><path d="M134.0 94.0 L130.6 94.1 L127.4 94.3 L124.2 94.4" style="stroke-width:1.37;stroke:#c2cad8"/><path d="M124.2 94.4 L121.0 94.7 L118.0 94.9 L115.1 95.2" style="stroke-width:1.48;stroke:#bcc5d5"/><path d="M115.1 95.2 L112.2 95.5 L109.4 95.9 L106.8 96.3" style="stroke-width:1.60;stroke:#b6c0d1"/><path d="M106.8 96.3 L104.2 96.7 L101.7 97.2 L99.4 97.7" style="stroke-width:1.73;stroke:#b0bace"/><path d="M99.4 97.7 L97.1 98.2 L95.0 98.8 L93.0 99.3" style="stroke-width:1.87;stroke:#a8b4c9"/><path d="M93.0 99.3 L91.1 99.9 L89.3 100.6 L87.7 101.2" style="stroke-width:2.03;stroke:#a1adc5"/><path d="M87.7 101.2 L86.2 101.9 L84.8 102.5 L83.5 103.2" style="stroke-width:2.19;stroke:#98a6c0"/><path d="M83.5 103.2 L82.3 104.0 L81.3 104.7 L80.4 105.4" style="stroke-width:2.36;stroke:#909fbb"/><path d="M80.4 105.4 L79.7 106.2 L79.1 106.9 L78.6 107.7" style="stroke-width:2.53;stroke:#8797b5"/><path d="M78.6 107.7 L78.3 108.5 L78.1 109.2 L78.0 110.0" style="stroke-width:2.71;stroke:#7e90b0"/></g><g class="sp-dots"></g><g class="sp-rib"><path d="M190.0 458.0 L193.9 457.4 L197.8 456.7 L201.7 455.9" style="stroke-width:4.50;stroke:#24427a"/><path d="M201.7 455.9 L205.6 455.1 L209.4 454.3 L213.3 453.4" style="stroke-width:4.48;stroke:#25437b"/><path d="M213.3 453.4 L217.1 452.5 L220.9 451.5 L224.6 450.4" style="stroke-width:4.44;stroke:#27457c"/><path d="M224.6 450.4 L228.3 449.4 L232.0 448.2 L235.6 447.1" style="stroke-width:4.39;stroke:#2a477d"/><path d="M235.6 447.1 L239.1 445.9 L242.6 444.6 L246.0 443.3" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M246.0 443.3 L249.4 442.0 L252.6 440.6 L255.8 439.2" style="stroke-width:4.23;stroke:#324e82"/><path d="M255.8 439.2 L259.0 437.7 L262.0 436.2 L264.9 434.7" style="stroke-width:4.12;stroke:#375285"/><path d="M264.9 434.7 L267.8 433.1 L270.6 431.5 L273.2 429.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M273.2 429.8 L275.8 428.2 L278.3 426.4 L280.6 424.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M280.6 424.7 L282.9 422.9 L285.0 421.2 L287.0 419.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M287.0 419.3 L288.9 417.5 L290.7 415.6 L292.3 413.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M292.3 413.7 L293.8 411.8 L295.2 409.9 L296.5 408.0" style="stroke-width:3.41;stroke:#5b719b"/><path d="M296.5 408.0 L297.7 406.0 L298.7 404.0 L299.6 402.0" style="stroke-width:3.24;stroke:#6479a0"/><path d="M299.6 402.0 L300.3 400.1 L300.9 398.1 L301.4 396.0" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M301.4 396.0 L301.7 394.0 L301.9 392.0 L302.0 390.0" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.0 334.0 L78.1 334.8 L78.3 335.5 L78.6 336.3" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.6 336.3 L79.1 337.1 L79.7 337.8 L80.4 338.6" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M80.4 338.6 L81.3 339.3 L82.3 340.0 L83.5 340.8" style="stroke-width:3.24;stroke:#6479a0"/><path d="M83.5 340.8 L84.8 341.5 L86.2 342.1 L87.7 342.8" style="stroke-width:3.41;stroke:#5b719b"/><path d="M87.7 342.8 L89.3 343.4 L91.1 344.1 L93.0 344.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M93.0 344.7 L95.0 345.2 L97.1 345.8 L99.4 346.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M99.4 346.3 L101.7 346.8 L104.2 347.3 L106.8 347.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M106.8 347.7 L109.4 348.1 L112.2 348.5 L115.1 348.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M115.1 348.8 L118.0 349.1 L121.0 349.3 L124.2 349.6" style="stroke-width:4.12;stroke:#375285"/><path d="M124.2 349.6 L127.4 349.7 L130.6 349.9 L134.0 350.0" style="stroke-width:4.23;stroke:#324e82"/><path d="M134.0 350.0 L137.4 350.0 L140.9 350.0 L144.4 350.0" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M144.4 350.0 L148.0 349.9 L151.7 349.8 L155.4 349.6" style="stroke-width:4.39;stroke:#2a477d"/><path d="M155.4 349.6 L159.1 349.4 L162.9 349.2 L166.7 348.9" style="stroke-width:4.44;stroke:#27457c"/><path d="M166.7 348.9 L170.6 348.5 L174.4 348.1 L178.3 347.6" style="stroke-width:4.48;stroke:#25437b"/><path d="M178.3 347.6 L182.2 347.1 L186.1 346.6 L190.0 346.0" style="stroke-width:4.50;stroke:#24427a"/><path d="M190.0 346.0 L193.9 345.4 L197.8 344.7 L201.7 343.9" style="stroke-width:4.50;stroke:#24427a"/><path d="M201.7 343.9 L205.6 343.1 L209.4 342.3 L213.3 341.4" style="stroke-width:4.48;stroke:#25437b"/><path d="M213.3 341.4 L217.1 340.5 L220.9 339.5 L224.6 338.4" style="stroke-width:4.44;stroke:#27457c"/><path d="M224.6 338.4 L228.3 337.4 L232.0 336.2 L235.6 335.1" style="stroke-width:4.39;stroke:#2a477d"/><path d="M235.6 335.1 L239.1 333.9 L242.6 332.6 L246.0 331.3" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M246.0 331.3 L249.4 330.0 L252.6 328.6 L255.8 327.2" style="stroke-width:4.23;stroke:#324e82"/><path d="M255.8 327.2 L259.0 325.7 L262.0 324.2 L264.9 322.7" style="stroke-width:4.12;stroke:#375285"/><path d="M264.9 322.7 L267.8 321.1 L270.6 319.5 L273.2 317.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M273.2 317.8 L275.8 316.2 L278.3 314.4 L280.6 312.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M280.6 312.7 L282.9 310.9 L285.0 309.2 L287.0 307.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M287.0 307.3 L288.9 305.5 L290.7 303.6 L292.3 301.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M292.3 301.7 L293.8 299.8 L295.2 297.9 L296.5 296.0" style="stroke-width:3.41;stroke:#5b719b"/><path d="M296.5 296.0 L297.7 294.0 L298.7 292.0 L299.6 290.0" style="stroke-width:3.24;stroke:#6479a0"/><path d="M299.6 290.0 L300.3 288.1 L300.9 286.1 L301.4 284.0" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M301.4 284.0 L301.7 282.0 L301.9 280.0 L302.0 278.0" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.0 222.0 L78.1 222.8 L78.3 223.5 L78.6 224.3" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.6 224.3 L79.1 225.1 L79.7 225.8 L80.4 226.6" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M80.4 226.6 L81.3 227.3 L82.3 228.0 L83.5 228.8" style="stroke-width:3.24;stroke:#6479a0"/><path d="M83.5 228.8 L84.8 229.5 L86.2 230.1 L87.7 230.8" style="stroke-width:3.41;stroke:#5b719b"/><path d="M87.7 230.8 L89.3 231.4 L91.1 232.1 L93.0 232.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M93.0 232.7 L95.0 233.2 L97.1 233.8 L99.4 234.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M99.4 234.3 L101.7 234.8 L104.2 235.3 L106.8 235.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M106.8 235.7 L109.4 236.1 L112.2 236.5 L115.1 236.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M115.1 236.8 L118.0 237.1 L121.0 237.3 L124.2 237.6" style="stroke-width:4.12;stroke:#375285"/><path d="M124.2 237.6 L127.4 237.7 L130.6 237.9 L134.0 238.0" style="stroke-width:4.23;stroke:#324e82"/><path d="M134.0 238.0 L137.4 238.0 L140.9 238.0 L144.4 238.0" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M144.4 238.0 L148.0 237.9 L151.7 237.8 L155.4 237.6" style="stroke-width:4.39;stroke:#2a477d"/><path d="M155.4 237.6 L159.1 237.4 L162.9 237.2 L166.7 236.9" style="stroke-width:4.44;stroke:#27457c"/><path d="M166.7 236.9 L170.6 236.5 L174.4 236.1 L178.3 235.6" style="stroke-width:4.48;stroke:#25437b"/><path d="M178.3 235.6 L182.2 235.1 L186.1 234.6 L190.0 234.0" style="stroke-width:4.50;stroke:#24427a"/><path d="M190.0 234.0 L193.9 233.4 L197.8 232.7 L201.7 231.9" style="stroke-width:4.50;stroke:#24427a"/><path d="M201.7 231.9 L205.6 231.1 L209.4 230.3 L213.3 229.4" style="stroke-width:4.48;stroke:#25437b"/><path d="M213.3 229.4 L217.1 228.5 L220.9 227.5 L224.6 226.4" style="stroke-width:4.44;stroke:#27457c"/><path d="M224.6 226.4 L228.3 225.4 L232.0 224.2 L235.6 223.1" style="stroke-width:4.39;stroke:#2a477d"/><path d="M235.6 223.1 L239.1 221.9 L242.6 220.6 L246.0 219.3" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M246.0 219.3 L249.4 218.0 L252.6 216.6 L255.8 215.2" style="stroke-width:4.23;stroke:#324e82"/><path d="M255.8 215.2 L259.0 213.7 L262.0 212.2 L264.9 210.7" style="stroke-width:4.12;stroke:#375285"/><path d="M264.9 210.7 L267.8 209.1 L270.6 207.5 L273.2 205.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M273.2 205.8 L275.8 204.2 L278.3 202.4 L280.6 200.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M280.6 200.7 L282.9 198.9 L285.0 197.2 L287.0 195.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M287.0 195.3 L288.9 193.5 L290.7 191.6 L292.3 189.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M292.3 189.7 L293.8 187.8 L295.2 185.9 L296.5 184.0" style="stroke-width:3.41;stroke:#5b719b"/><path d="M296.5 184.0 L297.7 182.0 L298.7 180.0 L299.6 178.0" style="stroke-width:3.24;stroke:#6479a0"/><path d="M299.6 178.0 L300.3 176.1 L300.9 174.1 L301.4 172.0" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M301.4 172.0 L301.7 170.0 L301.9 168.0 L302.0 166.0" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.0 110.0 L78.1 110.8 L78.3 111.5 L78.6 112.3" style="stroke-width:2.89;stroke:#7588ab"/><path d="M78.6 112.3 L79.1 113.1 L79.7 113.8 L80.4 114.6" style="stroke-width:3.07;stroke:#6c80a5"/><path d="M80.4 114.6 L81.3 115.3 L82.3 116.0 L83.5 116.8" style="stroke-width:3.24;stroke:#6479a0"/><path d="M83.5 116.8 L84.8 117.5 L86.2 118.1 L87.7 118.8" style="stroke-width:3.41;stroke:#5b719b"/><path d="M87.7 118.8 L89.3 119.4 L91.1 120.1 L93.0 120.7" style="stroke-width:3.57;stroke:#536a96"/><path d="M93.0 120.7 L95.0 121.2 L97.1 121.8 L99.4 122.3" style="stroke-width:3.73;stroke:#4b6491"/><path d="M99.4 122.3 L101.7 122.8 L104.2 123.3 L106.8 123.7" style="stroke-width:3.87;stroke:#445d8d"/><path d="M106.8 123.7 L109.4 124.1 L112.2 124.5 L115.1 124.8" style="stroke-width:4.00;stroke:#3d5889"/><path d="M115.1 124.8 L118.0 125.1 L121.0 125.3 L124.2 125.6" style="stroke-width:4.12;stroke:#375285"/><path d="M124.2 125.6 L127.4 125.7 L130.6 125.9 L134.0 126.0" style="stroke-width:4.23;stroke:#324e82"/><path d="M134.0 126.0 L137.4 126.0 L140.9 126.0 L144.4 126.0" style="stroke-width:4.31;stroke:#2d4a80"/><path d="M144.4 126.0 L148.0 125.9 L151.7 125.8 L155.4 125.6" style="stroke-width:4.39;stroke:#2a477d"/><path d="M155.4 125.6 L159.1 125.4 L162.9 125.2 L166.7 124.9" style="stroke-width:4.44;stroke:#27457c"/><path d="M166.7 124.9 L170.6 124.5 L174.4 124.1 L178.3 123.6" style="stroke-width:4.48;stroke:#25437b"/><path d="M178.3 123.6 L182.2 123.1 L186.1 122.6 L190.0 122.0" style="stroke-width:4.50;stroke:#24427a"/></g><text class="sp-task" x="66.0" y="338.0" text-anchor="end">Task 1</text><text class="sp-task" x="66.0" y="226.0" text-anchor="end">Task 2</text><text class="sp-task" x="66.0" y="114.0" text-anchor="end">Task 3</text><text class="sp-up" x="190" y="22" text-anchor="middle">To the next task</text><path class="sp-up-arr" d="M190 52 V32 M185 37 L190 32 L195 37"/></svg></div>
-        <ul class="sp-legend">
-          <li><svg viewBox="-17 -17 34 34" aria-hidden="true"><circle r="16" style="fill:var(--accent)"/><path class="sp-ic" d="M-5 0.5 L-1.6 3.8 L5 -3.2"/></svg>Decisions</li>
-          <li><svg viewBox="-17 -17 34 34" aria-hidden="true"><circle r="16" style="fill:var(--hot)"/><path class="sp-ic" d="M-4.5 -4 H4.5 M-4.5 0 H4.5 M-4.5 4 H1.5"/></svg>Procedures</li>
-          <li><svg viewBox="-17 -17 34 34" aria-hidden="true"><circle r="16" style="fill:#c0573e"/><path class="sp-ic" d="M-2.4 4.6 H2.4 M-1.6 6.8 H1.6 M-2.4 3 C-2.4 0.6 -5 -0.4 -5 -3 A5 5 0 0 1 5 -3 C5 -0.4 2.4 0.6 2.4 3 Z"/></svg>Lessons</li>
-        </ul>
-        <p class="sp-next">The more we keep, the faster the next task starts.</p>
-        <ul class="sp-facts"><li>A procedure is one page of plain text. Your staff can fix it with AI on the spot</li><li>The design documents and data are yours</li></ul>
-        <button class="sp-pause" type="button" aria-pressed="false" data-pause="Pause" data-play="Play">Pause</button>
+    <div class="grow reveal">
+      <div class="gr-fig">
+        <svg class="gr-ring" viewBox="-60 0 500 400" role="img" aria-label="A loop that keeps turning: used on site, records are kept, AI reads the records, AI becomes more useful"><circle class="gr-track" cx="190" cy="190" r="128"/><circle class="gr-run" cx="190" cy="190" r="128" pathLength="100"/><g transform="translate(190.0,62.0)"><circle class="gr-node" r="30" style="fill:var(--accent)"/><g class="gr-ic" transform="scale(1.45)"><g class="fw"><path d="M-7 -4h14v9h-14z"/><path d="M-9 7h18"/></g></g></g><text class="gr-lb" x="190.0" y="2.0" text-anchor="middle"><tspan x="190.0">Used</tspan><tspan x="190.0" dy="19">on site</tspan></text><g transform="translate(318.0,190.0)"><circle class="gr-node" r="30" style="fill:var(--hot)"/><g class="gr-ic" transform="scale(1.45)"><g class="fw"><path d="M-6 -8h9l3 3v13h-12z"/><path d="M-3 -2h6M-3 1.5h6M-3 5h4"/></g></g></g><text class="gr-lb" x="362.0" y="184.0" text-anchor="start"><tspan x="362.0">Records</tspan><tspan x="362.0" dy="19">are kept</tspan></text><g transform="translate(190.0,318.0)"><circle class="gr-node" r="30" style="fill:#c0573e"/><g class="gr-ic" transform="scale(1.45)"><g class="fw"><rect x="-6" y="-6" width="12" height="12" rx="2"/><path d="M-2 -9v3M2 -9v3M-2 6v3M2 6v3M-9 -2h3M-9 2h3M6 -2h3M6 2h3"/></g></g></g><text class="gr-lb" x="190.0" y="374.0" text-anchor="middle"><tspan x="190.0">AI reads</tspan><tspan x="190.0" dy="19">the records</tspan></text><g transform="translate(62.0,190.0)"><circle class="gr-node" r="30" style="fill:var(--accent)"/><g class="gr-ic" transform="scale(1.45)"><g class="fw"><path d="M-6 5l4-4 3 3 6-7"/><path d="M3 -3h4v4"/></g></g></g><text class="gr-lb" x="18.0" y="184.0" text-anchor="end"><tspan x="18.0">More</tspan><tspan x="18.0" dy="19">useful</tspan></text><text class="gr-c1" x="190" y="186" text-anchor="middle">With each turn,</text><text class="gr-c2" x="190" y="214" text-anchor="middle">records grow</text></svg>
+        <div class="gr-flow" aria-hidden="true"><span>Records</span><svg viewBox="0 0 60 20"><path d="M2 10h50"/><path d="M46 4l8 6-8 6"/></svg></div>
+        <svg class="gr-stack" viewBox="0 0 300 380" role="img" aria-label="A diagram where records of decisions, procedures and lessons pile up with each use"><path class="gr-axis" d="M28 352V40"/><path class="gr-axis-h" d="M22 48l6-10 6 10"/><text class="gr-ax" x="40" y="44">More use</text><rect class="gr-base" x="40" y="344" width="220" height="10" rx="5"/><rect class="gr-b" style="fill:var(--accent);--i:0" x="55" y="318" width="190" height="24" rx="4"/><rect class="gr-b" style="fill:var(--hot);--i:1" x="52" y="288" width="196" height="24" rx="4"/><rect class="gr-b" style="fill:#c0573e;--i:2" x="49" y="258" width="202" height="24" rx="4"/><rect class="gr-b" style="fill:var(--accent);--i:3" x="55" y="228" width="190" height="24" rx="4"/><rect class="gr-b" style="fill:var(--hot);--i:4" x="52" y="198" width="196" height="24" rx="4"/><rect class="gr-b" style="fill:#c0573e;--i:5" x="49" y="168" width="202" height="24" rx="4"/><rect class="gr-b" style="fill:var(--accent);--i:6" x="55" y="138" width="190" height="24" rx="4"/><rect class="gr-b" style="fill:var(--hot);--i:7" x="52" y="108" width="196" height="24" rx="4"/><rect class="gr-b" style="fill:#c0573e;--i:8" x="49" y="78" width="202" height="24" rx="4"/><text class="gr-ax" x="150" y="374" text-anchor="middle">Your records (assets)</text></svg>
       </div>
+      <ul class="gr-legend"><li><i style="background:var(--accent)"></i>Decisions</li><li><i style="background:var(--hot)"></i>Procedures</li><li><i style="background:#c0573e"></i>Lessons</li></ul>
+      <p class="gr-facts"><span class="nb">A procedure is one page of plain text.</span> <span class="nb">Your staff can fix it with AI on the spot.</span><span class="gr-sep" aria-hidden="true">/</span><span class="nb">Design documents and data both belong to you.</span></p>
+      <button class="gr-pause" type="button" aria-pressed="false" data-pause="Pause motion" data-play="Play motion">Pause motion</button>
     </div>
-  </div>
-</section>
-
-<!-- ── Promise ── -->
-<section class="section section-alt" id="trust">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Promise</div>
-      <h2 class="section-title"><span class="nb">People who turn the field into requirements,</span> <span class="nb">and requirements into AI.</span></h2>
-    </div>
-    <!-- fig:team -->
-    <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
-        <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="Shingo Takahashi" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">Workplace and business</p>
-          <p class="tm-name tm-name-en">Shingo Takahashi</p>
-          <p class="tm-en" lang="ja">髙橋 真吾</p>
-          <p class="tm-title"><span class="nb">CEO /</span> <span class="nb">AI Planner</span></p>
-          <p class="tm-tag">Listens to the workplace and turns it into requirements.</p>
-          <ul class="tm-list">
-            <li>Workplace interviews, process design</li>
-            <li>Adoption support, subsidy applications</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tm-center">
-        <div class="tm-link">
-          <span class="tm-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 8h14l6 6v22H20z"/><path d="M34 8v6h6"/><path d="M30 22h6M30 27h6M30 32h4"/><circle class="w" cx="16" cy="27" r="9.5"/><path class="w" d="M10.5 34.5L7.5 40.5 14.5 37"/><circle class="dot" cx="12.5" cy="27" r="1.3"/><circle class="dot" cx="16" cy="27" r="1.3"/><circle class="dot" cx="19.5" cy="27" r="1.3"/></svg></span>
-          <span class="tm-line" aria-hidden="true"></span>
-          <span class="tm-ic"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="8" cy="8" r="5"/><circle cx="48" cy="8" r="5"/><circle cx="8" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><path d="M11.6 11.6l7.9 7.9M44.4 11.6l-7.9 7.9M11.6 44.4l7.9-7.9M44.4 44.4l-7.9-7.9"/><circle class="w" cx="28" cy="28" r="12"/><text x="28" y="28" class="ai">AI</text></svg></span>
-        </div>
-        <p class="tm-lead">Planning and building,<br>directly linked</p>
-        <p class="tm-sub">Two people handle your work directly</p>
-      </div>
-      <div class="tm-person tm-r">
-        <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">Technology and building</p>
-          <p class="tm-name tm-name-en">Matt Chana</p>
-          <p class="tm-en">Matthew John Chana</p>
-          <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AI Engineer</span></p>
-          <p class="tm-tag">Turns requirements into working AI.</p>
-          <ul class="tm-list">
-            <li>About 10 years at a robotics and AI company in Silicon Valley</li>
-            <li><span class="nb">AI agents / RAG / MCP</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <p class="fg-statement reveal"><span class="nb">The person who listens</span> <span class="nb">and the person who builds <em>are directly connected.</em></span><br><small class="fg-team-sub"><span class="nb">Nothing lost in relay:</span> <span class="nb">the reality on site goes straight into the AI.</span></small></p>
-    <div class="fg-local reveal" style="max-width:720px;margin:48px auto 0;padding:28px 32px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:rgba(255,255,255,.6);text-align:center">
-      <p style="font-size:1.125rem;font-weight:700;margin:0;line-height:1.8"><span class="nb">Headquartered in Fukui City.</span> <span class="nb">In Fukui, Ishikawa and Toyama,</span> <span class="nb">we come to your site.</span> <span class="nb">Elsewhere, we work online.</span></p>
-    </div>
-    <!-- /fig -->
   </div>
 </section>
 
@@ -557,15 +525,18 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Process</div>
-      <h2 class="section-title"><span class="nb">Start with a free consultation,</span> <span class="nb">try it small, then go live.</span></h2>
+      <h2 class="section-title">Start with a free consultation, test small, then go live.</h2>
     </div>
     <ol class="steps4 reveal">
-      <li class="step"><span class="n">01</span><img src="/assets/starter/icon11_soudan.png" alt=""><h3>Free consultation and estimate</h3><p>We pick one task and set the scope and cost.</p><span class="free">Free</span></li>
-      <li class="step"><span class="n">02</span><img src="/assets/starter/icon11_kakunin.png" alt=""><h3>PoC (optional)</h3><p>We try the first task on site at a small scale.</p></li>
-      <li class="step"><span class="n">03</span><img src="/assets/starter/icon19_setup.png" alt=""><h3>Go live</h3><p>We build it into the work and leave it in a form that gets used. Fixed price for a set scope.</p></li>
-      <li class="step"><span class="n">04</span><img src="/assets/starter/icon20_support.png" alt=""><h3>Ongoing support (optional)</h3><p>Maintenance, updates, improvements, and running it for you.</p></li>
+      <li class="step"><span class="n">01</span><img src="/assets/brain/ill/step-1.webp" alt=""><h3>Free consultation and estimate</h3><p>We pick one task and give you the scope and cost</p><span class="free">Free</span></li>
+      <li class="step"><span class="n">02</span><img src="/assets/brain/ill/step-3.webp" alt=""><h3>PoC (optional)</h3><p>We test the first task on a small scale on site</p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/fde-p3-honban.webp" alt=""><h3>Production</h3><p>We build it into your work and leave it in a form your team uses. Fixed price for an agreed scope</p></li>
+      <li class="step"><span class="n">04</span><img src="/assets/brain/ill/fde-p4.webp" alt=""><h3>Ongoing support (optional)</h3><p>Maintenance, updates, improvements and operations</p></li>
     </ol>
-    <p class="flow4-note reveal">If you go live within one month of finishing the PoC, the full PoC fee is credited to the main project.</p><p class="flow4-note flow4-note2 reveal">It takes a few weeks to a few months. The cost depends on the task and how far we connect.</p>
+    <p class="flow4-note reveal">If you move to production within 1 month of the PoC's completion, the full PoC fee is credited toward production.</p><p class="flow4-note flow4-note2 reveal">It takes a few weeks to a few months. Cost depends on the task and how far we connect.</p>
+  <div class="fg-local reveal" style="max-width:720px;margin:36px auto 0;padding:28px 32px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:rgba(255,255,255,.6);text-align:center">
+      <p style="font-size:1.125rem;font-weight:700;margin:0;line-height:1.8">Our head office is in Fukui City. We visit sites in Fukui, Ishikawa and Toyama. Elsewhere, we work online.</p>
+    </div>
   </div>
 </section>
 
@@ -575,8 +546,8 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Free Check</div>
-      <h2 class="section-title"><span class="nb">Free AI Readiness Check</span> <span class="nb">(8 questions, about 1 minute)</span></h2>
-      <p class="section-sub">Choose your industry and answer 8 questions. We suggest on the spot whether AX1, AX2 or AX3 is the right place to start (no sign-up).</p>
+      <h2 class="section-title">Free AI adoption check (8 questions, about 1 minute)</h2>
+      <p class="section-sub">Pick your industry and answer 8 questions. We show on the spot where to start: AX1, AX2, or AX2 + AX3 (no sign-up needed).</p>
     </div>
     <div class="quiz-wrap reveal" id="quizBox">
       <!-- rendered by JS -->
@@ -587,26 +558,26 @@
 
 
 
-<!-- ── Checklist download ── -->
+<!-- ── Download ── -->
 <section class="section section-alt" id="download">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Free Download</div>
-      <h2 class="section-title"><span class="nb">An AI readiness checklist</span> <span class="nb">you can use</span> <span class="nb">as-is in a meeting.</span></h2>
-      <p class="section-sub">20 items to check before adopting AI (free PDF).</p>
+      <h2 class="section-title">An AI readiness checklist you can use as-is in a meeting.</h2>
+      <p class="section-sub">20 items to check before you start (free PDF).</p>
     </div>
     <div class="dl-wrap reveal">
       <div class="dl-thumb">
-        <span class="dl-tag">FREE PDF</span>
+        <span class="dl-tag">Free PDF</span>
         <img src="/assets/checklist-thumb-en.png" alt="First page of the AI Readiness Checklist (PDF)" loading="lazy">
       </div>
       <div class="dl-body">
-        <h3>AI Readiness Checklist — 20 items to confirm before adopting AI</h3>
-        <p>One sheet to check "Is our company ready to bring in AI?" without any specialist knowledge.</p>
+        <h3>AI Readiness Checklist — 20 items to check before you start</h3>
+        <p>"Is our company ready for AI?" Find out on one sheet, with no special knowledge.</p>
         <ul class="dl-points">
-          <li>5 axes (tools, workplace, workflows, people, management) × 4 items each</li>
-          <li>Includes "how to read your result" based on your number of ✓ marks</li>
-          <li>Includes a 3-step "next move" you can start tomorrow (A4, 2 pages)</li>
+          <li>5 areas (tools, workplace, tasks, people, management) × 4 items each</li>
+          <li>A guide to reading your result: see where you stand by the number of checks</li>
+          <li>Next steps you can take tomorrow: 3 steps (2 pages, A4)</li>
         </ul>
         <form class="dl-form" id="dlForm" action="https://script.google.com/macros/s/AKfycbwapQO_yL3jQ4CmxaaLsZwiXsI3GR-dbgDiGmYEs_HGsbWeuZ7okov9jxGSS5J9bfit/exec" method="POST">
           <div class="hp-field" aria-hidden="true"><label>Please leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
@@ -615,11 +586,11 @@
           <input type="text" name="会社名・店舗名" placeholder="Company (required)" required>
           <input type="email" name="メールアドレス" placeholder="Email (required)" required>
           <button type="submit" class="btn btn-primary" id="dlSubmit">Download for free</button>
-          <p class="lead-note">Please agree to our <a href="/en/privacy" target="_blank" rel="noopener" style="text-decoration:underline">Privacy Policy</a> before submitting. We won't make sales calls</p>
+          <p class="lead-note">Please agree to our <a href="/en/privacy" target="_blank" rel="noopener" style="text-decoration:underline">Privacy Policy</a> before submitting. We do not make sales calls.</p>
         </form>
         <div class="lead-done" id="dlDone" style="display:none">
           <h4>Your download is ready</h4>
-          <p style="margin-bottom:16px">Open the PDF with the button below. We hope it's useful.</p>
+          <p style="margin-bottom:16px">Open the PDF with the button below. We hope it helps.</p>
           <a href="/assets/ngraph-ai-checklist-en.pdf" target="_blank" rel="noopener" class="btn btn-primary" id="dlOpen">Open the checklist PDF</a>
         </div>
       </div>
@@ -645,13 +616,13 @@
   </div>
 </section>
 
-<!-- ── Contact form ── -->
+<!-- ── Contact ── -->
 <section class="section" id="contact">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">Free Consultation</h2>
-      <p class="section-sub"><span class="nb">It's fine if you</span> <span class="nb">"don't know what to ask".</span> <span class="nb">We usually reply</span> <span class="nb">within 2–3 business days.</span></p>
+      <h2 class="section-title">Free consultation</h2>
+      <p class="section-sub">You don't need to know what to ask. We usually reply within 2 to 3 business days.</p>
     </div>
     <div class="lp-form reveal">
       <form id="lpForm" action="https://script.google.com/macros/s/AKfycbwapQO_yL3jQ4CmxaaLsZwiXsI3GR-dbgDiGmYEs_HGsbWeuZ7okov9jxGSS5J9bfit/exec" method="POST">
@@ -663,7 +634,7 @@
         <input type="text" name="会社名・店舗名" required>
         <label>Email<span class="req">Required</span></label>
         <input type="email" name="メールアドレス" required>
-        <label>What's troubling you, or what would you like to discuss?<span class="req">Required</span></label>
+        <label>Your challenges / what you'd like to discuss<span class="req">Required</span></label>
         <textarea name="お問い合わせ内容" placeholder="e.g. We signed up for ChatGPT company-wide, but it isn't being used on the ground. We'd like to start with accounting." required></textarea>
         <button type="submit" class="btn btn-primary" id="lpSubmit">Send free consultation request</button>
         <p class="lead-note" style="margin-top:12px">Please agree to our <a href="/en/privacy" target="_blank" rel="noopener" style="text-decoration:underline">Privacy Policy</a> before submitting</p>
@@ -676,7 +647,7 @@
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="#contact">Free Consultation →</a></div>
+<div class="float-cta" id="floatCta"><a href="#contact">Free consultation →</a></div>
 
 <section class="rel" aria-label="Other services">
   <div class="rel-in">
@@ -711,26 +682,26 @@
 </footer>
 
 <script>
-// ── Hero CV: aligned grid of structuring patterns; a vermilion highlight quietly cycles through them ──
+// ── Hero CV: aligned grid of structure patterns; a red highlight moves around quietly ──
   (function(){
     var c=document.getElementById('heroCv');
     if(!c)return;
     var ctx=c.getContext('2d');
     if(!ctx)return;
     var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    // same geometry as the corporate structuring SVGs (48x48 units)
+    // Same geometry as the corporate structure SVGs (48x48 units)
     var GL=[
-      {l:'Deduction',p:'M24 15v7M24 22H9v6M24 22h15v6M24 22v6',c:[[24,10,5],[9,32,4.5],[24,32,4.5],[39,32,4.5]]},
-      {l:'Induction',p:'M24 33v-7M24 26H9v-6M24 26h15v-6M24 26v-6',c:[[24,38,5],[9,16,4.5],[24,16,4.5],[39,16,4.5]]},
-      {l:'Relations',p:'M24 18.5V9M28.7 21l8.5-5M28.7 27l8.5 5M24 29.5V39M19.3 27l-8.5 5M19.3 21l-8.5-5',c:[[24,24,5.5],[24,7,2.8],[39,14.5,2.8],[39,33.5,2.8],[24,41,2.8],[9,33.5,2.8],[9,14.5,2.8]]},
+      {l:'Deductive',p:'M24 15v7M24 22H9v6M24 22h15v6M24 22v6',c:[[24,10,5],[9,32,4.5],[24,32,4.5],[39,32,4.5]]},
+      {l:'Inductive',p:'M24 33v-7M24 26H9v-6M24 26h15v-6M24 26v-6',c:[[24,38,5],[9,16,4.5],[24,16,4.5],[39,16,4.5]]},
+      {l:'Relation',p:'M24 18.5V9M28.7 21l8.5-5M28.7 27l8.5 5M24 29.5V39M19.3 27l-8.5 5M19.3 21l-8.5-5',c:[[24,24,5.5],[24,7,2.8],[39,14.5,2.8],[39,33.5,2.8],[24,41,2.8],[9,33.5,2.8],[9,14.5,2.8]]},
       {l:'Sequence',p:'M13 24h4.5M15 21.5l2.5 2.5-2.5 2.5M25 17.5l6.5 6.5-6.5 6.5-6.5-6.5zM33 24h4.5M35 21.5l2.5 2.5-2.5 2.5M40 20h8v8h-8z',c:[[7,24,4.5]]},
       {l:'Hierarchy',p:'M24 7l6 8.5H18zM15.5 20h17l5 8.5h-27zM8 33h32l5 8.5H3z',c:[]},
-      {l:'Sets',p:'',c:[[18,19,10.5],[30,19,10.5],[24,29.5,10.5]]},
+      {l:'Set',p:'',c:[[18,19,10.5],[30,19,10.5],[24,29.5,10.5]]},
       {l:'Ring',p:'',c:[[24,8,3.6],[37.9,16,3.6],[37.9,32,3.6],[24,40,3.6],[10.1,32,3.6],[10.1,16,3.6]]},
       {l:'Cycle',p:'M37.5 18a15 15 0 00-25-4.5M12.5 13.5V7M12.5 13.5H19M10.5 30a15 15 0 0025 4.5M35.5 34.5V41M35.5 34.5H29',c:[]}
     ];
     var P2D=GL.map(function(g){return g.p?new Path2D(g.p):null;});
-    var DPR=Math.min(window.devicePixelRatio||1,3); // high-DPI support
+    var DPR=Math.min(window.devicePixelRatio||1,3); // High-DPI support; without it iPhone looks blurry
     function resize(){c.width=Math.round(c.offsetWidth*DPR);c.height=Math.round(c.offsetHeight*DPR);}
     window.addEventListener('resize',resize);resize();
     function draw(){
@@ -742,7 +713,7 @@
       var t=Date.now()/1000;
       var hi=Math.floor(t/4.2)%GL.length,hp=(t%4.2)/4.2;
       var act=Math.max(0,Math.min(1,Math.sin(Math.PI*hp)*1.5));
-      // 3x3 aligned grid (8 items, so the last row has 2)
+      // 3x3 aligned grid (8 items, so the last row has 2, centered)
       var COLS=3,ROWS=3,S=Math.min(W*0.15,H*0.16,56);
       for(var i=0;i<GL.length;i++){
         var row=Math.floor(i/COLS),idx=i-row*COLS,col=idx;
@@ -771,7 +742,7 @@
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
   })();
 
-  // Floating CTA: show once past the hero
+  // Floating CTA: shown after the hero
   (function(){
     var f=document.getElementById('floatCta');
     if(!f)return;
@@ -779,7 +750,7 @@
     window.addEventListener('scroll',t,{passive:true});t();
   })();
 
-// ── nav / floating CTA / reveal ──
+// ── Nav, floating CTA, reveal ──
 var hd=document.querySelector('.header');
 function onScroll(){if(window.scrollY>20)hd.classList.add('scrolled');else hd.classList.remove('scrolled');}
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -787,9 +758,17 @@ var t=document.getElementById('navToggle'),n=document.getElementById('nav');
 t.addEventListener('click',function(){n.classList.toggle('open')});
 n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
-(function(){var g=document.querySelector('.sp-dots');if(!g)return;var NS='http://www.w3.org/2000/svg',C=["var(--accent)", "var(--hot)", "#c0573e"],I=["M-5 0.5 L-1.6 3.8 L5 -3.2", "M-4.5 -4 H4.5 M-4.5 0 H4.5 M-4.5 4 H1.5", "M-2.4 4.6 H2.4 M-1.6 6.8 H1.6 M-2.4 3 C-2.4 0.6 -5 -0.4 -5 -3 A5 5 0 0 1 5 -3 C5 -0.4 2.4 0.6 2.4 3 Z"],cx=190,R=112,Y0=418,P=112,T=40,TH=3*2*Math.PI,S=-1.3,E=TH+1.9,D=16000,N=6,TR=3,d=[];function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}for(var i=0;i<N;i++){var o={o:i/N,t:[]};for(var j=TR;j>0;j--){var c=el('circle',{r:String(7-j*1.4)});c.style.fill=C[i%3];g.appendChild(c);o.t.unshift(c)}var b=el('g',{});var h=el('circle',{r:'17'});h.style.fill=C[i%3];h.style.opacity='.16';var m=el('circle',{r:'12'});m.style.fill=C[i%3];var p=el('path',{d:I[i%3],'class':'sp-ic'});b.appendChild(h);b.appendChild(m);b.appendChild(p);g.appendChild(b);o.b=b;d.push(o)}function at(th){var z=Math.cos(th);return[cx+R*Math.sin(th),Y0-P*th/(2*Math.PI)+T*z,(z+1)/2]}function fade(th){return Math.max(0,Math.min(1,(th-S)/1.5,(E-th)/1.5))}function draw(t){for(var i=0;i<N;i++){var u=(t/D+d[i].o)%1,th=S+(E-S)*u,q=at(th),a=fade(th);d[i].b.setAttribute('transform','translate('+q[0].toFixed(1)+' '+q[1].toFixed(1)+') scale('+(.68+.42*q[2]).toFixed(3)+')');d[i].b.style.opacity=(a*(.5+.5*q[2])).toFixed(3);for(var j=0;j<TR;j++){var tt=th-.17*(j+1),r=at(tt);d[i].t[j].setAttribute('cx',r[0].toFixed(1));d[i].t[j].setAttribute('cy',r[1].toFixed(1));d[i].t[j].style.opacity=(fade(tt)*(.32-.09*j)*(.5+.5*r[2])).toFixed(3)}}}var last=2600;draw(last);var btn=document.querySelector('.sp-pause');if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){if(btn)btn.hidden=true;return}var vis=false,stop=false,run=false,t0=null;function f(ts){if(!vis||stop){run=false;return}if(t0===null)t0=ts-last;last=ts-t0;draw(last);requestAnimationFrame(f)}function go(){if(vis&&!stop&&!run){run=true;t0=null;requestAnimationFrame(f)}}new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;go()})}).observe(g.ownerSVGElement);if(btn)btn.addEventListener('click',function(){stop=!stop;btn.setAttribute('aria-pressed',stop?'true':'false');btn.textContent=stop?btn.getAttribute('data-play'):btn.getAttribute('data-pause');go()})})();
+(function(){var w=document.querySelector('.grow');if(!w)return;var bs=w.querySelectorAll('.gr-b'),btn=w.querySelector('.gr-pause'),n=2,t=null;
+var red=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+function show(k){bs.forEach(function(b,i){b.classList.toggle('on',i<k)})}
+function tick(){n=n>=bs.length+2?2:n+1;show(Math.min(n,bs.length))}
+function play(){if(t)return;t=setInterval(tick,1100);w.classList.remove('paused');btn.setAttribute('aria-pressed','false');btn.textContent=btn.dataset.pause}
+function stop(){clearInterval(t);t=null;show(bs.length);w.classList.add('paused');btn.setAttribute('aria-pressed','true');btn.textContent=btn.dataset.play}
+if(red){show(bs.length);w.classList.add('paused');btn.hidden=true;return}
+btn.addEventListener('click',function(){t?stop():play()});
+var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play();else{clearInterval(t);t=null}})},{threshold:.2});io2.observe(w);})();
 document.querySelectorAll('.reveal').forEach(function(el){if(location.search.indexOf('noreveal')>-1){el.classList.add('in');return}io.observe(el)});
-  // Hero visual: first view only (reversible fade on scroll, desktop only)
+  // Pagoda: first view only (reversible fade on scroll, desktop only)
   (function(){var hv=document.querySelector('.hero-visual');
     if(!hv||!window.matchMedia('(min-width:901px)').matches)return;
     function fade(){var o=1-Math.min(Math.max((window.scrollY-200)/420,0),1);hv.style.opacity=(o*0.95).toFixed(2);}
@@ -799,7 +778,7 @@ document.querySelectorAll('.reveal').forEach(function(el){if(location.search.ind
 function tg(){if(window.scrollY>560)f.classList.add('show');else f.classList.remove('show');}
 window.addEventListener('scroll',tg,{passive:true});tg();})();
 
-// ── Contact form (GAS) ──
+// ── Form (GAS) ──
 (function(){
 var form=document.getElementById('lpForm'),done=document.getElementById('lpDone');
 var SPAM=/(bitcoin|btc|crypto|казино|casino|viagra|cialis|loan|порно|seo\s*service|backlink|telegram|whatsapp\s*\+)/i;
@@ -811,7 +790,7 @@ form.addEventListener('submit',function(e){
   var btn=document.getElementById('lpSubmit');btn.disabled=true;btn.textContent='Sending...';
   fetch(form.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(form))})
   .then(function(){form.style.display='none';done.style.display='block';if(window.gtag)gtag('event','generate_lead',{form:'fde_lp_en'});})
-  .catch(function(){alert('Sending failed. Please wait a moment and try again.');btn.disabled=false;btn.textContent='Send free consultation request';});
+  .catch(function(){alert('Sending failed. Please try again later.');btn.disabled=false;btn.textContent='Send free consultation request';});
 });
 })();
 
@@ -825,11 +804,11 @@ form.addEventListener('submit',function(e){
   var btn=document.getElementById('dlSubmit');btn.disabled=true;btn.textContent='Sending...';
   fetch(form.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(form))})
   .then(function(){form.style.display='none';done.style.display='block';if(window.gtag)gtag('event','generate_lead',{form:'fde_checklist_dl_en'});})
-  .catch(function(){alert('Sending failed. Please wait a moment and try again.');btn.disabled=false;btn.textContent='Download for free';});
+  .catch(function(){alert('Sending failed. Please try again later.');btn.disabled=false;btn.textContent='Download for free';});
 });
 })();
 
-  // ── FDE map: one wire from the engineer to each workplace, measured from layout ──
+  // ── FDE map: connect the engineer to each site, one line each, by measured coordinates ──
   (function(){
     var map=document.querySelector('.agentic-map');
     if(!map)return;
@@ -852,74 +831,74 @@ form.addEventListener('submit',function(e){
   })();
 
 
-// ── AI readiness check v3 (industry → 8 questions → suggested entry point AX1 / AX2 / AX2+AX3. Source criteria: ngraph-brain projects/fde/AX-TRIAGE.md, 2026-10-23) ──
+// ── AI adoption check v3 (pick industry -> 8 questions -> entry point AX1 / AX2 / AX2+AX3) ──
 (function(){
 var QUIZ_LOG_URL='';
 var QUIZ_NAME='ai_shindan_v3_triage_en';
 var INDS=[
- ['transport','Transport & logistics'],['care','Nursing & disability care'],
- ['security_bm','Security & building maintenance'],['cleaning','Cleaning services'],
- ['construction','Construction & installation'],['manufacturing','Manufacturing'],
+ ['transport','Transport & logistics'],['care','Nursing care & disability support'],
+ ['security_bm','Security & building maintenance'],['cleaning','Cleaning & housekeeping'],
+ ['construction','Construction & facility work'],['manufacturing','Manufacturing'],
  ['funeral','Funeral services'],['staffing','Staffing & contracting'],
- ['auto','Auto repair & sales'],['waste','Waste & recycling'],
- ['hotel','Hotels & inns'],['childcare','Childcare & preschools'],
+ ['auto','Auto repair & sales'],['waste','Industrial waste & recycling'],
+ ['hotel','Inns & hotels'],['childcare','Childcare & nursery schools'],
  ['clinic','Medical, dental & pharmacy'],['realestate','Property management'],
- ['agri','Agriculture'],['printing','Printing'],
- ['retail_chain','Retail chains'],['school','Tutoring & schools'],
- ['consult','Consulting, professional & planning'],['other','Other']
+ ['agri','Agricultural corporations'],['printing','Printing'],
+ ['retail_chain','Retail chains'],['school','Cram schools & classes'],
+ ['consult','Consulting, professional services & planning'],['other','Other']
 ];
 var TIPS={
- transport:["An instant answer to \"what were this shipper's rules again?\"","Drafts of daily reports, incident reports and routine messages to shippers","Automating the same explanation for every new driver"],
- care:["An instant answer to \"is this add-on requirement right?\"","Drafts of records and reports that follow the same format every time","Automating the same explanation at every new hire"],
- security_bm:["An instant answer to \"what was the procedure at this site?\"","Drafts of security and inspection reports in the same format every time","Automating the same explanation at every new posting"],
- cleaning:["An instant answer to \"what was the spec for this site?\"","Drafts of work reports and quotes in the same format every time","Automating the same explanation for new staff"],
- construction:["An instant answer to \"how did we finish that job?\"","Drafts of the routine parts of safety documents, daily reports and quotes","Automating the same explanation for new staff and subcontractors"],
- manufacturing:["An instant answer to \"how did we machine this last time?\"","Drafts of daily reports, inspection records and quote replies","Automating the same explanation for new operators"],
- funeral:["An instant answer on customs and arrangements by denomination and region","Drafts of meeting notes, quotes and supplier messages","Automating the same explanation for new staff"],
- staffing:["An instant answer on each client's rules and procedures","Drafts of routine notices and contract documents for staff","First-line replies to the same questions from registered staff"],
- auto:["An instant answer on service points by vehicle model","Drafts of quotes, service records and inspection reminders","Automating the same explanation for customers"],
- waste:["An instant answer to \"can we accept this item?\"","Drafts of manifest-related documents and reports","Automating the same explanation for new staff"],
- hotel:["An instant answer on house rules and past group bookings","Drafts of replies to reservations and inquiries","Automating the same explanation for new staff"],
- childcare:["An instant answer on the center's rules and forms","Drafts of newsletters, contact books and planning documents","Automating the same explanation for new teachers"],
- clinic:["An instant answer on billing codes and in-house rules","Drafts of notices and routine documents","Automating the same explanation for new staff"],
- realestate:["An instant answer on each property's agreements and repair history","Drafts of routine tenant replies and owner reports","Automating the same explanation for new staff"],
- agri:["An instant answer on growing and shipping procedures","Drafts of shipping documents and records","Automating the same explanation for seasonal staff"],
- printing:["An instant answer to \"what was this client's last spec?\"","Drafts of routine quote and proofing messages","Automating the same explanation for new staff"],
- retail_chain:["An instant answer on each store's floor rules and ordering decisions","Drafts of reports to HQ and notices to stores","Automating the same explanation for new store staff"],
- school:["An instant answer on each classroom's approach and student history","Drafts of parent notices and meeting reports","Automating the same explanation for new instructors"],
- consult:["First drafts of proposals and plans","Research, summaries and translation of materials","Turning meeting notes into next actions"],
- other:["An instant answer to repeated questions","Drafts of documents with a fixed format","Automating the same explanation for new people"]
+ transport:["A quick answer desk for \"What are this shipper's rules again?\"","Drafts of daily reports, accident reports and routine messages to shippers","Automating the \"same explanation\" given to every new driver"],
+ care:["A quick answer desk for \"Do we meet the requirements for this add-on payment?\"","Drafts of records and reports that follow the same format every time","Automating the \"same explanation\" repeated at every new hire"],
+ security_bm:["A quick answer desk for \"What is the procedure at this site?\"","Drafts of security and inspection reports that follow the same format every time","Automating the \"same explanation\" repeated at every new posting"],
+ cleaning:["A quick answer desk for \"What are the specs for this site?\"","Drafts of work reports and quotes that follow the same format every time","Automating the \"same explanation\" given to newcomers"],
+ construction:["A quick answer desk for \"How did we finish that project?\"","Drafts of the routine parts of safety documents, daily reports and quotes","Automating the \"same explanation\" given to newcomers and partner companies"],
+ manufacturing:["A quick answer desk for \"How did we machine this last time?\"","Drafts of daily reports, inspection records and quote replies","Automating the \"same explanation\" given to new operators"],
+ funeral:["A quick answer desk for customs and procedures by sect and region","Drafts of meeting records, quotes and arrangement messages","Automating the \"same explanation\" given to newcomers"],
+ staffing:["A quick answer desk for each client's rules and procedures","Drafts of routine notices to staff and contract documents","First replies to the \"same questions\" from registered staff"],
+ auto:["A quick answer desk for service points by vehicle model","Drafts of quotes, service records and inspection notices","Automating the \"same explanation\" given to customers"],
+ waste:["A quick answer desk for \"Can we accept this item?\"","Drafts of manifest-related documents and reports","Automating the \"same explanation\" given to newcomers"],
+ hotel:["A quick answer desk for house rules and past group handling","Drafts of replies to bookings and inquiries","Automating the \"same explanation\" given to new staff"],
+ childcare:["A quick answer desk for the facility's rules and forms","Drafts of newsletters, contact notebooks and plan documents","Automating the \"same explanation\" given to new teachers"],
+ clinic:["A quick answer desk for billing rules and in-house rules","Drafts of notices and routine documents","Automating the \"same explanation\" given to new staff"],
+ realestate:["A quick answer desk for agreements and repair history by property","Drafts of routine tenant replies and owner reports","Automating the \"same explanation\" given to newcomers"],
+ agri:["A quick answer desk for cultivation and shipping procedures","Drafts of shipping documents and records","Automating the \"same explanation\" given to seasonal staff"],
+ printing:["A quick answer desk for \"What were this client's specs last time?\"","Drafts of routine wording for quotes and proof exchanges","Automating the \"same explanation\" given to newcomers"],
+ retail_chain:["A quick answer desk for store-level display rules and ordering decisions","Drafts of reports to headquarters and notices to stores","Automating the \"same explanation\" given to staff at new stores"],
+ school:["A quick answer desk for each classroom's approach and the history of student handling","Drafts of notices to parents and meeting reports","Automating the \"same explanation\" given to new instructors"],
+ consult:["First drafts of proposals and plans","Research, summarizing and translating documents","Sorting out next steps from meeting minutes"],
+ other:["A quick answer desk for questions that come up again and again","Drafts of documents that follow a set format","Automating the same explanation given to new people"]
 };
-// k on each option is the key used for the judgment (not shown)
+// the second value of each option is a key used for scoring (not shown)
 var QS=[
  {id:'q1',q:'Which of these is closest to the work that takes the most effort?',
-  o:[['Thinking up and writing proposals, plans and documents','write'],['Research, translation and summaries','write'],['Answering the same questions or explanations again and again','info'],['Re-entering, typing in and tallying data','info'],['Building shifts, schedules and arrangements','info'],['Handoffs and checks between teams or process steps','flow']]},
- {id:'q2',q:'Where does the information this work needs live today?',
-  o:[['In the head or on the desk of the person in charge','head'],['Scattered across paper, Excel and chat','scatter'],['In separate sheets or systems for each team or process step','silo'],['Together in one place','one']]},
- {id:'q3',q:'If all the information it needs were in place, would that effort go away?',
-  o:[['Mostly, yes','info'],['No, not unless we also change the order of work, who does it or who approves it','flow'],['It is not about information (there is not enough time to think and write)','work'],['Not sure','unk']]},
- {id:'q4',q:'Who would mainly use AI in this work?',
-  o:[['The person in charge, asking AI directly','self'],['Frontline staff or new hires, looking at a screen','view'],['People across several teams','multi']]},
+  o:[['Thinking through and writing proposals, plans or documents','write'],['Research, translation or summarizing','write'],['Answering the same questions and explanations again and again','info'],['Copying, data entry or totaling','info'],['Arranging shifts, schedules or logistics','info'],['Handovers and checks between departments or steps','flow']]},
+ {id:'q2',q:'Where is the information that work needs right now?',
+  o:[['In one person\'s head or at their desk','head'],['Scattered across paper, Excel and chat','scatter'],['In separate sheets or systems for each department or step','silo'],['All in one place','one']]},
+ {id:'q3',q:'If all the information you need were in one place, would that effort go away?',
+  o:[['Almost entirely','info'],['No. We would still need to change the order of work, owners or approvals','flow'],['It is not about information (we lack time to think and write)','work'],['I\'m not sure','unk']]},
+ {id:'q4',q:'Who would mainly use AI for this work?',
+  o:[['The person in charge asks AI directly','self'],['People on site or newcomers, by looking at a screen','view'],['People from several departments','multi']]},
  {id:'q5',q:'How often does this work come up?',
-  o:[['Every day','daily'],['A few times a week','weekly'],['A few times a month','monthly'],['Only now and then','rare']]},
- {id:'q6',q:'Does this work involve information that must not leave the company? (personal data, client information, formulas or machining conditions, etc.)',
-  o:[['A lot','hi'],['Some','mid'],['Hardly any','lo'],['Not sure','unk']]},
+  o:[['Every day','daily'],['A few times a week','weekly'],['A few times a month','monthly'],['Once in a while','rare']]},
+ {id:'q6',q:'Does this work involve information that cannot leave the company? (personal data, client information, recipes or processing conditions, etc.)',
+  o:[['A lot','hi'],['Some','mid'],['Hardly any','lo'],['I\'m not sure','unk']]},
  {id:'q7',q:'Who can decide to change how this work is done?',
-  o:[['The person in charge or the frontline','staff'],['The department head','mgr'],['It crosses teams, so management must decide','exec'],['It is not clear who decides','none']]},
- {id:'q8',q:'Do you use AI (ChatGPT etc.) for work today?',
-  o:[['No','none'],['Personally, now and then','some'],['Yes, as a company','org']]}
+  o:[['The person in charge or the people on site','staff'],['The department head','mgr'],['It crosses departments, so management has to decide','exec'],['It is not clear who decides','none']]},
+ {id:'q8',q:'Are you using AI (such as ChatGPT) at work right now?',
+  o:[['No','none'],['Individually, from time to time','some'],['Yes, as a company','org']]}
 ];
 var STAGES={
- ax1:{code:'AX1',name:'Start with employees using generative AI',desc:'The person in charge asks generative AI directly, cutting the time spent writing, researching and thinking.'},
- ax2:{code:'AX2',name:'Start by connecting your internal information and data',desc:'We bring scattered information together and build AI into how the work runs. The people using it do not have to learn how to use AI.'},
- ax23:{code:'AX2 + AX3',name:'Start by connecting data and changing the flow of work',desc:'We connect information split between teams or process steps, and rework the order of handoffs and who does what at the same time.'}
+ ax1:{code:'AX1',name:'Start with staff using generative AI',desc:'The person in charge asks generative AI directly, cutting the time spent writing, researching and thinking.'},
+ ax2:{code:'AX2',name:'Start by connecting company information and data',desc:'We gather scattered information and build AI into how the work runs. Users do not have to learn how to use AI.'},
+ ax23:{code:'AX2 + AX3',name:'Connect the data and change the workflow too',desc:'We connect information split across departments and steps, and review the order of handovers and owners at the same time.'}
 };
-// Public cases (sources checked against the original text, 2026-10-23). A similar industry does not guarantee the same result
+// Public cases (sources confirmed in the original text, 2026-10-23). A similar industry does not guarantee the same result.
 var CASES={
- ax1:[{t:'Optical equipment importer (Tokyo, 33 employees)',d:'The president led the adoption of generative AI and held study sessions on writing prompts. Staff use it to summarize papers, translate English manuals, and choose products and write copy for ads, and inquiries from ads increased.',src:'2026 White Paper on Small and Medium Enterprises in Japan, Case 2-2-3 (in Japanese)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_1.html'}],
- ax2:[{t:'Metal products manufacturer (Ishikawa, 85 employees)',d:'Records were kept on paper and in Excel, and re-entering data and searching for documents took time. The company built its own internal system with generative AI and brought inspection, inventory and other data into one place, cutting about 530 working hours a month.',src:'2026 White Paper on Small and Medium Enterprises in Japan, Case 2-2-14 (in Japanese)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'},
-      {t:'Restaurant group headquarters (Fukui, 12 locations)',d:'Turning new-hire onboarding into an AI that answers from the headquarters documents. We started by building the system, not by teaching staff how to use AI.',src:'NGraph project (in progress; results not yet measured)',url:''}],
- ax23:[{t:'Plastic parts manufacturer (Aichi, 126 employees)',d:'Orders and inventory were in the core system, production results in several Excel files and defect rates on paper, so the same data was entered two or three times. The company unified the data and, across teams, set up automatic alerts to managers when defect rates rise and automatic production instructions from orders and inventory.',src:'2026 White Paper on Small and Medium Enterprises in Japan, Case 2-2-15 (in Japanese)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'}]
+ ax1:[{t:'Optical equipment importer (Tokyo, 33 employees)',d:'The president led the adoption of generative AI and held prompt workshops. They use it to summarize papers, translate English manuals, and choose products and write catchphrases for ads. Inquiries from ads increased.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-3 (Optscience Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_1.html'}],
+ ax2:[{t:'Metal products manufacturer (Ishikawa, 85 employees)',d:'Work was managed on paper and Excel, and copying data and searching for documents took time. They used generative AI to build their own in-house system and put inspection results, inventory and other data in one place. Working hours fell by about 530 hours a month.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-14 (Okada Kenma Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'},
+      {t:'Head office of a restaurant group (Fukui, 12 restaurants)',d:'An effort to turn new-hire onboarding into an AI that answers from the head office\'s documents. It starts not by teaching staff how to use AI, but by building the system.',src:'NGraph project (in progress; results not yet measured)',url:''}],
+ ax23:[{t:'Plastic parts manufacturer (Aichi, 126 employees)',d:'Orders and inventory were in the core system, production results in several Excel files, and defect rates on paper, so data was entered two or three times. They put the data in one place, then built an alert that notifies managers when the defect rate is high, and a function that issues production instructions automatically from orders and inventory, across departments.',src:'White Paper on Small and Medium Enterprises 2026, Case 2-2-15 (Takase Kanagata Co., Ltd.) (JA)',url:'https://www.chusho.meti.go.jp/pamflet/hakusyo/2026/chusho/b2_2_2.html'}]
 };
 var box=document.getElementById('quizBox'),answers=[],step=-1,ind=null;
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -958,7 +937,7 @@ function renderQ(){
     if(step<0){ind=null;renderInd();}else renderQ();
   });
 }
-// Judgment: split first on whether the effort would go away with the information in place (Q3); only when unsure, lean on the other answers
+// Scoring: first split by Q3 ("would the effort go away if the information were complete?"); use other answers only when unsure
 function judge(){
   var q1=k(0),q2=k(1),q3=k(2),q4=k(3);
   if(q3==='work')return 'ax1';
@@ -973,26 +952,26 @@ function judge(){
 }
 function reasons(stage){
   var r=[],q1=answers[0],q2=k(1),q3=k(2),q4=k(3);
-  if(q1)r.push('Your biggest effort: "'+q1.t+'"');
-  if(q3==='work')r.push('For this work, cutting the time spent thinking and writing helps more than gathering information.');
-  if(q3==='info')r.push('The effort goes away once the information is in place, so bringing the information together is the core of the work.');
-  if(q3==='flow')r.push('Even with the information in place, the effort stays unless the order of work, who does it or who approves it changes.');
-  if(q3==='unk')r.push('It is not yet clear whether the effort would go away with the information in place, so the suggestion is based on your other answers.');
-  if(q2==='scatter')r.push('The information is scattered across paper, Excel and chat.');
-  if(q2==='silo')r.push('The information is split by team or process step.');
-  if(q2==='one'&&stage!=='ax1')r.push('The information is already in one place, which makes it easier to start.');
-  if(q4==='view'&&stage!=='ax1')r.push('It can be set up so the people using it only need to look at a screen.');
+  if(q1)r.push('Biggest effort: "'+q1.t+'"');
+  if(q3==='work')r.push('This is work where cutting the time spent thinking and writing helps more than gathering information.');
+  if(q3==='info')r.push('This is work where the effort goes away once the information is in one place. Gathering the information is the core task.');
+  if(q3==='flow')r.push('Even with all the information, effort remains unless the order of work, owners or approvals change.');
+  if(q3==='unk')r.push('You are not sure whether the effort would go away with complete information, so we based the suggestion on your other answers.');
+  if(q2==='scatter')r.push('Your information is scattered across paper, Excel and chat.');
+  if(q2==='silo')r.push('Your information is split by department and step.');
+  if(q2==='one'&&stage!=='ax1')r.push('Your information is already in one place, so this is an easy place to start.');
+  if(q4==='view'&&stage!=='ax1')r.push('We can build it so users only need to look at a screen.');
   if(k(7)==='none'&&stage!=='ax1')r.push('You can start from this entry point even if you do not use AI yet.');
   return r;
 }
 function checks(stage){
   var c=[],q5=k(4),q6=k(5),q7=k(6);
-  if(k(2)==='unk')c.push('Whether the effort would go away with the information in place (we trace one real case together)');
-  if(q6==='hi'||q6==='unk')c.push('Where to draw the line between information that can and cannot go into AI');
-  if(stage==='ax23'&&(q7==='none'||q7==='staff'))c.push('Who decides on changing the flow of work across teams');
+  if(k(2)==='unk')c.push('Whether the effort would go away if the information were complete (we trace one real case together to find out)');
+  if(q6==='hi'||q6==='unk')c.push('The line between information that can go into AI and information that cannot');
+  if(stage==='ax23'&&(q7==='none'||q7==='staff'))c.push('Who decides when the workflow changes across departments');
   else if(q7==='none')c.push('Who decides to change how the work is done');
-  if(q5==='monthly'||q5==='rare')c.push('Whether the benefit justifies the frequency (sometimes reviewing your current tools or routines is enough, without AI)');
-  if(!c.length)c.push('What to try first, and how we will judge whether it worked');
+  if(q5==='monthly'||q5==='rare')c.push('Whether the benefit is worth the frequency (sometimes reviewing your current tools or routine is enough, without AI)');
+  if(!c.length)c.push('The scope to try first, and how we will judge that it worked');
   return c;
 }
 function stagesHtml(stage){
@@ -1030,22 +1009,22 @@ function renderResult(){
     +'</div>'
     +stagesHtml(stage)
     +'<p class="result-mirror">'+esc(st.desc)+'</p>'
-    +(low?'<p class="result-start">For work that only comes up now and then, we suggest also considering not using AI. If you go ahead, this is the suggested entry point.</p>':'')
+    +(low?'<p class="result-start">For work that comes up only once in a while, we suggest also considering not using AI. If you do go ahead, this is the suggested entry point.</p>':'')
     +'<div class="result-tips"><h4>Why we suggest this</h4><ul class="result-notes">'+rs.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-    +'<div class="result-tips"><h4>What we would like to check with you in a meeting</h4><ul class="result-notes">'+cs.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
-    +'<div class="result-tips"><h4>'+esc(label)+': work you could hand to AI first</h4><ul class="result-notes">'+tips.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
+    +'<div class="result-tips"><h4>What we would like to check together in a meeting</h4><ul class="result-notes">'+cs.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
+    +'<div class="result-tips"><h4>Work in '+esc(label)+' that AI could take on first</h4><ul class="result-notes">'+tips.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div>'
     +'<div class="result-tips"><h4>Efforts that started from the same entry point</h4>'+casesHtml(stage)
-    +'<p class="tri-note">A similar industry does not guarantee the same result from the same entry point.</p></div>'
-    +'<p class="tri-note">This is a suggestion from a 1-minute check. We decide the entry point together in a meeting, looking at your actual work. You do not have to go through AX1 first.</p>'
+    +'<p class="tri-note">Even in a similar industry, the same entry point does not always lead to the same result.</p></div>'
+    +'<p class="tri-note">This is a suggestion from a one-minute set of answers. We decide the entry point in a meeting by looking at your actual work together. You do not have to go through AX1 first.</p>'
     +'<div class="lead-gate">'
-    +'<button class="btn btn-primary" id="qConsult">Discuss this result with us (free, 30 min)</button>'
+    +'<button class="btn btn-primary" id="qConsult">Talk about this result (free, 30 minutes)</button>'
     +'</div>'
     +'<button class="q-back" id="qRetry">← Take the check again</button>';
   document.getElementById('qRetry').addEventListener('click',function(){answers=[];step=-1;ind=null;renderInd();});
   document.getElementById('qConsult').addEventListener('click',function(){
     ev('quiz_consult_click',{quiz_name:QUIZ_NAME,result_type:stage});
     var ta=document.querySelector('#lpForm [name="お問い合わせ内容"]');
-    if(ta)ta.value='[Free AI check result] Industry: '+label+' / Suggested entry point: '+st.code+' ('+st.name+') / Biggest effort: '+((answers[0]&&answers[0].t)||'')+' / Where the information lives: '+((answers[1]&&answers[1].t)||'');
+    if(ta)ta.value='[Free check result] Industry: '+label+' / Suggested entry point: '+st.code+' ('+st.name+') / Biggest effort: '+((answers[0]&&answers[0].t)||'')+' / Where the information is: '+((answers[1]&&answers[1].t)||'');
     var tgt=document.getElementById('contact');
     if(tgt)tgt.scrollIntoView({behavior:'smooth',block:'start'});
   });

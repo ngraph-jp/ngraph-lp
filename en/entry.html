@@ -83,7 +83,7 @@
       <a href="/en/#services">Services</a>
       <a href="/blog/">Blog (JA)</a>
       <a href="/en/company">Company</a>
-      <a href="/en/entry" class="nav-cta">Free Consultation</a>
+      <a href="/en/entry" class="nav-cta">Free consultation</a>
       <span class="lang-switch"><a href="/entry">JA</a><span class="sep">/</span><span class="on">EN</span></span>
     </nav>
   </div>
@@ -176,7 +176,7 @@ form.addEventListener('submit',function(e){
 (function(){var q=new URLSearchParams(location.search);var f=document.getElementById('contact-form');if(!f)return;
 var t=q.get('type'),m=q.get('memo');
 // aliases, plus the Japanese page's option values mapped to the English ones
-var ALIAS={drill:'Security (Cyber Drill)',security:'Local AI Pack (on-premise AI)',starter:'Generative AI Starter Set','Local AI Pack（社内に置くAI）':'Local AI Pack (on-premise AI)','生成AI導入 初期セット':'Generative AI Starter Set','AI導入伴走支援（FDE型）':'Embedded AI adoption (FDE)','セキュリティ対策（Cyber Drill）':'Security (Cyber Drill)','共同開発・PoC':'Joint development / PoC','業務改善助成金':'Business Improvement Subsidy','その他':'Other'};if(t&&ALIAS[t])t=ALIAS[t];
+var ALIAS={fde:'Embedded AI adoption (FDE)','AI現場実装（FDE）':'Embedded AI adoption (FDE)',drill:'Security (Cyber Drill)',security:'Local AI Pack (on-premise AI)',starter:'Generative AI Starter Set','Local AI Pack（社内に置くAI）':'Local AI Pack (on-premise AI)','生成AI導入 初期セット':'Generative AI Starter Set','AI導入伴走支援（FDE型）':'Embedded AI adoption (FDE)','セキュリティ対策（Cyber Drill）':'Security (Cyber Drill)','共同開発・PoC':'Joint development / PoC','業務改善助成金':'Business Improvement Subsidy','その他':'Other'};if(t&&ALIAS[t])t=ALIAS[t];
 if(t){var s=f.querySelector('[name="Type of inquiry"]');for(var i=0;i<s.options.length;i++){if(s.options[i].value===t){s.selectedIndex=i;break;}}}
 if(m){var ta=f.querySelector('[name="Message"]');if(ta&&!ta.value)ta.value=m+'\n\n(I would like to discuss what kind of equipment investment would qualify, based on the estimate above.)';}
 })();

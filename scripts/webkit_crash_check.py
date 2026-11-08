@@ -112,8 +112,13 @@ def one(url, width):
                 pg.evaluate("document.body.scrollHeight")
                 pg.evaluate("document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))")
                 pg.wait_for_timeout(700)
-                over = pg.evaluate(OVERFLOW_JS)
-                if over:
+                # 2026-11-08 英語の /fde/ で JSON-LD の </script> が抜け、本文がまるごと <script> の中に入って何も表示されていなかった。
+                # 空のページは「落ちない・はみ出さない」を通ってしまうので、見出し（h1）が画面に出ているかを先に見る
+                shown = pg.evaluate("(()=>{const h=document.querySelector('body h1');return !!h&&h.getBoundingClientRect().height>0})()")
+                over = [] if not shown else pg.evaluate(OVERFLOW_JS)
+                if not shown and not url.startswith("about:"):
+                    out = {"state": "empty", "msg": "本文の見出し（h1）が表示されていない（閉じ忘れた <script>・<style>・コメントに本文が吸い込まれていないか）"}
+                elif over:
                     out = {"state": "overflow", "msg": " / ".join(over[:3])}
                 elif width in (375, 393):
                     mid = pg.evaluate(MIDWORD_JS)
@@ -163,7 +168,7 @@ def main(argv):
         return 1
     bad = []
     warns = []
-    label = {"overflow": "画面の外にはみ出し", "crash": "落ちた", "notfound": "開けない", "error": "読み込みに失敗", "timeout": "時間切れ"}
+    label = {"empty": "本文が出ていない", "overflow": "画面の外にはみ出し", "crash": "落ちた", "notfound": "開けない", "error": "読み込みに失敗", "timeout": "時間切れ"}
     def probe_one(job):
         t, w = job
         url = "http://127.0.0.1:%d/%s" % (port, t[:-len("index.html")] if t.endswith("index.html") else t)
@@ -185,7 +190,7 @@ def main(argv):
                     warns.append("%s（幅%d）語句の折返しが当たっていない: %s" % (t, w, res["warn"]))
                 continue
             # 並列の負荷で読み込みが切れることがあるので、落ちた以外は1つずつ開き直して確かめる
-            if res["state"] not in ("crash", "overflow"):
+            if res["state"] not in ("crash", "overflow", "empty"):
                 t, w, res = probe_one((t, w))
             if res["state"] != "ok":
                 bad.append("%s（幅%d）%s: %s" % (t, w, label[res["state"]], res.get("msg", "")))

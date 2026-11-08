@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/css/figures.css?v=36">
 <style>
 .page-hero{padding:150px 0 40px;text-align:center}
-.page-hero h1{font-size:var(--fs-h2);font-weight:800;line-height:1.4;margin-bottom:14px}
+.page-hero h1{font-size:var(--fs-display);font-weight:700;line-height:1.35;margin-bottom:14px}
 .page-hero .page-sub{font-size:1rem;color:var(--text-2);line-height:1.9}
 .page-hero .page-sub2{margin-top:6px;font-size:.875rem;color:var(--text-3)}
 .tech-lead{max-width:720px;margin:0 auto 44px;text-align:center}
@@ -56,7 +56,7 @@
 @media(max-width:768px){.concept-overlay{padding:48px 22px}.concept-overlay .concept-more p{text-align:left}}
 .concept-overlay p+p{margin-top:6px}
 .concept-creed{list-style:none;margin:30px auto 0;padding:24px 0 0;max-width:640px;width:100%;border-top:1px solid rgba(253,250,244,.22);display:grid;gap:14px;text-align:left}
-.concept-creed li{display:grid;grid-template-columns:2.6em 5.2em 1fr;align-items:baseline;gap:10px;color:rgba(253,250,244,.9)}
+.concept-creed li{display:grid;grid-template-columns:2.6em 8.6em 1fr;align-items:baseline;gap:10px;color:rgba(253,250,244,.9)}
 .concept-creed li>span{font-family:'Zen Kaku Gothic New',sans-serif;font-variant-numeric:tabular-nums;font-size:.8125rem;letter-spacing:.18em;color:#9fb3dc}
 .concept-creed b{font-family:var(--serif);font-size:1.125rem;font-weight:700;color:#fff;letter-spacing:.08em}
 .concept-creed em{font-style:normal;font-size:.875rem;line-height:1.8}
@@ -79,7 +79,7 @@
 .concept-overlay{min-height:520px;align-items:flex-start;text-align:left;padding:72px 64px;background:linear-gradient(90deg,rgba(11,11,13,.78) 0,rgba(11,11,13,.45) 46%,rgba(11,11,13,0) 66%)}
 .concept-overlay h2{font-family:var(--mincho);font-weight:400;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.45;letter-spacing:.06em;margin-bottom:26px}
 .concept-overlay p{max-width:30em;color:rgba(243,239,230,.78)}
-.concept-creed{margin:34px 0 0;max-width:34em;border-top-color:rgba(243,239,230,.18)}
+.concept-creed{margin:34px 0 0;max-width:40em;border-top-color:rgba(243,239,230,.18)}
 .concept-creed li>span{color:var(--hot)}
 @media(max-width:768px){.concept-img-wrap img{inset:0 0 auto 0;width:100%;height:340px;object-fit:cover;object-position:50% 50%;transform:scale(1.35);transform-origin:50% 45%;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 48%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 60% 55% at 50% 48%,#000 55%,transparent 100%)}.concept-overlay{min-height:0;padding:270px 22px 40px;background:linear-gradient(180deg,rgba(11,11,13,0) 0,rgba(11,11,13,0) 62%,rgba(11,11,13,.85) 76%,#0b0b0d 86%)}}
 /* 構造化技術：見出しが長いので一段小さく */
@@ -91,8 +91,55 @@
 .tm2-q footer{margin-top:18px;font-size:.875rem;color:var(--text-3)}
 /* 背景のリズム：白 → 灰（理念）→ 白（技術）→ 灰（人）→ 白（会社概要） */
 #team{background:var(--bg-2)}#company{background:var(--bg)}
+/* 理念の文は、意味の切れ目で改行（2026-10-26「せっかくのいい文が改行で台無し」） */
+.concept-overlay .cl{max-width:none}.concept-overlay .cl .ln{display:block}
+.tech-onto{max-width:760px;margin:-8px auto 30px;text-align:center;font-size:1.0625rem;line-height:1.9;color:var(--text)}.tech-onto b{color:var(--accent)}
 </style>
 <link rel="stylesheet" href="/css/sp.css?v=8">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://ngraph.jp/en/company#page",
+      "url": "https://ngraph.jp/en/company",
+      "name": "Company | NGraph Inc.",
+      "inLanguage": "en",
+      "about": { "@id": "https://ngraph.jp/#organization" },
+      "mainEntity": { "@id": "https://ngraph.jp/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://ngraph.jp/#organization",
+      "name": "NGraph Inc.",
+      "url": "https://ngraph.jp/",
+      "logo": "https://ngraph.jp/assets/ngraph-logo-circle.png",
+      "foundingDate": "2025-12-11",
+      "address": { "@type": "PostalAddress", "postalCode": "918-8231", "addressCountry": "JP", "addressRegion": "Fukui", "addressLocality": "Fukui City" },
+      "founder": { "@id": "https://ngraph.jp/company#takahashi" },
+      "employee": [ { "@id": "https://ngraph.jp/company#takahashi" }, { "@id": "https://ngraph.jp/company#chana" } ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ngraph.jp/company#takahashi",
+      "name": "Shingo Takahashi",
+      "jobTitle": "Representative Director / AI Planner",
+      "worksFor": { "@id": "https://ngraph.jp/#organization" },
+      "url": "https://ngraph.jp/en/company#takahashi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ngraph.jp/company#chana",
+      "name": "Matt Chana",
+      "alternateName": "Matthew John Chana",
+      "jobTitle": "CTO / AI Engineer",
+      "worksFor": { "@id": "https://ngraph.jp/#organization" },
+      "url": "https://ngraph.jp/en/company#chana"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -111,7 +158,7 @@
       <a href="/en/#services">Services</a>
       <a href="/blog/">Blog (JA)</a>
       <a href="/en/company" aria-current="page">Company</a>
-      <a href="/en/entry" class="nav-cta">Free Consultation</a>
+      <a href="/en/entry" class="nav-cta">Free consultation</a>
       <span class="lang-switch"><a href="/company">JA</a><span class="sep">/</span><span class="on">EN</span></span>
     </nav>
   </div>
@@ -135,12 +182,12 @@
       <img src="/assets/concept-visual.png" alt="">
       <div class="concept-overlay">
         <h2>Untangle the world. Connect the meaning.</h2>
-        <p>2,400 years ago, Aristotle set out in the <i>Analytics</i> a method for breaking reasoning down into its elements, and in the <i>Nicomachean Ethics</i> he gave a form to how people make judgments.</p>
-        <p>Now that AI has entered the workplace, the same two questions are back. NGraph puts the answers into practice on site.</p>
+        <p class="cl"><span class="ln"><span class="nb">AI has become smart.</span></span><span class="ln"><span class="nb">But it still can't know</span> <span class="nb">a company's rules</span> <span class="nb">or the reasons behind its decisions.</span></span></p>
+        <p class="cl"><span class="ln"><span class="nb">NGraph untangles them together with you, on site,</span></span><span class="ln"><span class="nb">and ties them into a form AI can read.</span></span></p>
         <ol class="concept-creed">
-          <li><span>01</span><b>Untangle</b><em>Define the meaning and record it in a form AI can read.</em></li>
-          <li><span>02</span><b>The mean</b><em>Between fabrication and blank space, put data that people have verified.</em></li>
-          <li><span>03</span><b>Practical wisdom</b><em>Before writing specifications, test something that works, on site.</em></li>
+          <li><span>01</span><b>Define the meaning</b><em><span class="nb">Record rules and decisions</span> <span class="nb">in a form AI can read.</span></em></li>
+          <li><span>02</span><b>Never fill gaps with guesses</b><em><span class="nb">Between fabrication and blank space,</span> <span class="nb">put data that people have verified.</span></em></li>
+          <li><span>03</span><b>Working things first</b><em><span class="nb">Before writing specifications,</span> <span class="nb">test it on site.</span></em></li>
         </ol>
       </div>
     </div>
@@ -154,6 +201,7 @@
       <div class="section-label">Core Technology</div>
       <h2 class="section-title"><span class="nb">What is structuring?</span> <span class="nb">Giving meaning a shape</span> <span class="nb">machines can read</span></h2>
     </div>
+<p class="tech-onto reveal"><span class="nb">We organize a business's knowledge and decisions</span> <span class="nb">into a form AI can read.</span> <span class="nb">That blueprint is called an</span> <span class="nb"><b>ontology</b>.</span></p>
 <div class="tech-lead reveal">
       <h3><span class="nb">We build the mechanism</span> <span class="nb">that produces correct data.</span></h3>
       <p>The shared design principle is <strong>Human-in-the-loop (HITL)</strong>: experts who know each field firsthand check and approve the primary information. Instead of AI guesses, we build the mechanism itself that produces verified primary data, or <strong>VAD (Verified Authentic Data)</strong>.</p>
@@ -220,7 +268,7 @@ Closing date is the 25th from next month</pre>
     </div>
     <!-- fig:team -->
     <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
+      <div class="tm-person tm-l" id="takahashi">
         <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="Shingo Takahashi" loading="lazy">
         <div class="tm-txt">
           <p class="tm-role">Field / Business</p>
@@ -244,14 +292,14 @@ Closing date is the 25th from next month</pre>
         <p class="tm-lead">Planning and building,<br>directly linked</p>
         <p class="tm-sub">Handled directly by the two of us</p>
       </div>
-      <div class="tm-person tm-r">
+      <div class="tm-person tm-r" id="chana">
         <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
         <div class="tm-txt">
           <p class="tm-role">Technology / Implementation</p>
           <p class="tm-name tm-name-en">Matt Chana</p>
           <p class="tm-en">Matthew John Chana</p>
           <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AI Engineer</span></p>
-          <p class="tm-tag">Turns requirements into working AI.</p>
+          <p class="tm-tag"><span class="nb">Turns requirements</span><br><span class="nb">into working AI.</span></p>
           <ul class="tm-list">
             <li>About 10 years at a robotics and AI company in Silicon Valley</li>
             <li><span class="nb">AI agents / RAG / MCP</span></li>
@@ -278,11 +326,11 @@ Closing date is the 25th from next month</pre>
       <table>
         <tr><th>Company name</th><td>NGraph Inc.</td></tr>
         <tr><th>Representative</th><td>Shingo Takahashi, CEO (Representative Director)</td></tr>
-        <tr><th>Address</th><td>Laforet Kitano 201, 1-124 Toiyacho, Fukui City, Fukui 918-8231, Japan</td></tr>
+        <tr><th>Address</th><td><span class="nb">Laforet Kitano 201, 1-124 Toiyacho,</span> <span class="nb">Fukui City, Fukui 918-8231, Japan</span></td></tr>
         <tr><th>Founded</th><td>December 2025</td></tr>
         <tr><th>Capital</th><td>¥3,000,000</td></tr>
         <tr><th>Corporate Number</th><td>5210001020418</td></tr>
-        <tr><th>Business</th><td>AI adoption support (FDE)<br>Security drills (NGraph Cyber Drill) and on-premises AI (Local AI Pack)<br>Generative AI Starter Set<br>Development and operation of AI products (OMISEAI / Teles / AutoWrite and others)<br>Research and development of meaning-data structuring (NFG / NCG / NHG)</td></tr>
+        <tr><th>Business</th><td><span class="biz">AI adoption support (FDE)</span><span class="biz"><span class="nb">Security drills (NGraph Cyber Drill)</span><span class="sep"> / </span><span class="nb">On-premises AI (Local AI Pack)</span></span><span class="biz">Generative AI Starter Set</span><span class="biz"><span class="nb">Development and operation of AI products</span> <span class="nb">(OMISEAI / Teles / AutoWrite and others)</span></span><span class="biz"><span class="nb">Research and development of meaning-data</span> <span class="nb">structuring (NFG / NCG / NHG)</span></span></td></tr>
       </table>
     </div>
   </div>

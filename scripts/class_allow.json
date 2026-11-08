@@ -1,3 +1,5 @@
 {
-  "pr-step": "図の部品 figures/process.html でだけ使う（.fg-process .pr-step.s1）。figures.css を読む Cyber Drill のページが別の意味の .stage.s1 を持つため「取り違え」と誤って出る（2026-10-23）"
+  "pr-step": "図の部品 figures/process.html でだけ使う（.fg-process .pr-step.s1）。figures.css を読む Cyber Drill のページが別の意味の .stage.s1 を持つため「取り違え」と誤って出る（2026-10-23）",
+  "own-scene": "図の部品 figures/own.html・figures/en/own.html でだけ使う（ないと／あるとの2場面の図）。英語のトップも 2026-11-08 に日本語版に合わせて作り直し、ページでは使わなくなった（検査は figures/ を見ないため「付けていない」と出る）",
+  "lab": "図の部品 figures/own.html・figures/en/own.html でだけ使う（ないと／あるとの2場面の図）。英語のトップも 2026-11-08 に日本語版に合わせて作り直し、ページでは使わなくなった（検査は figures/ を見ないため「付けていない」と出る）"
 }

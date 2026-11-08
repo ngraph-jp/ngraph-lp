@@ -44,7 +44,7 @@
       "name": "Local AI Pack (on-premises AI, local LLM)",
       "serviceType": "Selection, installation and maintenance of on-premises generative AI (local LLM)",
       "provider": { "@type": "Organization", "@id": "https://ngraph.jp/#organization", "name": "NGraph Inc.", "url": "https://ngraph.jp/en/" },
-      "areaServed": [{ "@type": "AdministrativeArea", "name": "Fukui Prefecture" }, { "@type": "AdministrativeArea", "name": "Ishikawa Prefecture" }, { "@type": "AdministrativeArea", "name": "Toyama Prefecture" }, { "@type": "AdministrativeArea", "name": "Osaka Prefecture" }, { "@type": "AdministrativeArea", "name": "Kyoto Prefecture" }, { "@type": "AdministrativeArea", "name": "Shiga Prefecture" }],
+      "areaServed": [{ "@type": "AdministrativeArea", "name": "Fukui Prefecture" }, { "@type": "AdministrativeArea", "name": "Ishikawa Prefecture" }, { "@type": "AdministrativeArea", "name": "Toyama Prefecture" }],
       "audience": { "@type": "BusinessAudience", "name": "Businesses that cannot hand company information to outside AI services" },
       "offers": { "@type": "AggregateOffer", "lowPrice": "1640000", "highPrice": "2830000", "priceCurrency": "JPY", "offerCount": "3", "description": "Estimated initial cost (excluding tax, hardware included; hardware prices are estimates as of September 2026 and change with market prices). Maintenance is separate, at ¥50,000 to ¥80,000 per month (excluding tax)." },
       "availableChannel": { "@type": "ServiceChannel", "serviceUrl": "https://ngraph.jp/en/security/#apply", "availableLanguage": ["ja"] },
@@ -72,12 +72,14 @@
 }
 </script>
 <style>
-/* ── /en/security/ page styles (same pattern as /starter/) ── */
+/* ── /security/ 専用スタイル（/starter/ と共通の型） ── */
 .lp-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:.8125rem;letter-spacing:.2em;font-weight:600;color:var(--accent);border:1px solid var(--border-strong);border-radius:3px;padding:8px 18px;margin-bottom:24px;background:rgba(255,255,255,.5)}
 .lp-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .hero{padding:150px 0 100px}
-.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
 .hero .hero-copy{max-width:640px}
+/* 本文を560px枠で1句ずつ折らない（本人 11/7「左側改行しすぎ」） */
+.hero p.lead{max-width:none;font-size:1.125rem;line-height:1.95}
 .hero .hero-visual{position:relative;top:auto;right:auto;left:auto;width:100%;height:auto;margin:0;opacity:1;display:flex;justify-content:center;align-items:center;transform:none}
 .hero .hero-visual img{-webkit-mask-image:none;mask-image:none;width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center;opacity:.96}
 .hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
@@ -90,14 +92,14 @@
   .hero .hero-visual{max-width:440px;margin:0 auto}
   .hero .hero-visual img{max-height:360px}
 }
-/* sp.css sets hero-copy to display:contents and reorders with order; give added elements an order too */
+/* sp.css は hero-copy を display:contents にして order で並べ替える。追加要素にも順番を与える */
 @media(max-width:768px){
   .hero .hero-chips{order:5;justify-content:center;margin:0 auto 14px;gap:8px}
   .hero .hero-chips span{font-size:.875rem;padding:8px 12px}
   .hero .hero-cta{order:6}
   .hero .hero-note{order:7;text-align:center;margin:12px auto 0;max-width:34em}
 }
-/* Three cards (with icons) */
+/* 3枚カード（アイコン付き） */
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .tcard{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:34px 28px;text-align:center}
 .tcard img{width:120px;height:110px;object-fit:contain;margin:0 auto 18px;display:block}
@@ -107,11 +109,11 @@
 .tcard.warm{background:rgba(36,66,122,.05);border-color:rgba(36,66,122,.25)}
 .tcard .kicker{font-family:var(--serif);font-size:.8125rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
 @media(max-width:900px){.trio{grid-template-columns:1fr}}
-/* Closing line */
+/* 締めの一文 */
 .close-line{text-align:center;margin-top:48px;padding-top:26px;border-top:1px solid var(--accent)}
 .close-line p{font-family:var(--serif);font-size:var(--fs-h3);font-weight:700;line-height:1.7}
 .close-line .hl{color:var(--accent)}
-/* How-it-works diagram */
+/* 仕組み図 */
 .flow{display:grid;grid-template-columns:1fr auto 1.15fr auto 1fr;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
 .flow .col-h{font-family:var(--serif);font-size:.8125rem;letter-spacing:.24em;color:var(--accent);font-weight:700;margin-bottom:10px}
 .fbox{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:4px;padding:16px 18px;margin-bottom:12px}
@@ -124,7 +126,6 @@
 .fpc .fnote{font-size:.8125rem;color:var(--text-3);text-align:center;margin-top:2px}
 .farrow{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--text-2)}
 .farrow .n{width:34px;height:34px;border-radius:50%;background:var(--text);color:#ffffff;font-family:var(--sans);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.farrow .n.acc{background:var(--accent)}
 .farrow svg{width:36px;height:20px;stroke:var(--text);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .floop{max-width:1100px;margin:22px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:rgba(36,66,122,.06);border:1px dashed var(--accent);border-radius:4px;padding:14px 20px}
 .floop img{width:40px;height:40px;object-fit:contain}
@@ -133,14 +134,13 @@
 .flegend{max-width:1100px;margin:22px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;list-style:none}
 .flegend li{font-size:.875rem;color:var(--text-2);line-height:1.9;display:flex;gap:10px;align-items:flex-start}
 .flegend .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--text);color:#ffffff;font-family:var(--sans);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:4px}
-.flegend .n.acc{background:var(--accent)}
 @media(max-width:900px){
   .flow{grid-template-columns:1fr}
   .farrow{flex-direction:row;justify-content:center}
   .farrow svg{transform:rotate(90deg)}
   .flegend{grid-template-columns:1fr}
 }
-/* Speech bubbles */
+/* 吹き出し */
 .bubbles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .bub{background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:4px;padding:26px 24px}
 .bub .say{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.8;background:var(--bg-2);border-radius:10px;padding:18px 20px;position:relative;margin-bottom:22px}
@@ -159,7 +159,7 @@
 .auto li{background:var(--bg-2);border-radius:10px;padding:14px 16px;font-size:1rem;line-height:1.8}
 .auto li b{display:block;font-size:.875rem;color:var(--accent);margin-bottom:4px}
 @media(max-width:900px){.auto ul{grid-template-columns:1fr}.auto{padding:14px}.auto-note{margin-left:0}}
-/* Model schedule */
+/* モデルスケジュール */
 .sched{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;max-width:1100px;margin:0 auto}
 .sday{text-align:center}
 .sday .d{font-family:var(--sans);font-size:.8125rem;font-weight:700;color:var(--accent);letter-spacing:.1em;margin-bottom:8px}
@@ -187,7 +187,7 @@
   .sday h4{border:none;padding:0;grid-column:3}
   .sday p{grid-column:3;margin:0}
 }
-/* Pricing */
+/* 料金 */
 .price-band{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:0 auto;background:rgba(255,255,255,.7);border:1px solid var(--border-strong);border-radius:4px}
 .price-band div{text-align:center;padding:30px 16px}
 .price-band div+div{border-left:1px solid var(--border)}
@@ -203,14 +203,7 @@
 .price-lists .exc li::before{content:"—";position:absolute;left:0;top:0;color:var(--text-3)}
 .price-note{text-align:center;font-size:.875rem;color:var(--text-3);margin-top:20px;line-height:1.9}
 @media(max-width:768px){.price-band{grid-template-columns:1fr}.price-band div+div{border-left:none;border-top:1px solid var(--border)}.price-lists{grid-template-columns:1fr}}
-/* Next steps */
-.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto}
-.step{text-align:center;position:relative}
-.step img{width:110px;height:100px;object-fit:contain;margin:0 auto 12px;display:block}
-.step .n{position:absolute;left:calc(50% - 78px);top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#ffffff;font-family:var(--sans);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.step h3{font-family:var(--serif);font-size:1.125rem;font-weight:700;line-height:1.6;margin-bottom:6px}
-.step p{font-size:.875rem;color:var(--text-2);line-height:1.8}
-.step .free{display:inline-block;font-size:.8125rem;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 10px;margin-top:8px}
+/* 次の一歩 */
 @media(max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.steps4{grid-template-columns:1fr}}
 /* FAQ */
@@ -218,10 +211,10 @@
 .faq-list details{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-list summary{font-family:var(--serif);font-size:1rem;font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:30px;line-height:1.7}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
-.faq-list details[open] summary::after{content:"\2212"}
+.faq-list summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
+.faq-list details[open] summary::after{content:"－"}
 .faq-list details p{font-size:.875rem;color:var(--text-2);line-height:2;margin-top:12px}
-/* Form */
+/* フォーム */
 .lp-form{max-width:640px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px 36px}
 .lp-form label{display:block;font-size:.875rem;font-weight:600;margin-bottom:6px;color:var(--text)}
 .lp-form label .req{color:var(--accent);font-size:.8125rem;margin-left:5px}
@@ -236,7 +229,7 @@
 .lead-done p{font-size:.875rem;color:var(--text-2);line-height:1.9}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-pre{max-width:640px;margin:0 auto 22px;font-size:.875rem;color:var(--text-2);line-height:2;text-align:center}
-/* Floating CTA */
+/* 追従CTA */
 .float-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s}
 .float-cta.show{opacity:1;pointer-events:auto;transform:none}
 .float-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:3px;background:var(--accent);color:#ffffff;font-weight:700;font-size:.875rem;box-shadow:0 8px 24px rgba(22,32,44,.2)}
@@ -247,10 +240,10 @@
   .tcard,.lp-form{padding:28px 20px}
 }
 
-/* Keep the anchor from hiding under the fixed header when arriving via QR code or link */
+/* QR・リンクからの直行時に固定ヘッダーへ隠れない */
 #apply{scroll-margin-top:84px}
 
-/* Mobile version of the diagram (hidden on desktop) */
+/* 仕組み図のSP版（PCでは非表示） */
 .flow-sp{display:none}
 .flow-sp .fs-row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
 .flow-sp .fs-k{font-family:var(--serif);font-size:.8125rem;letter-spacing:.14em;color:var(--accent);font-weight:700;white-space:nowrap;min-width:5.2em}
@@ -258,7 +251,7 @@
 .flow-sp .fs-v b{font-weight:700}
 .flow-sp .fs-v small{color:var(--text-3);font-size:.8125rem}
 
-/* ── Mobile: compact layout that does not grow too tall (2026-09-16) ── */
+/* ── SP: 縦に長く伸びない構成（2026-09-16） ── */
 @media(max-width:768px){
   .section{padding:52px 0}
   .section-head{margin:0 auto 26px}
@@ -267,16 +260,16 @@
   .section-sub{font-size:.875rem;line-height:1.9}
   .close-line{margin-top:26px;padding-top:16px}
   .close-line p{font-size:1.125rem}
-  /* Hero: smaller image, tighter elements */
+  /* ヒーロー: 絵を小さく、要素を詰める */
   .hero{padding:96px 0 44px}
   .hero .hero-visual img{max-height:190px}
   .hero .lp-badge{margin-bottom:10px;padding:6px 14px;font-size:.8125rem}
-  .hero p.lead{font-size:.875rem;line-height:1.8;margin-bottom:12px}
+  .hero p.lead{font-size:.9375rem;line-height:1.85;margin-bottom:12px}
   .hero .hero-chips{gap:6px;margin-bottom:10px}
   .hero .hero-chips span{font-size:.8125rem;padding:7px 10px}
   .hero .hero-cta .btn{width:100%;justify-content:center}
   .hero .hero-note{font-size:.8125rem;margin-top:10px}
-  /* Three cards: icon left, text right */
+  /* 3枚カード → アイコン左・文右の横並び */
   .trio{gap:10px}
   .tcard{display:grid;grid-template-columns:60px 1fr;gap:12px;align-items:center;text-align:left;padding:14px 16px}
   .tcard img{width:60px;height:56px;margin:0;grid-row:span 2;align-self:center}
@@ -287,7 +280,7 @@
   .tcard h3{font-size:1rem;line-height:1.5;margin-bottom:4px}
   .tcard p{font-size:.875rem;line-height:1.7}
   .tcard p .nb{display:inline}
-  /* The diagram is for desktop; mobile shows a 4-line description only */
+  /* 仕組み図はPC用。SPは4行の説明だけ */
   .flow{display:none}
   .flow-sp{display:block}
   .floop{padding:12px 14px;gap:10px}
@@ -296,13 +289,13 @@
   .floop span{font-size:.875rem}
   .flegend{margin-top:14px;gap:6px}
   .flegend li{font-size:.875rem;line-height:1.7}
-  /* Speech bubbles: drop the illustration row */
+  /* 吹き出し: 絵の行を省く */
   .bubbles{gap:10px}
   .bub{padding:16px}
   .bub .say{font-size:1rem;padding:12px 14px;margin-bottom:12px}
   .bub .row{display:none}
   .bub p{margin-top:0;font-size:.875rem}
-  /* Schedule: thinner rows */
+  /* 日程: 行を薄く */
   .sday{grid-template-columns:48px 44px 1fr;gap:2px 10px;padding:10px 0}
   .sday img{width:44px;height:40px;grid-row:span 3}
   .sday .d{grid-row:span 3;align-self:center}
@@ -312,7 +305,7 @@
   .sday .bar b{font-size:.875rem}
   .sday h4{font-size:.875rem}
   .sday p{font-size:.8125rem}
-  /* Pricing: keep 3 columns, smaller */
+  /* 費用: 3列のまま小さく */
   .price-band{grid-template-columns:repeat(3,1fr)}
   .price-band div{padding:16px 6px}
   .price-band div+div{border-left:1px solid var(--border);border-top:none}
@@ -320,19 +313,24 @@
   .price-band small{font-size:.8125rem;line-height:1.4}
   .price-lists{gap:18px;margin-top:20px}
   .price-lists li{font-size:.875rem;line-height:1.7}
-  /* Getting started: 2x2 */
+  /* 始め方: 2×2 */
   .steps4{grid-template-columns:1fr 1fr;gap:14px 10px}
-  .step img{width:72px;height:66px;margin-bottom:6px}
-  .step .n{left:calc(50% - 52px);width:24px;height:24px;font-size:.8125rem}
-  .step h3{font-size:1rem}
-  .step p{font-size:.8125rem}
   .faq-list summary{font-size:1rem}
   .faq-list details p{font-size:.875rem;line-height:1.8}
   .float-cta a{font-size:.875rem}
 }
+/* 2026-11-07 悩みは絵なしのチェックリストに（次の段の絵付きカードと続けて同じ形にしない） */
+.chk{list-style:none;width:fit-content;max-width:760px;margin:0 auto;padding:8px 44px 8px 32px;background:#fff;border:1px solid var(--border);border-radius:12px}
+.chk li{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:18px 0;border-bottom:1px dashed var(--border)}
+.chk li:last-child{border-bottom:0}
+.chk .ck{width:22px;height:22px;border:2px solid var(--accent);border-radius:5px;margin-top:3px;position:relative}
+.chk .ck::after{content:"";position:absolute;left:5px;top:1px;width:7px;height:12px;border-right:2.5px solid var(--hot);border-bottom:2.5px solid var(--hot);transform:rotate(40deg)}
+.chk b{display:block;font-size:1.0625rem;line-height:1.6;color:var(--text)}
+.chk p{margin:4px 0 0;font-size:.875rem;line-height:1.75;color:var(--text-2)}
+@media(max-width:640px){.chk{padding:4px 18px}.chk b{font-size:1rem}}
 </style>
 <style>
-/* Differences (comparison table) */
+/* 違い（比較表） */
 .cmp{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:9em 1fr 1fr;border:1px solid var(--border-strong);border-radius:4px;background:rgba(255,255,255,.7);overflow:hidden}
 .cmp>div{padding:16px 18px;border-top:1px solid var(--border);font-size:.875rem;line-height:1.8}
 .cmp .h{border-top:none;font-family:var(--serif);font-weight:700;font-size:1rem;text-align:center}
@@ -343,7 +341,7 @@
 .cmp .ours b{color:var(--accent)}
 @media(max-width:768px){.cmp{grid-template-columns:5.2em 1fr 1fr}.cmp>div{padding:10px 8px;font-size:.875rem;line-height:1.6}.cmp .h{font-size:.875rem}.cmp .k{font-size:.8125rem;letter-spacing:.04em}}
 @media(max-width:640px){.cmp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cmp>.h:first-child{display:none}.cmp .k{grid-column:1/-1;padding:7px 12px 6px;letter-spacing:.08em}.cmp .k+div,.cmp .k+div+div{border-top:none}.cmp>div{padding:10px 8px;font-size:.8125rem;line-height:1.65}.cmp .k{font-size:.8125rem}}
-/* Pricing plans */
+/* 料金プラン */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
 .plan{background:rgba(255,255,255,.75);border:1px solid var(--border-strong);border-radius:4px;padding:28px 24px;display:flex;flex-direction:column;position:relative}
 .plan.std{border:2px solid var(--accent)}
@@ -359,7 +357,7 @@
 .plan .mon{text-align:center;font-size:.875rem;font-weight:700;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .plan .fit{font-size:.875rem;color:var(--text-2);line-height:1.8;margin-top:14px}
 @media(max-width:900px){.plans{grid-template-columns:1fr;gap:24px}}
-/* Team */
+/* 担当 */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:0 auto}
 .duo .p{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:4px;padding:18px}
 .duo img{width:84px;height:100px;object-fit:cover;object-position:50% 25%;border-radius:6px;flex-shrink:0}
@@ -393,16 +391,16 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="lp-badge"><span class="dot"></span>Local AI Pack</span>
-      <h1 class="hero-tagline" style="font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.2"><span class="nb">Nothing leaves the building.</span><br><span class="nb"><span class="hl">Your own private AI</span>.</span></h1>
-      <p class="lead">Ask questions in Japanese just like ChatGPT, while your company information stays in-house. We place an AI that runs only inside your company (a local LLM) on your premises.</p>
+      <h1 class="hero-tagline" style="font-size:clamp(1.625rem,7.4vw,3.125rem);line-height:1.4">An AI of your own,<br><span class="hl">kept inside your company</span>.</h1>
+      <p class="lead">You ask it questions in plain language, just like ChatGPT, and your company information never leaves the building. We install an AI that runs only inside your company (a local LLM).</p>
       <div class="hero-chips">
-        <span>Data stays in-house</span>
-        <span>Start with 1 to 2 users</span>
+        <span>Your data stays in-house</span>
+        <span>Start with just 1 to 2 users</span>
       </div>
       <div class="hero-cta">
-        <a href="#apply" class="btn btn-primary">Book a Free Online Briefing <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
+        <a href="#apply" class="btn btn-primary">Book a free online briefing <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
       </div>
-      <p class="hero-note">For business owners who have held off on AI for fear of leaks. On-site visits mainly in Hokuriku (Fukui, Ishikawa, Toyama), with Kansai (Osaka, Kyoto, Shiga) also available. Travel costs extra.</p>
+      <p class="hero-note">For business owners who want to use AI but fear a data leak. We visit sites in Fukui, Ishikawa and Toyama. For other areas, please ask. Travel costs are extra.</p>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src="/assets/security-office.webp" alt="" width="1200" height="821">
@@ -410,175 +408,142 @@
   </div>
 </section>
 
-<!-- ── Problems ── -->
+<!-- ── 悩み ── -->
 <section class="section section-alt" id="problem">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Who it is for</div>
-      <h2 class="section-title"><span class="nb">You want to use AI.</span> <span class="nb">But your data can't leave the company.</span></h2>
-      <p class="section-sub">If even one of these applies, the Local AI Pack is for you.</p>
+      <h2 class="section-title">You want to use AI. But your data can't leave the company.</h2>
+      <p class="section-sub">If even one of these applies to you, Local AI Pack is for you.</p>
     </div>
-    <div class="trio reveal">
-      <div class="tcard">
-        <div class="num">01</div>
-        <img src="/assets/starter/icon14_q2.png" alt="">
-        <h3>You're afraid to put customer lists or drawings into AI</h3>
-        <p>You can't tell whether it's safe, so you end up not using AI at all.</p>
-      </div>
-      <div class="tcard">
-        <div class="num">02</div>
-        <img src="/assets/starter/icon09_tomeru.png" alt="">
-        <h3>You worry staff are pasting data into ChatGPT on their own</h3>
-        <p>Even if you ban it, people use it in secret when there is no approved alternative.</p>
-      </div>
-      <div class="tcard">
-        <div class="num">03</div>
-        <img src="/assets/starter/icon11_kakunin.png" alt="">
-        <h3>Business partners are asking how you manage information</h3>
-        <p>You can't explain where your data is being sent.</p>
-      </div>
-    </div>
+    <ul class="chk reveal"><li><span class="ck" aria-hidden="true"></span><div><b>You are afraid to put customer lists or drawings into an AI</b><p>You can't tell whether it is safe, so you end up not using AI at all.</p></div></li><li><span class="ck" aria-hidden="true"></span><div><b>You worry that employees are putting data into ChatGPT on their own</b><p>Even if you ban it, people use it in secret when there is no approved place to use it.</p></div></li><li><span class="ck" aria-hidden="true"></span><div><b>Your business partners are asking how you manage information</b><p>You can't explain where your data is being sent.</p></div></li></ul>
   </div>
 </section>
 
-<!-- ── Differences ── -->
+<!-- ── 違い ── -->
 <section class="section" id="diff">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Differences</div>
-      <h2 class="section-title"><span class="nb">Cloud AI</span> <span class="nb">vs. in-house AI</span></h2>
-      <p class="section-sub">Cloud AI such as ChatGPT, Claude and Gemini runs on servers outside your company. The Local AI Pack puts the AI itself inside your company.</p>
+      <h2 class="section-title">Cloud AI vs. AI kept in-house.</h2>
+      <p class="section-sub">Cloud AI such as ChatGPT, Claude and Gemini runs on servers outside your company. Local AI Pack puts the AI itself inside your company.</p>
     </div>
     <div class="cmp reveal">
       <div class="h"></div>
       <div class="h">Cloud AI<small>ChatGPT, Claude, Gemini, etc.</small></div>
       <div class="h ours">In-house AI<small>Local AI Pack (local LLM)</small></div>
-      <div class="k">Where data goes</div><div>Over the internet to the AI company's servers (outside your company, sometimes overseas)</div><div class="ours"><b>Never leaves your company</b></div>
-      <div class="k">Storage</div><div>You can't fully verify where it is stored</div><div class="ours">A machine inside your company. <b>A record of who asked what stays in-house</b></div>
-      <div class="k">Network</div><div>Requires the internet</div><div class="ours"><b>Works even when disconnected from the internet</b></div>
-      <div class="k">Capability</div><div>The latest and most capable</div><div class="ours">Behind the latest, but good enough for defined tasks</div>
-      <div class="k">Cost model</div><div>Monthly fees for as long as you use it</div><div class="ours">One-time hardware purchase (your asset) + monthly maintenance</div>
+      <div class="k">Where data goes</div><div>Over the internet to the AI company's servers (sometimes outside Japan)</div><div class="ours"><b>Never leaves the company</b></div>
+      <div class="k">Where it is stored</div><div>You cannot fully confirm where it is kept</div><div class="ours">On a machine inside your company. A record of who asked what <b>stays in-house</b></div>
+      <div class="k">Where it runs</div><div>Needs the internet</div><div class="ours"><b>Works even when disconnected from the internet</b></div>
+      <div class="k">Smartness</div><div>The latest and the smartest</div><div class="ours">Behind the latest, but good enough for defined tasks</div>
+      <div class="k">Cost</div><div>A monthly fee for as long as you use it</div><div class="ours">Hardware is a one-time purchase (your asset), plus monthly maintenance</div>
     </div>
-    <div class="close-line reveal"><p><span class="nb">Neither is better; use each where it fits.</span> <span class="nb"><span class="hl">Send only the work that can't leave the company to in-house AI.</span></span></p></div>
+    <div class="close-line reveal"><p>Neither is better. Use each where it fits. <span class="hl">Only the work that can't leave the company goes to the in-house AI.</span></p></div>
   </div>
 </section>
 
-<!-- ── What we install ── -->
+<!-- ── 置くもの ── -->
 <section class="section section-alt" id="what">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">What we install</div>
-      <h2 class="section-title"><span class="nb">A small machine</span> <span class="nb">that fits on a desk.</span></h2>
-      <p class="section-sub">About 15 cm square and 5 cm tall. The AI runs inside it, and staff ask it questions in Japanese from an internal chat screen.</p>
+      <h2 class="section-title">A small machine that fits on a desk.</h2>
+      <p class="section-sub">About 15 cm square and 5 cm high. The AI runs inside it, and employees ask questions in plain language from an internal chat screen.</p>
     </div>
     <div class="trio reveal">
       <div class="tcard">
         <img src="/assets/starter/icon14_q2.png" alt="">
-        <h3>Data stays in-house</h3>
-        <p>Ask about customer lists and drawings with peace of mind.</p>
+        <h3>Your data stays in-house</h3>
+        <p>You can ask about customer lists and drawings with peace of mind.</p>
       </div>
       <div class="tcard">
         <img src="/assets/starter/icon17_ai.png" alt="">
-        <h3>Ask in plain Japanese</h3>
-        <p>Just like ChatGPT, ask about internal rules and procedures.</p>
+        <h3>Ask in plain language</h3>
+        <p>Like ChatGPT, you can ask about company rules and procedures.</p>
       </div>
       <div class="tcard warm">
         <img src="/assets/starter/icon09_data.png" alt="">
-        <h3>The hardware is your asset</h3>
-        <p>You purchase it and it belongs to you. Usage records stay in-house too.</p>
+        <h3>The machine is your asset</h3>
+        <p>You buy it and it is yours. A record of use also stays in-house.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── How it works ── -->
+<!-- ── 進め方 ── -->
 <section class="section" id="steps">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">How it works</div>
-      <h2 class="section-title"><span class="nb">First, we decide with you</span> <span class="nb">whether AI should be in-house.</span></h2>
+      <h2 class="section-title">First, we decide with you whether AI should be in-house.</h2>
     </div>
     <div class="steps4 reveal">
       <div class="step"><span class="n">01</span><img src="/assets/starter/icon11_soudan.png" alt=""><h3>Free briefing</h3><p>We ask about the information you handle and your internal rules</p><span class="free">Free</span></div>
-      <div class="step"><span class="n">02</span><img src="/assets/starter/icon11_kakunin.png" alt=""><h3>Plan and quote</h3><p>We propose a plan based on the number of users and the work</p></div>
-      <div class="step"><span class="n">03</span><img src="/assets/starter/icon13_taisho.png" alt=""><h3>Purchase and installation</h3><p>You purchase the hardware, and it becomes your asset. We visit and install it</p></div>
-      <div class="step"><span class="n">04</span><img src="/assets/starter/icon19_setup.png" alt=""><h3>Verify and maintain</h3><p>We verify it works inside your company, then update it and review the model every month</p></div>
+      <div class="step"><span class="n">02</span><img src="/assets/starter/icon11_kakunin.png" alt=""><h3>Plan and quote</h3><p>We propose a plan that fits your number of users and your work</p></div>
+      <div class="step"><span class="n">03</span><img src="/assets/starter/icon13_taisho.png" alt=""><h3>Purchase and installation</h3><p>You buy the machine and it becomes your asset. We visit and install it</p></div>
+      <div class="step"><span class="n">04</span><img src="/assets/starter/icon19_setup.png" alt=""><h3>Verify, then maintain</h3><p>We check it works inside your company, then update it and review the model every month</p></div>
     </div>
-    <div class="close-line reveal"><p><span class="nb">If cloud AI is enough,</span> <span class="nb"><span class="hl">we will tell you so.</span></span></p></div>
+    <div class="close-line reveal"><p>If cloud AI is enough for you, <span class="hl">we will tell you so.</span></p></div>
   </div>
 </section>
 
-<!-- ── Pricing ── -->
+<!-- ── 料金 ── -->
 <section class="section section-alt" id="price">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Pricing</div>
-      <h2 class="section-title"><span class="nb">Just pick a plan</span> <span class="nb">by number of users.</span></h2>
+      <h2 class="section-title">Just pick a plan by number of users.</h2>
       <p class="section-sub">Prices are estimates, hardware included, excluding tax.</p>
     </div>
     <div class="plans reveal">
       <div class="plan">
         <h3>Try it first</h3>
         <p class="who">1 to 2 users</p>
-        <p class="dev">1 x Mac mini<small>12.7 cm square, 5 cm tall</small></p>
-        <p class="first"><span>Initial cost</span><b>From ~¥1.64M</b><small>Setup ¥1,200,000 + hardware approx. ¥440,000</small></p>
-        <p class="mon">Maintenance from ¥50,000/month</p>
-        <p class="fit">You want to start as small as possible, with the owner or 1 to 2 office staff</p>
+        <p class="dev">Mac mini ×1<small>12.7 cm square, 5 cm high</small></p>
+        <p class="first"><span>Initial cost</span><b>from about ¥1,640,000</b><small>Setup ¥1,200,000 + hardware about ¥440,000</small></p>
+        <p class="mon">Maintenance from ¥50,000 / month</p>
+        <p class="fit">For an owner or an office worker or two who wants the smallest possible start</p>
       </div>
       <div class="plan std">
         <span class="tag">Standard</span>
-        <h3>For a department</h3>
+        <h3>For one department</h3>
         <p class="who">Up to about 10 users</p>
-        <p class="dev">1 x DGX Spark<small>15 cm square, 5 cm tall</small></p>
-        <p class="first"><span>Initial cost</span><b>From ~¥2.01M</b><small>Setup ¥1,200,000 + hardware approx. ¥810,000</small></p>
-        <p class="mon">Maintenance from ¥50,000/month</p>
-        <p class="fit">You want to use it in a department such as HR, general affairs or accounting</p>
+        <p class="dev">DGX Spark ×1<small>15 cm square, 5 cm high</small></p>
+        <p class="first"><span>Initial cost</span><b>from about ¥2,010,000</b><small>Setup ¥1,200,000 + hardware about ¥810,000</small></p>
+        <p class="mon">Maintenance from ¥50,000 / month</p>
+        <p class="fit">For HR, general affairs, accounting or other departments</p>
       </div>
       <div class="plan">
-        <h3>For multiple departments</h3>
+        <h3>For several departments</h3>
         <p class="who">Up to about 20 users</p>
-        <p class="dev">2 x DGX Spark<small>Keeps running even if one unit is in repair</small></p>
-        <p class="first"><span>Initial cost</span><b>From ~¥2.83M</b><small>Setup ¥1,200,000 + hardware approx. ¥1,630,000</small></p>
-        <p class="mon">Maintenance from ¥80,000/month</p>
-        <p class="fit">You want several departments to use it at once, or to use it for work that can't afford downtime</p>
+        <p class="dev">DGX Spark ×2<small>Keeps running even if one unit is under repair</small></p>
+        <p class="first"><span>Initial cost</span><b>from about ¥2,830,000</b><small>Setup ¥1,200,000 + hardware about ¥1,630,000</small></p>
+        <p class="mon">Maintenance from ¥80,000 / month</p>
+        <p class="fit">For use by several departments at once, or for work that cannot stop</p>
       </div>
     </div>
     <div class="price-lists reveal">
       <div>
-        <h4>Setup includes</h4>
+        <h4>Included in setup</h4>
         <ul class="inc">
-          <li>After installation, an on-site check that it works and an evaluation report</li>
-          <li>Model selection from candidates, including Japanese-made models</li>
-          <li>Hardware installation and initial setup, including configuration that blocks outside connections</li>
-          <li>Login and usage logging</li>
-          <li>A chat screen for staff, and loading of internal documents up to a set volume</li>
-          <li>Training on how to use it for the person in charge</li>
+          <li>After installation, a check that it works inside your company, with an evaluation report</li>
+          <li>Selection from candidate models, including Japanese-made ones</li>
+          <li>Installation and initial setup, including settings that keep it disconnected from the outside</li>
+          <li>Login and a record of operations</li>
+          <li>A chat screen for employees, and loading of internal documents up to a set amount</li>
+          <li>An explanation of how to use it for your person in charge</li>
         </ul>
       </div>
       <div>
-        <h4 class="gray">Extra (quoted separately)</h4>
+        <h4 class="gray">Separate (quoted individually)</h4>
         <ul class="exc">
           <li>Loading large volumes of internal documents and tuning accuracy</li>
-          <li>Developing or modifying business systems</li>
+          <li>Building or changing business systems</li>
           <li>Travel costs</li>
         </ul>
       </div>
     </div>
-    <p class="price-note reveal">Hardware prices are estimates as of September 2026 and change with market prices. You purchase the hardware, and it becomes your asset.<br>Maintenance is required and covers OS and model updates and arranging repairs. Ask us about monthly payment plans as well.</p>
-  </div>
-</section>
-
-<!-- ── Team ── -->
-<section class="section" id="team">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Team</div>
-      <h2 class="section-title"><span class="nb">These two people</span> <span class="nb">will work with you.</span></h2>
-    </div>
-    <div class="duo reveal">
-      <div class="p"><img src="/assets/brain/deck/b11e463075.jpg" alt="Shingo Takahashi" loading="lazy"><div><b>Shingo Takahashi</b><small>CEO / AI Planner</small><p>Listens to your team and turns it into requirements.</p></div></div>
-      <div class="p"><img src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy"><div><b>Matt Chana</b><small>CTO / AI Engineer</small><p>Turns requirements into working AI.</p></div></div>
-    </div>
+    <p class="price-note reveal">Hardware prices are estimates as of September 2026 and change with market prices. You buy the hardware, and it becomes your asset.<br>Maintenance is required. It includes OS and model updates and arranging repairs if something breaks. Please ask about monthly payment plans.</p>
   </div>
 </section>
 
@@ -600,13 +565,13 @@
   </div>
 </section>
 
-<!-- ── Application form ── -->
+<!-- ── 申込フォーム ── -->
 <section class="section" id="apply">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Apply</div>
-      <h2 class="section-title">Book a Free Online Briefing</h2>
-      <p class="section-sub">In about 30 minutes online, we ask about the information you handle and your internal rules, and decide with you whether cloud AI is enough or the AI should be kept in-house. We will not ask you to sign anything on the spot. We usually reply within 2 to 3 business days.</p>
+      <h2 class="section-title">Book a free online briefing</h2>
+      <p class="section-sub">In a roughly 30-minute online session, we ask about the information you handle and your internal rules, and decide with you whether cloud AI is enough or the AI should be kept in-house. We will not ask you to sign anything on the spot. We usually reply within 2 to 3 business days.</p>
     </div>
     <div class="lp-form reveal">
       <form id="lpForm" action="https://script.google.com/macros/s/AKfycbwapQO_yL3jQ4CmxaaLsZwiXsI3GR-dbgDiGmYEs_HGsbWeuZ7okov9jxGSS5J9bfit/exec" method="POST">
@@ -630,7 +595,7 @@
         <input type="text" name="_when" id="lpWhen" placeholder="e.g. Weekday mornings, or Tuesday or Thursday after 3 p.m.">
         <label>Information you want to use, or questions<span class="opt">Optional</span></label>
         <textarea name="_note" id="lpNote" placeholder="e.g. We want to search customer lists and drawings with AI. Our internal rules prohibit outside services."></textarea>
-        <button type="submit" class="btn btn-primary" id="lpSubmit">Book a Free Online Briefing</button>
+        <button type="submit" class="btn btn-primary" id="lpSubmit">Book a free online briefing</button>
         <p class="lead-note">By submitting, you agree to our <a href="/en/privacy" target="_blank" rel="noopener" style="text-decoration:underline">Privacy Policy</a>.</p>
       </form>
       <div class="lead-done" id="lpDone" style="display:none">
@@ -641,7 +606,7 @@
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="#apply">Book a Free Online Briefing →</a></div>
+<div class="float-cta" id="floatCta"><a href="#apply">Book a free online briefing →</a></div>
 
 <section class="rel" aria-label="Other services">
   <div class="rel-in">
@@ -710,7 +675,7 @@ form.addEventListener('submit',function(e){
   var btn=document.getElementById('lpSubmit');btn.disabled=true;btn.textContent='Sending...';
   fetch(form.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(form))})
   .then(function(){form.style.display='none';done.style.display='block';if(window.gtag)gtag('event','generate_lead',{form:'security_lp',src:src||'direct'});})
-  .catch(function(){alert('Failed to send. Please try again later.');btn.disabled=false;btn.textContent='Book a Free Online Briefing';});
+  .catch(function(){alert('Failed to send. Please try again later.');btn.disabled=false;btn.textContent='Book a free online briefing';});
 });
 if(window.gtag&&src)gtag('event','security_src',{src:src});
 })();

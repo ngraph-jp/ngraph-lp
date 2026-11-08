@@ -74,7 +74,7 @@
 }
 </script>
 <style>
-/* ── /en/drill/ page styles (same pattern as /starter/ and /security/) ── */
+/* ── /drill/ 専用スタイル（/starter/・/security/ と共通の型） ── */
 .lp-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:.8125rem;letter-spacing:.2em;font-weight:600;color:var(--accent);border:1px solid var(--border-strong);border-radius:3px;padding:8px 18px;margin-bottom:24px;background:rgba(255,255,255,.5)}
 .lp-badge img{width:26px;height:19px;object-fit:contain}
 .lp-badge .kana{font-family:var(--sans);font-size:.8125rem;letter-spacing:.08em;color:var(--text-3);font-weight:500;padding-left:10px;margin-left:2px;border-left:1px solid var(--border-strong)}
@@ -93,11 +93,11 @@
 .hero-note{font-size:.875rem;color:var(--text-3);margin-top:14px}
 @media(max-width:900px){
   .hero{padding:130px 0 70px}
-  .hero .hero-grid{grid-template-columns:1fr;gap:20px}
+  .hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
   .hero .hero-visual{max-width:600px;margin:0 auto}
   .hero .hero-visual img{max-height:400px}
 }
-/* sp.css sets hero-copy to display:contents and reorders with order; give added elements an order too */
+/* sp.css は hero-copy を display:contents にして order で並べ替える。追加要素にも順番を与える */
 @media(max-width:768px){
   .hero .hero-sub{order:1;text-align:center}
   .hero .hero-chips{order:5;justify-content:center;margin:0 auto 14px;gap:8px}
@@ -105,7 +105,7 @@
   .hero .hero-cta{order:6}
   .hero .hero-note{order:7;text-align:center;margin:12px auto 0;max-width:34em}
 }
-/* If tomorrow */
+/* もし明日 */
 .ifq{max-width:880px;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .ifq li{list-style:none;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:4px;padding:22px 16px;text-align:center;font-family:var(--serif);font-size:1rem;font-weight:700;line-height:1.7}
 .ifq li span{display:block;font-family:var(--sans);font-size:.8125rem;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
@@ -125,7 +125,7 @@
 @media(max-width:600px){.menu{padding:18px 14px 6px}.menu-list{grid-template-columns:1fr}}
 .ifq-ic{display:block;width:46px;height:46px;margin:0 auto 10px;padding:10px;box-sizing:content-box;border-radius:50%;background:rgba(184,64,42,.08);fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:768px){.ifq-ic{width:36px;height:36px;padding:8px;margin-bottom:6px}}
-/* Three cards */
+/* 3枚カード */
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .tcard{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:34px 28px;text-align:center}
 .tcard img{width:96px;height:90px;object-fit:contain;margin:0 auto 18px;display:block}
@@ -134,11 +134,11 @@
 @media(max-width:900px){.trio{grid-template-columns:1fr}}
 .trio.quad{grid-template-columns:repeat(4,1fr);gap:18px}.trio.quad .tcard{padding:28px 20px}
 @media(max-width:1000px){.trio.quad{grid-template-columns:1fr 1fr}}@media(max-width:600px){.trio.quad{grid-template-columns:1fr}}
-/* Closing line */
+/* 締めの一文 */
 .close-line{text-align:center;margin-top:48px;padding-top:26px;border-top:1px solid var(--accent)}
 .close-line p{font-family:var(--serif);font-size:var(--fs-h3);font-weight:700;line-height:1.7}
 .close-line .hl{color:var(--accent)}
-/* How it works (STEP 1 / STEP 2) */
+/* 進め方（STEP1 / STEP2） */
 .stages{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;max-width:1100px;margin:0 auto}
 .stage{background:rgba(255,255,255,.75);border:1px solid var(--border-strong);border-radius:4px;padding:26px 24px}
 .stage.s1{border:2px solid var(--accent)}
@@ -156,7 +156,7 @@
 .stage-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:.8125rem;color:var(--text-2);text-align:center;line-height:1.6}
 .stage-mid svg{width:36px;height:20px;stroke:var(--text);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .stage-note{text-align:center;font-size:.875rem;color:var(--text-2);margin-top:20px;line-height:1.9}
-/* Three layers of defense */
+/* 守りの3段 */
 .guard{max-width:1100px;margin:0 auto 40px}
 .guard-h{font-family:var(--serif);font-size:1.25rem;font-weight:700;text-align:center;margin:0 0 18px}
 .guard-row{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -167,11 +167,11 @@
 .guard-row .g-we{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed var(--border-strong);font-size:.8125rem;line-height:1.7;color:var(--accent);font-weight:700}
 .guard-note{text-align:center;font-size:.875rem;color:var(--text-2);line-height:1.9;margin:16px 0 0}
 @media(max-width:900px){.guard-row{grid-template-columns:1fr;gap:12px}.guard-row li+li::before{left:50%;top:-12px;transform:translate(-50%,-4px) rotate(135deg)}}
-/* IPA self-check */
+/* 自社診断の案内 */
 .selfcheck{max-width:960px;margin:28px auto 0;padding:16px 20px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.75);font-size:.875rem;line-height:1.85;color:var(--text-2);text-align:center}
 .selfcheck a{color:var(--accent);text-decoration:underline}
 @media(max-width:900px){.stages{grid-template-columns:1fr}.stage-mid{flex-direction:row}.stage-mid svg{transform:rotate(90deg)}}
-/* Approach (countermeasure options) */
+/* 考え方（対策の選択肢） */
 .pols{max-width:960px;margin:0 auto;border-top:1px solid var(--border-strong)}
 .pol{display:grid;grid-template-columns:64px 13em 1fr;gap:18px;align-items:center;padding:18px 6px;border-bottom:1px solid var(--border)}
 .pol img{width:54px;height:54px;object-fit:contain}
@@ -179,12 +179,12 @@
 .pol p{font-size:.875rem;color:var(--text-2);line-height:1.9}
 .pol.acc b{color:var(--accent)}
 @media(max-width:768px){.pol{grid-template-columns:44px 1fr;gap:4px 12px;padding:14px 2px}.pol img{width:40px;height:40px;grid-row:span 2}.pol p{grid-column:2;font-size:.875rem;line-height:1.75}}
-/* Safety commitments */
+/* 安全のための約束 */
 .rules{max-width:820px;margin:0 auto;list-style:none;display:grid;gap:10px}
 .rules li{font-size:1rem;line-height:1.8;padding:14px 18px 14px 50px;position:relative;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:4px}
 .rules li::before{content:"";position:absolute;left:20px;top:21px;width:13px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 .scope{max-width:820px;margin:22px auto 0;font-size:.875rem;color:var(--text-3);line-height:1.9;text-align:center}
-/* Team */
+/* 担当 */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:0 auto}
 .duo .p{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:4px;padding:18px}
 .duo img{width:84px;height:100px;object-fit:cover;object-position:50% 25%;border-radius:6px;flex-shrink:0}
@@ -197,10 +197,10 @@
 .faq-list details{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-list summary{font-family:var(--serif);font-size:1rem;font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:30px;line-height:1.7}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
-.faq-list details[open] summary::after{content:"\2212"}
+.faq-list summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent);font-weight:400}
+.faq-list details[open] summary::after{content:"－"}
 .faq-list details p{font-size:.875rem;color:var(--text-2);line-height:2;margin-top:12px}
-/* Form */
+/* フォーム */
 .lp-form{max-width:640px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-strong);border-radius:4px;padding:40px 36px}
 .lp-form label{display:block;font-size:.875rem;font-weight:600;margin-bottom:6px;color:var(--text)}
 .lp-form label .req{color:var(--accent);font-size:.8125rem;margin-left:5px}
@@ -215,7 +215,7 @@
 .lead-done p{font-size:.875rem;color:var(--text-2);line-height:1.9}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 #apply{scroll-margin-top:84px}
-/* Floating CTA */
+/* 追従CTA */
 .float-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .3s,transform .3s}
 .float-cta.show{opacity:1;pointer-events:auto;transform:none}
 .float-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:3px;background:var(--accent);color:#ffffff;font-weight:700;font-size:.875rem;box-shadow:0 8px 24px rgba(22,32,44,.2)}
@@ -258,45 +258,6 @@
   .float-cta a{font-size:.875rem}
 }
 
-/* ==== Cyber Drill ダークヒーロー（A: dark hero + light body・2026-10-18）==== */
-.header:not(.scrolled){background:#f5f6f7;box-shadow:0 1px 0 rgba(20,40,70,.05)}
-.hero{position:relative;overflow:hidden;color:#eaf6ff;
- background:radial-gradient(1200px 700px at 80% 45%,rgba(54,230,255,.14),transparent 60%),radial-gradient(900px 560px at 12% 16%,rgba(120,60,255,.18),transparent 60%),linear-gradient(160deg,#070b16 0%,#0b1226 46%,#140b2a 100%)}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
- background-image:linear-gradient(rgba(54,230,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(54,230,255,.06) 1px,transparent 1px);background-size:46px 46px;
- -webkit-mask-image:radial-gradient(900px 600px at 72% 52%,#000,transparent 75%);mask-image:radial-gradient(900px 600px at 72% 52%,#000,transparent 75%)}
-.hero .container{position:relative;z-index:3}
-.hero .hud{position:absolute;top:94px;left:0;right:0;z-index:4;display:flex;justify-content:space-between;padding:0 clamp(20px,5vw,52px);
- font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.8125rem;letter-spacing:.12em;color:#7f9bb5}
-.hero .hud b{color:#36e6ff;font-weight:700}
-.hero .lp-badge{font-family:"JetBrains Mono",ui-monospace,monospace;color:#7af1ff;border-color:rgba(54,230,255,.4);background:rgba(54,230,255,.06);box-shadow:inset 0 0 18px rgba(54,230,255,.14),0 0 12px rgba(54,230,255,.08)}
-.hero .lp-badge img{filter:brightness(0) invert(1);opacity:.85}
-.hero .lp-badge .kana{color:#8aa6c0;border-left-color:rgba(54,230,255,.3)}
-.hero .hero-sub{font-family:"JetBrains Mono",ui-monospace,monospace;color:#7af1ff;opacity:.9}
-.hero .hero-sub::before{content:"> ";color:#36e6ff}
-.hero .hero-tagline{color:#fff;text-shadow:0 0 22px rgba(54,230,255,.4),0 0 2px rgba(54,230,255,.7)}
-.hero .hero-tagline .hl{color:#ff5566;text-shadow:0 0 26px rgba(255,77,94,.6),0 0 2px rgba(255,77,94,.9)}
-.hero .hero-chips span{border-color:rgba(138,166,192,.45);color:#eaf6ff;background:rgba(255,255,255,.03)}
-.hero .hero-chips span.acc{border-color:#36e6ff;color:#7af1ff;box-shadow:0 0 16px rgba(54,230,255,.2)}
-.hero .hero-cta .btn{background:linear-gradient(180deg,#ff5b6b,#d6293c);border:1px solid rgba(255,150,160,.5);color:#fff;box-shadow:0 0 28px rgba(255,77,94,.4),0 8px 26px rgba(214,41,60,.3)}
-.hero .hero-note{font-family:"JetBrains Mono",ui-monospace,monospace;color:#8aa6c0}
-.hero .hero-note::before{content:"// "}
-.hero .hero-visual img{filter:invert(1) hue-rotate(160deg) saturate(1.45) brightness(1.12) drop-shadow(0 0 30px rgba(54,230,255,.32))}
-/* スマホ: 左上の「NGraph // Cyber Drill」はバッジと同じ内容でヘッダー直下に重なるので消し、ヘッダーとの間と各行の間をあける（css/sp.css が .hero を 88px !important にしているので section.hero で上書き・2026-10-26 本人「SPだとめちゃくちゃ詰まって見える」） */
-@media(max-width:768px){.hero .hud{display:none}section.hero{padding-top:112px!important}.hero .lp-badge{flex-wrap:nowrap;border-radius:3px;margin-bottom:18px}.hero .lp-badge .kana{flex-basis:auto;border-left:1px solid rgba(54,230,255,.3);padding-left:10px;margin-left:2px}.hero .hero-sub{margin-bottom:18px}}
-@media(max-width:360px){.hero .lp-badge{flex-wrap:wrap;border-radius:3px}.hero .lp-badge .kana{flex-basis:100%;border-left:none;padding-left:0;margin-left:0}}
-@media(max-width:380px){.hero .hero-tagline{font-size:1.5rem!important}}
-@media(max-width:360px){.hero .hero-tagline{font-size:1.25rem!important}} /* 英語は320pxで4行に分かれていた */
-@media(max-width:768px){.hero .hero-tagline{white-space:normal}}
-
-
-/* ==== WebGLシェーダー背景（Stripe系・2026） ==== */
-.hero-shader{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%}
-.hero::before{z-index:1}
-.hero .container{position:relative;z-index:3}
-.hero .hero-copy{z-index:3}
-.hero .hero-visual{z-index:2}
-
 /* ==== 脅威動向セクション ==== */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
 .stat{text-align:center;padding:28px 20px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.62)}
@@ -306,10 +267,7 @@
 .src-note{text-align:center;font-size:.8125rem;color:var(--text-3);margin:18px auto 0;max-width:760px;line-height:1.7}
 .bridge{text-align:center;font-family:var(--serif);font-size:var(--fs-h3);font-weight:700;margin-top:28px;line-height:1.7;color:var(--text)}
 @media(max-width:768px){.stats{grid-template-columns:1fr;gap:12px}.stat{padding:20px 16px}}
-.hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
-/* ドームの中のオフィスだけ元の色で重ねる（ドームは反転で光らせたまま） */
-.hero .hero-visual img.hero-office{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;z-index:2;pointer-events:none;filter:brightness(.97) drop-shadow(0 0 18px rgba(54,230,255,.25))}
-.hero-people{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+
 /* ==== 2026-10-19 訴求の組み替え：何の商品か・対象・期間・受け取るもの ==== */
 .hero .hero-lead{color:#d6e7f5;font-size:1rem;line-height:1.95;margin:0 0 20px;max-width:34em}
 .hero-facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin:0 0 26px;border:1px solid rgba(138,166,192,.4);border-radius:8px;background:rgba(8,16,30,.55)}
@@ -402,22 +360,6 @@
 .what-cap2{text-align:center;font-size:.875rem;color:var(--text-2);margin:16px 0 0}
 @media(max-width:900px){.paper{transform:rotate(-.8deg);padding:20px 18px 16px}.pp-note{position:static;display:inline-block;transform:rotate(-2deg);margin:4px 0 12px;max-width:none}.pp-big{font-size:3rem}}
 /* プラン（2枚） */
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:1060px;margin:0 auto 40px}
-.plan{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border-strong);border-radius:12px;padding:26px 28px 24px}
-.plan.p2{border:2px solid var(--accent);box-shadow:0 22px 44px rgba(36,66,122,.14)}
-.plan-ill{display:block;width:100%;max-width:260px;height:auto;margin:0 auto 14px;color:var(--accent)}
-.plan-ill .hot{stroke:#c2283a}
-.plan-k{display:flex;align-items:center;gap:10px;font-size:.8125rem;font-weight:700;letter-spacing:.1em;color:var(--text-3)}
-.plan-k span{letter-spacing:.04em;font-size:.75rem;color:#fff;background:var(--accent);border-radius:999px;padding:2px 10px}
-.plan-name{font-size:1.75rem;font-weight:900;line-height:1.3;margin:6px 0 4px}
-.plan-for{font-size:1rem;font-weight:700;color:var(--accent);line-height:1.6;margin:0 0 18px}
-.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.plan li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
-.plan li svg{width:20px;height:20px;margin-top:3px;fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.plan li b{display:block;font-size:1rem;line-height:1.5}
-.plan li small{display:block;font-size:.875rem;color:var(--text-2);line-height:1.7;margin-top:2px}
-.plan-ft{margin-top:auto;padding-top:18px;font-size:.875rem;color:var(--text-2);line-height:1.8}
-@media(max-width:860px){.plans{grid-template-columns:1fr;gap:18px}.plan{padding:22px 20px}.plan-name{font-size:1.5rem}.plan-ill{max-width:220px}}
 /* 点検メニュー（たたむ） */
 .menu-fold{max-width:960px;margin:0 auto;border:1px solid var(--border-strong);border-radius:8px;background:rgba(255,255,255,.7)}
 .menu-fold>summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:700;font-size:1rem;text-align:center;color:var(--accent)}
@@ -434,7 +376,7 @@
 .rpt-ord small{color:var(--text-3);font-size:.8125rem}
 
 @media(max-width:768px){
-  .hero .hero-lead{order:4;text-align:center;font-size:.875rem;line-height:1.85;margin:0 auto 14px}
+  .hero .hero-lead{order:4;text-align:center;font-size:.9375rem;line-height:1.85;margin:0 auto 14px}
   .hero-facts{order:4;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 16px;width:100%}
   .hero-facts>div{padding:10px 8px;text-align:center}
   .hero-facts dd{font-size:.875rem}
@@ -450,6 +392,147 @@
 #threat,#steps,#safety,#faq{background:var(--bg-2)}
 .section+.section{border-top:none}
 #team .fg-statement{margin-top:32px}
+/* ==== 2026-11-07 トップ/FDEと同じ見た目に（明るい地・平たい絵・金のボタン・紺の網目） ==== */
+.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hero .hero-visual{margin:0}
+.hero .hero-visual img{max-height:520px;width:100%;height:auto;object-fit:contain}
+.hero .hero-tagline .hl{color:var(--accent)}
+.hero .hero-lead{font-size:1.125rem;line-height:1.95;color:var(--text-2);margin:0 0 22px}
+.hero-facts{background:#fff;border:1px solid var(--border);border-radius:10px}
+.hero-facts>div{border-left:1px solid var(--border)}
+.hero-facts dt{font-family:var(--sans);letter-spacing:.06em;color:var(--accent);font-weight:700}
+.hero-facts dd{color:var(--text)}
+.hero-facts dd small{color:var(--text-3)}
+.hero .hero-sample{color:var(--text-2);font-weight:400}
+@media(max-width:900px){.hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}.hero .hero-visual{max-width:460px;margin:0 auto}.hero .hero-visual img{max-height:340px}}
+@media(max-width:768px){section.hero{padding-top:104px!important}.hero .lp-badge{margin-bottom:14px}.hero .hero-lead{font-size:1rem;line-height:1.85}.hero .hero-sample{font-size:.8125rem;color:var(--text-3)}}
+@media(max-width:360px){.hero-facts>div{border-top:1px solid var(--border)}}
+@media(max-width:768px){.hero .lp-badge{flex-wrap:nowrap;border-radius:3px}.hero .lp-badge .kana{flex-basis:auto;text-align:left;border-left:1px solid var(--border);padding-left:10px;margin-left:2px}}
+@media(max-width:360px){.hero .lp-badge{flex-wrap:wrap}.hero .lp-badge .kana{flex-basis:100%;border-left:none;padding-left:0;margin-left:0;text-align:center}}
+/* 攻撃者の地図：トップの最後の相談と同じ紺＋細い網目。ネオンの光と等幅の字はやめる */
+.scan{background:#0b1424;color:#fff}
+.scan::before{background-size:30px 52px}
+.scan{background:radial-gradient(900px 520px at 90% 6%,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(760px 480px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+.scan::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2252%22 viewBox=%220 0 30 52%22%3E%3Cpolygon points=%2215.00%2C8.66 0.00%2C17.32 -15.00%2C8.66 -15.00%2C-8.66 -0.00%2C-17.32 15.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C8.66 30.00%2C17.32 15.00%2C8.66 15.00%2C-8.66 30.00%2C-17.32 45.00%2C-8.66%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2230.00%2C34.66 15.00%2C43.32 0.00%2C34.66 0.00%2C17.34 15.00%2C8.68 30.00%2C17.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2215.00%2C60.66 0.00%2C69.32 -15.00%2C60.66 -15.00%2C43.34 -0.00%2C34.68 15.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3Cpolygon points=%2245.00%2C60.66 30.00%2C69.32 15.00%2C60.66 15.00%2C43.34 30.00%2C34.68 45.00%2C43.34%22 fill=%22none%22 stroke=%22%237fb2e6%22 stroke-width=%22.7%22/%3E%3C/svg%3E");opacity:.34;-webkit-mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%);mask-image:radial-gradient(620px 420px at 88% 8%,#000 0,transparent 100%),radial-gradient(520px 380px at 4% 98%,#000 0,transparent 100%)}
+@media (max-width:640px){
+  .scan{background:radial-gradient(420px 360px at 100% 0,#1b3a63 0,rgba(27,58,99,0) 72%),radial-gradient(380px 360px at 0 100%,#14304f 0,rgba(20,48,79,0) 72%),#0b1424}
+  .scan::before{-webkit-mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%);mask-image:radial-gradient(340px 300px at 100% 0,#000 0,transparent 100%),radial-gradient(300px 280px at 0 100%,#000 0,transparent 100%)}
+}
+.scan-h{text-shadow:none}
+.scan-sub,.scan-stats span,.amap-legend,.amap-c small{color:#b8c4d4}
+.scan-stats b{font-family:var(--sans);font-weight:700;color:#fff;text-shadow:none}
+.scan-stats .fix b{color:#ff8a8a;text-shadow:none}
+.scan-stats .chk b{color:#e3c46f;text-shadow:none}
+.amap-n{background:rgba(16,28,48,.92);border-color:rgba(160,180,205,.28)}
+.amap-n q{font-family:var(--sans);color:#cfd8e4}
+.amap-n q::before{content:"→ ";color:#8fa3bd}
+.amap-n.fix{border-color:rgba(255,138,138,.6);box-shadow:none}
+.amap-n.fix .tag{background:#e05a5a}
+.amap-n.fix q{color:#ffc2c2}.amap-n.fix q::before{color:#ff8a8a}
+.amap-n.chk{border-color:rgba(227,196,111,.55)}
+.amap-n.chk .tag{background:#c8a24a;color:#14213a}
+.amap-n.chk q{color:#f0dca4}.amap-n.chk q::before{color:#e3c46f}
+.amap-lines line{stroke:rgba(160,190,230,.35)}
+.amap-c{background:radial-gradient(circle,#1b3a63 0,#0f1d33 70%);border:1px solid rgba(160,190,230,.4)}
+.amap-c::before,.amap-c::after{border-color:rgba(160,190,230,.4)}
+.amap-c b{font-family:var(--sans)}
+.amap-legend .chk::before{background:#c8a24a}.amap-legend .fix::before{background:#e05a5a}
+.amap-note{color:#9fb0c6}
+/* プランの絵・頼む理由の絵を平たい絵に */
+.tcard img{width:110px;height:96px;object-fit:contain}
+/* 「なぜ毎月」の数字：ほかのページの進め方と同じく、丸は動かさず順に色が灯る */
+.what.in .what-list .n{animation:stepnum 3.6s ease-in-out infinite}
+.what.in .what-list li:nth-child(2) .n{animation-delay:1.2s}
+.what.in .what-list li:nth-child(3) .n{animation-delay:2.4s}
+@media(prefers-reduced-motion:reduce){.what.in .what-list .n{animation:none}}
+/* 報告書：本物の見本のページを重ねる */
+.rpt-stack{position:relative;display:block;width:100%;max-width:380px;aspect-ratio:900/1273;margin:0 auto 34px;text-decoration:none}
+.rpt-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:4px;box-shadow:0 14px 34px rgba(20,40,70,.18);background:#fff;transition:transform .35s ease}
+.rpt-stack .rs3{transform:translate(34px,22px) rotate(5deg)}
+.rpt-stack .rs2{transform:translate(17px,11px) rotate(2.5deg)}
+.rpt-stack .rs1{transform:rotate(-1.2deg)}
+.rpt-stack:hover .rs3{transform:translate(52px,26px) rotate(7deg)}
+.rpt-stack:hover .rs2{transform:translate(26px,13px) rotate(3.5deg)}
+.rs-cap{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;font-weight:700;color:var(--accent);border-bottom:1px solid currentColor}
+@media(max-width:900px){.rpt-stack{max-width:300px}}
+@media(max-width:480px){.rpt-stack{max-width:250px;left:-14px}}
+/* 2026-11-08 本人「無駄に切ってる」：2列だと1枚の文の幅が約9文字しかなく、語句ごとに折れて段々になる。スマホは1列にして1行を長く */
+@media(max-width:560px){.amap-grid{grid-template-columns:minmax(0,1fr)}.amap-n{padding:14px 16px}.amap-n b{font-size:1rem;padding-right:44px}.amap-n small,.amap-n q{font-size:.8125rem}}
+/* 攻撃者の地図：札のアイコン */
+.amap-n{padding-right:58px}
+.amap-ic{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(160,180,205,.12);color:#c9d4e2}
+.amap-ic svg{width:23px;height:23px}
+.amap-n.fix .amap-ic{background:rgba(224,90,90,.16);color:#ff9d9d}
+.amap-n.chk .amap-ic{background:rgba(200,162,74,.18);color:#e3c46f}
+@media(max-width:760px){.amap-n{padding-right:11px}.amap-ic{top:10px;right:10px;width:28px;height:28px}.amap-ic svg{width:16px;height:16px}}
+/* サービスと契約：比較表（1画面に収める） */
+.cmp{max-width:1120px;margin:0 auto 20px;display:grid;grid-template-columns:118px minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cmp>div{padding:12px 18px;border-top:1px solid var(--border);font-size:.9375rem;line-height:1.65}
+.cmp-h0,.cmp-h{border-top:none!important}
+.cmp-h{display:flex;align-items:center;gap:14px;padding:16px 18px!important}
+.cmp-h img{width:72px;height:64px;object-fit:contain;flex:none}
+.cmp-h b{display:block;font-size:1.375rem;line-height:1.3}
+.cmp-h small{display:block;font-size:.8125rem;color:var(--accent);font-weight:700;margin-top:2px}
+.cmp-n{display:inline-block;font-size:.75rem;font-weight:700;color:var(--text-3);letter-spacing:.08em}
+.cmp .p2{background:rgba(36,66,122,.045)}
+.cmp-h.p2{box-shadow:inset 0 3px 0 var(--accent)}
+.cmp-k{font-size:.8125rem!important;font-weight:700;color:var(--text-3);background:#f7f8fa}
+.cmp-v{color:var(--text)}
+@media(max-width:760px){
+  .cmp{grid-template-columns:1fr 1fr}
+  .cmp-h0{display:none}
+  .cmp-k{grid-column:1/-1;padding:6px 12px!important;text-align:center}
+  .cmp>div{padding:10px 12px;font-size:.875rem}
+  .cmp-h{flex-direction:column;align-items:flex-start;gap:6px;padding:12px!important}
+  .cmp-h img{width:56px;height:48px}
+  .cmp-h b{font-size:1.125rem}
+  .cmp-v{border-top:none!important}
+  .cmp-v:not(.p2){border-right:1px solid var(--border)}
+}
+/* 頼む理由：見出しは得られること、上に小さく手段 */
+.tc-k{font-size:.8125rem!important;font-weight:700;color:var(--accent);margin:0 0 4px!important}
+/* やられたら（危なさを具体に） */
+.harm{max-width:1000px;margin:26px auto 0;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center;background:#fff4f2;border:1px solid #f1c9c2;border-left:5px solid #c0392b;border-radius:10px;padding:16px 22px}
+.harm>b{font-size:1.125rem;color:#b03a2e;white-space:nowrap}
+.harm ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 22px;align-items:center}
+.harm li{position:relative;padding-left:16px;font-weight:700;font-size:.9375rem;line-height:1.6;color:var(--text)}
+.harm li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:#c0392b}
+.harm-src{grid-column:2;margin:0;font-size:.75rem;color:var(--text-3);line-height:1.6}
+@media(max-width:760px){.harm{grid-template-columns:1fr;gap:8px;padding:14px 16px}.harm ul{grid-template-columns:1fr}.harm-src{grid-column:1}}
+.cmp .p3{background:#faf7ef}
+.cmp-h.p3{box-shadow:inset 0 3px 0 var(--hot)}
+.cmp-h.p3 small{color:#8a6a1f}
+@media(max-width:1000px){.cmp-h{flex-direction:column;align-items:flex-start;gap:6px}.cmp-h img{width:60px;height:52px}.cmp-h b{font-size:1.125rem}}
+@media(max-width:760px){.cmp{grid-template-columns:1fr 1fr 1fr}.cmp>div{padding:9px 8px;font-size:.8125rem}.cmp-h{padding:10px 8px!important}.cmp-h small{font-size:.75rem}.cmp-v.p2{border-right:1px solid var(--border)}}
+/* 地図の中心：丸ではなく会社（ビルの印） */
+.amap-c{border-radius:22px!important;aspect-ratio:auto!important;padding:22px 18px!important;width:min(100%,210px)}
+.amap-c::before,.amap-c::after{border-radius:26px!important}
+.amap-bld{width:58px;height:58px;color:#cfe0f5;margin-bottom:8px}
+.amap-c small{font-size:.875rem!important;font-weight:700;color:#e3c46f!important;margin-top:4px}
+@media(max-width:760px){.amap-c{padding:14px 12px!important;width:180px}.amap-bld{width:44px;height:44px;margin-bottom:4px}}
+/* やること3ステップ */
+.steps3{grid-template-columns:repeat(3,1fr);max-width:920px}
+.loop-note{display:flex;align-items:center;justify-content:center;gap:10px;margin:30px auto 0;font-weight:700;color:var(--accent);font-size:1rem;text-align:center;flex-wrap:wrap}
+.loop-note svg{width:24px;height:24px;fill:none;stroke:var(--hot);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+@media(max-width:900px){.steps3{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.steps3{grid-template-columns:1fr;max-width:340px;gap:22px}.loop-note{font-size:.9375rem}}
+/* 3ステップを大きなカードに（本人 11/7「小さくないか」KAGUYA比） */
+.steps3{max-width:1120px;gap:24px}
+.steps3 .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:30px 26px 30px;box-shadow:0 10px 28px rgba(36,66,122,.06)}
+.steps3 .step img{width:100%;max-width:240px;height:190px;margin:0 auto 18px}
+.steps3 .step .n{left:22px;top:20px;width:40px;height:40px;font-size:.9375rem}
+.steps3 .step h3{font-size:1.5rem;margin-bottom:10px}
+.steps3 .step p{font-size:1rem;line-height:1.85}
+@media(max-width:900px){.steps3 .step{padding:22px 16px}.steps3 .step img{height:140px}.steps3 .step h3{font-size:1.25rem}.steps3 .step p{font-size:.9375rem}}
+@media(max-width:640px){.steps3{max-width:360px}.steps3 .step img{height:150px}.steps3 .step .n{left:16px;top:14px;width:34px;height:34px}}
+/* 地図の札：丸い枠は止めて、中のアイコンだけ fuwa */
+.amap-ic>svg{animation:fuwa 2.4s ease-in-out infinite}
+.amap-n:nth-child(3n) .amap-ic>svg{animation-delay:.6s}
+.amap-n:nth-child(3n+1) .amap-ic>svg{animation-delay:1.2s}
+@media(prefers-reduced-motion:reduce){.amap-ic>svg{animation:none}}
+/* English: headings must wrap (the Japanese page keeps them on fixed lines) */
+.hero .hero-tagline{white-space:normal}.hero .hero-tagline .nb{white-space:normal}
+@media(max-width:400px){.rs-cap{white-space:normal;width:100%;text-align:center}}
 </style>
 <link rel="stylesheet" href="/css/figures.css?v=36">
 <link rel="stylesheet" href="/css/sp.css?v=8">
@@ -473,29 +556,40 @@
 
 <!-- ── Hero ── -->
 <section class="hero">
-  <canvas id="heroShader" class="hero-shader" aria-hidden="true"></canvas>
-  <div class="hud"><span><b>NGraph</b> // Cyber Drill</span></div>
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="lp-badge"><img src="/assets/drill/icon_drill.png" alt=""><span class="nm">Cyber Drill</span></span>
-      <h1 class="hero-tagline" style="font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.2"><span class="nb">Before you are attacked,</span><br><span class="nb"><span class="hl">know your weak points.</span></span></h1>
-      <p class="hero-lead">We check the entry points that small and <span class="nb">mid-sized</span> companies show to the outside, the same way an attacker would — every month.</p>
+      <h1 class="hero-tagline" style="font-size:clamp(1.625rem,7.4vw,3.125rem);line-height:1.4">Through an attacker's eyes,<br>we check your company <span class="hl">every month</span>.</h1>
+      <p class="hero-lead">We look at your website, email, recruiting site and every other entry point visible from outside, the same way an attacker would, and tell you each month what to fix first.</p>
       <dl class="hero-facts">
-        <div><dt>Who</dt><dd><span class="nb">Companies in Fukui</span></dd></div>
-        <div><dt>How often</dt><dd><span class="nb">Every month</span><small>First report about 2 weeks after you apply</small></dd></div>
-        <div><dt>You get</dt><dd><span class="nb">A monthly report</span><small>New findings, impact, priorities</small></dd></div>
+        <div><dt>For</dt><dd>Companies in Fukui</dd></div>
+        <div><dt>How often</dt><dd>Monthly<small>First report about 2 weeks after you apply</small></dd></div>
+        <div><dt>You receive</dt><dd>A monthly report<small>Weak points, impact, what to fix first</small></dd></div>
       </dl>
       <div class="hero-cta">
-        <a href="#apply" class="btn btn-primary">Free Consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
+        <a href="#apply" class="btn btn-primary">Free consultation <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12m-4-4l4 4-4 4"/></svg></a>
         <a href="#what" class="hero-sample">See a sample report</a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <img src="/assets/drill/dome-shield.webp" alt="" width="954" height="800">
-      <img class="hero-office" src="/assets/drill/dome-office.webp" alt="" width="954" height="800">
-      <canvas class="hero-people" id="heroPeople" aria-hidden="true"></canvas>
-      <canvas class="hero-fx" id="heroFx" aria-hidden="true"></canvas>
+      <img src="/assets/drill/flat/hero.webp" alt="" width="1200" height="896">
     </div>
+  </div>
+</section>
+
+<!-- ── What we do ── -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">What Cyber Drill does</div>
+      <h2 class="section-title">We investigate, we tell you, and we help you fix it.</h2>
+    </div>
+    <ol class="steps4 steps3 reveal">
+      <li class="step"><span class="n">01</span><img src="/assets/drill/flat/plan-outside.webp" alt=""><h3>We look from outside</h3><p>Using the same tools as attackers, we map the entry points visible from outside. There is nothing for you to do.</p></li>
+      <li class="step"><span class="n">02</span><img src="/assets/drill/flat/reason-report-c.webp" alt=""><h3>You get a report</h3><p>What we found and what it means, with the order in which to fix it. You can read it without an IT person.</p></li>
+      <li class="step"><span class="n">03</span><img src="/assets/brain/ill/fde-s1.webp" alt=""><h3>We talk about fixing it</h3><p>If you are not sure how to fix something, we work on it with you. You can also hand the report straight to your vendor.</p></li>
+    </ol>
+    <p class="loop-note reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><span>We repeat this every month. An entry point that did not exist last month is found the next.</span></p>
   </div>
 </section>
 
@@ -503,86 +597,71 @@
 <section class="section section-alt" id="threat">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">What's happening now</div>
-      <h2 class="section-title"><span class="nb">"We're too small</span> <span class="nb">to be targeted"?</span></h2>
-      <p class="section-sub">No. Of 123 reported ransomware cases, 79 hit small and mid-sized companies. National Police Agency figures for the first half of 2026 (January–June).</p>
+      <div class="section-label">What is happening now</div>
+      <h2 class="section-title">"We are too small to be a target"?</h2>
+      <p class="section-sub">No. Of 123 reported ransomware cases, 79 hit small and medium-sized companies. These are the National Police Agency figures for the first half of 2026 (January to June).</p>
     </div>
     <div class="stats reveal">
-      <div class="stat"><div class="num" data-to="123">123</div><div class="lb">Ransomware cases reported (Jan–Jun 2026)</div><div class="meta"><b>The most for any half-year on record</b>. 79 were SMEs</div></div>
-      <div class="stat"><div class="num" data-to="51" data-prefix="+" data-suffix="%">+51%</div><div class="lb">Suspicious access (Jan–Jun 2026, year on year)</div><div class="meta">About 13,700 per IP address per day (about 9,100 a year earlier)</div></div>
-      <div class="stat"><div class="num" data-to="60" data-suffix="%">60%</div><div class="lb">Ransomware victims whose investigation and recovery cost ¥10 million or more</div><div class="meta">Jan–Jun 2026 — 21 of 35 responses</div></div>
+      <div class="stat"><div class="num" data-to="123">123</div><div class="lb">Reported ransomware cases (January to June 2026)</div><div class="meta"><b>The most ever for a half year</b>. 79 were small and medium-sized companies</div></div>
+      <div class="stat"><div class="num" data-to="51" data-prefix="+" data-suffix="%">+51%</div><div class="lb">Suspicious access (January to June 2026, vs. the same period last year)</div><div class="meta">About 13,700 per day per IP address (about 9,100 a year earlier)</div></div>
+      <div class="stat"><div class="num" data-to="60" data-prefix="About " data-suffix="%">About 60%</div><div class="lb">Ransomware victims who spent<br>10 million yen or more on investigation and recovery</div><div class="meta">January to June 2026, 21 of 35 responses</div></div>
     </div>
-    <p class="src-note reveal">Source: National Police Agency, "Threats in Cyberspace in the First Half of 2026" (published September 2026). Growth rate calculated from the figures in that report</p>
-    <p class="bridge reveal">This could be you. That is why we first check the entry points visible from outside.</p>
-    <div style="text-align:center;margin-top:18px"><a href="#apply" class="btn btn-primary">Free Consultation →</a></div>
+    <p class="src-note reveal">Source: National Police Agency, "Situation of Threats in Cyberspace in the First Half of 2026" (published September 2026; in Japanese). The rate of increase is calculated from the figures in that document.</p>
+    <p class="bridge reveal">This is not someone else's problem. That is why we start by checking the entry points visible from outside.</p>
+    <div style="text-align:center;margin-top:18px"><a href="#apply" class="btn btn-primary">Free consultation →</a></div>
   </div>
 </section>
 
-<!-- ── Attacker's view ── -->
+<!-- ── The attacker's screen ── -->
 <section class="scan" id="scan">
   <div class="container">
-    <h2 class="scan-h reveal"><span class="nb">This is what</span> <span class="nb">an attacker sees.</span></h2>
-    <p class="scan-sub reveal">Starting from one domain, we map everything visible from outside. (A sample first check for a fictional company.)</p>
-    <ul class="scan-stats reveal"><li><b>8</b><span>Entry points visible</span></li><li class="fix"><b>3</b><span>Fix now</span></li><li class="chk"><b>3</b><span>Please check</span></li></ul>
+    <h2 class="scan-h reveal">This is what an attacker sees.</h2>
+    <p class="scan-sub reveal">From a single domain, we map everything visible from outside. (A sample of a first checkup.)</p>
+    <ul class="scan-stats reveal"><li><b>8</b><span>Entry points visible</span></li><li class="fix"><b>3</b><span>Fix now</span></li><li class="chk"><b>4</b><span>To check</span></li></ul>
     <div class="amap reveal">
       <div class="amap-grid">
         <svg class="amap-lines" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true"><line x1="150" y1="150" x2="50" y2="50"/><line x1="150" y1="150" x2="150" y2="50"/><line x1="150" y1="150" x2="250" y2="50"/><line x1="150" y1="150" x2="50" y2="150"/><line x1="150" y1="150" x2="250" y2="150"/><line x1="150" y1="150" x2="50" y2="250"/><line x1="150" y1="150" x2="150" y2="250"/><line x1="150" y1="150" x2="250" y2="250"/></svg>
-        <div class="amap-n ok" style="--d:0.12s"><span class="tag">OK</span><b>Public website</b><small>Encryption and basic settings are fine</small><q>Solid. Look elsewhere</q></div>
-        <div class="amap-n fix" style="--d:0.24s"><span class="tag">Fix</span><b>Unused old site</b><small>A campaign page from three years ago, never updated</small><q>Never patched. This is the way in</q></div>
-        <div class="amap-n chk" style="--d:0.36s"><span class="tag">Check</span><b>Admin page</b><small>The login page can be opened from outside</small><q>I can try passwords here</q></div>
-        <div class="amap-n chk" style="--d:0.48s"><span class="tag">Check</span><b>Email settings</b><small>The setting that stops spoofed email is weak</small><q>I can send email in their name</q></div>
-        <div class="amap-c"><b>example-kaisha.jp</b><small>A fictional company</small></div>
-        <div class="amap-n fix" style="--d:0.60s"><span class="tag">Fix</span><b>VPN device</b><small>Running a version with a published weakness</small><q>The published weakness works as is</q></div>
-        <div class="amap-n chk" style="--d:0.72s"><span class="tag">Check</span><b>Services visible from outside</b><small>Server, email and payment providers</small><q>A fake "renewal notice" will get opened</q></div>
-        <div class="amap-n fix" style="--d:0.84s"><span class="tag">Fix</span><b>Leftovers of cancelled services</b><small>One unused setting still points to an old service</small><q>A setting I could take over</q></div>
-        <div class="amap-n ok" style="--d:0.96s"><span class="tag">OK</span><b>Look-alike domains</b><small>None that could be used to impersonate them</small><q>No fake domain to grab</q></div>
+        <div class="amap-n chk" style="--d:0.12s"><span class="tag">Check</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="16.5" cy="9.5" r="2.5"/><path d="M15.5 14.2c2.6.1 4.4 1.8 5 4.8"/></svg></i><b>Staff names and job titles</b><small>The recruiting page lists the president and accounting staff. Names of people who left are still there</small><q>Someone could pose as the president and tell accounting to make a transfer</q></div>
+        <div class="amap-n fix" style="--d:0.24s"><span class="tag">Fix</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M9 7V5h6v2"/><path d="M3.5 12h17"/></svg></i><b>Recruiting site</b><small>Built years ago and never updated. The software behind it is an old version</small><q>A publicly known weakness lets an attacker in</q></div>
+        <div class="amap-n chk" style="--d:0.36s"><span class="tag">Check</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="14" rx="1.5"/><path d="M3.5 8h17"/><rect x="9" y="12" width="6" height="4.5" rx="1"/><path d="M10.3 12v-1.3a1.7 1.7 0 0 1 3.4 0V12"/></svg></i><b>Admin screen</b><small>The login page can be opened from outside</small><q>Passwords can be tried</q></div>
+        <div class="amap-n chk" style="--d:0.48s"><span class="tag">Check</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg></i><b>Email settings</b><small>The settings that block fake emails are weak</small><q>Emails can be sent in this company's name</q></div>
+        <div class="amap-c"><svg class="amap-bld" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 56V14l20-8v50M32 56V22h20v34M6 56h52"/><path d="M19 20h6M19 28h6M19 36h6M19 44h6M39 30h6M39 38h6M39 46h6"/></svg><b>example-kaisha.jp</b><small>Your company</small></div>
+        <div class="amap-n fix" style="--d:0.60s"><span class="tag">Fix</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="10" width="17" height="7" rx="1.5"/><path d="M7 13.5h1M10 13.5h1M15 10l-2-4M18 10l2-4"/></svg></i><b>VPN device</b><small>Running a version with a publicly known weakness</small><q>The known weakness can be used as it is</q></div>
+        <div class="amap-n chk" style="--d:0.72s"><span class="tag">Check</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/></svg></i><b>Vendors visible from outside</b><small>Three companies: server, email and payment</small><q>A fake "renewal notice" from one of them would get opened</q></div>
+        <div class="amap-n fix" style="--d:0.84s"><span class="tag">Fix</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/><path d="M4 4l3 3M20 20l-3-3"/></svg></i><b>Subdomain that can be taken over</b><small>Still points to a service that was cancelled, and the setting was left in place</small><q>Someone else could create a page under your company's name</q></div>
+        <div class="amap-n ok" style="--d:0.96s"><span class="tag">OK</span><i class="amap-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M8 10.5h5"/></svg></i><b>Look-alike domains</b><small>None found that could be used for impersonation</small><q>No fake domain is available to register</q></div>
       </div>
-      <ul class="amap-legend"><li>OK</li><li class="chk">Check (please confirm)</li><li class="fix">Fix (we tell you the order)</li></ul>
-      <p class="amap-note">This is a sample for a fictional company. A real check shows what we found and what we did not check.</p>
+      <ul class="amap-legend"><li>OK</li><li class="chk">Check (please confirm)</li><li class="fix">Fix (we give you the order)</li></ul>
+      <p class="amap-note">This is a sample. In a real checkup, we list what we found and which areas we did not check.</p>
     </div>
   </div>
 </section>
 
-<!-- ── What you learn ── -->
+<!-- ── What the checkup tells you ── -->
 <section class="section" id="what">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Why every month</div>
-      <h2 class="section-title"><span class="nb">One check</span> <span class="nb">can't see next month.</span></h2>
-      <p class="section-sub">What is visible from outside changes every month. So we check every month and send you one page.</p>
+      <h2 class="section-title">With AI, attacks got faster. Last month's safety is this month's open door.</h2>
+      <p class="section-sub">Attackers use AI and automated tools to hunt for publicly known weaknesses and open entry points. They will not wait until you find them first.</p>
     </div>
     <div class="what reveal">
       <ol class="what-list">
-        <li><span class="n">1</span><div><b>New weaknesses are published</b><p>New weaknesses are found in devices and software almost every month. A device that was fine last month can be an entry point this month.</p></div></li>
-        <li><span class="n">2</span><div><b>Things become visible without you knowing</b><p>A test site, a newly contracted service, a device whose settings changed. Entry points grow with everyday work.</p></div></li>
-        <li><span class="n">3</span><div><b>Deadlines and leftover settings</b><p>Domain expiry, leftovers of cancelled services, email settings. Left alone, they become material for impersonation.</p></div></li>
+        <li><span class="n">1</span><div><b>Known weaknesses are attacked quickly</b><p>When a weakness in a device you use is made public, attackers search for that same device everywhere at once. If you have not fixed it, that is the way in.</p></div></li>
+        <li><span class="n">2</span><div><b>Someone's work adds new entry points</b><p>A test site, a newly signed service, a device with changed settings. Without anyone noticing, they become visible from outside.</p></div></li>
+        <li><span class="n">3</span><div><b>Settings left alone become material for impersonation</b><p>An expiring domain, leftovers from a cancelled service, weak email settings. A fake invoice sent to your business partners goes out in your company's name.</p></div></li>
       </ol>
-      <div class="paper-wrap" role="img" aria-label="Sample monthly report: one item to fix now, a chart of issues falling from 6 to 3, this month's changes and the order of fixes">
-        <div class="paper">
-          <div class="pp-top"><b>Monthly report · November 2026</b><small>example-kaisha.jp (fictional) · sample</small></div>
-          <div class="pp-verdict"><div class="pp-big">1</div><p>item to fix now<small>Update the VPN device, this week</small></p></div>
-          <p class="pp-k">ITEMS TO FIX OR CHECK</p>
-          <div class="pp-bars"><div class="pp-bar" style="--v:6"><em>6</em><i></i></div><div class="pp-bar" style="--v:4"><em>4</em><i></i></div><div class="pp-bar now" style="--v:3"><em>3</em><i></i></div></div>
-          <div class="pp-mon"><span>Sep (first)</span><span>Oct</span><span>Nov</span></div>
-          <p class="pp-k">CHANGES THIS MONTH</p>
-          <ul class="rpt-chg">
-            <li><span class="tag">New weakness</span><span>A weakness was published for the version of your VPN device</span></li>
-            <li><span class="tag chk">Newly visible</span><span>A test site became visible from outside</span></li>
-            <li><span class="tag ok">Resolved</span><span>The email setting we flagged last month has been fixed</span></li>
-          </ul>
-          <p class="pp-k">WHAT TO FIX FIRST</p>
-          <ol class="rpt-ord">
-            <li>Update the VPN device <small>(this week)</small></li>
-            <li>Close the test site <small>(this month)</small></li>
-            <li>Check domain auto-renewal <small>(one minute in the admin panel)</small></li>
-          </ol>
-          <div class="pp-note">Just hand this page to your vendor</div>
-        </div>
-      </div>
+      <a class="rpt-stack" href="/assets/drill/cyber-drill-sample.pdf" target="_blank" rel="noopener" aria-label="Open the sample report (PDF, fictional company, 7 pages, in Japanese)">
+        <img class="rs3" src="/assets/drill/report-p6.webp" alt="" loading="lazy" width="900" height="1273">
+        <img class="rs2" src="/assets/drill/report-p2.webp" alt="" loading="lazy" width="900" height="1273">
+        <img class="rs1" src="/assets/drill/report-p1.webp" alt="Page 1 of the sample report (in Japanese): overall rating, three conclusions and the points to check first" loading="lazy" width="900" height="1273">
+        <span class="rs-cap">Open the sample (PDF, 7 pages, in Japanese)</span>
+      </a>
 
     </div>
-    <p class="what-cap2 reveal">One page a month, in words you can read without an IT person.</p>
-    <p class="selfcheck reveal">For internal rules, you can use IPA's <a href="https://www.ipa.go.jp/security/guide/sme/5minutes.html" target="_blank" rel="noopener"><span class="nb">5-minute</span> information security <span class="nb">self-check</span></a> (25 questions, in Japanese).</p>
+    <p class="what-cap2 reveal">The sample is in the same format as a real report (fictional company, written in Japanese). The first report looks like this. From the second month on, we report what changed since last time, in words you can read without an IT person.</p>
+    <div class="harm reveal"><b>If you are attacked</b><ul><li>Your business stops (orders, shipping, accounting)</li><li>Fake emails go to your business partners in your company's name</li><li>Recovery costs 10 million yen or more: about 60%</li></ul><p class="harm-src">Source for the third item: National Police Agency, "Situation of Threats in Cyberspace in the First Half of 2026", ransomware victims (21 of 35 responses; in Japanese)</p></div>
+    <p class="selfcheck reveal">You can check your internal rules with the IPA's <a href="https://www.ipa.go.jp/security/guide/sme/5minutes.html" target="_blank" rel="noopener">"5-minute Information Security Self-Assessment" (25 questions, in Japanese)</a>.</p>
   </div>
 </section>
 
@@ -590,61 +669,47 @@
 <section class="section section-alt" id="steps">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Plans</div>
-      <h2 class="section-title"><span class="nb">Outside only,</span> <span class="nb">or inside too.</span></h2>
-      <p class="section-sub">Both are monthly checkups. We never touch your devices or systems, so your work is not disrupted.</p>
+      <div class="section-label">Service and contract</div>
+      <h2 class="section-title">A monthly checkup. Outside only, or inside too?</h2>
+      <p class="section-sub">There are two plans, both on a monthly subscription. Neither touches your devices or systems, so your work does not stop. A hands-on test is an option, only when you ask for it.</p>
     </div>
-    <div class="plans reveal">
-      <div class="plan p1">
-        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 108h160"/><path d="M40 108V44l50-26 50 26v64"/><rect x="56" y="56" width="16" height="16"/><rect x="108" y="56" width="16" height="16"/><path d="M82 108V84h16v24"/><circle class="hot" cx="186" cy="58" r="22"/><path class="hot" d="M202 74l22 22"/><path d="M176 50a12 12 0 0 1 12-5" opacity=".6"/></svg>
-        <div class="plan-k">Plan 1<span>Monthly</span></div>
-        <h3 class="plan-name">Outside view</h3>
-        <p class="plan-for">For companies that first want to know which entry points are exposed</p>
-        <ul>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Map your visible entry points every month</b><small>Public information only. We ask nothing of you and never access your systems</small></div></li>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Monthly report</b><small>What changed, the impact, and what to fix first. We also state what we did not check</small></div></li>
-        </ul>
-        <p class="plan-ft">We never touch your devices or systems, so your work is not disrupted.</p>
-      </div>
-      <div class="plan p2">
-        <svg class="plan-ill" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 108h212"/><path d="M30 108V40l90-24 90 24v68"/><path d="M104 108V80h20v28"/><path d="M124 80l12 5v23"/><circle class="hot" cx="66" cy="66" r="8"/><path class="hot" d="M74 66h24M90 66v8M96 66v6"/><rect x="152" y="56" width="34" height="22" rx="2"/><path d="M152 58l17 12 17-12"/></svg>
-        <div class="plan-k">Plan 2<span>Monthly + every six months</span></div>
-        <h3 class="plan-name">Inside view</h3>
-        <p class="plan-for">For companies that want to explain their security to business partners</p>
-        <ul>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Outside view (everything in Plan 1)</b></div></li>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Email and account settings</b><small>Read-only review of Google Workspace or Microsoft 365. Access is removed afterward</small></div></li>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Breach lookup</b><small>Whether staff addresses appear in past breaches. We never see passwords</small></div></li>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Preparedness interview</b><small>Bank-detail changes, backups, who to call and how to notify. 30 minutes online</small></div></li>
-          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><div><b>Training emails to staff</b><small>Can staff spot a fake email? Nobody is asked to enter a password</small></div></li>
-        </ul>
-        <p class="plan-ft">Settings, breach lookup, interview and training emails every six months, after agreeing the scope in writing.</p>
-      </div>
+    <div class="cmp reveal">
+      <div class="cmp-k cmp-h0"></div>
+      <div class="cmp-h"><img src="/assets/drill/flat/plan-outside.webp" alt="" loading="lazy"><div><span class="cmp-n">Plan 1</span><b>Outside view</b><small>For companies that first want to know which entry points attackers can see</small></div></div>
+      <div class="cmp-h p2"><img src="/assets/drill/flat/plan-inside.webp" alt="" loading="lazy"><div><span class="cmp-n">Plan 2</span><b>Inside view</b><small>For companies that need to explain their measures to business partners</small></div></div>
+      <div class="cmp-h p3"><img src="/assets/drill/flat/plan-test.webp" alt="" loading="lazy"><div><span class="cmp-n">Option</span><b>Hands-on test</b><small>For companies that want to confirm whether an attacker can really get in</small></div></div>
+      <div class="cmp-k">What we look at</div><div class="cmp-v">Entry points visible from outside (public information only)</div><div class="cmp-v p2">The outside view (everything in Plan 1), plus email and account settings, a breach lookup, a preparedness interview and training emails to staff</div><div class="cmp-v p3">Confirming device weaknesses, web application testing, on-site device checks</div>
+      <div class="cmp-k">How often</div><div class="cmp-v">Monthly</div><div class="cmp-v p2">Outside: monthly. Inside: every six months</div><div class="cmp-v p3">When you ask for it</div>
+      <div class="cmp-k">What you receive</div><div class="cmp-v">A monthly report (what changed, impact, what to fix first)</div><div class="cmp-v p2">The monthly report, plus a report every six months</div><div class="cmp-v p3">A report on the test (where we got in and where we could not)</div>
+      <div class="cmp-k">Your effort</div><div class="cmp-v">None (we only ask for your domain)</div><div class="cmp-v p2">A 30-minute interview and read-only access</div><div class="cmp-v p3">We agree the scope and permission in writing</div>
+      <div class="cmp-k">Contract</div><div class="cmp-v">Monthly subscription</div><div class="cmp-v p2">Monthly subscription</div><div class="cmp-v p3">Quoted each time</div>
+      <div class="cmp-k">Price</div><div class="cmp-v">Explained in a free consultation</div><div class="cmp-v p2">Explained in a free consultation</div><div class="cmp-v p3">Quoted for your scope</div>
     </div>
-    <details class="menu-fold reveal"><summary>See all 13 items we check</summary>
+    <details class="menu-fold reveal"><summary>See all the items we check (14)</summary>
     <div class="menu">
-      <div class="menu-g"><span class="n">01</span><b>Outside view</b><small>Plans 1 and 2 · Public information only</small></div>
+      <div class="menu-g"><span class="n">01</span><b>Outside view</b><small>Plans 1 and 2, public information only</small></div>
       <ul class="menu-list">
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M8 24h32M24 8c5 5 7 10 7 16s-2 11-7 16M24 8c-5 5-7 10-7 16s2 11 7 16"/></svg><b>Inventory of public sites</b><small>Old sites no longer in use but still online</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="2"/><path d="M6 14l18 13 18-13"/></svg><b>Email spoofing protection</b><small>SPF, DKIM and DMARC settings</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="28" rx="2"/><path d="M6 16h36"/><rect x="17" y="24" width="14" height="9" rx="1.5"/><path d="M20 24v-3a4 4 0 0 1 8 0v3"/></svg><b>Admin and login pages</b><small>Entry points visible from outside</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="18" width="36" height="14" rx="2"/><path d="M12 25h2M18 25h2"/><path d="M30 18l-4-8M36 18l4-8"/><path d="M33 38v-2"/><circle cx="33" cy="25" r="0.6"/></svg><b>Outdated VPN devices and software</b><small>Versions with known weaknesses</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="21" width="26" height="19" rx="2"/><path d="M16 21v-5a8 8 0 0 1 16 0v5"/><path d="M24 28v5"/></svg><b>Basic web settings</b><small>Encryption (TLS) and security headers</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M28 28l12 12"/><path d="M15 20h10"/></svg><b>Look-alike domains</b><small>Names that could be used to impersonate you</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v24H8z"/><path d="M8 18h32"/><path d="M14 26h12M14 31h8"/></svg><b>Services visible from outside</b><small>Material for fake emails posing as your providers</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14h28M18 14V9h12v5M14 14l2 26h16l2-26"/></svg><b>Leftovers of cancelled services</b><small>Settings still pointing to services you no longer use</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="30" rx="2"/><path d="M8 18h32M16 6v8M32 6v8"/><path d="M17 28l5 5 9-9"/></svg><b>Domain management</b><small>Expiry, transfer lock and more</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M8 24h32M24 8c5 5 7 10 7 16s-2 11-7 16M24 8c-5 5-7 10-7 16s2 11 7 16"/></svg><b>Inventory of your public sites</b><small>Including recruiting sites and old sites no longer used</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="2"/><path d="M6 14l18 13 18-13"/></svg><b>Protection against fake email</b><small>SPF, DKIM and DMARC settings</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="28" rx="2"/><path d="M6 16h36"/><rect x="17" y="24" width="14" height="9" rx="1.5"/><path d="M20 24v-3a4 4 0 0 1 8 0v3"/></svg><b>Admin screens and login pages</b><small>Whether entry points are visible from outside</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="18" width="36" height="14" rx="2"/><path d="M12 25h2M18 25h2"/><path d="M30 18l-4-8M36 18l4-8"/><path d="M33 38v-2"/><circle cx="33" cy="25" r="0.6"/></svg><b>Outdated VPN devices and software</b><small>Whether versions with known weaknesses are still in use</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="21" width="26" height="19" rx="2"/><path d="M16 21v-5a8 8 0 0 1 16 0v5"/><path d="M24 28v5"/></svg><b>Basic web settings</b><small>Encryption (TLS) and security settings</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M28 28l12 12"/><path d="M15 20h10"/></svg><b>Look-alike domains</b><small>Ones likely to be used for fake sites</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v24H8z"/><path d="M8 18h32"/><path d="M14 26h12M14 31h8"/></svg><b>Vendors visible from outside</b><small>Whether they could be used for fake emails posing as a vendor</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="17" r="6"/><path d="M7 38c1-6.5 5.5-10 11-10s10 3.5 11 10"/><circle cx="33" cy="19" r="5"/><path d="M31 28.5c5 .3 8.6 3.7 9.6 9.5"/></svg><b>How staff names and titles appear</b><small>Whether they could be used for fake emails (reported as numbers and trends)</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14h28M18 14V9h12v5M14 14l2 26h16l2-26"/></svg><b>Subdomains that can be taken over</b><small>Settings still pointing to a cancelled service</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="30" rx="2"/><path d="M8 18h32M16 6v8M32 6v8"/><path d="M17 28l5 5 9-9"/></svg><b>Domain management status</b><small>Expiry date, transfer lock and so on</small></li>
       </ul>
-      <div class="menu-g"><span class="n">02</span><b>Inside view</b><small>Plan 2 · Only within the scope you authorize in writing</small></div>
+      <div class="menu-g"><span class="n">02</span><b>Inside view</b><small>Plan 2, only within the scope you authorize in writing</small></div>
       <ul class="menu-list">
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="28" rx="2"/><path d="M6 16h36"/><circle cx="20" cy="27" r="4"/><path d="M27 25h9M27 30h6"/></svg><b>Email and account settings</b><small>Read-only review</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M28 28l12 12"/><path d="M20 15v6M20 25v.5"/></svg><b>Breach lookup</b><small>Staff addresses in past breaches</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h28a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H18l-8 7v-7H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path d="M12 18h16M12 23h10"/></svg><b>Preparedness interview</b><small>Bank-detail changes, backups, incident contacts</small></li>
-        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="26" height="18" rx="2"/><path d="M5 10l13 9 13-9"/><path d="M38 14v18a6 6 0 0 1-12 0v-2l3 3"/></svg><b>Training emails to staff</b><small>Can staff spot a fake email?</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="28" rx="2"/><path d="M6 16h36"/><circle cx="20" cy="27" r="4"/><path d="M27 25h9M27 30h6"/></svg><b>Email and account settings</b><small>Checked read-only</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M28 28l12 12"/><path d="M20 15v6M20 25v.5"/></svg><b>Breach lookup</b><small>Whether staff email addresses appear in known leaks</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h28a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H18l-8 7v-7H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path d="M12 18h16M12 23h10"/></svg><b>Preparedness interview</b><small>Changes to payment details, backups, reporting an incident</small></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="26" height="18" rx="2"/><path d="M5 10l13 9 13-9"/><path d="M38 14v18a6 6 0 0 1-12 0v-2l3 3"/></svg><b>Training emails to staff</b><small>Whether staff can spot a fake email</small></li>
       </ul>
     </div>
     </details>
-    <p class="stage-note reveal">Fixing what we find is quoted separately, and we work on it with you. Tests that actually touch your devices or systems, and on-site device checks, are available on request.</p>
+    <p class="stage-note reveal">Fixing the weaknesses we find is quoted separately, and we work on it with you.</p>
   </div>
 </section>
 
@@ -653,28 +718,33 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Why NGraph</div>
-      <h2 class="section-title"><span class="nb">Not a dashboard.</span> <span class="nb">A person reads it and tells you.</span></h2>
+      <h2 class="section-title">The day you read it, you know what to fix first.</h2>
+      <p class="section-sub">We do not stop at the checkup. We go as far as making sure you are never unsure what to do next.</p>
     </div>
     <div class="trio quad reveal">
       <div class="tcard">
-        <img src="/assets/drill/icon16_people.png" alt="">
-        <h3>Two people do the work</h3>
-        <p>The people who listen to you are the people who check. Nothing gets lost in hand-offs.</p>
+        <img src="/assets/brain/ill/fde-s1.webp" alt="">
+        <p class="tc-k">The two of us do the work ourselves</p>
+        <h3>No need to explain yourself again</h3>
+        <p>The person you talked to does the investigation, so we answer with your situation in mind. Questions are answered on the spot.</p>
       </div>
       <div class="tcard">
         <img src="/assets/starter/icon17_ai.png" alt="">
-        <h3>Use AI to see like an attacker</h3>
-        <p>Attackers use AI. So do we: with AI and testing tools, we map your entry points every month.</p>
+        <p class="tc-k">AI puts us in the attacker's seat</p>
+        <h3>We find new entry points sooner</h3>
+        <p>Attackers now use AI to look for entry points too. We map them every month with the same tools, so you notice new ones early.</p>
       </div>
       <div class="tcard">
-        <img src="/assets/drill/icon_law_folder.png" alt="">
-        <h3>Readable without an IT person</h3>
-        <p>Not a list of jargon, but what to fix first on one page. You can hand it straight to your vendor.</p>
+        <img src="/assets/drill/flat/reason-report-c.webp" alt="">
+        <p class="tc-k">Readable without an IT person</p>
+        <h3>Decide in-house, then hand it straight to your vendor</h3>
+        <p>Not a list of technical terms, but what to fix first, in order. That one page is all your vendor needs.</p>
       </div>
       <div class="tcard">
-        <img src="/assets/drill/icon16_shield.png" alt="">
-        <h3>No product selling</h3>
-        <p>We start with settings and how you work. Fixing is quoted separately, and products only where needed.</p>
+        <img src="/assets/starter/icon14_q2.png" alt="">
+        <p class="tc-k">We do not sell products</p>
+        <h3>No unnecessary spending</h3>
+        <p>We start with what can be fixed through settings and operations. Products only where something is really missing.</p>
       </div>
     </div>
   </div>
@@ -684,72 +754,21 @@
 <section class="section section-alt" id="safety">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-label">Safety</div>
-      <h2 class="section-title"><span class="nb">We agree in writing</span> <span class="nb">before we start.</span></h2>
+      <div class="section-label">For your safety</div>
+      <h2 class="section-title">Before we start, we agree in writing.</h2>
     </div>
     <ul class="rules reveal">
-      <li>We confirm admin rights and permission, and work only within the scope agreed in writing</li>
-      <li>Inside checks are read-only, time-limited, and access is removed afterward</li>
-      <li>Training emails never ask staff to enter real passwords or similar information</li>
-      <li>The results also state what we could not do and what we did not check</li>
+      <li>We confirm your admin rights and permission, and work only within the scope agreed in writing</li>
+      <li>When we look inside, it is read-only. We set a time limit and remove our access when we finish</li>
+      <li>Training emails never ask for real passwords or similar</li>
+      <li>We also write down any items we could not do and any areas we did not check</li>
     </ul>
-    <p class="scope reveal">Not included: the cost of equipment or products, large-scale system overhauls, 24-hour monitoring, and emergency recovery after an incident.</p>
-  </div>
-</section>
-
-<!-- ── Team ── -->
-<section class="section" id="team">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Team</div>
-      <h2 class="section-title"><span class="nb">These two people</span> <span class="nb">will work with you.</span></h2>
-    </div>
-    <!-- fig:team -->
-    <div class="fg fg-team reveal">
-      <div class="tm-person tm-l">
-        <img class="tm-photo" src="/assets/brain/deck/b11e463075.jpg" alt="Shingo Takahashi" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">Workplace and business</p>
-          <p class="tm-name tm-name-en">Shingo Takahashi</p>
-          <p class="tm-en" lang="ja">髙橋 真吾</p>
-          <p class="tm-title"><span class="nb">CEO /</span> <span class="nb">AI Planner</span></p>
-          <p class="tm-tag">Listens to the workplace and turns it into requirements.</p>
-          <ul class="tm-list">
-            <li>Workplace interviews, process design</li>
-            <li>Adoption support, subsidy applications</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tm-center">
-        <div class="tm-link">
-          <span class="tm-ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 8h14l6 6v22H20z"/><path d="M34 8v6h6"/><path d="M30 22h6M30 27h6M30 32h4"/><circle class="w" cx="16" cy="27" r="9.5"/><path class="w" d="M10.5 34.5L7.5 40.5 14.5 37"/><circle class="dot" cx="12.5" cy="27" r="1.3"/><circle class="dot" cx="16" cy="27" r="1.3"/><circle class="dot" cx="19.5" cy="27" r="1.3"/></svg></span>
-          <span class="tm-line" aria-hidden="true"></span>
-          <span class="tm-ic"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="8" cy="8" r="5"/><circle cx="48" cy="8" r="5"/><circle cx="8" cy="48" r="5"/><circle cx="48" cy="48" r="5"/><path d="M11.6 11.6l7.9 7.9M44.4 11.6l-7.9 7.9M11.6 44.4l7.9-7.9M44.4 44.4l-7.9-7.9"/><circle class="w" cx="28" cy="28" r="12"/><text x="28" y="28" class="ai">AI</text></svg></span>
-        </div>
-        <p class="tm-lead">Planning and building,<br>directly linked</p>
-        <p class="tm-sub">Two people handle your work directly</p>
-      </div>
-      <div class="tm-person tm-r">
-        <img class="tm-photo" src="/assets/brain/deck/516913d0d3.jpg" alt="Matt Chana" loading="lazy">
-        <div class="tm-txt">
-          <p class="tm-role">Technology and building</p>
-          <p class="tm-name tm-name-en">Matt Chana</p>
-          <p class="tm-en">Matthew John Chana</p>
-          <p class="tm-title"><span class="nb">CTO /</span> <span class="nb">AI Engineer</span></p>
-          <p class="tm-tag">Turns requirements into working AI.</p>
-          <ul class="tm-list">
-            <li>About 10 years at a robotics and AI company in Silicon Valley</li>
-            <li><span class="nb">AI agents / RAG / MCP</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <p class="fg-statement reveal"><span class="nb">The person who listens</span> <span class="nb">and the person who builds <em>are directly connected.</em></span><br><small class="fg-team-sub"><span class="nb">Nothing lost in relay:</span> <span class="nb">the reality on site goes straight into the AI.</span></small></p>
+    <p class="scope reveal">Not included: equipment and product costs, large-scale remediation, 24-hour monitoring, and emergency recovery after an attack.</p>
   </div>
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section section-alt" id="faq">
+<section class="section" id="faq">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">FAQ</div>
@@ -764,18 +783,18 @@
       <details><summary>Once we have a check, are we safe?</summary><p>No. New weaknesses keep being found (for example, a serious PHP vulnerability in October 2026). Attackers use AI and their methods keep changing. That is why we check every month and tell you what changed.</p></details>
       <details><summary>Can companies outside Fukui Prefecture apply?</summary><p>During the pilot period, we are limiting this to companies in Fukui Prefecture.</p></details>
       <details><summary>We are under attack right now. Can you help?</summary><p>Immediate incident response itself (containing the breach and restoring systems) is outside our scope. To stop the damage from spreading, please contact the police cyber desk or the IPA (Information-technology Promotion Agency, Japan) first. After things settle, we can help investigate the cause and run a prevention-focused assessment, so feel free to reach out to us as well.</p></details>
-      <details><summary>Can we also ask about how we use AI internally?</summary><p>Yes. If you want to use AI without sending company information to outside AI services, see the <a href="/en/security/" style="text-decoration:underline">Local AI Pack</a>. If you want to build AI into your work, see <a href="/en/fde/" style="text-decoration:underline">AI Adoption Support (FDE)</a>.</p></details>
+      <details><summary>Can we also ask about using AI inside our company?</summary><p>Yes. If you want to use AI without sending company information outside, we can introduce the <a href="/en/security/" style="text-decoration:underline">Local AI Pack</a>. If you want to build AI into your work, we can also introduce <a href="/en/fde/" style="text-decoration:underline">AI Adoption Support (FDE)</a>.</p></details>
     </div>
   </div>
 </section>
 
 <!-- ── Application form ── -->
-<section class="section" id="apply">
+<section class="section section-alt" id="apply">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label">Consultation</div>
-      <h2 class="section-title"><span class="nb">First, see your company's map</span> <span class="nb">as an attacker sees it.</span></h2>
-      <p class="section-sub">As a pilot partner, in a 30-minute online session, we hear what concerns you and how ready you are today. We will not ask you to sign anything on the spot. We usually reply within 2 to 3 business days.</p>
+      <h2 class="section-title">Find your weak points before an attacker does.</h2>
+      <p class="section-sub">As a pilot partner, you get a 30-minute online session. We hear what concerns you and how ready you are today. We will not ask you to sign anything on the spot. We usually reply within 2 to 3 business days.</p>
     </div>
     <div class="lp-form reveal">
       <form id="lpForm" action="https://script.google.com/macros/s/AKfycbwapQO_yL3jQ4CmxaaLsZwiXsI3GR-dbgDiGmYEs_HGsbWeuZ7okov9jxGSS5J9bfit/exec" method="POST">
@@ -790,13 +809,13 @@
         <input type="email" name="メールアドレス" required>
         <label>Website URL<span class="req">Required</span></label>
         <input type="url" name="_hp" id="lpHp" required placeholder="e.g. https://example.co.jp">
-        <p class="lead-note" style="text-align:left;margin:-6px 0 14px;color:var(--text-2)">So we don't investigate a different company with a similar name. We don't only look at this site — we use it as a starting point to find related sites (recruiting, online shop) and old public assets no longer in use.</p>
+        <p class="lead-note" style="text-align:left;margin:-6px 0 14px;color:var(--text-2)">Note: we ask so we do not investigate a different company with a similar name. We do not look only at this site. We use it as a starting point to find, from outside, related sites (recruiting, online shop) and old public sites you no longer use.</p>
         <label>Phone<span class="opt">Optional</span></label>
         <input type="tel" name="_tel" id="lpTel">
         <label>What concerns you<span class="opt">Optional</span></label>
         <textarea name="_note" id="lpNote" placeholder="e.g. We worry our VPN device is outdated. A business partner asked about our security measures."></textarea>
         <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:.875rem;margin:6px 0 14px"><input type="checkbox" name="_agree" id="lpAgree" required style="width:auto;margin:3px 0 0;flex:none"><span>I agree to an assessment of our public information and public-facing sites (within the scope of public information and ordinary access; no active attacks or intrusion; starting from one main site and extending to related public assets).</span></label>
-        <button type="submit" class="btn btn-primary" id="lpSubmit">Free Consultation</button>
+        <button type="submit" class="btn btn-primary" id="lpSubmit">Free consultation</button>
         <p class="lead-note">By submitting, you agree to our <a href="/en/privacy" target="_blank" rel="noopener" style="text-decoration:underline">Privacy Policy</a>.</p>
       </form>
       <div class="lead-done" id="lpDone" style="display:none">
@@ -807,7 +826,7 @@
   </div>
 </section>
 
-<div class="float-cta" id="floatCta"><a href="#apply">Free Consultation →</a></div>
+<div class="float-cta" id="floatCta"><a href="#apply">Free consultation →</a></div>
 
 <section class="rel" aria-label="Other services">
   <div class="rel-in">
@@ -875,7 +894,7 @@ form.addEventListener('submit',function(e){
   var btn=document.getElementById('lpSubmit');btn.disabled=true;btn.textContent='Sending...';
   fetch(form.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(form))})
   .then(function(){form.style.display='none';done.style.display='block';if(window.gtag)gtag('event','generate_lead',{form:'drill_lp',src:src||'direct'});})
-  .catch(function(){alert('Failed to send. Please try again later.');btn.disabled=false;btn.textContent='Free Consultation';});
+  .catch(function(){alert('Failed to send. Please try again later.');btn.disabled=false;btn.textContent='Free consultation';});
 });
 if(window.gtag&&src)gtag('event','drill_src',{src:src});
 })();
@@ -892,303 +911,6 @@ if(window.gtag&&src)gtag('event','drill_src',{src:src});
  /* HTML には最初から本当の数字を書く（JS を動かさない検索・AI 要約が 0 と読んでいた）。動くときだけ 0 にしてから数え上げる */
  if('IntersectionObserver' in window&&!reduce){nums.forEach(function(el){el.textContent=(el.getAttribute('data-prefix')||'')+'0'+(el.getAttribute('data-suffix')||'');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.4});nums.forEach(function(n){io.observe(n);});}
  else nums.forEach(run);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：WebGLシェーダーの流れる光の場（Stripe系・暗め上品／reduced-motion・WebGL無しはCSSグラデにフォールバック） */
-(function(){try{
- var cv=document.getElementById('heroShader');if(!cv)return;
- var gl=cv.getContext('webgl',{antialias:false,alpha:false})||cv.getContext('experimental-webgl');if(!gl)return;
- var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
- var fs=[
- 'precision highp float;',
- 'uniform vec2 uRes;uniform float uT;uniform vec2 uM;',
- 'vec2 h(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return -1.0+2.0*fract(sin(p)*43758.5453);}',
- 'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
- 'return mix(mix(dot(h(i),f),dot(h(i+vec2(1,0)),f-vec2(1,0)),u.x),mix(dot(h(i+vec2(0,1)),f-vec2(0,1)),dot(h(i+vec2(1,1)),f-vec2(1,1)),u.x),u.y);}',
- 'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.0;a*=0.5;}return v;}',
- 'void main(){vec2 uv=gl_FragCoord.xy/uRes.xy;vec2 p=uv;p.x*=uRes.x/uRes.y;',
- 'float t=uT*0.045;',
- 'vec2 q=vec2(fbm(p*1.4+t),fbm(p*1.4-t+5.2));',
- 'float f=fbm(p*2.0+q*1.6+uM*0.25);',
- 'vec3 navy=vec3(0.025,0.045,0.095);vec3 cyan=vec3(0.10,0.55,0.75);vec3 violet=vec3(0.33,0.16,0.55);',
- 'vec3 col=navy;',
- 'col=mix(col,violet,smoothstep(0.02,0.72,f)*0.78);',
- 'col=mix(col,cyan,smoothstep(0.3,0.95,f+q.x*0.35)*0.72);',
- 'col+=cyan*0.1*smoothstep(0.55,1.0,fbm(p*4.0+t*2.0));',
- 'col*=1.0-0.28*length(uv-0.5);',
- 'gl_FragColor=vec4(col,1.0);}'].join(' ');
- function sh(t,src){var s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);return s;}
- var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
- if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;gl.useProgram(pr);
- var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
- var lp=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
- var uRes=gl.getUniformLocation(pr,'uRes'),uT=gl.getUniformLocation(pr,'uT'),uM=gl.getUniformLocation(pr,'uM');
- var mx=0,my=0,tmx=0,tmy=0;
- var hero=document.querySelector('.hero');
- if(hero&&!reduce)hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();tmx=(e.clientX-r.left)/r.width-0.5;tmy=(e.clientY-r.top)/r.height-0.5;},{passive:true});
- function size(){var d=Math.min(window.devicePixelRatio||1,1.5);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;gl.viewport(0,0,cv.width,cv.height);}
- window.addEventListener('resize',size);size();
- var start=performance.now();
- function frame(now){var t=(now-start)/1000;mx+=(tmx-mx)*0.05;my+=(tmy-my)*0.05;
-  gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uT,t);gl.uniform2f(uM,mx,my);
-  gl.drawArrays(gl.TRIANGLES,0,3);if(!reduce)requestAnimationFrame(frame);}
- if(reduce){gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uT,8.0);gl.uniform2f(uM,0,0);gl.drawArrays(gl.TRIANGLES,0,3);}
- else requestAnimationFrame(frame);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：ドームの中のオフィスで人が動く。会議の3人は座って話し、ときどき1人ずつ立って用事（扉の出入り・コピー・自席でPC作業）を済ませて戻る。倉庫は作業台と荷物の見回り・箱運び。30fpsに間引き・タブ非表示で停止・reduced-motion対応
-   歩き方：道は床の2つの向き（右下へ約29°・左下へ約158°）だけでできている（画像から床と家具を読み取り、曲がる回数が少ない道を探して作った）。向きは区間に入るときに1回だけ決め、足の動きは進んだ距離に合わせる。 */
-(function(){try{
- var cv=document.getElementById('heroPeople');if(!cv)return;var ctx=cv.getContext('2d');if(!ctx)return;
- if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- var img=cv.parentNode.querySelector('img'),IW=954,IH=800,dpr=Math.min(window.devicePixelRatio||1,2),W,H,gx,gy,gs;
- function size(){var r=cv.getBoundingClientRect();W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
-  var ir=img?img.getBoundingClientRect():r,s=Math.min(ir.width/IW,ir.height/IH);
-  gx=(ir.left-r.left+(ir.width-IW*s)/2)*dpr;gy=(ir.top-r.top+(ir.height-IH*s)/2)*dpr;gs=s*dpr;}
- window.addEventListener('resize',size);if(img&&!img.complete)img.addEventListener('load',size);size();
- function X(x){return gx+x*gs;}function Y(y){return gy+y*gs;}
- function R(a,b){return a+Math.random()*(b-a);}
- function poly(p){ctx.beginPath();ctx.moveTo(X(p[0][0]),Y(p[0][1]));for(var i=1;i<p.length;i++)ctx.lineTo(X(p[i][0]),Y(p[i][1]));ctx.closePath();}
- /* 座標はすべて dome-office.webp(954x800)上の実測。部屋ごとの切り抜き（手前の壁の上端より下は壁に隠れる） */
- var OFFICE=[[150,250],[427,250],[427,400],[578,479],[390,554],[330,516],[200,443],[150,418]];
- var WARE=[[427,250],[800,250],[800,495],[750,500],[583,557],[578,479],[427,400]];
- /* 小物：扉（奥の白い扉）・コピー機の読み取り面 */
- var DOOR={p:[[337,387],[354,396],[354,439],[337,430]],o:0,goal:0};
- var COPY={p:[[487.5,462.5],[498.75,458.75],[509.4,464.4],[498.75,469.4]],f:0};
- /* 人物の絵：/assets/drill/people.webp（1コマ64x140・足元 y=133・腰 y=86）。行＝人ごとに [歩く手前向き, 歩く奥向き, その他]、最後の2行は箱を運ぶ人
-    その他の列：0 立つ手前 1 立つ奥 2 座る手前 3 座る奥 4 座って話す 5 手を伸ばす。手前向き＝右下、奥向き＝左上へ向く（反対は左右反転） */
- var SPR=new Image();SPR.src='/assets/drill/people.webp';
- var FW=64,FH=140,U=60/124; /* 絵の人物は身長およそ60px（画像座標） */
- var SPEED=1.0,STRIDE=30,TURN=3; /* 1コマ(1/30秒)に進む距離・8コマで進む距離・角で止まるコマ数 */
- /* 道（床の向きだけでできた折れ線）。座る人は「立つ位置」から行き先まで */
- var RT={
-  M1:[[377,478],[399.2,469],[359.9,447.2]],
-  M2:[[456,506],[445.5,500.2],[470.5,490.1],[465.3,487.1]],
-  M3:[[349,522],[296.5,492.9],[313.2,486.1]],
-  W1a:[[605,486],[597.1,481.6],[655.5,458],[650.3,455.1]],
-  W1b:[[650.3,455.1],[660.5,461.8],[588.2,491.1],[640.7,520.2]],
-  W1c:[[640.7,520.2],[590.1,492.4],[605,486]],
-  W2go:[[643.1,440.6],[615.2,452.2],[659.8,477],[593.1,504],[619.3,518.5],[599.9,526.4]],
-  W2back:[[599.9,526.4],[627.8,514.8],[583.2,490],[658.3,459.6],[632,445.1],[643.1,440.6]]};
- function rev(a){return a.slice().reverse();}
- function P(o){o.ph=0;o.a=1;o.walk=0;o.back=false;o.flip=false;o.pause=0;o.seg=-1;o.face=-1;return o;}
- var M1=P({ci:0,seat:[371,489],sit:[2,0],stand:RT.M1[0],go:RT.M1,act:'door',room:OFFICE});
- var M2=P({ci:1,seat:[441,509],sit:[2,1],stand:RT.M2[0],go:RT.M2,act:'copy',room:OFFICE});
- var M3=P({ci:2,seat:[361,514],sit:[3,1],stand:RT.M3[0],go:RT.M3,act:'desk',desk:[307,480],room:OFFICE});
- var W1=P({ci:3,room:WARE,plan:[[RT.W1a,60],[RT.W1b,45],[RT.W1c,50]],k:0});
- var W2=P({ci:4,room:WARE,plan:[[RT.W2go,30,'drop'],[RT.W2back,30,'pick']],k:0,box:1});
- [M1,M2,M3].forEach(function(o){o.mode='sit';o.x=o.seat[0];o.y=o.seat[1];});
- [W1,W2].forEach(function(o){o.mode='route';start(o,o.plan[0][0]);});
- var DBG=/[?&]pdebug/.test(location.search),MEET=[M1,M2,M3],ALL=[M1,M2,M3,W1,W2],away=null,nextTrip=DBG?20:R(150,260);
- if(DBG)window.__ppl=ALL;
- function start(o,route){o.route=route;o.seg=0;o.face=-1;o.pause=0;o.x=route[0][0];o.y=route[0][1];}
- /* 折れ線を進む。返り値 true＝終点に着いた。余った移動量は次の区間へ持ち越す。角では少し止まる */
- function follow(o){
-  if(o.pause>0){o.pause--;o.walk=0;return false;}
-  var left=SPEED;
-  while(left>0){
-   var t=o.route[o.seg+1];if(!t){o.walk=0;return true;}
-   var dx=t[0]-o.x,dy=t[1]-o.y,d=Math.hypot(dx,dy);
-   if(o.face!==o.seg){/* 区間に入るときに1回だけ向きを決める */
-    o.face=o.seg;if(d>0.01){o.back=dy<0;o.flip=o.back?dx>0:dx<0;}}
-   var st=Math.min(d,left);
-   if(d>0){o.x+=dx/d*st;o.y+=dy/d*st;}
-   o.ph=(o.ph+6.2832*st/STRIDE)%6.2832;left-=st;o.walk=1;
-   if(st>=d){o.x=t[0];o.y=t[1];o.seg++;
-    if(o.seg>=o.route.length-1){o.walk=0;return true;}
-    o.pause=TURN;return false;}}
-  return false;}
- /* 会議の人：sit → up（立つ位置へ）→ go → act → back → down → sit */
- function stepMeet(o){
-  if(o.mode==='sit')return;
-  if(o.mode==='up'){if(--o.w<=0){o.mode='go';start(o,o.go);}return;}
-  if(o.mode==='go'){if(follow(o)){o.mode='act';o.w=0;}return;}
-  if(o.mode==='act'){o.w++;
-   if(o.act==='door'){o.back=true;o.flip=false;if(o.w===1)DOOR.goal=1;if(o.w>14&&o.w<26)o.a=Math.max(0,o.a-0.09);if(o.w===26)DOOR.goal=0;if(o.w===120)DOOR.goal=1;if(o.w>132&&o.w<146)o.a=Math.min(1,o.a+0.09);if(o.w===150)DOOR.goal=0;if(o.w>=158){o.a=1;o.mode='back';start(o,rev(o.go));}}
-   else if(o.act==='copy'){o.back=true;o.flip=true;if(o.w%40===10)COPY.f=1;if(o.w>=130){o.mode='back';start(o,rev(o.go));}}
-   else if(o.act==='desk'){if(o.w>=210){o.mode='back';start(o,rev(o.go));}}
-   return;}
-  if(o.mode==='back'){if(follow(o)){o.mode='down';o.w=8;}return;}
-  if(o.mode==='down'){if(--o.w<=0){o.mode='sit';o.x=o.seat[0];o.y=o.seat[1];away=null;}}}
- /* 倉庫の人：plan の道を順に歩き、着いたら決めた時間だけ作業（箱を置く・取る） */
- function stepWorker(o){
-  if(o.mode==='work'){o.walk=0;if(--o.w===8){var ev=o.plan[o.k][2];if(ev==='drop')o.box=0;if(ev==='pick')o.box=1;}
-   if(o.w<=0){o.k=(o.k+1)%o.plan.length;o.mode='route';start(o,o.plan[o.k][0]);}return;}
-  if(follow(o)){o.mode='work';o.w=o.plan[o.k][1];}}
- /* 1コマ描く。row/col＝スプライトの位置、(x,y)＝足元（座りは腰）の画像座標、ay＝コマ内の基準の高さ、flip＝左右反転 */
- function spr(row,col,x,y,ay,flip){if(!SPR.complete||!SPR.naturalWidth)return;var k=gs*U;
-  ctx.save();ctx.translate(X(x),Y(y));if(flip)ctx.scale(-1,1);
-  ctx.drawImage(SPR,col*FW,row*FH,FW,FH,-32*k,-ay*k,FW*k,FH*k);ctx.restore();}
- function chairBack(cb){ctx.fillStyle='#181a1e';ctx.strokeStyle='#5c626c';ctx.lineWidth=1*gs;ctx.beginPath();
-  if(ctx.roundRect)ctx.roundRect(X(cb[0]),Y(cb[1]),cb[2]*gs,cb[3]*gs,4*gs);else ctx.rect(X(cb[0]),Y(cb[1]),cb[2]*gs,cb[3]*gs);ctx.fill();ctx.stroke();}
- function drawPerson(o){if(o.a<=0)return;ctx.save();poly(o.room);ctx.clip();ctx.globalAlpha=o.a;
-  var base=o.ci*3;
-  if(o.seat&&o.mode==='sit'){/* 座る：sit=[列, 反転] */
-   var col=o.sit[0];if(o===speaker&&col===2&&talkT%24<12)col=4;
-   spr(base+2,col,o.seat[0],o.seat[1]-1,86,o.sit[1]);if(o===M3)chairBack([353.5,497.5,11,17]);}
-  else if(o.mode==='act'&&o.act==='desk'){spr(base+2,3,o.desk[0],o.desk[1]-1,86,0);chairBack([294,461,14,16]);}
-  else{
-   /* 地面の影 */
-   ctx.fillStyle='rgba(20,28,40,.18)';ctx.beginPath();ctx.ellipse(X(o.x),Y(o.y),9*gs,3.4*gs,0,0,6.2832);ctx.fill();
-   var fr=Math.floor(o.ph/6.2832*8)%8;
-   if(o.box)spr(o.back?16:15,o.walk?fr:0,o.x,o.y,133,o.flip);
-   else if(o.walk)spr(base+(o.back?1:0),fr,o.x,o.y,133,o.flip);
-   else spr(base+2,o.back?1:0,o.x,o.y,133,o.flip);}
-  ctx.restore();}
- function drawProps(){
-  if(DOOR.o>0.02){var d=DOOR.p,f=DOOR.o;ctx.fillStyle='rgba(18,26,40,'+(0.9*f)+')';poly([d[0],[d[0][0]+(d[1][0]-d[0][0])*f,d[0][1]+(d[1][1]-d[0][1])*f],[d[3][0]+(d[2][0]-d[3][0])*f,d[3][1]+(d[2][1]-d[3][1])*f],d[3]]);ctx.fill();
-   ctx.fillStyle='#f4f6f8';ctx.strokeStyle='#2a2f38';ctx.lineWidth=1*gs;poly([[d[0][0],d[0][1]],[d[0][0]-9*f,d[0][1]+6*f],[d[3][0]-9*f,d[3][1]+6*f],[d[3][0],d[3][1]]]);ctx.fill();ctx.stroke();}
-  if(COPY.f>0.02){ctx.fillStyle='rgba(170,240,255,'+(0.85*COPY.f)+')';poly(COPY.p);ctx.fill();COPY.f*=0.86;}}
- /* 会議の吹き出し：座っている2人以上のうち1人が話す */
- var speaker=null,talkT=0;
- function drawTalk(){var seated=MEET.filter(function(o){return o.mode==='sit';});
-  if(seated.length<2){speaker=null;return;}
-  if(!speaker||speaker.mode!=='sit'||talkT>100){talkT=0;var c=seated.filter(function(o){return o!==speaker;});speaker=c[(Math.random()*c.length)|0];}
-  talkT++;var a=Math.min(1,talkT/10,(100-talkT)/10);if(a<=0)return;
-  var x=X(speaker.seat[0]+(speaker.sit[1]?-6:6)),y=Y(speaker.seat[1]-34),k=gs;ctx.globalAlpha=a;
-  ctx.fillStyle='#ffffff';ctx.strokeStyle='#1b2430';ctx.lineWidth=1.2*k;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-12*k,y-14*k,24*k,13*k,6*k);else ctx.rect(x-12*k,y-14*k,24*k,13*k);ctx.fill();ctx.stroke();
-  ctx.beginPath();ctx.moveTo(x-2*k,y-1.5*k);ctx.lineTo(x+1*k,y+4*k);ctx.lineTo(x+3*k,y-1.5*k);ctx.fill();
-  ctx.fillStyle='#1b2430';for(var d=0;d<3;d++){ctx.globalAlpha=a*(((talkT/8|0)%3)>=d?1:0.3);ctx.beginPath();ctx.arc(x+(d-1)*5*k,y-7.5*k,1.5*k,0,6.2832);ctx.fill();}
-  ctx.globalAlpha=1;}
- function zy(o){return o.mode==='sit'?o.seat[1]:(o.mode==='act'&&o.act==='desk')?o.desk[1]:o.y;}
- var last=0;
- function loop(ti){if(ti-last>=32){last=ti;
-   /* 一度に席を立つのは1人だけ */
-   if(!away&&--nextTrip<=0){away=MEET[(Math.random()*3)|0];away.mode='up';away.w=10;away.x=away.stand[0];away.y=away.stand[1];away.back=false;away.walk=0;nextTrip=DBG?30:R(240,420);}
-   MEET.forEach(stepMeet);stepWorker(W1);stepWorker(W2);
-   DOOR.o+=(DOOR.goal-DOOR.o)*0.18;
-   ctx.clearRect(0,0,W,H);drawProps();
-   ALL.slice().sort(function(a,b){return zy(a)-zy(b);}).forEach(drawPerson);drawTalk();}
-  if(!document.hidden)requestAnimationFrame(loop);else setTimeout(function(){requestAnimationFrame(loop);},400);}
- requestAnimationFrame(loop);
-}catch(e){}})();
-</script>
-<script>
-/* ヒーロー：赤い攻撃→ドームのシールドがハニカムで弾く。攻撃は7種（一斉射撃・掃射・散弾・誘導弾・重い一撃・レーザー・全方位）をランダムに切替、角度も着弾点もランダム。画像のドーム楕円に合わせる・上限あり・タブ非表示で停止・reduced-motion対応 */
-(function(){try{
- var cv=document.getElementById('heroFx');if(!cv)return;var ctx=cv.getContext('2d');if(!ctx)return;
- var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
- var img=cv.parentNode.querySelector('img');
- /* dome-shield.webp(954x800・ドームが左右中央に来るよう切り抜き済み)上のドーム外殻＝中心(477,500)・半径(455,435) */
- var IW=954,IH=800,DX=477,DY=500,DRX=455,DRY=435;
- var dpr=Math.min(window.devicePixelRatio||1,2),W,H,cx,cy,rx,ry,u;
- function size(){var r=cv.getBoundingClientRect();W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
-  var ir=img?img.getBoundingClientRect():r,s=Math.min(ir.width/IW,ir.height/IH);
-  var ox=ir.left-r.left+(ir.width-IW*s)/2,oy=ir.top-r.top+(ir.height-IH*s)/2;
-  cx=(ox+DX*s)*dpr;cy=(oy+DY*s)*dpr;rx=DRX*s*dpr;ry=DRY*s*dpr;u=s*dpr*1.6;}
- window.addEventListener('resize',size);if(img&&!img.complete)img.addEventListener('load',size);size();
- var shots=[],hits=[],sparks=[],lasers=[],pulses=[],glow=0,nextAt=0,lastP=-1;
- function R(a,b){return a+Math.random()*(b-a);}
- function later(ms,f){setTimeout(f,ms);}
- function pt(t){var nx=Math.cos(t)/rx,ny=Math.sin(t)/ry,nl=Math.hypot(nx,ny);return {x:cx+rx*Math.cos(t),y:cy+ry*Math.sin(t),nx:nx/nl,ny:ny/nl};}
- function nrm(t){var p=pt(t);return Math.atan2(p.ny,p.nx);}
- /* 着弾点：ドーム上半分のどこでも／飛来角：外向きの法線から最大±60度 */
- function rndT(){return R(-2.95,-0.2);}
- function rndA(t){return nrm(t)+R(-1.05,1.05);}
- /* kind: b=ビーム p=散弾 h=重い一撃 m=誘導弾。sz=着弾の大きさ */
- function fire(t,a,d,sp,kind,sz){if(shots.length>=60)return;var p=pt(t);
-  var s={x:p.x+Math.cos(a)*d,y:p.y+Math.sin(a)*d,vx:-Math.cos(a),vy:-Math.sin(a),sp:sp,t:t,px:p.x,py:p.y,nx:p.nx,ny:p.ny,st:1,life:1,k:kind||'b',sz:sz||1,tr:[],age:0};
-  if(s.k==='m'){var h=a+Math.PI+(Math.random()<0.5?1:-1)*R(0.8,1.3);s.vx=Math.cos(h);s.vy=Math.sin(h);}
-  shots.push(s);}
- /* 1) 一斉射撃：同じ方向から n 本が同じ所へ */
- function volley(t,n,big){var base=rndA(t);
-  for(var k=0;k<n;k++)(function(k){later(k*(big?35:45),function(){fire(t+R(-0.025,0.025),base+R(-0.11,0.11),R(260,350)*u,(big?28:R(20,27))*u,'b',big?1.5:1);});})(k);}
- /* 2) 掃射：連射しながら着弾点が殻の上を流れる */
- function sweep(){var a=rndT(),b=Math.max(-2.95,Math.min(-0.2,a+R(0.8,1.6)*(Math.random()<0.5?1:-1))),n=14,off=R(-0.9,0.9);
-  for(var k=0;k<n;k++)(function(k){later(k*42,function(){var t=a+(b-a)*k/(n-1);fire(t,nrm(t)+off+R(-0.08,0.08),R(280,330)*u,24*u,'b',0.8);});})(k);}
- /* 3) 散弾：あちこちから短い弾が一度に */
- function scatter(){for(var k=0;k<12;k++)later(R(0,160),function(){var t=rndT();fire(t,rndA(t),R(150,230)*u,R(17,23)*u,'p',0.6);});}
- /* 4) 誘導弾：曲がりながら飛んで、煙の尾を引いて当たる */
- function missiles(){for(var k=0;k<3;k++)later(k*170,function(){var t=rndT();fire(t,rndA(t),R(300,380)*u,13*u,'m',1.1);});}
- /* 5) 重い一撃：太い一発→ドーム全体に衝撃波 */
- function heavy(){var t=rndT();fire(t,rndA(t),R(380,440)*u,19*u,'h',2.2);}
- /* 6) レーザー：殻をなぞりながら焼く */
- function laser(){var a=rndT(),b=Math.max(-2.95,Math.min(-0.2,a+R(0.6,1.3)*(Math.random()<0.5?1:-1))),m=(a+b)/2,mid=pt(m),ang=rndA(m),d=Math.max(W,H)*0.9;
-  lasers.push({sx:mid.x+Math.cos(ang)*d,sy:mid.y+Math.sin(ang)*d,a:a,b:b,t0:performance.now(),dur:1100,f:0});}
- /* 7) 全方位：3方向から同時に一斉射撃 */
- function wave(){for(var q=0;q<3;q++)volley(rndT(),4,0);}
- function volleyAuto(){volley(rndT(),3+((Math.random()*3)|0),0);}
- /* [関数, 次の攻撃までのms, 出やすさ]。同じ種類は続けない */
- var PAT=[[volleyAuto,700,26],[sweep,1050,16],[scatter,850,14],[missiles,1350,14],[heavy,1250,10],[laser,1400,10],[wave,1300,10]];
- function pick(){var tot=0,i;for(i=0;i<PAT.length;i++)if(i!==lastP)tot+=PAT[i][2];var r=Math.random()*tot;
-  for(i=0;i<PAT.length;i++){if(i===lastP)continue;r-=PAT[i][2];if(r<=0)break;}
-  if(i>=PAT.length)i=lastP===0?1:0;lastP=i;PAT[i][0]();return PAT[i][1];}
- cv.parentNode.style.cursor='crosshair';
- /* クリック（タップ）した所を狙って一斉射撃→ドームの殻で弾く。ドームの下半分は上半分へ折り返す */
- cv.parentNode.addEventListener('pointerdown',function(e){var r=cv.getBoundingClientRect();
-  var x=(e.clientX-r.left)*dpr,y=(e.clientY-r.top)*dpr,t=Math.atan2((y-cy)/ry,(x-cx)/rx);
-  if(t>0)t=-t;t=Math.max(-3.0,Math.min(-0.14,t));volley(t,6,1);});
- function hex(x,y,s){ctx.beginPath();for(var i=0;i<6;i++){var a=i*1.0472+0.5236;ctx[i?'lineTo':'moveTo'](x+Math.cos(a)*s,y+Math.sin(a)*s);}ctx.closePath();}
- function hitAt(t,sz){if(hits.length>=40)return;var p=pt(t);glow=Math.min(1,glow+0.15*sz);
-  hits.push({t:t,x:p.x,y:p.y,life:1,sz:sz});
-  for(var k=0;k<Math.round(4*sz)&&sparks.length<180;k++){var a=Math.atan2(p.ny,p.nx)+R(-1.2,1.2),v=R(2,6)*u*Math.min(sz,1.6);
-   sparks.push({x:p.x,y:p.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:1});}
-  if(sz>=2){glow=1;pulses.push({life:1});}}
- function beam(x,y,dx,dy,L,al,w,core){var ex=x-dx*L,ey=y-dy*L;
-  var g=ctx.createLinearGradient(x,y,ex,ey);g.addColorStop(0,'rgba(255,60,80,'+(0.55*al)+')');g.addColorStop(1,'rgba(255,40,70,0)');
-  ctx.strokeStyle=g;ctx.lineWidth=w*dpr;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ex,ey);ctx.stroke();
-  var g2=ctx.createLinearGradient(x,y,ex,ey);g2.addColorStop(0,'rgba(255,235,240,'+al+')');g2.addColorStop(0.35,'rgba(255,90,110,'+(0.8*al)+')');g2.addColorStop(1,'rgba(255,60,80,0)');
-  ctx.strokeStyle=g2;ctx.lineWidth=core*dpr;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ex,ey);ctx.stroke();}
- function drawShot(s){
-  if(s.k==='m'){/* 誘導弾：煙の尾＋弾頭 */
-   for(var j=2;j<s.tr.length;j+=2){var fa=j/s.tr.length;ctx.strokeStyle='rgba(255,'+((90+fa*80)|0)+',90,'+(fa*0.7)+')';ctx.lineWidth=(1+fa*4)*dpr;ctx.beginPath();ctx.moveTo(s.tr[j-2],s.tr[j-1]);ctx.lineTo(s.tr[j],s.tr[j+1]);ctx.stroke();}
-   if(s.st===1){ctx.fillStyle='rgba(255,230,235,1)';ctx.beginPath();ctx.arc(s.x,s.y,3*dpr,0,6.2832);ctx.fill();}
-   return;}
-  var L=(s.st===1?(s.k==='h'?260:s.k==='p'?70:170):40)*u;
-  beam(s.x,s.y,s.vx,s.vy,L,Math.max(0,s.life),s.k==='h'?18:s.k==='p'?4:6,s.k==='h'?5:s.k==='p'?1.4:1.8);}
- function stepShot(s){
-  if(s.k==='m'){
-   if(s.st===1){s.age++;var dx=s.px-s.x,dy=s.py-s.y,dl=Math.hypot(dx,dy)||1,kk=Math.min(0.35,0.05+s.age*0.006);
-    s.vx=s.vx*(1-kk)+dx/dl*kk;s.vy=s.vy*(1-kk)+dy/dl*kk;var vl=Math.hypot(s.vx,s.vy)||1;s.vx/=vl;s.vy/=vl;
-    s.tr.push(s.x,s.y);if(s.tr.length>36)s.tr.splice(0,2);
-    if(dl<=s.sp*1.2){s.x=s.px;s.y=s.py;s.st=0;hitAt(s.t,s.sz);}else{s.x+=s.vx*s.sp;s.y+=s.vy*s.sp;}}
-   else s.tr.splice(0,4);
-   return s.st===1||s.tr.length>2;}
-  s.x+=s.vx*s.sp;s.y+=s.vy*s.sp;
-  if(s.st===1&&(s.x-s.px)*s.nx+(s.y-s.py)*s.ny<=0){
-   s.x=s.px;s.y=s.py;var dt=s.vx*s.nx+s.vy*s.ny;s.vx-=2*dt*s.nx;s.vy-=2*dt*s.ny;s.st=0;s.sp*=0.5;hitAt(s.t,s.sz);}
-  if(s.st===0)s.life-=0.05;
-  return s.life>0&&s.x>-200&&s.x<W+200&&s.y>-200&&s.y<H+200;}
- function loop(ti){ctx.clearRect(0,0,W,H);
-  if(ti>=nextAt)nextAt=ti+pick();
-  ctx.globalCompositeOperation='lighter';ctx.lineCap='round';ctx.lineJoin='round';
-  /* ドーム全体のうっすら発光（着弾が重なるほど強く） */
-  if(glow>0.01){ctx.strokeStyle='rgba(54,230,255,'+(glow*0.35)+')';ctx.lineWidth=(3+glow*6)*dpr;ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,Math.PI,6.2832);ctx.stroke();glow*=0.95;}
-  /* 重い一撃の衝撃波：殻全体が外へ広がる */
-  for(var q=pulses.length-1;q>=0;q--){var pu=pulses[q];pu.life-=0.03;if(pu.life<=0){pulses.splice(q,1);continue;}var e0=1-pu.life;
-   ctx.strokeStyle='rgba(120,240,255,'+(pu.life*0.8)+')';ctx.lineWidth=(2+5*pu.life)*dpr;ctx.beginPath();ctx.ellipse(cx,cy,rx*(1+e0*0.14),ry*(1+e0*0.14),0,Math.PI,6.2832);ctx.stroke();}
-  /* レーザー */
-  var now=performance.now();
-  for(var z=lasers.length-1;z>=0;z--){var lz=lasers[z],pr=(now-lz.t0)/lz.dur;if(pr>=1){lasers.splice(z,1);continue;}
-   var tt=lz.a+(lz.b-lz.a)*pr,pp=pt(tt),fa=Math.min(1,Math.min(pr,1-pr)*6);
-   ctx.strokeStyle='rgba(255,50,75,'+(0.35*fa)+')';ctx.lineWidth=14*dpr;ctx.beginPath();ctx.moveTo(lz.sx,lz.sy);ctx.lineTo(pp.x,pp.y);ctx.stroke();
-   ctx.strokeStyle='rgba(255,220,228,'+fa+')';ctx.lineWidth=2.6*dpr;ctx.beginPath();ctx.moveTo(lz.sx,lz.sy);ctx.lineTo(pp.x,pp.y);ctx.stroke();
-   if((lz.f++)%4===0)hitAt(tt,0.55);
-   else if(sparks.length<180){var sa=Math.atan2(pp.ny,pp.nx)+R(-1.3,1.3),sv=R(2,5)*u;sparks.push({x:pp.x,y:pp.y,vx:Math.cos(sa)*sv,vy:Math.sin(sa)*sv,life:1});}}
-  for(var i=shots.length-1;i>=0;i--){if(!stepShot(shots[i])){shots.splice(i,1);continue;}drawShot(shots[i]);}
-  for(var j=hits.length-1;j>=0;j--){var p=hits[j];p.life-=p.sz>=2?0.014:p.sz<0.7?0.045:0.024;if(p.life<=0){hits.splice(j,1);continue;}
-   var k=p.life,e=1-k,sz=p.sz,sp=0.07*sz+e*0.45*Math.min(sz,1.8);
-   /* 殻に沿って広がる波紋 */
-   ctx.strokeStyle='rgba(54,230,255,'+(k*0.85)+')';ctx.lineWidth=(1.5+4*Math.min(sz,1.8)*k)*dpr;
-   ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,p.t-sp,p.t+sp);ctx.stroke();
-   /* ハニカムのシールド片（中心＋周り6枚。小さい着弾は1枚） */
-   var hs=9*u*Math.min(sz,1.8),cnt=sz<0.7?1:7;
-   for(var m=0;m<cnt;m++){var ox=0,oy=0;if(m){var a=(m-1)*1.0472;ox=Math.cos(a)*hs*1.75;oy=Math.sin(a)*hs*1.75;}
-    var al=k*(m?0.55:0.95);
-    ctx.fillStyle='rgba(54,230,255,'+(al*0.18)+')';ctx.strokeStyle='rgba(150,245,255,'+al+')';ctx.lineWidth=1.3*dpr;
-    hex(p.x+ox,p.y+oy*0.85,hs*(0.9+e*0.15));ctx.fill();ctx.stroke();}
-   /* 中心の白い閃光 */
-   var fr=30*u*Math.min(sz,2.2),rg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,fr);rg.addColorStop(0,'rgba(255,255,255,'+(k*k)+')');rg.addColorStop(0.3,'rgba(120,240,255,'+(0.5*k*k)+')');rg.addColorStop(1,'rgba(54,230,255,0)');
-   ctx.fillStyle=rg;ctx.beginPath();ctx.arc(p.x,p.y,fr,0,6.2832);ctx.fill();}
-  for(var n=sparks.length-1;n>=0;n--){var f=sparks[n];f.x+=f.vx;f.y+=f.vy;f.vx*=0.94;f.vy=f.vy*0.94+0.06*u;f.life-=0.035;
-   if(f.life<=0){sparks.splice(n,1);continue;}
-   ctx.strokeStyle='rgba(180,250,255,'+f.life+')';ctx.lineWidth=1.4*dpr;ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.lineTo(f.x-f.vx*2.2,f.y-f.vy*2.2);ctx.stroke();}
-  ctx.globalCompositeOperation='source-over';
-  if(!document.hidden)requestAnimationFrame(loop);else setTimeout(function(){requestAnimationFrame(loop);},400);}
- requestAnimationFrame(loop);
 }catch(e){}})();
 </script>
 </body>
