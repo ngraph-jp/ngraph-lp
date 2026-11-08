@@ -634,7 +634,7 @@ html[lang="en"] .fg-structure .st-hub-sub .nb{display:inline}}
 .fg-team .tm-center{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--red);color:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 8px 20px rgba(22,32,44,.18);text-align:center;white-space:nowrap}
 .fg-team .tm-link{display:none}
 .fg-team .tm-lead{font-family:var(--serif);font-size:1rem;font-weight:700;line-height:1.4;margin:0;letter-spacing:.06em;color:#fff}
-.fg-team .tm-sub{font-family:var(--serif);font-size:.6875rem;font-weight:500;letter-spacing:.2em;line-height:1.4;margin:0;color:rgba(255,255,255,.75)}
+.fg-team .tm-sub{font-family:var(--serif);font-size:.75rem;font-weight:500;letter-spacing:.2em;line-height:1.4;margin:0;color:rgba(255,255,255,.75)}
 .fg-team-sub{display:block;font-size:.72em;font-weight:700;letter-spacing:.14em;color:var(--text);margin-top:6px}
 :lang(en) .fg-team .tm-tag{font-size:1.0625rem}
 :lang(en) .fg-team .tm-sub{letter-spacing:.06em}
@@ -659,6 +659,7 @@ html[lang="en"] .fg-structure .st-hub-sub .nb{display:inline}}
   .fg-team .tm-tag{grid-column:1/-1;grid-row:6}
   .fg-team .tm-list{grid-column:1/-1;grid-row:7}
 }
+@media(max-width:360px){.fg-team .tm-person{grid-template-columns:76px 1fr;column-gap:12px;padding:16px}.fg-team .tm-name{font-size:1.25rem}:lang(en) .fg-team .tm-name{font-size:1.125rem}.fg-team .tm-en{letter-spacing:.06em}}
 
 /* ── 強弱（2026-10-23）：結論の一文は大きく、図の小見出しは小さく薄く ── */
 .fg-statement{font-size:var(--fs-lead);line-height:1.6;margin-top:40px}
