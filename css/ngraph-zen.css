@@ -13,7 +13,7 @@
   --accent:#1a2e52;        /* 濃紺 */
   --accent-2:#132340;
   --accent-3:#1a2e52;
-  --grad:linear-gradient(135deg,#24427a 0%,#132340 100%);
+  --grad:linear-gradient(135deg,#22396a 0%,#132340 100%);
   --grad-text:linear-gradient(135deg,#1a2e52 0%,#0f1b31 100%);
   --serif:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;  /* 見出しもゴシック（2026-10-23） */
   --mincho:'Zen Old Mincho','Noto Serif JP',serif;          /* 社名ロゴとトップの見出しだけ */
