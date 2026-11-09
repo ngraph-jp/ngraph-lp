@@ -807,6 +807,10 @@
         <p class="lead-note" style="text-align:left;margin:-6px 0 14px;color:var(--text-2)">※ 同名の別会社を間違えて調べないために確認します。このサイトだけを見るのではなく、ここを起点に採用サイト・ネットショップ・使っていない古い公開環境まで外から探します。</p>
         <label>電話番号<span class="opt">任意</span></label>
         <input type="tel" name="_tel" id="lpTel">
+        <label for="lpHow">どこで知りましたか<span class="opt">任意</span></label>
+        <select name="_how" id="lpHow"><option value="">選んでください</option><option value="ref">知人・紹介</option><option value="search">検索</option><option value="sns">SNS</option><option value="blog">ブログ・記事</option><option value="other">その他</option></select>
+        <div id="lpRefWrap" hidden><label for="lpRef">ご紹介者のお名前<span class="opt">任意</span></label>
+        <input type="text" name="_ref" id="lpRef" placeholder="例：〇〇株式会社 〇〇様"></div>
         <label>気になっていること<span class="opt">任意</span></label>
         <textarea name="_note" id="lpNote" placeholder="例：VPNの機器が古いままか心配。取引先からセキュリティ対策を聞かれた。"></textarea>
         <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:.875rem;margin:6px 0 14px"><input type="checkbox" name="_agree" id="lpAgree" required style="width:auto;margin:3px 0 0;flex:none"><span>自社の公開情報・公開サイトを対象とした診断の実施に同意します（公開情報と通常アクセスの範囲。能動的な攻撃・侵入はしません。対象は基本1サイトを起点に、関連する公開資産まで）。</span></label>
@@ -871,14 +875,18 @@ document.querySelectorAll('.reveal').forEach(function(el){if(location.search.ind
 var form=document.getElementById('lpForm'),done=document.getElementById('lpDone');
 var SPAM=/(bitcoin|btc|crypto|казино|casino|viagra|cialis|loan|порно|seo\s*service|backlink|telegram|whatsapp\s*\+)/i;
 var src=(new URLSearchParams(location.search).get('src')||'').replace(/[^a-z0-9_-]/gi,'').slice(0,40);
+var how=document.getElementById('lpHow'),refW=document.getElementById('lpRefWrap');how.addEventListener('change',function(){refW.hidden=how.value!=='ref';});
 form.addEventListener('submit',function(e){
   e.preventDefault();
   if(form.querySelector('[name="_honey"]').value){form.style.display='none';done.style.display='block';return;}
   var note=document.getElementById('lpNote').value;
   if((note.match(/https?:\/\//gi)||[]).length>=3||SPAM.test(note)){alert('送信内容を確認してください。');return;}
+  var howT=how.value?how.options[how.selectedIndex].text:'(未回答)',refV=document.getElementById('lpRef').value.trim();
+  if(how.value==='ref'&&refV)howT+='（'+refV+'）';
   var lines=['【NGraph Cyber Drill】無料相談',
     'ホームページ: '+(document.getElementById('lpHp').value||'(未記入)'),
     '電話番号: '+(document.getElementById('lpTel').value||'(未記入)'),
+    'どこで知ったか: '+howT,
     '経路: '+(src||'(直接)'),
     '','気になっていること:',note||'(なし)'];
   document.getElementById('lpMsg').value=lines.join('\n');

@@ -810,6 +810,10 @@
         <p class="lead-note" style="text-align:left;margin:-6px 0 14px;color:var(--text-2)">Note: we ask so we do not investigate a different company with a similar name. We do not look only at this site. We use it as a starting point to find, from outside, related sites (recruiting, online shop) and old public sites you no longer use.</p>
         <label>Phone<span class="opt">Optional</span></label>
         <input type="tel" name="_tel" id="lpTel">
+        <label for="lpHow">How did you hear about us?<span class="opt">Optional</span></label>
+        <select name="_how" id="lpHow"><option value="">Please choose</option><option value="ref">A referral or someone I know</option><option value="search">Search</option><option value="sns">Social media</option><option value="blog">Blog or article</option><option value="other">Other</option></select>
+        <div id="lpRefWrap" hidden><label for="lpRef">Who referred you?<span class="opt">Optional</span></label>
+        <input type="text" name="_ref" id="lpRef" placeholder="e.g. Name, company"></div>
         <label>What concerns you<span class="opt">Optional</span></label>
         <textarea name="_note" id="lpNote" placeholder="e.g. We worry our VPN device is outdated. A business partner asked about our security measures."></textarea>
         <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:.875rem;margin:6px 0 14px"><input type="checkbox" name="_agree" id="lpAgree" required style="width:auto;margin:3px 0 0;flex:none"><span>I agree to an assessment of our public information and public-facing sites (within the scope of public information and ordinary access; no active attacks or intrusion; starting from one main site and extending to related public assets).</span></label>
@@ -874,14 +878,18 @@ document.querySelectorAll('.reveal').forEach(function(el){if(location.search.ind
 var form=document.getElementById('lpForm'),done=document.getElementById('lpDone');
 var SPAM=/(bitcoin|btc|crypto|казино|casino|viagra|cialis|loan|порно|seo\s*service|backlink|telegram|whatsapp\s*\+)/i;
 var src=(new URLSearchParams(location.search).get('src')||'').replace(/[^a-z0-9_-]/gi,'').slice(0,40);
+var how=document.getElementById('lpHow'),refW=document.getElementById('lpRefWrap');how.addEventListener('change',function(){refW.hidden=how.value!=='ref';});
 form.addEventListener('submit',function(e){
   e.preventDefault();
   if(form.querySelector('[name="_honey"]').value){form.style.display='none';done.style.display='block';return;}
   var note=document.getElementById('lpNote').value;
   if((note.match(/https?:\/\//gi)||[]).length>=3||SPAM.test(note)){alert('Please review your message.');return;}
+  var howT=how.value?how.options[how.selectedIndex].text:'(not answered)',refV=document.getElementById('lpRef').value.trim();
+  if(how.value==='ref'&&refV)howT+=' ('+refV+')';
   var lines=['[NGraph Cyber Drill] Free consultation (English page)',
     'Website: '+(document.getElementById('lpHp').value||'(not provided)'),
     'Phone: '+(document.getElementById('lpTel').value||'(not provided)'),
+    'How they heard: '+howT,
     'Source: '+(src||'(direct)'),
     '','Concerns:',note||'(none)'];
   document.getElementById('lpMsg').value=lines.join('\n');
