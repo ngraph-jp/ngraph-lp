@@ -76,7 +76,7 @@
 .lp-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:.8125rem;letter-spacing:.2em;font-weight:600;color:var(--accent);border:1px solid var(--border-strong);border-radius:3px;padding:8px 18px;margin-bottom:24px;background:rgba(255,255,255,.5)}
 .lp-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .hero{padding:150px 0 100px}
-.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.hero .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
 .hero .hero-copy{max-width:640px}
 /* 本文を560px枠で1句ずつ折らない（本人 11/7「左側改行しすぎ」） */
 .hero p.lead{max-width:none;font-size:1.125rem;line-height:1.95}
@@ -89,8 +89,8 @@
 @media(max-width:900px){
   .hero{padding:130px 0 70px}
   .hero .hero-grid{grid-template-columns:1fr;gap:20px}
-  .hero .hero-visual{max-width:440px;margin:0 auto}
-  .hero .hero-visual img{max-height:360px}
+  .hero .hero-visual{max-width:460px;margin:0 auto}
+  .hero .hero-visual img{max-height:340px}
 }
 /* sp.css は hero-copy を display:contents にして order で並べ替える。追加要素にも順番を与える */
 @media(max-width:768px){
@@ -255,7 +255,8 @@
   .close-line p{font-size:1.125rem}
   /* ヒーロー: 絵を小さく、要素を詰める */
   .hero{padding:96px 0 44px}
-  .hero .hero-visual img{max-height:190px}
+  .hero .hero-grid .hero-visual{width:auto;max-width:none;margin:0 -20px 12px}
+  .hero .hero-grid .hero-visual img{max-height:min(72vw,300px)}
   .hero .lp-badge{margin-bottom:10px;padding:6px 14px;font-size:.8125rem}
   .hero p.lead{font-size:.9375rem;line-height:1.85;margin-bottom:12px}
   .hero .hero-chips{gap:6px;margin-bottom:10px}
@@ -359,7 +360,7 @@
 @media(max-width:768px){.duo{grid-template-columns:1fr;gap:10px}}
 #apply{scroll-margin-top:84px}
 </style>
-<link rel="stylesheet" href="/css/sp.css?v=8">
+<link rel="stylesheet" href="/css/sp.css?v=9">
 </head>
 <body>
 

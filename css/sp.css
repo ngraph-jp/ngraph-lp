@@ -47,8 +47,8 @@
   .hero .eyebrow,.hero .lp-badge{order:1;justify-self:center;margin:0 auto 14px}
   .hero .hero-h1{order:2;margin-bottom:8px}
   .hero .lp-badge~.hero-tagline{order:2;margin-bottom:8px}
-  .hero .hero-visual{order:3;max-width:none;width:100%;margin:0 auto 12px}
-  .hero .hero-visual img{max-height:min(56vw,270px);object-position:center;filter:contrast(1.12)}
+  .hero .hero-visual{order:3;max-width:none;width:auto;margin:0 -20px 12px} /* 4つのサービスページで絵の大きさをそろえる（Drillと同じ・2026-11-09） */
+  .hero .hero-visual img{max-height:min(72vw,300px);object-position:center;filter:contrast(1.12)}
   .hero .hero-visual:has(.hero-brain){background:radial-gradient(ellipse 46% 46% at 50% 50%,#fff 0%,rgba(255,255,255,.8) 45%,rgba(255,255,255,0) 72%)}
   .hero .cta-micro a{display:inline-block}
   .hero .hero-tagline{order:4;font-size:1rem;line-height:1.85;margin:0 auto 18px;max-width:34em}
