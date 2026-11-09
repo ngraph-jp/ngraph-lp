@@ -190,14 +190,24 @@ def check_css_version():
     if not CSS.exists():
         return []
     versions = {}
+    tracked = published_set.tracked_html_paths()
+    skipped = []
     for p in sorted(ROOT.rglob("*.html")):
         if p.name in {"index-old.html", "ngraph-lp-v3.html"} or "__pycache__" in p.parts:
             continue
         # .claude/worktrees 等の作業用コピーは配信されない（.assetsignore）。数えると本体と食い違う（2026-10-14）
         if any(part.startswith(".") for part in p.relative_to(ROOT).parts):
             continue
+        rel = p.relative_to(ROOT).as_posix()
+        # gitに無いページは本番に存在しない（_lab/ の試作・公開保留の記事）。published_set.py と同じ線（2026-11-09）
+        if tracked is not None and rel not in tracked:
+            skipped.append(rel)
+            continue
         for m in CSS_REF.finditer(p.read_text(encoding="utf-8")):
-            versions.setdefault(m.group(1), []).append(p.relative_to(ROOT).as_posix())
+            versions.setdefault(m.group(1), []).append(rel)
+    if skipped:
+        print("  参考 CSS版の検査: gitに無いので本番に存在しないため対象外 %d件（例 %s）"
+              % (len(skipped), skipped[0]))
     if len(versions) <= 1:
         return []
     detail = " / ".join(

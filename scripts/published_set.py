@@ -43,6 +43,26 @@ def tracked_blog_slugs():
     return slugs or None
 
 
+def tracked_html_paths():
+    """gitが持っている *.html の相対パス集合（posix）。取れなければ None（＝従来どおり全部見る）。
+
+    2026-11-09: publish_check の CSS版検査と sync_chrome --check が作業ツリーの全HTMLを数えていて、
+    _lab/ の試作21件と公開保留の記事1件（どれも未追跡・v=23）が、CSSを v=25 に上げた日から
+    ゲートを常に赤にしていた。blog/ だけでなく全ページで「gitが持つもの」を本番の集合にする。
+    """
+    try:
+        out = subprocess.run(
+            ["git", "ls-files", "--", "*.html"],
+            cwd=str(ROOT), capture_output=True, text=True, timeout=20,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if out.returncode != 0:
+        return None
+    paths = {line.strip() for line in out.stdout.splitlines() if line.strip()}
+    return paths or None
+
+
 def split_unpublished(slugs):
     """(本番に出ている slug のリスト, gitに無い slug のリスト) を返す。"""
     tracked = tracked_blog_slugs()

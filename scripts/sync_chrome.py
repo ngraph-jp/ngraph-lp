@@ -48,12 +48,15 @@ def norm(s):
     return re.sub(r"\s+", " ", s.replace("\r\n", "\n")).strip()
 
 
-def pages():
+def pages(include_untracked=True):
     out = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True,
                          encoding="utf-8").stdout.split()
-    # 書きかけ（未追跡）の記事も揃える。publish_check の CSS版検査は未追跡も数えるため（2026-10-14）
-    out += subprocess.run(["git", "ls-files", "--others", "--exclude-standard", "*.html"], cwd=ROOT,
-                          capture_output=True, encoding="utf-8").stdout.split()
+    # 書きかけ（未追跡）の記事は apply のときだけ揃える（2026-10-14）。--check は gitが持つページだけを見る
+    # ＝本番に出るもの。publish_check の CSS版検査も同じ線に揃えた（2026-11-09・_lab/ の試作21件と
+    # 公開保留の記事が常に赤を出し、別セッションの push を止めていた）
+    if include_untracked:
+        out += subprocess.run(["git", "ls-files", "--others", "--exclude-standard", "*.html"], cwd=ROOT,
+                              capture_output=True, encoding="utf-8").stdout.split()
     for p in out:
         if p.startswith(SKIP_PREFIX) or p in SKIP_FILES:
             continue
@@ -240,7 +243,7 @@ def main():
     if check:
         selftest()
     bad, changed = [], []
-    for p in pages():
+    for p in pages(include_untracked=not check):
         fp = os.path.join(ROOT, p)
         with open(fp, encoding="utf-8", newline="") as f:
             html = f.read()
