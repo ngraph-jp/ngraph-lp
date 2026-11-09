@@ -43,11 +43,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/starter/"/>
   </url>
   <url>
-    <loc>https://ngraph.jp/security/</loc>
+    <loc>https://ngraph.jp/localai/</loc>
     <lastmod>2026-10-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ngraph.jp/security/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ngraph.jp/en/security/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/security/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ngraph.jp/localai/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ngraph.jp/en/localai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/localai/"/>
   </url>
   <url>
     <loc>https://ngraph.jp/drill/</loc>
@@ -490,11 +490,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/drill/"/>
   </url>
   <url>
-    <loc>https://ngraph.jp/en/security/</loc>
+    <loc>https://ngraph.jp/en/localai/</loc>
     <lastmod>2026-10-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ngraph.jp/security/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ngraph.jp/en/security/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/security/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ngraph.jp/localai/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ngraph.jp/en/localai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/localai/"/>
   </url>
   <url>
     <loc>https://ngraph.jp/en/starter/</loc>

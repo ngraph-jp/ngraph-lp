@@ -65,9 +65,9 @@ def pages(include_untracked=True):
 
 # サービスページの末尾に置く「ほかのサービス」（自分のページは除く・2026-10-14）
 RELATED = {"fde/index.html": "/fde/", "drill/index.html": "/drill/",
-           "security/index.html": "/security/", "starter/index.html": "/starter/",
+           "localai/index.html": "/localai/", "starter/index.html": "/starter/",
            "en/fde/index.html": "/en/fde/", "en/drill/index.html": "/en/drill/",
-           "en/security/index.html": "/en/security/", "en/starter/index.html": "/en/starter/"}
+           "en/localai/index.html": "/en/localai/", "en/starter/index.html": "/en/starter/"}
 REL_RE = re.compile(r'<section class="rel"[^>]*>.*?</section>\s*', re.S)
 # 見出しの改行位置（2026-10-14）：「、」「。」の途中で折れないよう句ごとに nb で包む
 TITLE_RE = re.compile(r'(<h2 class="section-title"[^>]*>)([^<]+)(</h2>)')
@@ -99,18 +99,18 @@ NAVJS = ('<script data-chrome="navjs">(function(){var h=document.querySelector("
 # 申込フォームがページ内にあるLPは、ヘッダーのボタンをそのフォームへ
 CTA = {
     "starter/index.html": ("#apply", "無料で相談する"),
-    "security/index.html": ("#apply", "無料で相談する"),
+    "localai/index.html": ("#apply", "無料で相談する"),
     "drill/index.html": ("#apply", "無料で相談する"),
     "fde/index.html": ("#contact", "無料で相談する"),
     "en/fde/index.html": ("#contact", "Free consultation"),
     "en/starter/index.html": ("#apply", "Free consultation"),
-    "en/security/index.html": ("#apply", "Free consultation"),
+    "en/localai/index.html": ("#apply", "Free consultation"),
     "en/drill/index.html": ("#apply", "Free consultation"),
 }
 # 日英の対になるページ（2026-10-18 英語版を主要10ページに広げた）。en_check.py もこれを使う
 EN_PAIRS = {"index.html": "en/index.html", "fde/index.html": "en/fde/index.html", "entry.html": "en/entry.html",
             "company.html": "en/company.html", "drill/index.html": "en/drill/index.html",
-            "security/index.html": "en/security/index.html", "starter/index.html": "en/starter/index.html",
+            "localai/index.html": "en/localai/index.html", "starter/index.html": "en/starter/index.html",
             "recruit.html": "en/recruit.html", "privacy.html": "en/privacy.html", "legal.html": "en/legal.html"}
 ALT = {}  # 言語切替の行き先。page_url の定義後に EN_PAIRS から埋める
 

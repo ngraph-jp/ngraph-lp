@@ -12,3 +12,10 @@
 # ぼんた入社ガイダンス：お店に貼るQRの入口（2026-11-06 髙橋さん「ngraph.jpに置く」）
 # QRはこのURLを指す。行き先が変わったら右側だけ直す。301にしない（ブラウザに覚えられて変えられなくなる）
 /go/bonta-start   https://bonta-onboarding-app.bonta.workers.dev/start   302
+
+# Local AI Pack のURLを /security/ から /localai/ へ（2026-11-09 本人「仕上げて」）。
+# メニューの「セキュリティ」は Cyber Drill（/drill/）なので、URLとの食い違いをなくした。古いリンク・検索結果のために恒久転送
+/security        /localai/        301
+/security/*      /localai/:splat  301
+/en/security     /en/localai/     301
+/en/security/*   /en/localai/:splat 301
