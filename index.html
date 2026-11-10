@@ -543,6 +543,65 @@
 }
 </script>
 <link rel="stylesheet" href="/css/sp.css?v=9">
+<style id="motion-trial">
+/* ── 動きの試作（2026-11-10・motion-trial）。動きは全部 prefers-reduced-motion:no-preference の中。外すときはこの style と末尾の script、mo- の付いた要素を消す ── */
+.mo-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;transform-origin:0 50%;transform:scaleX(0);pointer-events:none;background:linear-gradient(90deg,var(--hot),#ecd08a)}
+.mo-orbit{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+  /* 最初の画面：文字が順に上がる／「意味」に線が引かれる／炎へ粒が集まり、輪が広がる */
+  .tz-eyebrow,.tz-h1,.tz-lede,.tz-acts{animation:moRise .9s cubic-bezier(.2,.7,.2,1) backwards}
+  .tz-eyebrow{animation-delay:.1s}.tz-h1{animation-delay:.25s}.tz-lede{animation-delay:.55s}.tz-acts{animation-delay:.75s}
+  @keyframes moRise{from{opacity:0;transform:translateY(18px)}}
+  .tz-h1 em{background:linear-gradient(var(--hot),var(--hot)) no-repeat 0 96%/0 2px;animation:moLine .8s ease 1.3s forwards}
+  @keyframes moLine{to{background-size:100% 2px}}
+  .mo-orbit{display:block}
+  .mo-orbit .p{opacity:0;animation:moIn var(--t,5s) linear infinite;animation-delay:var(--d,0s)}
+  @keyframes moIn{0%{transform:translateX(470px);opacity:0}14%{opacity:.95}80%{opacity:.95}100%{transform:translateX(112px);opacity:0}}
+  .mo-orbit .r{transform-origin:0 0;opacity:0;animation:moRing 5.2s ease-out infinite;animation-delay:var(--d,0s)}
+  @keyframes moRing{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.9);opacity:0}}
+  .tz-btn span,.contact .btn-primary svg{display:inline-block;animation:moNudge 1.5s ease-in-out infinite}
+  @keyframes moNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+  /* 並んだカード：1枚ずつ順に出る（入れ物は動かさない） */
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds).reveal{opacity:1;transform:none}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds).reveal:not(.in)>*{opacity:0}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds).reveal.in>*{animation:moStag .7s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--sd,0s)}
+  @keyframes moStag{from{opacity:0;transform:translateY(20px)}}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(2){--sd:.12s}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(3){--sd:.24s}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(4){--sd:.36s}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(5){--sd:.48s}
+  :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(6){--sd:.6s}
+
+  /* 「昨日を覚えていない」の図：吹き出しが会話の順に出る → 日付が進む → 翌日の吹き出し */
+  .fg-problem .mo-pop{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:50% 100%;transition:opacity .3s ease var(--d,0s),transform .5s cubic-bezier(.34,1.56,.64,1) var(--d,0s)}
+  .fg-problem.mo-go .mo-pop{opacity:1;transform:none}
+  .fg-problem .pb-list li{opacity:0;transform:scale(.6);transform-origin:30% 100%;transition:opacity .3s ease var(--d,0s),transform .5s cubic-bezier(.34,1.56,.64,1) var(--d,0s)}
+  .fg-problem.mo-go .pb-list li{opacity:1;transform:none}
+  .pb-before .pb-list li:nth-child(1){--d:.3s}.pb-before .pb-list li:nth-child(2){--d:1s}
+  .pb-after .pb-list li:nth-child(1){--d:3s}.pb-after .pb-list li:nth-child(2){--d:3.7s}
+  .fg-problem .pb-cal .d{opacity:.15;transition:opacity .2s ease var(--d,0s)}
+  .fg-problem.mo-go .pb-cal .d{opacity:1}
+  .pb-cal .d:nth-of-type(2){--d:1.7s}.pb-cal .d:nth-of-type(3){--d:1.82s}.pb-cal .d:nth-of-type(4){--d:1.94s}.pb-cal .d:nth-of-type(5){--d:2.06s}.pb-cal .d:nth-of-type(6){--d:2.18s}
+  .fg-problem .pb-arrow path:first-child{stroke-dasharray:44;stroke-dashoffset:44;transition:stroke-dashoffset .5s ease 2.3s}
+  .fg-problem.mo-go .pb-arrow path:first-child{stroke-dashoffset:0}
+  .fg-problem .pb-arrow .hd{opacity:0;transition:opacity .2s ease 2.75s}
+  .fg-problem.mo-go .pb-arrow .hd{opacity:1}
+
+  /* 言い切りの文：強調の線が左から引かれる */
+  .fg-statement.reveal em{background-repeat:no-repeat;background-size:0% 100%;transition:background-size .8s ease .5s}
+  .fg-statement.reveal.in em{background-size:100% 100%}
+
+  /* これまで → NGraph の矢印 */
+  .o2-ar i{display:inline-block;font-style:normal;animation:moNudge 1.5s ease-in-out infinite}
+
+  /* 自社プロダクト：カードに乗ると画面写真が下へ流れる */
+  @media(hover:hover){
+    #products .pd-shot img{transition:object-position 2.6s ease}
+    #products .pd:hover .pd-shot img{object-position:bottom}
+  }
+}
+</style>
 </head>
 <body>
 
@@ -552,6 +611,7 @@
   <div class="glow glow-3"></div>
 </div>
 
+<div class="mo-progress" id="moProgress" aria-hidden="true"></div>
 <header class="header">
   <div class="header-inner">
     <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
@@ -571,7 +631,7 @@
 
 <!-- ── Hero（2026-09-28：墨地・脳の線画＋信号の波） ── -->
 <section class="tz-sky" id="top">
-  <div class="tz-flame" aria-hidden="true"></div>
+  <div class="tz-flame" aria-hidden="true"><svg class="mo-orbit" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid meet" fill="#ecd08a"><circle class="r" r="104" fill="none" stroke="#ecd08a" stroke-width="1.2"/><circle class="r" r="104" fill="none" stroke="#ecd08a" stroke-width="1.2" style="--d:2.6s"/><g transform="rotate(8)"><circle class="p" r="2.2" style="--t:4.6s;--d:0.0s"/></g><g transform="rotate(37)"><circle class="p" r="2.9" style="--t:6.0s;--d:-0.6s"/></g><g transform="rotate(61)"><circle class="p" r="3.6" style="--t:5.1s;--d:-1.2s"/></g><g transform="rotate(95)"><circle class="p" r="2.2" style="--t:6.5s;--d:-1.8s"/></g><g transform="rotate(128)"><circle class="p" r="2.9" style="--t:5.6s;--d:-2.4s"/></g><g transform="rotate(153)"><circle class="p" r="3.6" style="--t:4.7s;--d:-3.0s"/></g><g transform="rotate(188)"><circle class="p" r="2.2" style="--t:6.1s;--d:-3.6s"/></g><g transform="rotate(214)"><circle class="p" r="2.9" style="--t:5.2s;--d:-4.2s"/></g><g transform="rotate(247)"><circle class="p" r="3.6" style="--t:6.6s;--d:-0.1s"/></g><g transform="rotate(275)"><circle class="p" r="2.2" style="--t:5.7s;--d:-0.7s"/></g><g transform="rotate(309)"><circle class="p" r="2.9" style="--t:4.8s;--d:-1.3s"/></g><g transform="rotate(338)"><circle class="p" r="3.6" style="--t:6.2s;--d:-1.9s"/></g><g transform="rotate(22)"><circle class="p" r="2.2" style="--t:5.3s;--d:-2.5s"/></g><g transform="rotate(172)"><circle class="p" r="2.9" style="--t:6.7s;--d:-3.1s"/></g></svg></div>
   <div class="tz-frame">
     <div class="tz-stage">
       <div class="tz-copy">
@@ -648,8 +708,8 @@
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="前日：同じ会話の中で、AIと理解を積み上げている場面">
               <image href="/assets/brain/ill/comic-before.webp" x="0" y="217" width="1000" height="558"/>
-              <g class="bub" transform="translate(30,120)"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">ここまで</text><text x="125" y="88" text-anchor="middle">分かってくれた</text></g>
-              <g class="bub" transform="translate(500,160)"><rect width="360" height="150" rx="16"/><path class="tail" d="M150 150 l25 30 l30 -30z"/><text x="180" y="46" text-anchor="middle">素晴らしいですね。</text><text x="180" y="88" text-anchor="middle">はい、続きも</text><text x="180" y="130" text-anchor="middle">任せてください</text></g>
+              <g class="bub" transform="translate(30,120)"><g class="mo-pop" style="--d:.3s"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">ここまで</text><text x="125" y="88" text-anchor="middle">分かってくれた</text></g></g>
+              <g class="bub" transform="translate(500,160)"><g class="mo-pop" style="--d:1s"><rect width="360" height="150" rx="16"/><path class="tail" d="M150 150 l25 30 l30 -30z"/><text x="180" y="46" text-anchor="middle">素晴らしいですね。</text><text x="180" y="88" text-anchor="middle">はい、続きも</text><text x="180" y="130" text-anchor="middle">任せてください</text></g></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">ここまで</span><span class="nb">分かってくれた</span></li>
@@ -669,8 +729,8 @@
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="翌日：別の会話・別のAIで、初対面のように戻ってしまう場面">
               <image href="/assets/brain/ill/comic-after.webp" x="0" y="142" width="1000" height="633"/>
-              <g class="bub" transform="translate(40,40)"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">え？</text><text x="135" y="88" text-anchor="middle">昨日の続き</text><text x="135" y="130" text-anchor="middle">なんだけど…</text></g>
-              <g class="bub big" transform="translate(500,112)"><rect width="420" height="160" rx="18"/><path class="tail" d="M150 160 l25 26 l34 -26z"/><text x="210" y="62" text-anchor="middle">はじめまして。</text><text x="210" y="120" text-anchor="middle">どちら様ですか?</text></g>
+              <g class="bub" transform="translate(40,40)"><g class="mo-pop" style="--d:3s"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">え？</text><text x="135" y="88" text-anchor="middle">昨日の続き</text><text x="135" y="130" text-anchor="middle">なんだけど…</text></g></g>
+              <g class="bub big" transform="translate(500,112)"><g class="mo-pop" style="--d:3.7s"><rect width="420" height="160" rx="18"/><path class="tail" d="M150 160 l25 26 l34 -26z"/><text x="210" y="62" text-anchor="middle">はじめまして。</text><text x="210" y="120" text-anchor="middle">どちら様ですか?</text></g></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">え？ 昨日の</span><span class="nb">続きなんだけど…</span></li>
@@ -693,7 +753,7 @@
         <p><span class="nb">AIを解約・乗り換えると、</span><span class="nb">覚えさせたことは引き継げない。</span></p>
         <p><span class="nb">知識は、</span><span class="nb">その人の会話の中にしか残らない。</span></p>
       </figure>
-      <div class="o2-ar" aria-hidden="true">→</div>
+      <div class="o2-ar" aria-hidden="true"><i>→</i></div>
       <figure class="o2 after">
         <figcaption><span class="pill red">NGraph</span><b><span class="nb">会社の記録を、</span><span class="nb">全員で使う</span></b></figcaption>
         <div class="o2-art"><img src="/assets/brain/ill/own-after-ledger.webp" alt="社長・社員がそれぞれの端末から、一つの会社の記録につながっている" loading="lazy"></div>
@@ -1175,6 +1235,19 @@ setInterval(function(){
     if(!reduce)requestAnimationFrame(draw);
   }
   window.addEventListener('resize',size,{passive:true});
+})();
+</script>
+<script>
+// 動きの試作（motion-trial）：上端の進み具合の線／「昨日を覚えていない」の図は半分見えてから始める
+(function(){
+  var bar=document.getElementById('moProgress'),wait=false;
+  function upd(){var max=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(max>0?Math.min(scrollY/max,1):0)+')';wait=false;}
+  if(bar){addEventListener('scroll',function(){if(!wait){wait=true;requestAnimationFrame(upd);}},{passive:true});upd();}
+  var fg=document.querySelector('.fg-problem');
+  if(fg){
+    if(!('IntersectionObserver' in window)||location.search.indexOf('noreveal')>-1){fg.classList.add('mo-go');}
+    else{var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fg.classList.add('mo-go');o.disconnect();}});},{threshold:.45});o.observe(fg);}
+  }
 })();
 </script>
 </body>
