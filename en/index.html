@@ -1405,11 +1405,11 @@ setInterval(function(){
         A.set(q.e,i*4);B.set([rot?q.pv[0]:0,rot?q.pv[1]:0,rot?0:1,q.f],i*4);C.set([rot?q.amp*Math.PI/180:q.amp,q.sp,q.ph,q.ax||0],i*4);});
       gl.uniform4fv(gl.getUniformLocation(pr,'A'),A);gl.uniform4fv(gl.getUniformLocation(pr,'B'),B);gl.uniform4fv(gl.getUniformLocation(pr,'C'),C);
       gl.uniform2f(gl.getUniformLocation(pr,'R'),iw,ih);gl.uniform2f(gl.getUniformLocation(pr,'I'),iw,ih);
-      var uT=gl.getUniformLocation(pr,'t'),on=false,raf=0,shown=false;
-      function frame(ms){raf=0;if(!on||document.hidden)return;gl.uniform1f(uT,(ms/1000)%3600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-        if(!shown){shown=true;img.style.display='none';}raf=requestAnimationFrame(frame);}
+      var uT=gl.getUniformLocation(pr,'t'),on=false,raf=0;
+      function frame(ms){raf=0;if(!on||document.hidden)return;gl.uniform1f(uT,(ms/1000)%3600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);raf=requestAnimationFrame(frame);}
       function start(){if(!raf)raf=requestAnimationFrame(frame);}
-      img.parentNode.insertBefore(cv,img.nextSibling);
+      gl.uniform1f(uT,0);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);   // 先に1枚描いてから差し替える（img と並んで出る瞬間を作らない）
+      img.parentNode.insertBefore(cv,img.nextSibling);img.style.display='none';
       if('IntersectionObserver' in window)new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)start();}).observe(cv.parentNode);else{on=true;start();}
       document.addEventListener('visibilitychange',start);
     }
