@@ -546,10 +546,13 @@
 <style id="motion-trial">
 /* ── 動きの試作（2026-11-10・motion-trial）。動きは全部 prefers-reduced-motion:no-preference の中。外すときはこの style と末尾の script、mo- の付いた要素を消す ── */
 .mo-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;transform-origin:0 50%;transform:scaleX(0);pointer-events:none;background:linear-gradient(90deg,var(--hot),#ecd08a)}
+.mo-lines{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none}
 .mo-fire{position:absolute;left:var(--mo-x,50%);top:var(--mo-y,50%);width:0;height:0;display:none;pointer-events:none}
 @media(prefers-reduced-motion:no-preference){
   /* 炎：絵の炎の部分だけを小さな描画枠（WebGL）で描き直す。上へ流れるむら模様で絵をずらし、根元は固定・先端ほど大きく揺らす。位置は絵の中の炎の座標から script が計算する（絵を差し替えたら script の FLAME も直す） */
   .tz-flame.mo-ready .mo-fire{display:block}
+  /* 枝を走る光：絵から取り出した「中心から外へまっすぐ伸びる線」の型紙（assets/concept-visual-lines.webp・作り方は ngraph-workspace/projects/site-design/motion/make_line_mask.py）の上だけを、炎から外へ光が走る。曲がった線・横切る線は型紙に入れていない */
+  .tz-flame.mo-lit .mo-lines{display:block}
   .mo-flame{position:absolute;left:0;top:0;width:calc(var(--mo-s)*340px);height:calc(var(--mo-s)*340px);transform:translate(-50%,-50%);display:block}
   .mo-glow{position:absolute;left:0;top:calc(var(--mo-s)*24px);width:calc(var(--mo-s)*300px);height:calc(var(--mo-s)*300px);margin:calc(var(--mo-s)*-150px) 0 0 calc(var(--mo-s)*-150px);border-radius:50%;background:radial-gradient(circle,rgba(255,212,150,.55) 0,rgba(255,190,120,.18) 38%,transparent 66%);mix-blend-mode:screen;animation:moGlow 3.4s ease-in-out infinite alternate}
   @keyframes moGlow{from{opacity:.25;transform:scale(.9)}to{opacity:.8;transform:scale(1.1)}}
@@ -639,7 +642,7 @@
 
 <!-- ── Hero（2026-09-28：墨地・脳の線画＋信号の波） ── -->
 <section class="tz-sky" id="top">
-  <div class="tz-flame" aria-hidden="true"><div class="mo-fire"><canvas class="mo-flame"></canvas><div class="mo-glow"></div><i style="--x:-8;--x2:-26;--t:4.2s;--d:0.0s"></i><i style="--x:6;--x2:22;--t:5.0s;--d:-1.3s"></i><i style="--x:-2;--x2:10;--t:3.6s;--d:-2.4s"></i><i style="--x:12;--x2:34;--t:4.6s;--d:-0.7s"></i><i style="--x:-14;--x2:-6;--t:5.4s;--d:-3.1s"></i><i style="--x:2;--x2:-18;--t:3.9s;--d:-1.9s"></i></div></div>
+  <div class="tz-flame" aria-hidden="true"><canvas class="mo-lines"></canvas><div class="mo-fire"><canvas class="mo-flame"></canvas><div class="mo-glow"></div><i style="--x:-8;--x2:-26;--t:4.2s;--d:0.0s"></i><i style="--x:6;--x2:22;--t:5.0s;--d:-1.3s"></i><i style="--x:-2;--x2:10;--t:3.6s;--d:-2.4s"></i><i style="--x:12;--x2:34;--t:4.6s;--d:-0.7s"></i><i style="--x:-14;--x2:-6;--t:5.4s;--d:-3.1s"></i><i style="--x:2;--x2:-18;--t:3.9s;--d:-1.9s"></i></div></div>
   <div class="tz-frame">
     <div class="tz-stage">
       <div class="tz-copy">
@@ -1309,6 +1312,57 @@ setInterval(function(){
     place();addEventListener('resize',place,{passive:true});
     if(window.ResizeObserver)new ResizeObserver(place).observe(fl);
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){onScreen=es[0].isIntersecting;if(onScreen)start();}).observe(fl);
+    document.addEventListener('visibilitychange',start);
+  })();}
+  // 枝を走る光：型紙（まっすぐ外へ伸びる線だけ）の上を、炎から外へ光の頭と尾が走る。束ごとに出る時刻をずらす
+  var lf=document.querySelector('.tz-flame'),lc=lf&&lf.querySelector('.mo-lines');
+  if(lc&&matchMedia('(prefers-reduced-motion:no-preference)').matches){(function(){
+    var gl=lc.getContext('webgl',{premultipliedAlpha:true,antialias:false,alpha:true});if(!gl)return;
+    var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+    var FS=[
+      '#ifdef GL_FRAGMENT_PRECISION_HIGH','precision highp float;','#else','precision mediump float;','#endif',
+      'uniform sampler2D T;uniform vec2 R;uniform vec4 G;uniform float t,X;',   // G=(ox,oy,倍率,画素/CSS) X=スマホ用の絵の横ずれ
+      'float h(float x){return fract(sin(x*91.345)*47453.5453);}',
+      'float n1(float x){float i=floor(x),f=fract(x);f=f*f*(3.-2.*f);return mix(h(i),h(i+1.),f);}',
+      'void main(){',
+      '  vec2 css=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y)/G.w;',
+      '  vec2 p=(css-G.xy)/G.z;p.x+=X;',                       // PC用の絵の座標（px）
+      '  float m=texture2D(T,p/vec2(1600.,845.)).r;',
+      '  if(m<.02||p.x<0.||p.x>1600.||p.y<0.||p.y>845.){gl_FragColor=vec4(0.);return;}',
+      '  vec2 v=p-vec2(843.6,485.);float d=length(v),a=atan(v.y,v.x);',
+      '  float ph=n1(a*1.3+5.)*3.+n1(a*4.+1.)*.6;',            // 向きごとに出る時刻をずらす
+      '  float s=t*.42-d/430.+ph;',
+      '  float f=fract(s),k=floor(s);',
+      '  float on=step(.45,h(k*7.+floor(a*2.)*3.));',          // 毎回は走らせない（間を作る）
+      '  float head=smoothstep(0.,.025,f)*exp(-f*9.);',        // 光の頭と、中心側へ伸びる尾
+      '  float fade=(1.-smoothstep(380.,760.,d))*smoothstep(95.,150.,d);',
+      '  float I=m*head*on*fade*1.9;',
+      '  gl_FragColor=vec4(vec3(1.,.86,.62)*I,0.);',            // 足し算で光らせる
+      '}'].join('\n');
+    function sh(type,src){var o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null;}
+    var v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f)return;
+    var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+    gl.useProgram(pr);
+    gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uR=gl.getUniformLocation(pr,'R'),uG=gl.getUniformLocation(pr,'G'),uT=gl.getUniformLocation(pr,'t'),uX=gl.getUniformLocation(pr,'X');
+    var loaded=false,onScreen=true,raf=0,im=new Image();
+    im.onload=function(){var tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.LUMINANCE,gl.LUMINANCE,gl.UNSIGNED_BYTE,im);loaded=true;lf.classList.add('mo-lit');place();start();};
+    im.src='/assets/concept-visual-lines.webp';
+    function place(){
+      var sp=matchMedia('(max-width:900px)').matches,iw=sp?1500:1600,ih=845,W=lf.clientWidth,H=lf.clientHeight;if(!W||!H)return;
+      var sc=Math.max(W/iw,H/ih),k=Math.min(window.devicePixelRatio||1,1.5),pw=Math.round(W*k),phh=Math.round(H*k);
+      if(lc.width!==pw||lc.height!==phh){lc.width=pw;lc.height=phh;gl.viewport(0,0,pw,phh);}
+      gl.uniform2f(uR,pw,phh);gl.uniform4f(uG,(W-iw*sc)/2,(H-ih*sc)/2,sc,k);gl.uniform1f(uX,sp?100:0);
+    }
+    function frame(ms){raf=0;if(!loaded||!onScreen||document.hidden)return;gl.uniform1f(uT,(ms/1000)%3600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);raf=requestAnimationFrame(frame);}
+    function start(){if(!raf)raf=requestAnimationFrame(frame);}
+    addEventListener('resize',place,{passive:true});
+    if(window.ResizeObserver)new ResizeObserver(place).observe(lf);
+    if('IntersectionObserver' in window)new IntersectionObserver(function(es){onScreen=es[0].isIntersecting;if(onScreen)start();}).observe(lf);
     document.addEventListener('visibilitychange',start);
   })();}
   var fg=document.querySelector('.fg-problem');
