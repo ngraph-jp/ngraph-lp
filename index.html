@@ -546,11 +546,10 @@
 <style id="motion-trial">
 /* ── 動きの試作（2026-11-10・motion-trial）。動きは全部 prefers-reduced-motion:no-preference の中。外すときはこの style と末尾の script、mo- の付いた要素を消す ── */
 .mo-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;transform-origin:0 50%;transform:scaleX(0);pointer-events:none;background:linear-gradient(90deg,var(--hot),#ecd08a)}
-.pi-art canvas.mo-ill{width:100%;height:100%;max-width:100%;object-fit:contain;display:block}
 .mo-lines{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none}
 .mo-fire{position:absolute;left:var(--mo-x,50%);top:var(--mo-y,50%);width:0;height:0;display:none;pointer-events:none}
 @media(prefers-reduced-motion:no-preference){
-  /* 炎：絵の炎の部分だけを小さな描画枠（WebGL）で描き直す。上へ流れるむら模様で絵をずらし、根元は固定・先端ほど大きく揺らす。位置は絵の中の炎の座標から script が計算する（絵を差し替えたら script の FLAME も直す） */
+  /* 炎：絵の炎の部分だけを小さな描画枠（WebGL）で描き直す。上へ流れるむら模様で絵をずらし、根元は固定・先端ほど大きく揺らす。動かすのは炎の形の型紙（assets/concept-visual-flame.webp・作り方は ngraph-workspace/projects/site-design/motion/make_flame_mask.py）の中だけ。位置は絵の中の炎の座標から script が計算する（絵を差し替えたら script の FLAME も直す） */
   .tz-flame.mo-ready .mo-fire{display:block}
   /* 枝を走る光：絵から取り出した「中心から外へまっすぐ伸びる線」の型紙（assets/concept-visual-lines.webp・作り方は ngraph-workspace/projects/site-design/motion/make_line_mask.py）の上だけを、炎から外へ光が走る。曲がった線・横切る線は型紙に入れていない */
   .tz-flame.mo-lit .mo-lines{display:block}
@@ -585,19 +584,13 @@
   :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(5){--sd:.48s}
   :is(.pi-grid,.svc-row,.cbs,.steps4,.pds)>:nth-child(6){--sd:.6s}
 
-  /* 「昨日を覚えていない」の図：吹き出しが会話の順に出る → 日付が進む → 翌日の吹き出し */
-  .fg-problem .mo-pop{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:50% 100%;transition:opacity .3s ease var(--d,0s),transform .5s cubic-bezier(.34,1.56,.64,1) var(--d,0s)}
-  .fg-problem.mo-go .mo-pop{opacity:1;transform:none}
-  .fg-problem .pb-list li{opacity:0;transform:scale(.6);transform-origin:30% 100%;transition:opacity .3s ease var(--d,0s),transform .5s cubic-bezier(.34,1.56,.64,1) var(--d,0s)}
-  .fg-problem.mo-go .pb-list li{opacity:1;transform:none}
-  .pb-before .pb-list li:nth-child(1){--d:.3s}.pb-before .pb-list li:nth-child(2){--d:1s}
-  .pb-after .pb-list li:nth-child(1){--d:3s}.pb-after .pb-list li:nth-child(2){--d:3.7s}
+  /* 「昨日を覚えていない」の図：日付が進んで矢印が伸びる（吹き出しは動かさず常に出す・本人 2026-11-10） */
   .fg-problem .pb-cal .d{opacity:.15;transition:opacity .2s ease var(--d,0s)}
   .fg-problem.mo-go .pb-cal .d{opacity:1}
-  .pb-cal .d:nth-of-type(2){--d:1.7s}.pb-cal .d:nth-of-type(3){--d:1.82s}.pb-cal .d:nth-of-type(4){--d:1.94s}.pb-cal .d:nth-of-type(5){--d:2.06s}.pb-cal .d:nth-of-type(6){--d:2.18s}
-  .fg-problem .pb-arrow path:first-child{stroke-dasharray:44;stroke-dashoffset:44;transition:stroke-dashoffset .5s ease 2.3s}
+  .pb-cal .d:nth-of-type(2){--d:.3s}.pb-cal .d:nth-of-type(3){--d:.42s}.pb-cal .d:nth-of-type(4){--d:.54s}.pb-cal .d:nth-of-type(5){--d:.66s}.pb-cal .d:nth-of-type(6){--d:.78s}
+  .fg-problem .pb-arrow path:first-child{stroke-dasharray:44;stroke-dashoffset:44;transition:stroke-dashoffset .5s ease .9s}
   .fg-problem.mo-go .pb-arrow path:first-child{stroke-dashoffset:0}
-  .fg-problem .pb-arrow .hd{opacity:0;transition:opacity .2s ease 2.75s}
+  .fg-problem .pb-arrow .hd{opacity:0;transition:opacity .2s ease 1.35s}
   .fg-problem.mo-go .pb-arrow .hd{opacity:1}
 
   /* 言い切りの文：強調の線が左から引かれる */
@@ -720,8 +713,8 @@
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="前日：同じ会話の中で、AIと理解を積み上げている場面">
               <image href="/assets/brain/ill/comic-before.webp" x="0" y="217" width="1000" height="558"/>
-              <g class="bub" transform="translate(30,120)"><g class="mo-pop" style="--d:.3s"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">ここまで</text><text x="125" y="88" text-anchor="middle">分かってくれた</text></g></g>
-              <g class="bub" transform="translate(500,160)"><g class="mo-pop" style="--d:1s"><rect width="360" height="150" rx="16"/><path class="tail" d="M150 150 l25 30 l30 -30z"/><text x="180" y="46" text-anchor="middle">素晴らしいですね。</text><text x="180" y="88" text-anchor="middle">はい、続きも</text><text x="180" y="130" text-anchor="middle">任せてください</text></g></g>
+              <g class="bub" transform="translate(30,120)"><rect width="250" height="112" rx="16"/><path class="tail" d="M120 112 l18 30 l22 -30z"/><text x="125" y="46" text-anchor="middle">ここまで</text><text x="125" y="88" text-anchor="middle">分かってくれた</text></g>
+              <g class="bub" transform="translate(500,160)"><rect width="360" height="150" rx="16"/><path class="tail" d="M150 150 l25 30 l30 -30z"/><text x="180" y="46" text-anchor="middle">素晴らしいですね。</text><text x="180" y="88" text-anchor="middle">はい、続きも</text><text x="180" y="130" text-anchor="middle">任せてください</text></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">ここまで</span><span class="nb">分かってくれた</span></li>
@@ -741,8 +734,8 @@
           <div class="pb-art">
             <svg class="pb-svg" viewBox="0 0 1000 775" role="img" aria-label="翌日：別の会話・別のAIで、初対面のように戻ってしまう場面">
               <image href="/assets/brain/ill/comic-after.webp" x="0" y="142" width="1000" height="633"/>
-              <g class="bub" transform="translate(40,40)"><g class="mo-pop" style="--d:3s"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">え？</text><text x="135" y="88" text-anchor="middle">昨日の続き</text><text x="135" y="130" text-anchor="middle">なんだけど…</text></g></g>
-              <g class="bub big" transform="translate(500,112)"><g class="mo-pop" style="--d:3.7s"><rect width="420" height="160" rx="18"/><path class="tail" d="M150 160 l25 26 l34 -26z"/><text x="210" y="62" text-anchor="middle">はじめまして。</text><text x="210" y="120" text-anchor="middle">どちら様ですか?</text></g></g>
+              <g class="bub" transform="translate(40,40)"><rect width="270" height="150" rx="16"/><path class="tail" d="M150 150 l10 32 l30 -32z"/><text x="135" y="46" text-anchor="middle">え？</text><text x="135" y="88" text-anchor="middle">昨日の続き</text><text x="135" y="130" text-anchor="middle">なんだけど…</text></g>
+              <g class="bub big" transform="translate(500,112)"><rect width="420" height="160" rx="18"/><path class="tail" d="M150 160 l25 26 l34 -26z"/><text x="210" y="62" text-anchor="middle">はじめまして。</text><text x="210" y="120" text-anchor="middle">どちら様ですか?</text></g>
             </svg>
           <ul class="pb-list">
             <li><span class="nb">え？ 昨日の</span><span class="nb">続きなんだけど…</span></li>
@@ -1263,22 +1256,21 @@ setInterval(function(){
     var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
     var FS=[
       '#ifdef GL_FRAGMENT_PRECISION_HIGH','precision highp float;','#else','precision mediump float;','#endif',
-      'uniform sampler2D T;uniform vec2 R,I,F;uniform float t;',
+      'uniform sampler2D T,M;uniform vec2 R,I,F;uniform float t;',
       'float h(vec2 p){p=fract(p*vec2(.1031,.1030));p+=dot(p,p.yx+33.33);return fract((p.x+p.y)*p.x);}',
       'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}',
       'void main(){',
       '  vec2 uv=vec2(gl_FragCoord.x/R.x,1.-gl_FragCoord.y/R.y);',
       '  vec2 p=F-170.+uv*340.;',                                   // 絵の中の座標（px）
-      '  float mx=1.-smoothstep(48.,92.,abs(p.x-F.x));',            // 炎の幅の外は動かさない
-      '  float mt=smoothstep(F.y-162.,F.y-138.,p.y);',              // 炎の先より上は動かさない
       '  float hg=clamp((F.y+58.-p.y)/178.,0.,1.);',                // 根元0 → 先端1
-      '  float w=mx*mt*pow(hg,1.5);',
+      '  float fm=texture2D(M,uv).r;',                              // 炎の形の型紙（assets/concept-visual-flame.webp）。白い所だけ動かす＝球のふち・網目・背景は動かない
+      '  float w=fm*pow(hg,1.5);',
       '  float n1=n(vec2(p.x*.020,p.y*.014+t*.9))-.5;',             // ゆっくり大きな揺れ（上へ流れる）
       '  float n2=n(vec2(p.x*.055+7.,p.y*.040+t*2.1))-.5;',         // 速く細かな揺れ
       '  float n3=n(vec2(p.x*.018+3.,p.y*.018+t*1.3))-.5;',         // 伸び縮み
       '  vec2 off=vec2(n1*17.+n2*5.+sin(t*.7)*3.*hg,n3*9.)*w;',
       '  vec3 c=texture2D(T,(p+off)/I).rgb;',
-      '  c*=1.+(n(vec2(t*1.6,3.))-.5)*.16*mx*mt*smoothstep(0.,.25,hg);', // 明るさのゆらぎ
+      '  c*=1.+(n(vec2(t*1.6,3.))-.5)*.16*fm*smoothstep(0.,.25,hg);', // 明るさのゆらぎ
       '  vec2 e=min(uv,1.-uv);float al=smoothstep(0.,.05,min(e.x,e.y));',
       '  gl_FragColor=vec4(c*al,al);',
       '}'].join('\n');
@@ -1289,7 +1281,13 @@ setInterval(function(){
     gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
     var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
     var uR=gl.getUniformLocation(pr,'R'),uI=gl.getUniformLocation(pr,'I'),uF=gl.getUniformLocation(pr,'F'),uT=gl.getUniformLocation(pr,'t');
-    var tex=gl.createTexture(),cur=null,loaded=false,onScreen=true,raf=0;
+    var tex=gl.createTexture(),cur=null,loaded=false,onScreen=true,raf=0,mkOK=false,mk=new Image();
+    mk.onload=function(){gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,gl.createTexture());
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.LUMINANCE,gl.LUMINANCE,gl.UNSIGNED_BYTE,mk);gl.activeTexture(gl.TEXTURE0);
+      gl.uniform1i(gl.getUniformLocation(pr,'M'),1);mkOK=true;start();};
+    mk.src='/assets/concept-visual-flame.webp';
     function load(fm){
       loaded=false;var im=new Image();
       im.onload=function(){if(cur!==fm)return;gl.bindTexture(gl.TEXTURE_2D,tex);
@@ -1308,7 +1306,7 @@ setInterval(function(){
       if(cv.width!==px){cv.width=cv.height=px;gl.viewport(0,0,px,px);gl.uniform2f(uR,px,px);}
       if(cur!==fm){cur=fm;load(fm);}
     }
-    function frame(ms){raf=0;if(!loaded||!onScreen||document.hidden)return;gl.uniform1f(uT,(ms/1000)%600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);raf=requestAnimationFrame(frame);}
+    function frame(ms){raf=0;if(!loaded||!mkOK||!onScreen||document.hidden)return;gl.uniform1f(uT,(ms/1000)%600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);raf=requestAnimationFrame(frame);}
     function start(){if(!raf)raf=requestAnimationFrame(frame);}
     place();addEventListener('resize',place,{passive:true});
     if(window.ResizeObserver)new ResizeObserver(place).observe(fl);
@@ -1365,65 +1363,6 @@ setInterval(function(){
     if(window.ResizeObserver)new ResizeObserver(place).observe(lf);
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){onScreen=es[0].isIntersecting;if(onScreen)start();}).observe(lf);
     document.addEventListener('visibilitychange',start);
-  })();}
-  // 2人のイラスト：絵の一部（首・手・吹き出し）だけを、その場で繰り返してもおかしくない小さな動きで動かす。
-  // 絵ごとに「どこを・どこを軸に・どれだけ」を ILL に書く。座標は絵の px。rot=軸のまわりに回す（度）、move=上下左右（px）
-  if(matchMedia('(prefers-reduced-motion:no-preference)').matches){(function(){
-    var ILL={
-      'card-genba-tight.webp':[
-        {t:'rot',e:[140,150,56,66],pv:[143,208],amp:3.6,sp:.80,ph:0,f:.16},      // 髙橋：首
-        {t:'rot',e:[418,170,49,62],pv:[415,228],amp:3.2,sp:.66,ph:2.1,f:.16},    // Matt：首
-        {t:'rot',e:[262,272,60,78],pv:[222,338],amp:3.0,sp:.52,ph:1.0,f:.14},    // 髙橋：タブレットを持つ手
-        {t:'move',e:[140,290,30,24],amp:-3.2,ax:1.0,sp:1.04,ph:.6,f:.5},         // 髙橋：胸の手
-        {t:'move',e:[462,368,30,17],amp:-1.8,ax:0,sp:5.2,ph:0,f:.5},             // Matt：キーを打つ手
-        {t:'move',e:[290,84,98,66],amp:-3.6,ax:0,sp:.45,ph:.3,f:.12}             // 吹き出し
-      ]
-    };
-    var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
-    var FS=[
-      '#ifdef GL_FRAGMENT_PRECISION_HIGH','precision highp float;','#else','precision mediump float;','#endif',
-      'uniform sampler2D T;uniform vec2 R,I;uniform float t;uniform vec4 A[6],B[6],C[6];',
-      'void main(){',
-      '  vec2 p=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y)*I/R,o=vec2(0.);',
-      '  for(int i=0;i<6;i++){vec4 a=A[i],b=B[i],c=C[i];if(a.z<=0.)continue;',
-      '    float w=1.-smoothstep(1.,1.+b.w,length((p-a.xy)/a.zw));if(w<=0.)continue;',
-      '    float k=sin(t*c.y+c.z)*.65+sin(t*c.y*.43+c.z*2.3)*.35;',
-      '    if(b.z<.5){float g=c.x*k*w;vec2 q=p-b.xy;float cs=cos(g),sn=sin(g);o+=vec2(cs*q.x+sn*q.y,-sn*q.x+cs*q.y)-q;}',
-      '    else{o+=vec2(c.w,c.x)*k*w;}}',
-      '  gl_FragColor=vec4(texture2D(T,(p+o)/I).rgb,1.);',
-      '}'].join('\n');
-    function setup(img,parts){
-      var cv=document.createElement('canvas');cv.className='mo-ill';cv.setAttribute('aria-hidden','true');
-      var iw=img.naturalWidth,ih=img.naturalHeight;cv.width=iw;cv.height=ih;
-      var gl=cv.getContext('webgl',{antialias:false,alpha:false});if(!gl)return;
-      function sh(type,src){var o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null;}
-      var v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f)return;
-      var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
-      gl.useProgram(pr);
-      gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-      var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-      gl.bindTexture(gl.TEXTURE_2D,gl.createTexture());
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-      try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);}catch(e){return;}
-      var A=new Float32Array(24),B=new Float32Array(24),C=new Float32Array(24);
-      parts.slice(0,6).forEach(function(q,i){var rot=q.t==='rot';
-        A.set(q.e,i*4);B.set([rot?q.pv[0]:0,rot?q.pv[1]:0,rot?0:1,q.f],i*4);C.set([rot?q.amp*Math.PI/180:q.amp,q.sp,q.ph,q.ax||0],i*4);});
-      gl.uniform4fv(gl.getUniformLocation(pr,'A'),A);gl.uniform4fv(gl.getUniformLocation(pr,'B'),B);gl.uniform4fv(gl.getUniformLocation(pr,'C'),C);
-      gl.uniform2f(gl.getUniformLocation(pr,'R'),iw,ih);gl.uniform2f(gl.getUniformLocation(pr,'I'),iw,ih);
-      var uT=gl.getUniformLocation(pr,'t'),on=false,raf=0;
-      function frame(ms){raf=0;if(!on||document.hidden)return;gl.uniform1f(uT,(ms/1000)%3600);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);raf=requestAnimationFrame(frame);}
-      function start(){if(!raf)raf=requestAnimationFrame(frame);}
-      gl.uniform1f(uT,0);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);   // 先に1枚描いてから差し替える（img と並んで出る瞬間を作らない）
-      img.parentNode.insertBefore(cv,img.nextSibling);img.style.display='none';
-      if('IntersectionObserver' in window)new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)start();}).observe(cv.parentNode);else{on=true;start();}
-      document.addEventListener('visibilitychange',start);
-    }
-    Object.keys(ILL).forEach(function(name){
-      [].forEach.call(document.querySelectorAll('img[src$="/'+name+'"]'),function(img){
-        if(img.complete&&img.naturalWidth)setup(img,ILL[name]);else img.addEventListener('load',function(){setup(img,ILL[name]);},{once:true});
-      });
-    });
   })();}
   var fg=document.querySelector('.fg-problem');
   if(fg){
