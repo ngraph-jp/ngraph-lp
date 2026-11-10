@@ -22,9 +22,17 @@ const injectJpWrap = (res) => {
   const ct = res.headers.get('content-type') || '';
   if (!ct.includes('text/html')) return res;
   return new HTMLRewriter()
-    .on('head', { element(el) { el.append('<script defer src="/js/jp-wrap.js?v=4"></script>', { html: true }); } })
+    .on('head', { element(el) {
+      el.prepend(ME_OPTOUT, { html: true });
+      el.append('<script defer src="/js/jp-wrap.js?v=4"></script>', { html: true });
+    } })
     .transform(res);
 };
+
+// 自分たちの端末をアクセス集計（GA）から外すスイッチ（2026-11-10）。
+// その端末で一度 https://ngraph.jp/?ng_me=1 を開くと、以後その端末・そのブラウザは GA に送らない。戻すのは ?ng_me=0。
+// GA のタグより先に動かす必要があるので <head> の先頭に差し込む。
+const ME_OPTOUT = `<script>try{var q=new URLSearchParams(location.search).get('ng_me');if(q==='1'){localStorage.setItem('ng_me','1');alert('この端末をアクセス集計から外しました')}if(q==='0'){localStorage.removeItem('ng_me');alert('この端末をアクセス集計に戻しました')}if(localStorage.getItem('ng_me'))window['ga-disable-G-L96HMXRK1D']=true}catch(e){}</script>`;
 
 const gone = () => new Response('<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>公開を終了しました | 株式会社NGraph</title><p style="font-family:sans-serif;padding:40px 20px;line-height:2">取引先チェックの公開は終了しました。<br><a href="/">NGraph トップへ</a></p>', {
   status: 410,
