@@ -131,7 +131,8 @@ def main():
             b = p.chromium.launch(channel="msedge")
         except Exception:
             b = p.chromium.launch()
-        pg = b.new_page(viewport={"width": 1280, "height": 900})
+        import no_tracking
+        pg = no_tracking.block(b.new_page(viewport={"width": 1280, "height": 900}))  # 検査が GA を踏まない（2026-11-10）
         pg.set_content("<html lang=ja><meta charset=utf-8><body>" + NG_SAMPLE)
         ng = pg.evaluate(JS)
         pg.set_content("<html lang=ja><meta charset=utf-8><body>" + OK_SAMPLE)

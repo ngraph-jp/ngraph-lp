@@ -56,6 +56,7 @@ CHECKS = [
     ("句の箱（nb）が箱の中で割れていないか（ブラウザで4幅を実測・report-only）", "nb_split_check.py", [], False),
     ("文字が小さすぎないか（本文12px・図の中11px・ブラウザでPCとスマホを実測）", "type_floor_check.py", [], False),
     ("変えたページが iPhone と同じエンジン（WebKit）のスマホ幅で落ちないか（実際に開く）", "webkit_crash_check.py", [], False),
+    ("検査で開いたページが計測（GA）へ通信しないか（実際に開く）", "no_tracking.py", [], False),
     ("アルケー（cases/）と元ソース・sitemap のズレ（直すのは _arche で npm run build・report-only）", "arche_check.py", [], False),
     ("日本語と英語（en/）のズレ（日本語を直したら英語も直して en_check.py --stamp・report-only）", "en_check.py", [], False),
     ("タイトルの弱い定型（report-only）", "title_lint.py", [], False),

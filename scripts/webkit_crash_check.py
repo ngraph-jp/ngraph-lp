@@ -99,7 +99,8 @@ def one(url, width):
     out = {"state": "ok"}
     with sync_playwright() as p:
         b = p.webkit.launch()
-        pg = b.new_page(viewport={"width": width, "height": 900})
+        import no_tracking
+        pg = no_tracking.block(b.new_page(viewport={"width": width, "height": 900}))  # 検査が GA を踏まない（2026-11-10）
         crashed = []
         pg.on("crash", lambda *_: crashed.append(1))
         try:
