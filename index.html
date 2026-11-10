@@ -546,19 +546,28 @@
 <style id="motion-trial">
 /* ── 動きの試作（2026-11-10・motion-trial）。動きは全部 prefers-reduced-motion:no-preference の中。外すときはこの style と末尾の script、mo- の付いた要素を消す ── */
 .mo-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;transform-origin:0 50%;transform:scaleX(0);pointer-events:none;background:linear-gradient(90deg,var(--hot),#ecd08a)}
-.mo-orbit{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none}
+.mo-fire{position:absolute;left:var(--mo-x,50%);top:var(--mo-y,50%);width:0;height:0;display:none;pointer-events:none}
 @media(prefers-reduced-motion:no-preference){
-  /* 最初の画面：文字が順に上がる／「意味」に線が引かれる／炎へ粒が集まり、輪が広がる */
+  /* 炎：絵の炎の部分だけをもう1枚重ね、ゆがみのフィルタで揺らす。位置は絵の中の炎の座標から script が計算する（絵を差し替えたら script の FLAME も直す） */
+  .tz-flame.mo-ready .mo-fire{display:block}
+  .mo-flame{position:absolute;left:0;top:0;width:calc(var(--mo-s)*300px);height:calc(var(--mo-s)*300px);transform:translate(-50%,-50%);background:url(/assets/concept-visual.png) var(--mo-bx) var(--mo-by)/var(--mo-bw) var(--mo-bh) no-repeat;-webkit-mask-image:radial-gradient(ellipse 27% 42% at 50% 43%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 27% 42% at 50% 43%,#000 58%,transparent 100%);filter:url(#moFlameWarp)}
+  @media(max-width:900px){.mo-flame{background-image:url(/assets/concept-visual-center.webp)}}
+  .mo-glow{position:absolute;left:0;top:calc(var(--mo-s)*24px);width:calc(var(--mo-s)*300px);height:calc(var(--mo-s)*300px);margin:calc(var(--mo-s)*-150px) 0 0 calc(var(--mo-s)*-150px);border-radius:50%;background:radial-gradient(circle,rgba(255,212,150,.55) 0,rgba(255,190,120,.18) 38%,transparent 66%);mix-blend-mode:screen;animation:moGlow 3.4s ease-in-out infinite alternate}
+  @keyframes moGlow{from{opacity:.25;transform:scale(.9)}to{opacity:.8;transform:scale(1.1)}}
+  .mo-fire i{position:absolute;left:0;top:0;width:3px;height:3px;margin:-1.5px;border-radius:50%;background:#ffd9a0;box-shadow:0 0 6px 1px rgba(255,200,130,.8);opacity:0;animation:moEmber var(--t,4s) ease-out infinite;animation-delay:var(--d,0s)}
+  @keyframes moEmber{
+    0%{transform:translate(calc(var(--mo-s)*var(--x)*1px),calc(var(--mo-s)*-70px));opacity:0}
+    15%{opacity:.9}
+    100%{transform:translate(calc(var(--mo-s)*var(--x2)*1px),calc(var(--mo-s)*-250px));opacity:0}
+  }
+}
+@media(prefers-reduced-motion:no-preference){
+  /* 最初の画面：文字が順に上がる／「意味」に線が引かれる／炎そのものが揺らぎ、明かりが息をして、火の粉が上がる */
   .tz-eyebrow,.tz-h1,.tz-lede,.tz-acts{animation:moRise .9s cubic-bezier(.2,.7,.2,1) backwards}
   .tz-eyebrow{animation-delay:.1s}.tz-h1{animation-delay:.25s}.tz-lede{animation-delay:.55s}.tz-acts{animation-delay:.75s}
   @keyframes moRise{from{opacity:0;transform:translateY(18px)}}
   .tz-h1 em{background:linear-gradient(var(--hot),var(--hot)) no-repeat 0 96%/0 2px;animation:moLine .8s ease 1.3s forwards}
   @keyframes moLine{to{background-size:100% 2px}}
-  .mo-orbit{display:block}
-  .mo-orbit .p{opacity:0;animation:moIn var(--t,5s) linear infinite;animation-delay:var(--d,0s)}
-  @keyframes moIn{0%{transform:translateX(470px);opacity:0}14%{opacity:.95}80%{opacity:.95}100%{transform:translateX(112px);opacity:0}}
-  .mo-orbit .r{transform-origin:0 0;opacity:0;animation:moRing 5.2s ease-out infinite;animation-delay:var(--d,0s)}
-  @keyframes moRing{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.9);opacity:0}}
   .tz-btn span,.contact .btn-primary svg{display:inline-block;animation:moNudge 1.5s ease-in-out infinite}
   @keyframes moNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 
@@ -631,7 +640,7 @@
 
 <!-- ── Hero（2026-09-28：墨地・脳の線画＋信号の波） ── -->
 <section class="tz-sky" id="top">
-  <div class="tz-flame" aria-hidden="true"><svg class="mo-orbit" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid meet" fill="#ecd08a"><circle class="r" r="104" fill="none" stroke="#ecd08a" stroke-width="1.2"/><circle class="r" r="104" fill="none" stroke="#ecd08a" stroke-width="1.2" style="--d:2.6s"/><g transform="rotate(8)"><circle class="p" r="2.2" style="--t:4.6s;--d:0.0s"/></g><g transform="rotate(37)"><circle class="p" r="2.9" style="--t:6.0s;--d:-0.6s"/></g><g transform="rotate(61)"><circle class="p" r="3.6" style="--t:5.1s;--d:-1.2s"/></g><g transform="rotate(95)"><circle class="p" r="2.2" style="--t:6.5s;--d:-1.8s"/></g><g transform="rotate(128)"><circle class="p" r="2.9" style="--t:5.6s;--d:-2.4s"/></g><g transform="rotate(153)"><circle class="p" r="3.6" style="--t:4.7s;--d:-3.0s"/></g><g transform="rotate(188)"><circle class="p" r="2.2" style="--t:6.1s;--d:-3.6s"/></g><g transform="rotate(214)"><circle class="p" r="2.9" style="--t:5.2s;--d:-4.2s"/></g><g transform="rotate(247)"><circle class="p" r="3.6" style="--t:6.6s;--d:-0.1s"/></g><g transform="rotate(275)"><circle class="p" r="2.2" style="--t:5.7s;--d:-0.7s"/></g><g transform="rotate(309)"><circle class="p" r="2.9" style="--t:4.8s;--d:-1.3s"/></g><g transform="rotate(338)"><circle class="p" r="3.6" style="--t:6.2s;--d:-1.9s"/></g><g transform="rotate(22)"><circle class="p" r="2.2" style="--t:5.3s;--d:-2.5s"/></g><g transform="rotate(172)"><circle class="p" r="2.9" style="--t:6.7s;--d:-3.1s"/></g></svg></div>
+  <div class="tz-flame" aria-hidden="true"><div class="mo-fire"><div class="mo-glow"></div><div class="mo-flame"></div><i style="--x:-8;--x2:-26;--t:4.2s;--d:0.0s"></i><i style="--x:6;--x2:22;--t:5.0s;--d:-1.3s"></i><i style="--x:-2;--x2:10;--t:3.6s;--d:-2.4s"></i><i style="--x:12;--x2:34;--t:4.6s;--d:-0.7s"></i><i style="--x:-14;--x2:-6;--t:5.4s;--d:-3.1s"></i><i style="--x:2;--x2:-18;--t:3.9s;--d:-1.9s"></i></div><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="moFlameWarp" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.026" numOctaves="1" seed="4" result="n"><animate attributeName="baseFrequency" dur="6s" values="0.011 0.026;0.014 0.04;0.01 0.032;0.011 0.026" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter></svg></div>
   <div class="tz-frame">
     <div class="tz-stage">
       <div class="tz-copy">
@@ -1238,11 +1247,29 @@ setInterval(function(){
 })();
 </script>
 <script>
-// 動きの試作（motion-trial）：上端の進み具合の線／「昨日を覚えていない」の図は半分見えてから始める
+// 動きの試作（motion-trial）：上端の進み具合の線／炎を絵の位置に合わせる／「昨日を覚えていない」の図は半分見えてから始める
 (function(){
   var bar=document.getElementById('moProgress'),wait=false;
   function upd(){var max=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(max>0?Math.min(scrollY/max,1):0)+')';wait=false;}
   if(bar){addEventListener('scroll',function(){if(!wait){wait=true;requestAnimationFrame(upd);}},{passive:true});upd();}
+  // 炎の位置：絵の中の炎の座標（px）から、いまの表示の大きさに合わせて置く
+  var fl=document.querySelector('.tz-flame');
+  if(fl&&fl.querySelector('.mo-fire')){
+    var FLAME={pc:{iw:1600,ih:845,x:843.6,y:455},sp:{iw:1500,ih:845,x:743.6,y:455}};
+    var disp=document.querySelector('#moFlameWarp feDisplacementMap');
+    var place=function(){
+      var f=matchMedia('(max-width:900px)').matches?FLAME.sp:FLAME.pc,W=fl.clientWidth,H=fl.clientHeight;if(!W||!H)return;
+      var sc=Math.max(W/f.iw,H/f.ih),ox=(W-f.iw*sc)/2,oy=(H-f.ih*sc)/2,st=fl.style;
+      st.setProperty('--mo-s',sc.toFixed(4));
+      st.setProperty('--mo-x',(ox+f.x*sc).toFixed(1)+'px');st.setProperty('--mo-y',(oy+f.y*sc).toFixed(1)+'px');
+      st.setProperty('--mo-bw',(f.iw*sc).toFixed(1)+'px');st.setProperty('--mo-bh',(f.ih*sc).toFixed(1)+'px');
+      st.setProperty('--mo-bx',(-(f.x-150)*sc).toFixed(1)+'px');st.setProperty('--mo-by',(-(f.y-150)*sc).toFixed(1)+'px');
+      if(disp)disp.setAttribute('scale',(11*sc).toFixed(1));
+      fl.classList.add('mo-ready');
+    };
+    place();addEventListener('resize',place,{passive:true});
+    if(window.ResizeObserver)new ResizeObserver(place).observe(fl);
+  }
   var fg=document.querySelector('.fg-problem');
   if(fg){
     if(!('IntersectionObserver' in window)||location.search.indexOf('noreveal')>-1){fg.classList.add('mo-go');}
