@@ -224,7 +224,7 @@
 <tr><td>DECIDER</td><td>Deciderが全件にラベルを付ける。Bedrockは呼ばない</td></tr>
 </table></div>
 <p>しかも、戻したいときは45秒の設定変更で足ります。いきなり全件を替えず、まず並べて比べる段を挟んだことが、この事例の一番の工夫だと読みました。</p>
-<h3>食い違いは、1件ずつ人が判定した</h3>
+<h3>食い違いは、1件ずつ判定した</h3>
 <p>実際の流れで両方を動かし、食い違いを1件ずつ判定したことが、どの机上の評価より多くを教えた、とAmazonの技術者は書いています。</p>
 <p>最初に使ったのは、Strands Decider 2Bでした。テスト用のチケットで、E4Bが明らかに良かったので切り替えています。</p>
 <div class="a-fig-wrap">
@@ -232,7 +232,7 @@
 <svg viewBox="0 0 1200 380" width="100%" style="min-width:640px" role="img" aria-label="選ばれたE4Bは、公開の成績では4つのうち下から2番目"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">JevBench v1・231問の正解率（%）</text><text x="169" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">26B-A4B</text><rect x="187" y="76" width="812" height="34" rx="2" fill="#cfc5b4"/><text x="1011" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">89.6%</text><text x="169" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">12B</text><rect x="187" y="128" width="785" height="34" rx="2" fill="#cfc5b4"/><text x="984" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">86.6%</text><text x="169" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">E4B</text><rect x="187" y="180" width="734" height="34" rx="2" fill="#2b2620"/><text x="933" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="start">81.0%</text><text x="1022" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="16" fill="#a63a24" font-weight="700" text-anchor="start">← 選ばれた</text><text x="169" y="257" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">E2B</text><rect x="187" y="232" width="706" height="34" rx="2" fill="#cfc5b4"/><text x="905" y="258" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">77.9%</text><text x="600.0" y="322.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">それでもAmazonのチケットでは本番のSonnetを上回った。自分のデータで測るしかない</text><text x="8" y="364" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Strands Agents公式ブログ（2026年10月15日）JevBench v1・231問の正解率（%）</text></svg>
 </div>
 <p>図のとおり、E4Bは公開の成績では4つの真ん中より下です。それでも、Amazonのチケットでは、本番のSonnetを上回りました。つまり、公開の成績表は、自社のデータの代わりになりません。</p>
-<p>もう1つ、意外な点がありました。同じ中身でも、JSONのキーの順番を変えると、出力の確率が最大0.19動いたのです。いまは、キーを並べ替えてから送っています。モデルがどれくらい確信していればラベルを付けるか、というしきい値も、並走の中で調整しました。</p>
+<p>もう1つ、意外な点がありました。同じ中身でも、JSONのキーの順番を変えると、出力の確率が最大0.19動いたのです。いまは、キーを並べ替えてから送っています。モデルがどれくらい確信していればラベルを付けるか、というしきい値も、E4Bに替えたあとで調整したそうです。</p>
 <div class="a-note"><strong>当社の実測。選ぶだけの仕事でも、当たり方は判定ごとに違った</strong><br>
 当社は2026年9月、別の会社の判定専用AI、TypeSafe社のJevで、国会の予算委員会の質問2,424件を16の分野に仕分けました。Jevは自前の計算機を借りず、使った分だけ払う形です。失敗は0件、入力はおよそ678万トークンで、公式の価格で計算して約45円でした。<br>
 ただ、判定の種類で当たり方が大きく違いました。2026年9月26日の抜き取りで、法律の「施行済み・施行待ち」などの段階の判定は約97%正しかった一方、政府が「見送り」と答えたかどうかの判定は約5割でした。該当の26件は、画面から外しています。<br>
@@ -244,7 +244,7 @@
 <h3>2 説明文が要る仕事や、選択肢が毎週変わる仕事に使う</h3>
 <p>判定専用モデルは、文章を書けません。窓も4,096トークンです。ラベルごとに長い説明が要る仕事や、一覧が毎週変わる仕事は、Amazonの技術者自身が、おそらく置き換えられないと書いています。</p>
 <h3>3 並べて比べずに、一気に切り替える</h3>
-<p>Amazonは、実際の流れで両方を動かし、食い違いを1件ずつ見ました。JSONのキーの順番だけで、確率が最大0.19動くことも、並走で見つかっています。机の上の評価では、出てこない種類の差です。</p>
+<p>Amazonは、実際の流れで両方を動かし、食い違いを1件ずつ見ました。JSONのキーの順番だけで、確率が最大0.19動くことにも、技術者は驚いたと書いています。比べる前に、送り方をそろえておく必要があります。</p>
 <p>この切り替えを自社の仕事に当てはめたいときは、<a href="/fde/">AI現場実装のページ</a>で進め方を説明しています。</p>
 
 <h2>次にやること</h2>
