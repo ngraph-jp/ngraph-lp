@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://ngraph.jp/blog/20261112-united-ai-agent-yoyaku-kinshi</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20261111-claude-data-nintei-query</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20261110-amazon-hantei-model-98</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20261109-hokuriku-kensa-ai</loc><lastmod>2026-11-09</lastmod></url>
@@ -122,7 +123,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://ngraph.jp/en/fde/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ngraph.jp/fde/"/>
   </url>
-  <url><loc>https://ngraph.jp/blog/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://ngraph.jp/blog/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20260824-openai-sol-price</loc><lastmod>2026-08-24</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20260824-gyomu-kaizen-joseikin</loc><lastmod>2026-09-30</lastmod></url>
   <url><loc>https://ngraph.jp/blog/20260822-deepseek-gazou-token</loc><lastmod>2026-08-22</lastmod></url>

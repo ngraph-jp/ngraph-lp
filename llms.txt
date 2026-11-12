@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした](https://ngraph.jp/blog/20261112-united-ai-agent-yoyaku-kinshi)
 - [なぜAnthropicは、AIが作るグラフに「認定」の印を付けたのか](https://ngraph.jp/blog/20261111-claude-data-nintei-query)
 - [Amazonが費用を98%減らしたAIの置き換えは、1日1,500件を超えてから得になる](https://ngraph.jp/blog/20261110-amazon-hantei-model-98)
 - [北陸の工場で検査をAIにした会社は、まず品番を絞っていた](https://ngraph.jp/blog/20261109-hokuriku-kensa-ai)
