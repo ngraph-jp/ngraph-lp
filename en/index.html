@@ -200,7 +200,7 @@
 /* ── 2026-09-16 トップ改修 Phase1：墨地の第1画面（テッセラクト）→ 和紙へ降りる ── */
 :root{--tz-ink:#0b0b0d;--tz-ink2:#141417;--tz-txt:#f3efe6;--tz-txt2:rgba(243,239,230,.72);--tz-txt3:rgba(243,239,230,.46);--tz-line:rgba(245,246,247,.14);--tz-line2:rgba(245,246,247,.32);--tz-shu:#c94a2e}
 .tz-sky{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:var(--tz-ink);color:var(--tz-txt)}
-.tz-sky .tz-flame{position:absolute;top:0;bottom:0;left:30%;right:-6%;z-index:0;background:url(/assets/concept-visual.png) 50% 50%/cover no-repeat;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%)}
+.tz-sky .tz-flame{position:absolute;top:0;bottom:0;left:30%;right:-6%;z-index:0;background:url(/assets/concept-visual.webp) 50% 50%/cover no-repeat;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 55%,transparent 100%)}
 @media(max-width:900px){.tz-sky .tz-flame{left:-35%;right:-35%;top:9%;bottom:auto;height:46%;background-image:url(/assets/concept-visual-center.webp)}}
 /* 炎をふわっと浮かせる（6月の刷新時の hv-float と同じ 9秒・12px。2026-10-19 本人「ぷかぷか浮かぶ演出またできる？」） */
 @keyframes tzFlameFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -811,12 +811,12 @@
       <p class="section-sub"><span class="nb">Technology that puts business knowledge into a form AI can read:</span> <span class="nb">we use it ourselves first,</span> <span class="nb">before bringing it into your workplace.</span></p>
     </div>
     <div class="pds reveal">
-      <a class="pd" href="https://omiseai.com/" target="_blank" rel="noopener">
-        <figure class="pd-shot"><img src="/assets/brain/prod/omiseai.webp" alt="OMISEAI screen" loading="lazy" width="960" height="600"></figure>
+      <a class="pd" href="https://omiseai.com/en/" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/omiseai-en.webp" alt="OMISEAI screen" loading="lazy" width="960" height="600"></figure>
         <div class="pd-body"><p class="pd-h"><b>OMISEAI</b><span class="pd-st live">In live use</span></p><p class="pd-d"><span class="nb">Multilingual QR menus</span> <span class="nb">for restaurants.</span> <span class="nb">Ingredients and allergens too,</span> <span class="nb">in each guest's language.</span></p></div>
       </a>
-      <a class="pd" href="https://nicomachos.com/" target="_blank" rel="noopener">
-        <figure class="pd-shot"><img src="/assets/brain/prod/teles.webp" alt="Teles screen" loading="lazy" width="960" height="600"></figure>
+      <a class="pd" href="https://nicomachos.com/en" target="_blank" rel="noopener">
+        <figure class="pd-shot"><img src="/assets/brain/prod/teles-en.webp" alt="Teles screen" loading="lazy" width="960" height="600"></figure>
         <div class="pd-body"><p class="pd-h"><b>Teles</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">An AI that answers</span> <span class="nb">your hard choices, based on</span> <span class="nb">how great figures would have decided.</span></p></div>
       </a>
       <a class="pd" href="https://seisaku-tracker.jp/" target="_blank" rel="noopener">
@@ -832,7 +832,7 @@
         <div class="pd-body"><p class="pd-h"><b>AutoWrite</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">Register your business once,</span> <span class="nb">and AI fills in subsidy plans,</span> <span class="nb">notifications and applications.</span></p></div>
       </a>
       <a class="pd" href="/en/cases/">
-        <figure class="pd-shot"><img src="/assets/brain/prod/arche.webp" alt="Arche screen" loading="lazy" width="960" height="600"></figure>
+        <figure class="pd-shot"><img src="/assets/brain/prod/arche-en.webp" alt="Arche screen" loading="lazy" width="960" height="600"></figure>
         <div class="pd-body"><p class="pd-h"><b>Arche</b><span class="pd-st">Live</span></p><p class="pd-d"><span class="nb">A structural analysis of</span> <span class="nb">114 companies worldwide,</span> <span class="nb">all on the same yardstick.</span></p></div>
       </a>
     </div>
@@ -1245,7 +1245,7 @@ setInterval(function(){
   // 炎：絵の中の炎の座標（px）から、いまの表示の大きさに合わせて描画枠を置き、WebGL で揺らす
   var fl=document.querySelector('.tz-flame'),cv=fl&&fl.querySelector('.mo-flame');
   if(cv&&matchMedia('(prefers-reduced-motion:no-preference)').matches){(function(){
-    var FLAME={pc:{src:'/assets/concept-visual.png',iw:1600,ih:845,x:843.6,y:455},sp:{src:'/assets/concept-visual-center.webp',iw:1500,ih:845,x:743.6,y:455}};
+    var FLAME={pc:{src:'/assets/concept-visual.webp',iw:1600,ih:845,x:843.6,y:455},sp:{src:'/assets/concept-visual-center.webp',iw:1500,ih:845,x:743.6,y:455}};
     var gl=cv.getContext('webgl',{premultipliedAlpha:true,antialias:false});if(!gl)return;
     var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
     var FS=[
