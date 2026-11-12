@@ -19,3 +19,6 @@
 /security/*      /localai/:splat  301
 /en/security     /en/localai/     301
 /en/security/*   /en/localai/:splat 301
+
+# 報告書の見本PDFの配布をやめた（2026-11-12）。古いリンクは /drill/ へ
+/assets/drill/cyber-drill-sample.pdf   /drill/   302

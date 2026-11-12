@@ -448,7 +448,7 @@
 .rpt-stack .rs1{transform:rotate(-1.2deg)}
 .rpt-stack:hover .rs3{transform:translate(52px,26px) rotate(7deg)}
 .rpt-stack:hover .rs2{transform:translate(26px,13px) rotate(3.5deg)}
-.rs-cap{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;font-weight:700;color:var(--accent);border-bottom:1px solid currentColor}
+.rs-cap{position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;font-weight:500;color:var(--text-2)}
 @media(max-width:900px){.rpt-stack{max-width:300px}}
 @media(max-width:480px){.rpt-stack{max-width:250px;left:-14px}}
 /* 2026-11-08 本人「無駄に切ってる」：2列だと1枚の文の幅が約9文字しかなく、語句ごとに折れて段々になる。スマホは1列にして1行を長く */
@@ -649,15 +649,15 @@
         <li><span class="n">2</span><div><b>Someone's work adds new entry points</b><p>A test site, a newly signed service, a device with changed settings. Without anyone noticing, they become visible from outside.</p></div></li>
         <li><span class="n">3</span><div><b>Settings left alone become material for impersonation</b><p>An expiring domain, leftovers from a cancelled service, weak email settings. A fake invoice sent to your business partners goes out in your company's name.</p></div></li>
       </ol>
-      <a class="rpt-stack" href="/assets/drill/cyber-drill-sample.pdf" target="_blank" rel="noopener" aria-label="Open the sample report (PDF, fictional company, 7 pages, in Japanese)">
-        <img class="rs3" src="/assets/drill/report-p6.webp" alt="" loading="lazy" width="900" height="1273">
-        <img class="rs2" src="/assets/drill/report-p2.webp" alt="" loading="lazy" width="900" height="1273">
-        <img class="rs1" src="/assets/drill/report-p1.webp" alt="Page 1 of the sample report (in Japanese): overall rating, three conclusions and the points to check first" loading="lazy" width="900" height="1273">
-        <span class="rs-cap">Open the sample (PDF, 7 pages, in Japanese)</span>
-      </a>
+      <div class="rpt-stack">
+        <img class="rs3" src="/assets/drill/report-p6.webp" alt="" loading="lazy" width="380" height="537">
+        <img class="rs2" src="/assets/drill/report-p2.webp" alt="" loading="lazy" width="380" height="537">
+        <img class="rs1" src="/assets/drill/report-p1.webp" alt="Cover of the sample report (in Japanese): NGraph Cyber Drill security checkup report, Gate 1 outside view (fictional company)" loading="lazy" width="760" height="1075">
+        <span class="rs-cap">Sample report (cover, in Japanese)</span>
+      </div>
 
     </div>
-    <p class="what-cap2 reveal">The sample is in the same format as a real report (fictional company, written in Japanese). The first report looks like this. From the second month on, we report what changed since last time, in words you can read without an IT person.</p>
+    <p class="what-cap2 reveal">The sample is in the same format as a real report (fictional company, written in Japanese). The first report looks like this. From the second month on, we report what changed since last time, in words you can read without an IT person. We show you the full sample during the consultation.</p>
     <div class="harm reveal"><b>If you are attacked</b><ul><li>Your business stops (orders, shipping, accounting)</li><li>Fake emails go to your business partners in your company's name</li><li>Recovery costs 10 million yen or more: about 60%</li></ul><p class="harm-src">Source for the third item: National Police Agency, "Situation of Threats in Cyberspace in the First Half of 2026", ransomware victims (21 of 35 responses; in Japanese)</p></div>
     <p class="selfcheck reveal">You can check your internal rules with the IPA's <a href="https://www.ipa.go.jp/security/guide/sme/5minutes.html" target="_blank" rel="noopener">"5-minute Information Security Self-Assessment" (25 questions, in Japanese)</a>.</p>
   </div>
