@@ -544,9 +544,17 @@
   "article_h1": "United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした",
   "fs": 43,
   "pattern": "c7-chara",
+  "scene": "o03_documents_stamp",
   "sub": "",
-  "title": "United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした",
-  "scene": "o03_documents_stamp"
+  "title": "United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした"
+ },
+ "20261113-ai-model-kirikae-orchestrator": {
+  "article_h1": "24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった",
+  "fs": 47,
+  "pattern": "c7-chara",
+  "scene": "o06_ai_box",
+  "sub": "Gemini 4 HydrogenとOrchestrator",
+  "title": "24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった"
  },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった | NGraphブログ</title>
+<meta name="description" content="Googleが2026年11月12日に発表したOrchestratorは、作業の途中で上位モデルと速いモデルを交代させ、利用枠の消費を平均24%減らしました。うちの運用の記録をもとに、交代のときに渡すものを整理します。">
+<meta property="og:title" content="24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった | NGraphブログ">
+<meta property="og:description" content="Googleが2026年11月12日に発表したOrchestratorは、作業の途中で上位モデルと速いモデルを交代させ、利用枠の消費を平均24%減らしました。うちの運用の記録をもとに、交代のときに渡すものを整理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261113-ai-model-kirikae-orchestrator">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261113-ai-model-kirikae-orchestrator.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261113-ai-model-kirikae-orchestrator">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=25">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}.a-code{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.84rem;line-height:1.8;color:var(--text);background:rgba(22,32,44,.05);border:1px solid var(--border);border-radius:3px;padding:12px 16px;margin:14px 0;white-space:pre;overflow-x:auto}</style>
+<style>@media(max-width:768px){p,li,dd,td{text-wrap:wrap}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった",
+  "image": "https://ngraph.jp/assets/blog/20261113-ai-model-kirikae-orchestrator.jpg",
+  "description": "Googleが2026年11月12日に発表したOrchestratorは、作業の途中で上位モデルと速いモデルを交代させ、利用枠の消費を平均24%減らしました。うちの運用の記録をもとに、交代のときに渡すものを整理します。",
+  "datePublished": "2026-11-13T17:00:00+09:00",
+  "dateModified": "2026-11-13T17:00:00+09:00",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261113-ai-model-kirikae-orchestrator",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Orchestratorは、誰が使えますか。", "acceptedAnswer": {"@type": "Answer", "text": "Antigravityのモデル選択欄にある選択肢です。Carbon版とArgon版のOrchestratorは、Google AI Ultraの契約者が使えます。Argon版は、有料のGoogle AI Proの契約者にも開かれています。企業の入口はGemini for businessです。"}},
+    {"@type": "Question", "name": "プログラムを書かない会社にも関係がありますか。", "acceptedAnswer": {"@type": "Answer", "text": "あります。無料のGeminiアプリでは、プロンプトに合うとGoogleが判断したとき、自動のモデル選択でHydrogenが使われます。公式ブログの脚注に書かれています。モデルを自分で選ばない使い方が広がるので、見るべきは「どのモデルか」より「何を渡したか」です。"}},
+    {"@type": "Question", "name": "24%、費用が安くなりますか。", "acceptedAnswer": {"@type": "Answer", "text": "費用が24%下がるとは言えません。Googleが書いているのは、契約プランに含まれる利用枠の消費が平均24%少なかったことです。ドルの料金が下がるとは、書かれていません。APIの従量料金は別の物差しで、2つを掛け合わせた数字も作れないのです。"}},
+    {"@type": "Question", "name": "Claude Codeでも、同じことはできますか。", "acceptedAnswer": {"@type": "Answer", "text": "opusplanという設定があります。計画モードのあいだは上位モデルのopusを使い、実行に移るとsonnetに切り替わる、とClaude Codeの公式ドキュメントに書かれています。切り替えの合図は、人が計画モードにいるかどうかです。"}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI現場実装</a>
+      <a href="/drill/">セキュリティ</a>
+      <a href="/localai/">Local AI</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料で相談する</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった</h1>
+  <span class="a-date">2026.11.13 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261113-ai-model-kirikae-orchestrator.jpg" alt="机の上に黒い箱と観葉植物がある絵。「24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった」の題字がある">
+
+<p>Googleが11月12日、AIを途中交代させる仕組みを発表しました。</p>
+<p><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" target="_blank" rel="noopener">新モデル「Gemini 4 Hydrogen」</a>と同時に、開発者向けのAIエージェント製品Google Antigravityへ、Orchestratorという選択肢が加わりました。AIエージェントとは、人に代わって調べたり作業を進めたりするAIです。</p>
+<p>Orchestratorは、賢いモデルのCarbonと速いモデルのHydrogenを、1つの作業の中で行き来させます。Googleの測定では、成功率はCarbonに近いままでした。利用枠の消費は平均で24%少なく、19%速く終わっています。</p>
+<p>AIを使う側の判断は、どのモデルを選ぶかから、交代のときに何を渡すかへ移ります。</p>
+<p>この記事でわかることは3つです。</p>
+<ul>
+<li>Googleが発表した交代の仕組みと、24%の読み方</li>
+<li>当社のブログ運用で、誤りが入ったのは交代の継ぎ目だったこと</li>
+<li>モデルを分けるときに、引き継ぎへ書く4項目</li>
+</ul>
+
+<h2>Googleが発表したのは、作業の途中でモデルを交代させる仕組みだった</h2>
+<p>まず、登場するモデルを整理します。Gemini 4は、Googleのモデルの世代名です。上位のGemini 4 CarbonとGemini 4 Argonは、難しい問題を深く長く考える仕事向けだとGoogleは書いています。11月12日に出たHydrogenは、日々のコーディングとエージェント作業向けの、速さと効率のモデルです。素早い実行を受け持つ、という書き分けです。</p>
+<p>Hydrogen単体の数字も、Googleのブログに載っています。第三者の総合指標、Artificial Analysis Intelligence Indexでは、Hydrogenが既定の思考レベルで51、Argonが50。思考レベルとは、答える前にどれだけ考えさせるかの設定のことです。前の世代のGemini 3.8 Flashと比べて、既定の設定で作業が2.5倍速いとも書かれています。</p>
+<p>Orchestratorは、Antigravityのモデル選択欄に増えた選択肢です。Antigravityは、プログラムの作業をAIに任せる道具のことです。1つのモデルを最初から最後まで使うのではなく、同じセッションの中でCarbonとHydrogenなどを切り替えます。</p>
+<p>Googleが例に挙げた流れは、3段階でした。</p>
+<ol>
+<li>Carbonが、読み取りだけの段階で、作業が前提にしている部品のつながりを調べます。あいまいな点も解消し、計画を立て直す条件を明記した具体的な計画を作ります</li>
+<li>Hydrogenが計画を引き継ぎます。ファイルの編集と部品の更新、テストの実行を受け持ちます</li>
+<li>Hydrogenが行き詰まったらCarbonに戻り、Carbonが状態を確かめて計画を直し、実行を再開します</li>
+</ol>
+<p>数字は、Terminal-Benchというベンチマークで測った値です。端末、つまりコマンドを打つ画面での作業をAIにさせ、成功率を測る試験を指します。Carbon単独を100とすると、Orchestratorの消費は76、所要時間は81です。Googleの24%減と19%減から、当社が計算しました。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">Carbon単独を100とすると、消費76・時間81</p>
+<svg viewBox="0 0 1200 328" width="100%" style="min-width:640px" role="img" aria-label="Carbon単独を100とすると、消費76・時間81"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">Terminal-Benchでの測定。具体的な成功率は示されていない</text><text x="462" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Orchestratorの消費（quota）</text><rect x="480" y="76" width="395" height="34" rx="2" fill="#a63a24"/><text x="887" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">76%</text><text x="462" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Orchestratorの所要時間</text><rect x="480" y="128" width="421" height="34" rx="2" fill="#a63a24"/><text x="913" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">81%</text><text x="462" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Carbon単独（基準）</text><rect x="480" y="180" width="520" height="34" rx="2" fill="#2b2620"/><text x="1012" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="start">100%</text><text x="600.0" y="270.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">成功率はCarbonに近いまま、消費は24%少なく19%速い</text><text x="8" y="312" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Google Antigravity Blog（2026年11月12日）の発表値から当社が計算（100−24、100−19）</text></svg>
+</div>
+<p>見落としやすいのは、成功率の側です。「Carbonに近い」と書かれています。具体的な成功率は、2つの記事のどちらにも示されていません。</p>
+<p>役割を自分で固定したい人向けの道もあります。AntigravityのSDKで、HydrogenとCarbonを明示的に組めるとのこと。SDKとは、自分のプログラムに機能を組み込むための部品一式です。デモの例は、課題の仕分けとコーディングをHydrogen、大きな作り直しと新機能とセキュリティ確認をCarbonに任せる形でした。</p>
+
+<h2>「最初に1つ選ぶ」やり方は、長い作業で破綻する</h2>
+<p>なぜ交代が要るのか。Googleの説明では、日常の機能追加やデバッグで毎ステップに最上位モデルを使うと、作業が遅くなり、上位モデルの利用枠を食うからです。デバッグとは、プログラムの不具合を探して直す作業のことです。</p>
+<p>業界でよくあるのは、モデルルーターという仕組みだと、Googleは言います。最初の指示から難しさを推定し、作業全体を「足りる中で一番安いモデル」に回すやり方です。ところが、エージェントの作業が長くなると、必要な難しさは段階ごとに変わります。しかも、作業が進んでから分かることが多い。だからこのやり方は破綻し始める、というのがGoogleの見立てです。</p>
+<p>「上位が計画し、安いほうが実行する」という発想は、別の会社の道具にも入っています。AnthropicのコーディングAI、Claude Codeの<a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">opusplanというモデル設定</a>です。計画モードのあいだは上位モデルのopusを使い、実行に移るとsonnetに切り替わる。公式ドキュメントにそう書かれています。計画モードとは、変更に手を付けず、計画だけを立てさせる状態です。</p>
+<p>3つの切り替え方を並べます。違いは、合図です。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>方式</th><th>切り替えの合図</th><th>切り替わる向き</th></tr>
+<tr><td>モデルルーター</td><td>最初の指示から推定した難しさ</td><td>作業全体を、足りる中で一番安いモデルに回す</td></tr>
+<tr><td>opusplan</td><td>人が計画モードにいるかどうか</td><td>計画のあいだはopus、実行に移るとsonnet</td></tr>
+<tr><td>Orchestrator</td><td>作業の途中の状態。Googleの例では、行き詰まりと、計画に明記した立て直しの条件</td><td>CarbonからHydrogenへ。行き詰まれば、HydrogenからCarbonへ戻る</td></tr>
+</table></div>
+<p>合図は、最初の1回から人の操作へ、さらに作業の途中へと移りました。交代が1回なら、引き継ぎも1回で済みます。行き来する仕組みでは、渡す場面が何度も生まれるのです。</p>
+<p>この交代を、自社のAI導入にどう当てはめるかは、<a href="/fde/">AI現場実装のページ</a>で進め方を説明しています。</p>
+
+<h2>24%は費用ではなく利用枠で、測った版の表記は2つある</h2>
+<p>では、24%をどう読めばよいのか。押さえる点は2つです。</p>
+<h3>24%は利用枠の話で、ドルの料金ではない</h3>
+<p>Googleが書いているのは、quotaの消費が平均24%少なかったことです。quotaとは、契約プランに含まれる利用枠のことです。費用が24%減ったとは、Googleは書いていません。稟議や見積に「費用が24%下がる」と書くと、出典に無い数字を足すことになります。</p>
+<p>APIの従量料金も見ておきます。APIとは、自社のソフトからAIを呼び出す窓口のことです。使った量に応じて課金されます。<a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Googleの料金表</a>には、2026年11月13日に確認した有料ティアの値が、100万トークンあたりで載っています。トークンとは、AIが文章を数える単位のことです。Hydrogenは入力1.50ドル、出力7.50ドルです。Carbonは、11月30日までが入力2.00ドル、出力10.00ドル。12月1日からは入力4.00ドル、出力20.00ドルに上がります。ArgonはCarbonと同額です。</p>
+<p>出力の単価で比べると、Carbonは11月30日までHydrogenの約1.33倍、12月1日からは約2.67倍です。10.00÷7.50と20.00÷7.50の、当社の計算値になります。モデルを分ける得は、12月1日を境に大きくなる形です。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">出力100万トークンあたりの単価。Carbonとの差は1.33倍から2.67倍へ開く</p>
+<svg viewBox="0 0 1200 328" width="100%" style="min-width:640px" role="img" aria-label="出力100万トークンあたりの単価。Carbonとの差は1.33倍から2.67倍へ開く"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">Gemini API・有料ティア・Standard。単位はドル</text><text x="358" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Carbon（12月1日から）</text><rect x="376" y="76" width="624" height="34" rx="2" fill="#a63a24"/><text x="1012" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">20.00 ドル</text><text x="358" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Carbon（11月30日まで）</text><rect x="376" y="128" width="312" height="34" rx="2" fill="#a63a24"/><text x="700" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">10.00 ドル</text><text x="358" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Hydrogen</text><rect x="376" y="180" width="234" height="34" rx="2" fill="#2b2620"/><text x="622" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="start">7.50 ドル</text><text x="600.0" y="270.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">差は1.33倍から2.67倍へ開く（10.00÷7.50、20.00÷7.50の計算値）</text><text x="8" y="312" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Google「Gemini Developer API pricing」（2026年11月13日確認）</text></svg>
+</div>
+<p>ただし、これはAPIの従量料金の話です。Orchestratorの24%はAntigravityの契約プランの枠で、物差しが別です。2つを掛け合わせて「何%安くなる」という数字は、作れません。単価と費用で数字が別になる例は、<a href="/blog/20261002-ai-nesage-model-mei">AIの値下げの記事</a>でも書きました。高いモデルから安いモデルへの置き換えが、どの件数から得になるかは、<a href="/blog/20261110-amazon-hantei-model-98">Amazonの事例の記事</a>で計算しています。</p>
+<h3>同じ24%に、版の表記が2つある</h3>
+<p>同じ「24%減、19%速い」の測定でも、Googleの2つの公式記事は、Terminal-Benchの版を違う書き方で表記しています。Googleのブログは4.0、Antigravityのブログは4.1です。Googleのブログの中でも、Hydrogen単体のスコアには4.1と書かれています。</p>
+<p>どちらかが誤記だとは、当社は断定しません。公開情報からは、確定できていないからです。この数字は、条件の細部が固まっていない発表直後の値として読んでいます。</p>
+
+<h2>うちで誤りが入ったのは、交代の継ぎ目だった</h2>
+<p>ここからは、当社の話です。このブログは2026年7月22日から、次の分担で書いています。上位のモデルが担うのは、題材選びと一次情報の検証、構成です。安いモデルが本文を書き、最後に上位のモデルが本番の本文を読み直します。Googleが示した、賢いモデルが計画し、速いモデルが実行する形と同じ分担です。</p>
+<p>誤りは、どこで入ったのか。読み直しで見つかった型は、運用の記録に残してきました。2026年8月19日から9月10日のあいだに記録したのは、8件です。8件とも、数字の写し間違いではありませんでした。誤っていたのは、その数字が何を指す数字か、という説明のほうです。制度の分類、設問の作り、条件の但し書き、数える対象です。</p>
+<div class="a-note"><strong>当社の実測。8件のうち3件は、計画した側が渡した材料から入った</strong><br>
+書いた側ではなく、計画した側が渡した材料に原因があったのは、次の3件です。<br>
+① 渡した一覧に載せていなかった項目を、書く側が「制度に無い」と書いた。<br>
+② 計画側が確かめずに骨子へ書いた断定を、書く側が検証済みの事実として言い換えた。<br>
+③ 計画側が要約ページから写した条件に、原本にある下限が落ちていた。</div>
+<div class="a-fig-wrap">
+<p class="a-fig-title">誤り8件のうち3件は、計画した側の材料が原因</p>
+<svg viewBox="0 0 1200 630" width="100%" style="min-width:640px" role="img" aria-label="誤り8件のうち3件は、計画した側の材料が原因"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">読み直しで記録した誤り（2026年8月19日から9月10日）</text><rect x="130.0" y="242" width="352.5" height="92" fill="#a63a24"/><text x="306.25" y="298.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="30" fill="#f6f2e9" font-weight="900" text-anchor="middle">3件</text><text x="306.25" y="376" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#2b2620" font-weight="700" text-anchor="middle">計画した側が渡した材料</text><line x1="306.2" y1="340" x2="306.2" y2="358" stroke="#8a8172" stroke-width="1"/><rect x="482.5" y="242" width="587.5" height="92" fill="#cfc5b4"/><text x="776.25" y="298.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="30" fill="#2b2620" font-weight="900" text-anchor="middle">5件</text><text x="776.25" y="410" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="middle">書いた側</text><line x1="776.2" y1="340" x2="776.2" y2="392" stroke="#8a8172" stroke-width="1"/><rect x="130" y="242" width="940" height="92" fill="none" stroke="#2b2620" stroke-width="1.2"/><text x="600.0" y="572.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">誤りは、書く場面だけでなく引き継ぎの場面でも入る</text><text x="8" y="614" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：NGraphのブログ運用記録（2026年8月19日〜9月10日）</text></svg>
+</div>
+<p>3件に共通するのは、書く側のモデルにとって、渡された文が検証済みの事実と区別がつかないことです。「渡した一覧に無い」と「現実に無い」も、区別がつきません。</p>
+<p>誤りが入るのは、書く場面だけではありません。計画する側から書く側へ渡す継ぎ目でも入ります。Googleの例でも、Carbonが作る計画に、計画を立て直す条件が明記されていました。交代の設計では継ぎ目に何を書くかが中心になる、というのが当社の読みです。</p>
+<p>断っておくことが1つあります。AntigravityのOrchestratorを、当社は試していません。この記事は、Orchestratorを自分たちで動かした結果ではありません。当社の経験は、ブログを書く分担から得たものです。</p>
+
+<h2>モデルを分けるときの失敗3つと、引き継ぎに書く4項目</h2>
+<h3>1 24%を、費用の削減として稟議に書く</h3>
+<p>quotaはドルではありません。24%は契約プランの利用枠の消費で、APIの従量料金は別の物差しです。例えば社内の稟議に「AI費用が24%下がる」と書くと、出典が書いていない数字になります。</p>
+<h3>2 安いモデルに渡す材料を、省く</h3>
+<p>当社の3件は、渡した材料の欠けか、確かめていない断定が原因でした。書く側は、渡された文を疑う材料を持っていません。省いた材料の穴は、本文の誤りとして出てきます。</p>
+<h3>3 戻す条件を決めずに、安いモデルに走らせる</h3>
+<p>Googleの例では、Carbonの計画に、立て直しの条件が明記されていました。Hydrogenが行き詰まったときは、Carbonへ戻る流れです。戻る条件を決めておかなければ、行き詰まったかどうかの判断も、安いモデルに預けることになります。</p>
+<p>引き継ぎの作り方は、<a href="/fde/">AI現場実装のページ</a>でも相談できます。</p>
+<p>では、引き継ぎには何を書くか。当社は、次の4項目を入れています。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>項目</th><th>書くこと</th><th>当社の3件との関係</th></tr>
+<tr><td>数字と出典</td><td>使ってよい数字の一覧と、出典のURL</td><td>計画側が要約ページから写した条件に、原本にある下限が落ちていた</td></tr>
+<tr><td>「無い」と書かない</td><td>「一覧に無いことを『無い』と書かない」という1行</td><td>渡した一覧に載せていない項目を、書く側が「制度に無い」と書いた</td></tr>
+<tr><td>触れない範囲</td><td>書く側が触れてはいけない範囲</td><td>計画側が確かめずに骨子へ書いた断定を、書く側が検証済みの事実として言い換えた</td></tr>
+<tr><td>用語の定義</td><td>日本語に開いて書くことになる用語の定義</td><td>3件には入っていません。定義の無い語を、書く側は推測で埋めるしかないため入れています</td></tr>
+</table></div>
+<p>モデルを分ける前に、確かめることは1つです。人や別のAIへ渡している作業を1件選び、渡している指示に、使ってよい数字の一覧と出典があるかを見てください。</p>
+
+<h2>よくある質問4つ</h2>
+<div class="a-faq">
+<details><summary>Orchestratorは、誰が使えますか。</summary><p>Antigravityのモデル選択欄にある選択肢です。Carbon版とArgon版のOrchestratorは、Google AI Ultraの契約者が使えます。Argon版は、有料のGoogle AI Proの契約者にも開かれています。企業の入口はGemini for businessです。</p></details>
+<details><summary>プログラムを書かない会社にも関係がありますか。</summary><p>あります。無料のGeminiアプリでは、プロンプトに合うとGoogleが判断したとき、自動のモデル選択でHydrogenが使われます。公式ブログの脚注に書かれています。モデルを自分で選ばない使い方が広がるので、見るべきは「どのモデルか」より「何を渡したか」です。</p></details>
+<details><summary>24%、費用が安くなりますか。</summary><p>費用が24%下がるとは言えません。Googleが書いているのは、契約プランに含まれる利用枠の消費が平均24%少なかったことです。ドルの料金が下がるとは、書かれていません。APIの従量料金は別の物差しで、2つを掛け合わせた数字も作れないのです。</p></details>
+<details><summary>Claude Codeでも、同じことはできますか。</summary><p>opusplanという設定があります。計画モードのあいだは上位モデルのopusを使い、実行に移るとsonnetに切り替わる、とClaude Codeの公式ドキュメントに書かれています。切り替えの合図は、人が計画モードにいるかどうかです。</p></details>
+</div>
+
+<p>Googleは、作業の途中でCarbonとHydrogenを交代させるOrchestratorを発表しました。消費は平均24%少なく、19%速い。ただし、24%は契約プランの利用枠の話で、費用ではありません。</p>
+<p>当社の記録では、誤りは書く場面より、計画から執筆へ渡す継ぎ目で入りました。モデルを分けて得をするには、引き継ぎが書けていることが前提です。</p>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">AIを途中で交代させるときの、引き継ぎの作り方をいっしょに考えます。</p>
+  <a href="/fde/" class="btn btn-primary">AI現場実装を見る</a>
+</div>
+
+<div class="a-src">参考（一次情報）：<br>
+・Google「<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" target="_blank" rel="noopener">Introducing Gemini 4 Hydrogen</a>」（2026年11月12日）<br>
+・Google Antigravity Blog「<a href="https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/" target="_blank" rel="noopener">Gemini 4 Hydrogen and Orchestrator</a>」（2026年11月12日）<br>
+・Google「<a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Developer API pricing</a>」（2026年11月13日確認）<br>
+・Anthropic「<a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">Model configuration</a>」（Claude Code Docs・2026年11月13日確認）</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI現場実装（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/localai/">Local AI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+</script>
+</body>
+</html>
