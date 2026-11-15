@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [会議に入るClaudeは、社外の人がいる通話の既定が公式2ページで食い違っている](https://ngraph.jp/blog/20261115-claude-meetings-shagai-guest)
 - [24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった](https://ngraph.jp/blog/20261113-ai-model-kirikae-orchestrator)
 - [United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした](https://ngraph.jp/blog/20261112-united-ai-agent-yoyaku-kinshi)
 - [なぜAnthropicは、AIが作るグラフに「認定」の印を付けたのか](https://ngraph.jp/blog/20261111-claude-data-nintei-query)

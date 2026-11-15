@@ -556,6 +556,14 @@
   "sub": "Gemini 4 HydrogenとOrchestrator",
   "title": "24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった"
  },
+ "20261115-claude-meetings-shagai-guest": {
+  "article_h1": "会議に入るClaudeは、社外の人がいる通話の既定が公式2ページで食い違っている",
+  "fs": 46,
+  "pattern": "c7-chara",
+  "sub": "Claude Meetings ベータ｜2026年11月15日時点",
+  "title": "会議に入るClaudeは、社外の人がいる通話の既定が公式2ページで食い違っている",
+  "scene": "o11_meeting_table"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
