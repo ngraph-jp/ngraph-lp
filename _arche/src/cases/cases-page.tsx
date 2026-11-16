@@ -51,8 +51,9 @@ const TIER_CONFIG_I18N: Record<string, { ja: string; en: string; emoji: string }
   japan: { ja: "日本企業", en: "Japan", emoji: "" },
   social: { ja: "ソーシャル", en: "Social", emoji: "" },
   bronze: { ja: "100年+ レジェンド", en: "100yr+ Legend", emoji: "" },
-  silver: { ja: "300年+ レジェンド", en: "300yr+ Legend", emoji: "" },
+  silver: { ja: "200年+ レジェンド", en: "200yr+ Legend", emoji: "" },
   gold: { ja: "500年+ レジェンド", en: "500yr+ Legend", emoji: "" },
+  millennium: { ja: "1000年+ レジェンド", en: "1000yr+ Legend", emoji: "" },
   god: { ja: "W10", en: "W10", emoji: "" },
   earth: { ja: "アース30", en: "Earth 30", emoji: "" },
   craft: { ja: "クラフト", en: "Craft", emoji: "" },
@@ -1410,10 +1411,10 @@ export default function CasesPage() {
     window.history.replaceState({}, "", url.toString());
   }, [viewMode]);
 
-  const tiers = ["all", "god", "earth", "startup", "fail", "japan", "social", "bronze", "silver", "gold"];
+  const tiers = ["all", "god", "earth", "startup", "fail", "japan", "social", "bronze", "silver", "gold", "millennium"];
   const tierLabels: Record<string, string> = locale === "ja"
-    ? { all: "全て", god: "W10", earth: "アース30", craft: "クラフト", startup: "スタートアップ", fail: "失敗", japan: "日本企業", social: "ソーシャル", bronze: "100年+", silver: "300年+", gold: "500年+" }
-    : { all: "All", god: "W10", earth: "Earth 30", craft: "Craft", startup: "Startup", fail: "Failed", japan: "Japan", social: "Social", bronze: "100yr+", silver: "300yr+", gold: "500yr+" };
+    ? { all: "全て", god: "W10", earth: "アース30", craft: "クラフト", startup: "スタートアップ", fail: "失敗", japan: "日本企業", social: "ソーシャル", bronze: "100年+", silver: "200年+", gold: "500年+", millennium: "1000年+" }
+    : { all: "All", god: "W10", earth: "Earth 30", craft: "Craft", startup: "Startup", fail: "Failed", japan: "Japan", social: "Social", bronze: "100yr+", silver: "200yr+", gold: "500yr+", millennium: "1000yr+" };
 
   // 同一企業の eraGroup（例: SpaceX 2002/2024）は tier ランクが高い canonical 1社だけを
   // 一覧に出す。モーダル内のタブで時系列の進化を見せる。

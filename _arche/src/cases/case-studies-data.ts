@@ -7424,7 +7424,7 @@ export function getCaseAge(c: CaseStudy, now: number = new Date().getFullYear())
 export function getLegendTierByAge(c: CaseStudy): LegendBadgeTier | null {
   const age = getCaseAge(c);
   if (age === null || age < 100) return null;
-  return age >= 500 ? "gold" : age >= 300 ? "silver" : "bronze";
+  return age >= 1000 ? "millennium" : age >= 500 ? "gold" : age >= 200 ? "silver" : "bronze";
 }
 
 /**
@@ -7432,15 +7432,17 @@ export function getLegendTierByAge(c: CaseStudy): LegendBadgeTier | null {
  * bronze/silver/gold tier の企業では、tier バッジと冗長になるため null を返す。
  * 100年未満の企業も null。三井（tier: "japan", 352年）→ silver など。
  */
-export type LegendBadgeTier = "bronze" | "silver" | "gold";
+// 区切りは 100年+／200年+／500年+／1000年+（2026-11-16。200年は長寿企業の話でよく使われる区切り、1000年+ は4社）
+export type LegendBadgeTier = "bronze" | "silver" | "gold" | "millennium";
 export function getAgeBadge(c: CaseStudy): LegendBadgeTier | null {
   // bronze/silver/gold は tier バッジと冗長になるため除外。
   // craft は「時のふるい」の文脈で長寿バッジを併用する（500年+/300年+/100年+を示す）。
   if (c.tier === "bronze" || c.tier === "silver" || c.tier === "gold") return null;
   const age = getCaseAge(c);
   if (age === null || age < 100) return null;
+  if (age >= 1000) return "millennium";
   if (age >= 500) return "gold";
-  if (age >= 300) return "silver";
+  if (age >= 200) return "silver";
   return "bronze";
 }
 
@@ -7451,13 +7453,14 @@ export function getAgeBadge(c: CaseStudy): LegendBadgeTier | null {
  */
 export function matchesFilter(filter: string, c: CaseStudy): boolean {
   if (filter === "all") return true;
-  if (filter === "bronze" || filter === "silver" || filter === "gold") {
+  if (filter === "bronze" || filter === "silver" || filter === "gold" || filter === "millennium") {
     const age = getCaseAge(c);
     if (age === null) return false;
-    // 「100年+」「300年+」は「以上」なので、より長い会社も含める（500年の会社は3つのタブ全部に出る）
+    // 「100年+」「200年+」は「以上」なので、より長い会社も含める（1000年の会社は4つのタブ全部に出る）
     if (filter === "bronze") return age >= 100;
-    if (filter === "silver") return age >= 300;
-    return age >= 500; // gold
+    if (filter === "silver") return age >= 200;
+    if (filter === "gold") return age >= 500;
+    return age >= 1000; // millennium
   }
   if (filter === "longevity") {
     const age = getCaseAge(c);
