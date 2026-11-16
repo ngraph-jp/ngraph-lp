@@ -592,7 +592,61 @@ function OtoraChat({ caseName, context, onClose, locale, isFail }: { caseName: s
 }
 
 /* ── カード内容（スライダー内で使う） ── */
-export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-t-2xl" }: { c: CaseStudy; isLoggedIn: boolean; onChat?: () => void; locale: string; rounded?: string }) {
+/* ── 詳細の帯：見出しボタン（押すとその段へ）＋色つきヘッダーが流れたら社名と点数を出す（縮むヘッダー）。2026-11-16 ──
+   stickyTop＝帯を止める位置（各社のページはサイトの固定ヘッダーの下、モーダルは時代タブの下）。
+   inModal＝スマホのモーダルは右上に閉じるボタンとページ番号が重なるので、右を空ける。 */
+function SectionBar({ c, score, sections, stuck, stickyTop, inModal, locale, onJump }: {
+  c: CaseStudy; score: number; sections: { key: string; label: string }[]; stuck: boolean; stickyTop: number; inModal: boolean; locale: string; onJump: (key: string) => void;
+}) {
+  const name = locale === "en" && c.nameEn ? c.nameEn : c.name;
+  const initial = locale === "en" ? ((c.nameEn || c.name).trim().charAt(0) || c.initial).toUpperCase() : c.initial;
+  return (
+    <div
+      className={`sticky z-10 flex h-11 items-center gap-2 border-b border-border/50 bg-card/95 pl-4 sm:px-6 backdrop-blur ${inModal ? "pr-[124px]" : "pr-4"}`}
+      style={{ top: stickyTop }}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {stuck && (
+        <div className="flex min-w-0 shrink-0 items-center gap-2 sm:max-w-[45%]">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-xs font-black text-white" style={{ backgroundColor: c.color }} aria-hidden>{initial}</span>
+          <span className="hidden truncate text-sm font-bold sm:block">{name}</span>
+          <span className="shrink-0 text-sm font-black tabular-nums">{score}<span className="text-xs font-normal text-foreground/50">/100</span></span>
+          <span className="h-4 w-px shrink-0 bg-border" aria-hidden />
+        </div>
+      )}
+      <nav className="flex min-w-0 flex-1 items-center gap-1.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={locale === "en" ? "Sections" : "この会社の見出し"}>
+        {sections.map((sec) => (
+          <button
+            key={sec.key}
+            type="button"
+            onClick={() => onJump(sec.key)}
+            className="shrink-0 whitespace-nowrap rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary"
+          >
+            {sec.label}
+          </button>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
+export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-t-2xl", stickyTop = 0, inModal = false }: { c: CaseStudy; isLoggedIn: boolean; onChat?: () => void; locale: string; rounded?: string; stickyTop?: number; inModal?: boolean }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [stuck, setStuck] = useState(false);
+  // 色つきヘッダーが画面から流れたら、帯に社名と点数を出す
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([e]) => setStuck(!e.isIntersecting), { rootMargin: `-${stickyTop + 44}px 0px 0px 0px` });
+    io.observe(hero);
+    return () => io.disconnect();
+  }, [stickyTop, c]);
+  const jump = useCallback((key: string) => {
+    rootRef.current?.querySelector<HTMLElement>(`[data-sec="${key}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+  // 各社のページは html の scroll-padding-top:72px（サイトの固定ヘッダーぶん）が先に効くので、帯の高さだけ足す
+  const secStyle = { scrollMarginTop: inModal ? stickyTop + 44 + 12 : 44 + 4 };
   const isLegendTier = c.tier === "bronze" || c.tier === "silver" || c.tier === "gold";
   const legendTier = isLegendTier ? getLegendTierByAge(c) : null;
   const tierInfo = isLegendTier
@@ -619,10 +673,18 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
   const heroTextColor = isFail ? "text-white" : score >= EXCELLENT_LINE ? "text-white" : "text-white";
   const scoreAccent = isFail ? "text-white" : score >= EXCELLENT_LINE ? "text-white" : "text-white";
 
+  const sections = [
+    { key: "situation", label: ja ? "当時の状況" : "Context" },
+    { key: "insight", label: ja ? "テレスの所感" : "Teles' Insight" },
+    ...(showSurvival || showFail ? [{ key: "key", label: showFail ? (ja ? "失敗の核心" : "Why it failed") : (ja ? "存続の鍵" : "Key to survival") }] : []),
+    { key: "scores", label: ja ? "12項目スコア" : "12 Criteria" },
+  ];
+
   return (
-    <>
+    <div ref={rootRef}>
       {/* ヒーロー（NHGと同等のヘッダー密度） */}
       <div
+        ref={heroRef}
         className={`relative overflow-hidden ${rounded}`}
         style={{
           backgroundImage: `linear-gradient(135deg, ${c.color} 0%, ${c.color}cc 65%, rgba(0,0,0,0.25) 100%)`,
@@ -749,19 +811,21 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
         </div>
       </div>
 
+      <SectionBar c={c} score={score} sections={sections} stuck={stuck} stickyTop={stickyTop} inModal={inModal} locale={locale} onJump={jump} />
+
       {/* 本文 */}
       <div className="px-4 sm:px-6 py-5 sm:py-6 text-[15px] leading-[1.9] space-y-7">
         <div className="grid gap-7 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-7">
             <ScoreBreakdown total={c.total} axesTotal={axesTotal} bonus={bonus} score={score} ja={ja} />
-            <section>
+            <section data-sec="situation" style={secStyle}>
               <h3 className="k-h text-foreground">
                 {ja ? "当時の状況" : "Context"}
               </h3>
               <p className="text-foreground whitespace-pre-wrap">{localizedSituation}</p>
             </section>
           </div>
-          <section>
+          <section data-sec="insight" style={secStyle}>
             <h3 className="k-h text-foreground justify-between">
               <span className="flex items-center gap-1.5">
                 <Image src="/teles.png" alt="Teles" width={12} height={12} />
@@ -783,7 +847,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
 
         {/* 存続の鍵 / 失敗の核心 */}
         {(showSurvival || showFail) && (
-          <section>
+          <section data-sec="key" style={secStyle}>
             <h3 className={`k-h ${showFail ? "text-(--c-fail)" : "text-(--c-ex)"}`}>
               {showFail ? (ja ? "失敗の核心" : "Why it failed") : (ja ? "存続の鍵" : "Key to survival")}
             </h3>
@@ -794,7 +858,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
         )}
 
         {/* 12項目スコア（A〜L） */}
-        <section>
+        <section data-sec="scores" style={secStyle}>
           <h3 className="k-h text-foreground">
             <TrendingUp className="h-3.5 w-3.5" />
             {ja ? `12項目スコア（${c.total}/60）` : `12 Criteria (${c.total}/60)`}
@@ -802,7 +866,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
           <ScoreGrid scores={c.scores} reasons={localizedReasons} locale={locale} />
         </section>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -985,7 +1049,7 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
                     })}
                   </div>
                 )}
-                <CardContent c={curr} isLoggedIn={isLoggedIn} onChat={() => setChatCase(curr)} locale={locale} />
+                <CardContent c={curr} isLoggedIn={isLoggedIn} onChat={() => setChatCase(curr)} locale={locale} inModal stickyTop={eraGroupCases.length > 1 ? 41 : 0} />
               </div>
             </div>
           </div>

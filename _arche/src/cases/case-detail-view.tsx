@@ -28,8 +28,9 @@ export function CaseDetailView({ c }: { c: CaseStudy }) {
         </Link>
       </div>
 
-      <article className="overflow-hidden rounded-2xl border border-border/60 bg-background">
-        <CardContent c={c} isLoggedIn={false} locale={locale} rounded="" />
+      {/* overflow-clip：角は丸く切るが、中の見出しの帯（sticky）が止まるようにスクロール枠は作らない。64＝サイトの固定ヘッダーの高さ */}
+      <article className="overflow-clip rounded-2xl border border-border/60 bg-background">
+        <CardContent c={c} isLoggedIn={false} locale={locale} rounded="" stickyTop={64} />
       </article>
 
       <section className="mt-10 pt-6 border-t border-border/40">

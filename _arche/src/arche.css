@@ -132,3 +132,7 @@
 }
 .arche-page .k-body { font-size: 15px; line-height: 1.9; }
 @media (min-width: 640px) { .arche-page .k-body { font-size: 15.5px; } }
+
+/* 各社のページの見出しの帯（sticky）を止めるため。サイト共通CSSの body{overflow-x:hidden} は
+   body をスクロール枠にしてしまい、中の sticky が画面に止まらない。clip は横のはみ出しを同じように切るが枠を作らない（2026-11-16） */
+body:has(.arche-page) { overflow-x: clip; }
