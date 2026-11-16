@@ -12,6 +12,7 @@ import { useLocale } from "@/lib/i18n/context";
 import { CASE_STUDIES, SURVIVAL_LINE, EXCELLENT_LINE, getCombinedScore, getBonus, matchesFilter, getAgeBadge, getLegendTierByAge, getCanonicalCases, getEraGroupCases } from "@/lib/case-studies-data";
 import type { CaseStudy, CaseScore, CaseReasons } from "@/lib/case-studies-data";
 import { countryName, FlagIcon } from "./country";
+import { VirtueChip } from "./virtue";
 import { NgraphCta } from "./ngraph-cta";
 
 /** Select English text when available and locale is 'en', otherwise fall back to Japanese. */
@@ -260,9 +261,7 @@ function HeroSummary({ axes, score, virtue, ja }: {
           <span className="absolute -translate-x-1/2 whitespace-nowrap" style={{ left: `${EXCELLENT_LINE}%` }}>{ja ? "卓越" : "Excellence"} {EXCELLENT_LINE}</span>
         </div>
       </div>
-      {virtue && (
-        <span className="inline-block rounded-md bg-white/15 px-2 py-0.5 text-xs font-bold">{virtue}</span>
-      )}
+      {virtue && <VirtueChip label={virtue} ja={ja} />}
     </div>
   );
 }
