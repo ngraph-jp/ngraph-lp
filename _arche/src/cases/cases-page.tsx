@@ -937,12 +937,14 @@ function SliderModal({ items, initialIdx, isLoggedIn, onClose, locale }: {
   const eraGroupCases = useMemo<CaseStudy[]>(() => {
     if (!baseCurr?.eraGroup) return [];
     const all = getEraGroupCases(baseCurr.eraGroup);
-    const others = all.filter((e) => e !== baseCurr).sort((a, b) => {
+    // 左端の「現在」は、開いたカードではなく、その会社の代表（いまの姿）。スタートアップのタブから創業期のカードを開いても並びは同じ
+    const canon = getCanonicalCases().find((e) => e.eraGroup === baseCurr.eraGroup) ?? baseCurr;
+    const others = all.filter((e) => e !== canon).sort((a, b) => {
       const ay = typeof a.year === "number" ? a.year : parseInt(String(a.year).match(/\d{3,4}/)?.[0] ?? "0", 10);
       const by = typeof b.year === "number" ? b.year : parseInt(String(b.year).match(/\d{3,4}/)?.[0] ?? "0", 10);
       return ay - by;
     });
-    return [baseCurr, ...others];
+    return [canon, ...others];
   }, [baseCurr]);
   const next = idx < items.length - 1 ? items[idx + 1] : null;
 
@@ -1484,7 +1486,9 @@ export default function CasesPage() {
   // CASE_STUDIES は不変なので useMemo で正準セットを一度だけ計算する（200+件の Map 走査）。
   const canonicalCases = useMemo(() => getCanonicalCases(), []);
   const filtered = useMemo(
-    () => canonicalCases.filter((c) => matchesFilter(filter, c)),
+    // スタートアップのタブだけは、1社1枚にまとめる前の全件から選ぶ。Apple・Google のように「いま」が W10／アース30 の会社は、
+    // まとめると創業期のカードが隠れて、このタブからたどり着けなかった（2026-11-16 本人「なんでこんなすくないんだ？」）
+    () => (filter === "startup" ? CASE_STUDIES : canonicalCases).filter((c) => matchesFilter(filter, c)),
     [canonicalCases, filter]
   );
 
@@ -1595,7 +1599,7 @@ export default function CasesPage() {
                     </div>
                     {/* 情報 */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-base sm:text-sm font-semibold truncate">{locale === "en" && c.nameEn ? c.nameEn : c.name}</p>
+                      <p className="text-base sm:text-sm font-semibold truncate">{locale === "en" && c.nameEn ? c.nameEn : c.name}{filter === "startup" && c.eraGroup && <span className="ml-1.5 text-xs font-normal text-foreground/60">{locale === "en" ? c.year : `${c.year}年`}</span>}</p>
                       <p className="text-sm sm:text-xs text-foreground/75 mt-0.5 leading-snug line-clamp-1">{pickLocalized(c.insight, c.insightEn, locale)}</p>
                       {(pickLocalized(c.virtue, c.virtueEn, locale)) && <span className="inline-block mt-1 text-xs sm:text-[11px] tracking-[-0.02em] text-primary bg-primary/10 px-1 py-0.5 rounded">{pickLocalized(c.virtue, c.virtueEn, locale)}</span>}
                     </div>
