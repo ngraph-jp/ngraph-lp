@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { CrossNav } from "@/app/(teles)/mr-otora/_components/cross-nav";
 import { JudgmentFoundation } from "@/app/(teles)/mr-otora/_components/judgment-foundation";
 import { useLocale } from "@/lib/i18n/context";
-import { CASE_STUDIES, SURVIVAL_LINE, EXCELLENT_LINE, getCombinedScore, getBonus, matchesFilter, getAgeBadge, getCanonicalCases, getEraGroupCases } from "@/lib/case-studies-data";
+import { CASE_STUDIES, SURVIVAL_LINE, EXCELLENT_LINE, getCombinedScore, getBonus, matchesFilter, getAgeBadge, getLegendTierByAge, getCanonicalCases, getEraGroupCases } from "@/lib/case-studies-data";
 import type { CaseStudy, CaseScore, CaseReasons } from "@/lib/case-studies-data";
-import { countryName } from "./country";
+import { countryName, FlagIcon } from "./country";
 import { NgraphCta } from "./ngraph-cta";
 
 /** Select English text when available and locale is 'en', otherwise fall back to Japanese. */
@@ -593,7 +593,11 @@ function OtoraChat({ caseName, context, onClose, locale, isFail }: { caseName: s
 
 /* ── カード内容（スライダー内で使う） ── */
 export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-t-2xl" }: { c: CaseStudy; isLoggedIn: boolean; onChat?: () => void; locale: string; rounded?: string }) {
-  const tierInfo = TIER_CONFIG_I18N[c.tier];
+  const isLegendTier = c.tier === "bronze" || c.tier === "silver" || c.tier === "gold";
+  const legendTier = isLegendTier ? getLegendTierByAge(c) : null;
+  const tierInfo = isLegendTier
+    ? (legendTier ? TIER_CONFIG_I18N[legendTier] : { ja: "レジェンド", en: "Legend", emoji: "" })
+    : TIER_CONFIG_I18N[c.tier];
   const ageBadgeTier = getAgeBadge(c);
   const ageBadge = ageBadgeTier ? TIER_CONFIG_I18N[ageBadgeTier] : null;
   const isFail = c.tier === "fail";
@@ -660,7 +664,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
                   </>
                 )}
                 <span className="opacity-50">·</span>
-                <span className="whitespace-nowrap">{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `${c.year}年` : c.year}</span>
+                <span className="whitespace-nowrap"><FlagIcon flag={c.flag} locale={locale} className="mr-1" />{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `${c.year}${c.endYear ? `〜${c.endYear}` : ""}年` : `${c.year}${c.endYear ? `–${c.endYear}` : ""}`}</span>
               </div>
             </div>
             <div className="relative w-20 h-20 shrink-0 self-center">
@@ -706,7 +710,7 @@ export function CardContent({ c, isLoggedIn, onChat, locale, rounded = "rounded-
               {locale !== "en" && c.nameEn && c.nameEn !== c.name && (
                 <p className="text-xs text-white/70 mt-0.5 font-mono tracking-wide break-words">{c.nameEn}</p>
               )}
-              <p className="text-sm text-white/85 mt-1">{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `創業 ${c.year}年` : `Founded ${c.year}`}</p>
+              <p className="text-sm text-white/85 mt-1"><FlagIcon flag={c.flag} locale={locale} className="mr-1.5" />{countryName(c.flag, locale)}{countryName(c.flag, locale) ? (locale === "en" ? ", " : "・") : ""}{ja ? `創業 ${c.year}年${c.endYear ? `（${c.endYear}年まで）` : ""}` : `Founded ${c.year}${c.endYear ? ` (until ${c.endYear})` : ""}`}</p>
             </div>
             <div className="hidden md:block w-[300px] shrink-0">
               <HeroSummary axes={c.axes} score={score} virtue={localizedVirtue} ja={ja} />
@@ -1124,7 +1128,7 @@ function CasesTable({
                         style={{ backgroundColor: c.color }}
                         aria-hidden
                       />
-                      {c.flag && <span className="text-sm shrink-0">{c.flag}</span>}
+                      <FlagIcon flag={c.flag} locale={locale} className="shrink-0" />
                       <span className={`font-semibold truncate ${nameColor}`}>
                         {locale === "en" && c.nameEn ? c.nameEn : c.name}
                       </span>
@@ -1523,6 +1527,7 @@ export default function CasesPage() {
                       style={{ backgroundColor: c.color }}
                     >
                       <span className="text-lg font-black text-white drop-shadow-md">{locale === "en" ? ((c.nameEn || c.name).trim().charAt(0) || c.initial).toUpperCase() : c.initial}</span>
+                      <FlagIcon flag={c.flag} locale={locale} className="absolute -bottom-1 -right-1 ring-2 ring-card" />
                     </div>
                     {/* 情報 */}
                     <div className="flex-1 min-w-0">

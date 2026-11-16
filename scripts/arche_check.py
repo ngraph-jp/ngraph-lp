@@ -50,7 +50,9 @@ def main():
         ng.append("_arche/src/cases/ を直した後に作り直していない（cd _arche && npm run build）")
 
     pages = []
-    assets = set(os.listdir(os.path.join(CASES, "_assets")))
+    # flags/us.svg のようなサブフォルダの画像も数えるので、_assets の中を全部たどる（2026-11-16 国旗を追加）
+    adir = os.path.join(CASES, "_assets")
+    assets = {os.path.relpath(os.path.join(d, f), adir).replace("\\", "/") for d, _, fs in os.walk(adir) for f in fs}
     for d, _, files in os.walk(CASES):
         if "index.html" not in files or "_assets" in d:
             continue

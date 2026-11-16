@@ -32,6 +32,8 @@ export interface CaseStudy {
   name: string;
   nameEn?: string;
   year: number | string;
+  /** いまは無い会社が終わった年（破綻・清算）。長寿の年数は「創業〜この年」で数える */
+  endYear?: number;
   grade: string;
   total: number;
   tier: "startup" | "fail" | "japan" | "social" | "bronze" | "silver" | "gold" | "god" | "earth" | "craft";
@@ -1385,6 +1387,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     name: "メディチ銀行",
     nameEn: "Medici Bank",
     year: 1397,
+    endYear: 1494, // 1494年に破綻（下の situation と同じ）
     grade: "B",
     total: 42,
     tier: "gold",
@@ -7135,6 +7138,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     name: "Lehman Brothers",
     nameEn: "Lehman Brothers",
     year: 1850,
+    endYear: 2008, // 2008年9月15日に破産申請（下の situation と同じ）
     grade: "D",
     total: 24,
     tier: "fail",
@@ -7409,7 +7413,18 @@ export const EXCELLENT_LINE = 75;
 export function getCaseAge(c: CaseStudy, now: number = new Date().getFullYear()): number | null {
   const y = typeof c.year === "number" ? c.year : parseInt(String(c.year).match(/\d{3,4}/)?.[0] ?? "", 10);
   if (!Number.isFinite(y)) return null;
-  return now - y;
+  // いまは無い会社は、終わった年までを数える（メディチ銀行 1397〜1494 は97年。「500年+」には入れない）
+  return (c.endYear ?? now) - y;
+}
+
+/**
+ * bronze/silver/gold の会社に出す「N年+ レジェンド」の段を、tier の固定値ではなく続いた年数で決める。
+ * （tier が silver のまま500年を超えたベレッタ・虎屋は「500年+」、97年で終わったメディチ銀行は null）
+ */
+export function getLegendTierByAge(c: CaseStudy): LegendBadgeTier | null {
+  const age = getCaseAge(c);
+  if (age === null || age < 100) return null;
+  return age >= 500 ? "gold" : age >= 300 ? "silver" : "bronze";
 }
 
 /**
@@ -7439,8 +7454,9 @@ export function matchesFilter(filter: string, c: CaseStudy): boolean {
   if (filter === "bronze" || filter === "silver" || filter === "gold") {
     const age = getCaseAge(c);
     if (age === null) return false;
-    if (filter === "bronze") return age >= 100 && age < 300;
-    if (filter === "silver") return age >= 300 && age < 500;
+    // 「100年+」「300年+」は「以上」なので、より長い会社も含める（500年の会社は3つのタブ全部に出る）
+    if (filter === "bronze") return age >= 100;
+    if (filter === "silver") return age >= 300;
     return age >= 500; // gold
   }
   if (filter === "longevity") {
