@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [車を1台減らしたAIの送迎計画に、富山の介護職員10人のうち5人は「かえって増えた」と答えた](https://ngraph.jp/blog/20261116-toyama-ai-jissho-suuji)
 - [会議に入るClaudeは、社外の人がいる通話の既定が公式2ページで食い違っている](https://ngraph.jp/blog/20261115-claude-meetings-shagai-guest)
 - [24%少ない消費で済んだのは、賢いAIに計画させ、速いAIに実行させたときだった](https://ngraph.jp/blog/20261113-ai-model-kirikae-orchestrator)
 - [United航空は、本人が承認していてもAIに予約させた航空券を取り消せる約款にした](https://ngraph.jp/blog/20261112-united-ai-agent-yoyaku-kinshi)
