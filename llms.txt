@@ -158,6 +158,7 @@
 - [AIに作らせた請求書の金額は、「計算式」を見ずに出さない——計算は機械に、AIには文面だけを書かせる](https://ngraph.jp/blog/k-invoice-numbers)
 - [AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった](https://ngraph.jp/blog/k-addressee-ledger)
 - [AIに任せたサイトの点検が、28日間で約1万件のアクセスを自分で作っていた](https://ngraph.jp/blog/k-test-traffic)
+- [80個のファイルがあるフォルダで、AIは経歴書1本から経験年数を数えていた](https://ngraph.jp/blog/k-read-all-files)
 
 ## 会社情報
 
