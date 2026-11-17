@@ -572,6 +572,13 @@
   "sub": "富山県の実証報告3本を読む",
   "title": "車を1台減らしたAIの送迎計画に、職員10人中5人が「かえって増えた」"
  },
+ "20261117-windows-ai-agent-shindan-data": {
+  "article_h1": "Windows 11の診断データには、ClaudeやCodexを使ったかどうかの欄があった",
+  "fs": 73,
+  "pattern": "c7-terminal",
+  "sub": "MissionControlAggregator.dll",
+  "title": "Windows 11の診断データに、ClaudeとCodexの利用欄があった"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
