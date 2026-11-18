@@ -579,6 +579,14 @@
   "sub": "MissionControlAggregator.dll",
   "title": "Windows 11の診断データに、ClaudeとCodexの利用欄があった"
  },
+ "20261118-claude-code-kensa-kakikae": {
+  "article_h1": "コードの約9割をAIが書くClaude Codeのチームは、AIが自分の検査を書き換えられないようにしていた",
+  "fs": 41,
+  "pattern": "c7-chara",
+  "sub": "Anthropicが公開した、AIの仕事を確かめる決まり",
+  "title": "コードの約9割をAIが書くClaude Codeは、AIに検査を書き換えさせない",
+  "scene": "o05_security_shield"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
