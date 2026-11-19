@@ -583,9 +583,16 @@
   "article_h1": "コードの約9割をAIが書くClaude Codeのチームは、AIが自分の検査を書き換えられないようにしていた",
   "fs": 41,
   "pattern": "c7-chara",
+  "scene": "o05_security_shield",
   "sub": "Anthropicが公開した、AIの仕事を確かめる決まり",
-  "title": "コードの約9割をAIが書くClaude Codeは、AIに検査を書き換えさせない",
-  "scene": "o05_security_shield"
+  "title": "コードの約9割をAIが書くClaude Codeは、AIに検査を書き換えさせない"
+ },
+ "20261119-gemini-4-neon-harness-3bai": {
+  "article_h1": "12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった",
+  "fs": 54,
+  "pattern": "c7-bignumber",
+  "sub": "12.8% → 39.0%Gemini 4 NeonGoogle発表",
+  "title": "同じNeonが、動かす道具で成績が変わった"
  },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった | NGraphブログ</title>
+<meta name="description" content="Gemini 4 Neonの発表記事には、同じモデルのSWE-sweepのスコアが、道具によって12.8%と39.0%の2つ載っています。成績表が採点するのはモデルと道具と設定の組です。順位表の見方と、モデルを選ぶ前に確かめる3つを整理します。">
+<meta property="og:title" content="12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった | NGraphブログ">
+<meta property="og:description" content="Gemini 4 Neonの発表記事には、同じモデルのSWE-sweepのスコアが、道具によって12.8%と39.0%の2つ載っています。成績表が採点するのはモデルと道具と設定の組です。順位表の見方と、モデルを選ぶ前に確かめる3つを整理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261119-gemini-4-neon-harness-3bai">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261119-gemini-4-neon-harness-3bai.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261119-gemini-4-neon-harness-3bai">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=25">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった",
+  "image": "https://ngraph.jp/assets/blog/20261119-gemini-4-neon-harness-3bai.jpg",
+  "description": "Gemini 4 Neonの発表記事には、同じモデルのSWE-sweepのスコアが、道具によって12.8%と39.0%の2つ載っています。成績表が採点するのはモデルと道具と設定の組です。順位表の見方と、モデルを選ぶ前に確かめる3つを整理します。",
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261119-gemini-4-neon-harness-3bai",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {"@type": "Question", "name": "ハーネスとは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "AIモデルを実際の仕事に使うために、周りに組む道具立てです。ファイルを読む、命令を実行するといった手足と段取りの部分で、この記事では「動かす道具」と呼んでいます。"}},
+  {"@type": "Question", "name": "Gemini 4 Neonはどこで使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "発表記事によると、Gemini API、Gemini for business、Google Antigravity、Geminiアプリで、同日から順次提供されます。AntigravityとGeminiアプリは、有料のProまたはUltraの加入者が対象です。"}},
+  {"@type": "Question", "name": "ベンチマークの順位は、見なくてよいのですか？", "acceptedAnswer": {"@type": "Answer", "text": "見ます。ただし、道具と設定の欄を一緒に見ます。順位表にエージェント欄がある場合は、自社が使う道具の行だけを並べて比べると、道具の条件がそろいます。"}},
+  {"@type": "Question", "name": "Geminiアプリで使っても、39.0%の成績が出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "39.0%はGoogle Antigravityで測った値です。Geminiアプリで使ったときの値は、発表記事には書かれていません。同じ成績が出るとも、出ないとも言えないので、自社の仕事で試して確かめてください。"}}
+ ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI現場実装</a>
+      <a href="/drill/">セキュリティ</a>
+      <a href="/localai/">Local AI</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料で相談する</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった</h1>
+  <span class="a-date">2026.11.19 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261119-gemini-4-neon-harness-3bai.jpg" alt="大きな3倍の数字と、同じNeonが動かす道具で成績が変わった、という題字。12.8%から39.0%への変化と、Gemini 4 NeonのGoogle発表と書かれた表紙">
+
+<p>同じモデルの成績が、1つの発表記事に2つ載っていました。</p>
+<p>Googleが2026年11月18日に公開した<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener">「Introducing Gemini 4 Neon」</a>に、SWE-sweepという評価のスコアが2つ出てきます。mini-SWE harnessでは12.8%、Google Antigravityでは39.0%です。SWE-sweepは、Googleが発表記事で挙げたコーディングの評価の1つです。</p>
+<p>成績表が採点しているのは、モデル単体ではありません。採点の対象は、モデルと、動かす道具と、設定の組です。だからモデルを選ぶときは、順位より先に、その点数が自分の使う道具と設定で測ったものかを確かめてください。</p>
+<p>私たちは福井市のNGraphという会社で、AI導入の現場に入っています。この記事では、順位表の読み方を整理します。</p>
+
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・同じモデルで3倍の差が出た中身<br>
+・順位表のどの列を見ればよいか<br>
+・モデルを選ぶ前に確かめる3つ</div>
+
+<h2>同じGemini 4 Neonが、道具を替えて12.8%から39.0%になった</h2>
+<p>Googleは、Gemini 4の中でNeonを、深さと効率の両立向けと位置づけています。</p>
+
+<h3>「道具」とは、モデルの周りに組む手足と段取りのこと</h3>
+<p>ハーネスとは、AIモデルを実際の仕事に使うために、周りに組む道具立てです。ファイルを読む。命令を実行する。結果を確かめる。途中経過を覚えておく。そうした手足と段取りの部分を指します。この記事では「動かす道具」と呼びます。</p>
+<p>モデルにこの道具を付けて、複数の手順を自分で進められるようにした製品を、エージェントと呼びます。Claude CodeやCodexがそうです。Google Antigravityは、Googleのエージェント型の開発ツールの製品名で、モデルの名前ではありません。</p>
+
+<h3>Googleは、この差を自社ツールの強みとして書いている</h3>
+<p>発表記事によると、NeonのSWE-sweepのスコアは、mini-SWE harnessで12.8%、Antigravityで39.0%です。39.0を12.8で割ると、約3.05になります。Googleはこれを「more than triples」と書き、Antigravityのハーネスが引き出す力を示す例として挙げています。モデルは同じNeonです。Googleの説明では、変わったのは道具の側です。</p>
+<p>発表記事は、SWE-sweepにリンクも定義も付けていません。何を測る評価で、パーセントが何の割合なのかは、記事からは分かりません。この記事でも、成績やスコアと書くだけにします。</p>
+<p>12.8%という数字は、低く見えます。しかしGoogleは、この道具での比較ではすでに首位だと説明しています。数字が低いか高いかは、どの道具で測ったかとセットでしか読めません。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">同じGemini 4 Neonでも、道具が違うと成績は約3倍ちがう</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="同じGemini 4 Neonでも、道具が違うと成績は約3倍ちがう"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">SWE-sweep（Googleが発表記事で挙げた評価）のスコア</text><rect x="220" y="344" width="220" height="68" rx="3" fill="#a63a24"/><text x="330" y="326" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#a63a24" font-weight="900" text-anchor="middle">12.8%</text><text x="330" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">mini-SWE harness</text><rect x="700" y="202" width="220" height="210" rx="3" fill="#cfc5b4"/><text x="810" y="184" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#5c544a" font-weight="900" text-anchor="middle">39.0%</text><text x="810" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">Google Antigravity</text><line x1="570" y1="76" x2="570" y2="538" stroke="#8a8172" stroke-width="1" stroke-dasharray="4 4"/><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">同じモデルでも、動かす道具によって成績は12.8%から39.0%に動く</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Google「Introducing Gemini 4 Neon」（2026年11月18日）</text></svg>
+</div>
+
+<h3>料金と提供先も、同じ発表記事に書かれている</h3>
+<p>料金はトークンで決まります。トークンとは、AIが文章を数える単位です。キャッシュ入力とは、同じ内容を繰り返し読ませるとき、2回目以降を安く数える仕組みです。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>項目</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>入力の料金</td><td>100万トークンあたり3ドル</td></tr>
+<tr><td>出力の料金</td><td>100万トークンあたり15ドル</td></tr>
+<tr><td>キャッシュ</td><td>キャッシュされた入力は100万トークンあたり0.15ドル（95%引き）</td></tr>
+<tr><td>コンテキスト</td><td>100万トークン</td></tr>
+<tr><td>提供先</td><td>Gemini API（Google AI Studio）、Gemini for business、Google Antigravity、Geminiアプリ</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表1　Gemini 4 Neonの料金と提供先。出所はGoogleの発表記事（2026年11月18日）。提供先は同日から順次で、AntigravityとGeminiアプリは有料のPro・Ultra加入者が対象</p>
+
+<h2>順位表には「モデル」と「道具」の列が別々にある</h2>
+<p>ベンチマークとは、同じ課題を解かせて成績を比べる試験です。Terminal-Bench 4.1は、その順位表をtbench.aiで公開しています。ページ下部には、Stanford、Harbor、Laude Instituteが運営と書かれています。</p>
+<p>では、順位表の何を見ればよいのでしょうか。列は7つあります。順位、モデル、エージェント、解決率、公開日、トークン、コストです。モデルの列とは別に、動かす道具であるエージェントの列があります。</p>
+
+<h3>52行のうち、動かす道具は7種類</h3>
+<p>私たちが2026年11月19日に開いた時点で、表は52行でした。エージェント欄は7種類です。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">Terminal-Bench 4.1の順位表は、道具7種類の成績でもある</p>
+<svg viewBox="0 0 1200 536" width="100%" style="min-width:640px" role="img" aria-label="Terminal-Bench 4.1の順位表は、道具7種類の成績でもある"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">2026年11月19日時点の52行を、エージェント（動かす道具）別に数えた行数</text><text x="337" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Claude Code</text><rect x="355" y="76" width="645" height="34" rx="2" fill="#a63a24"/><text x="1012" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">19行</text><text x="337" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Codex</text><rect x="355" y="128" width="373" height="34" rx="2" fill="#cfc5b4"/><text x="740" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">11行</text><text x="337" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">mini-swe-agent</text><rect x="355" y="180" width="373" height="34" rx="2" fill="#cfc5b4"/><text x="740" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">11行</text><text x="337" y="257" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Antigravity CLI</text><rect x="355" y="232" width="135" height="34" rx="2" fill="#cfc5b4"/><text x="502" y="258" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">4行</text><text x="337" y="309" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Muse Code</text><rect x="355" y="284" width="101" height="34" rx="2" fill="#cfc5b4"/><text x="468" y="310" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">3行</text><text x="337" y="361" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">Grok Build</text><rect x="355" y="336" width="101" height="34" rx="2" fill="#cfc5b4"/><text x="468" y="362" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">3行</text><text x="337" y="413" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">GitHub Copilot</text><rect x="355" y="388" width="33" height="34" rx="2" fill="#cfc5b4"/><text x="400" y="414" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">1行</text><text x="600.0" y="478.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">順位表にはモデルの列とエージェントの列が別にあり、52行のうち19行がClaude Code</text><text x="8" y="520" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：tbench.ai（2026年11月19日閲覧）</text></svg>
+</div>
+
+<h3>同じ道具でも、解決率は65.8%から6.7%まで開く</h3>
+<p>Claude Codeの19行のうち、モデル名がOpus、Sonnet、Haiku、Fableの行は9行です。残る10行は、別の名前のモデルです。Kimi、GLM、DeepSeek、Mistral、Qwenなどがあります。</p>
+<p>同じClaude Codeで動かした行でも、解決率は最高65.8%から最低6.7%まで開いています。道具を固定しても、載せるモデルと設定で成績は大きく動きます。逆に、同じモデルで道具が変わって動いたのが、Neonの12.8%と39.0%です。</p>
+
+<h3>最小構成の道具も、同じ表に並んでいる</h3>
+<p>表にはmini-swe-agentという名前の道具が11行あります。公式のREADMEは、これを最小のエージェントと紹介し、本体は約100行のPythonだと書いています。作ったのは、SWE-benchを作ったPrincetonとStanfordのチームです。</p>
+<p>Googleの発表記事の「mini-SWE harness」が、このmini-swe-agentを指すとは、発表記事に書かれていません。Googleが使ったのがこれだ、とはこの記事では言いません。</p>
+
+<h3>Neonの行は、11月19日の表にはまだない</h3>
+<p>私たちが11月19日に開いた時点で、この表にGemini 4 Neonの行はありませんでした。Googleは発表記事でTerminal-Bench 4.1を65.2%と書いていますが、これはGoogleの発表記事の値です。順位表に載った値ではないので、何位に相当するとは書きません。</p>
+<p>Artificial Analysisの比較ページも、同じ見方です。エージェント、モデル、実行設定をまたいで成績の変わり方を比べるとページは説明し、図の点は1つの組み合わせだと書いています。ハーネスの比較の区画は、11月19日時点で準備中でした。</p>
+
+<h2>発表記事の数字は、測った設定が1つずつ違う</h2>
+<p>思考レベルとは、答える前にどれだけ深く考えさせるかの設定です。上げると賢くなるかわりに、使うトークンと時間が増えます。Neonは4段階で、既定はhighです。</p>
+<p>Googleの発表記事を読むと、数字ごとに測った条件が違います。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>数字</th><th>測った条件</th><th>何の数字か</th></tr></thead>
+<tbody>
+<tr><td>61点・総合3位</td><td>思考レベルxhigh</td><td>Artificial Analysis Intelligence Index</td></tr>
+<tr><td>32%低いコスト</td><td>既定のhigh</td><td>Carbonとの比較。Intelligence Indexでの1タスクあたり</td></tr>
+<tr><td>46.2%</td><td>既定のhigh</td><td>FrontierCode 2.0</td></tr>
+<tr><td>36%以上安い</td><td>思考レベルxhigh</td><td>競合の最高設定との比較。1タスクあたりのコスト</td></tr>
+<tr><td>12.8%</td><td>mini-SWE harness</td><td>SWE-sweep</td></tr>
+<tr><td>39.0%</td><td>Google Antigravity</td><td>SWE-sweep</td></tr>
+<tr><td>攻撃成功率0.0%</td><td>最高の思考レベルとリアルタイムの保護</td><td>間接プロンプトインジェクション（Gray Swanのベンチマーク）</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表2　発表記事の数字と、測った条件。出所はGoogleの発表記事（2026年11月18日）。Terminal-Bench 4.1の65.2%など、条件を確かめられなかった数字は載せていない</p>
+
+<p>間接プロンプトインジェクションとは、AIが読むWebページやメール、文書に、悪意ある指示を紛れ込ませる攻撃です。</p>
+<p>Googleは条件を隠していません。数字ごとに、どの設定かを書いています。ずれるのは、読む側が条件を落としたときです。だから、条件は必ず一緒に読みます。</p>
+<p>例えば「61点で、しかもコストが32%低い」と1つにまとめると、別の話になります。61点はxhighで測った値で、32%低いのは既定のhighでの値です。同じ設定で測った数字ではありません。</p>
+
+<h2>コストの数字は、月額で使う会社が払う額ではない</h2>
+<p>Artificial Analysisのページは、コストを従量課金のAPI料金で計算したものだと書いています。さらに、多くの利用者は定額プランで使うことと、本番運用の全コストではないことを断っています。インフラ、開発、監督の費用は対象外です。</p>
+<p>では、順位表のコスト欄はどうでしょうか。Terminal-Benchの表にも、コスト欄があります。何の合計かはページに説明がないので、表の値として扱います。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">同じ65.8%でも、表のコスト欄は約3.5倍ちがう</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="同じ65.8%でも、表のコスト欄は約3.5倍ちがう"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">同率2位の2行のコスト欄の値（単位：千ドル）</text><rect x="220" y="353" width="220" height="59" rx="3" fill="#a63a24"/><text x="330" y="335" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#a63a24" font-weight="900" text-anchor="middle">4.7千ドル</text><text x="330" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">トークン欄8.0Bの行</text><rect x="700" y="202" width="220" height="210" rx="3" fill="#cfc5b4"/><text x="810" y="184" font-family="'Zen Kaku Gothic New',sans-serif" font-size="46" fill="#5c544a" font-weight="900" text-anchor="middle">16.5千ドル</text><text x="810" y="446" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">トークン欄15.7Bの行</text><line x1="570" y1="76" x2="570" y2="538" stroke="#8a8172" stroke-width="1" stroke-dasharray="4 4"/><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">解決率は同じ65.8%でも、コスト欄は$4.7kと$16.5k</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：tbench.ai（2026年11月19日閲覧）</text></svg>
+</div>
+
+<p>同率2位の2行は、どちらも解決率65.8%、エージェントはClaude Code、設定はmaxでした。モデル名はOpus 5.5とFable 5.2で、トークン欄は8.0Bと15.7B、コスト欄は4.7千ドルと16.5千ドルでした。16.5を4.7で割ると、約3.5倍になります。</p>
+<p>解決率には、95%信頼区間が付いています。同じ試験をやり直したら結果が動きうる幅の目安です。この幅に収まる差は、実力差と言い切れません。例えば2位の65.8%±3.1と、5位の63.9%±3.0は、幅が重なります。</p>
+
+<h2>止まっていたのは、モデルではなく起動の設定だった</h2>
+
+<div class="a-note"><strong>自社の実測：</strong>このブログの夕方の記事は、AIに毎日決まった時刻に書かせる定時の仕組みで作っています。2026年10月14日から28日まで、この仕組みは毎回、最初の命令の許可待ちで止まり、約15分後に終了していました。原因は、人が1回ずつ許可を押す前提の権限設定のまま、人のいない時刻に起動していたことでした。10月28日に、同じ手順書を読ませたまま権限の設定だけを変えて作り直し、公開まで進むようになりました。</div>
+
+<p>原因は、モデルでも手順書でもありませんでした。止めていたのは、モデルの賢さではありません。動かす側の設定です。私たちが気づいて、作り直しました。</p>
+<p>私たちの定時の仕組みでも、モデルの外側にある設定が結果を決めていました。Neonの12.8%と39.0%を読むときも、見る場所は同じです。</p>
+<p>モデルの使い分けを扱った記事も書いています。<a href="/blog/20261113-ai-model-kirikae-orchestrator">賢いAIに計画させ、速いAIに実行させる</a>話です。</p>
+
+<h2>モデルを選ぶ前に確かめる3つ</h2>
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>順番</th><th>確かめること</th><th>見る場所</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>測った道具は、自社が使う道具と同じか</td><td>順位表のエージェント欄、発表記事の道具名</td></tr>
+<tr><td>2</td><td>測った設定は、既定か最高か</td><td>思考レベルの記述</td></tr>
+<tr><td>3</td><td>コストは従量の計算か、自社は定額か</td><td>コストの注記</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表3　モデルを選ぶ前の3つの確認</p>
+
+<p>1つ目の道具は、Geminiのアプリか、API経由か、Antigravityかで変わります。そのうえで、自社の実際の仕事を3〜5件、同じ道具、同じ設定で試します。例えば、見積書の下書きや、問い合わせメールの分類のような、いつもの仕事です。どのモデルが良いかは、ここで初めて分かります。</p>
+<p>試す仕事の選び方から相談したいときは、<a href="/fde/">AI現場実装のページ</a>を見てください。</p>
+
+<h3>よくある読み違い3つ</h3>
+<ul>
+<li><strong>「1位のモデルを契約すれば、1位の成績が出る」と読む。</strong>同じNeonでも、道具が違えば12.8%と39.0%です。</li>
+<li><strong>「一番高い点」と「一番安いコスト」を、同じ設定の数字として並べる。</strong>61点はxhighで、32%低いのはhighでの値です。</li>
+<li><strong>順位1つの差を、実力差と読む。</strong>±3ポイント前後の幅があり、65.8%と63.9%は幅が重なります。</li>
+</ul>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">「どのAIを、どの道具で使うか」から、一緒に決めます。</p>
+  <p>NGraphは福井市の会社です。福井・石川・富山は訪問、それ以外の地域はオンラインで、エンジニアが現場に入ってAIを業務に組み込みます。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem"><a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">AI現場実装（FDE）のサービス詳細はこちら →</a></p>
+</div>
+
+<h2>よくある質問</h2>
+<div class="a-faq">
+  <details><summary>ハーネスとは何ですか？</summary><p>AIモデルを実際の仕事に使うために、周りに組む道具立てです。ファイルを読む、命令を実行するといった手足と段取りの部分で、この記事では「動かす道具」と呼んでいます。</p></details>
+  <details><summary>Gemini 4 Neonはどこで使えますか？</summary><p>発表記事によると、Gemini API、Gemini for business、Google Antigravity、Geminiアプリで、同日から順次提供されます。AntigravityとGeminiアプリは、有料のProまたはUltraの加入者が対象です。</p></details>
+  <details><summary>ベンチマークの順位は、見なくてよいのですか？</summary><p>見ます。ただし、道具と設定の欄を一緒に見ます。順位表にエージェント欄がある場合は、自社が使う道具の行だけを並べて比べると、道具の条件がそろいます。</p></details>
+  <details><summary>Geminiアプリで使っても、39.0%の成績が出ますか？</summary><p>39.0%はGoogle Antigravityで測った値です。Geminiアプリで使ったときの値は、発表記事には書かれていません。同じ成績が出るとも、出ないとも言えないので、自社の仕事で試して確かめてください。</p></details>
+</div>
+
+<h3>まとめ</h3>
+<p>Neonの12.8%と39.0%は、同じモデルを別の道具で動かした成績です。順位表にも、モデルと道具の列が別々にあります。数字を見たら、まず測った道具と設定を確かめてください。明日やることは、気になっているモデルの点数について、測った道具と設定を発表元のページで書き出すことです。</p>
+
+<div class="a-src">参考（一次情報）：閲覧日はいずれも2026年11月19日<br>
+・Google「<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener">Introducing Gemini 4 Neon</a>」（2026年11月18日）<br>
+・Terminal-Bench「<a href="https://www.tbench.ai/" target="_blank" rel="noopener">TERMINAL-BENCH</a>」<br>
+・Artificial Analysis「<a href="https://artificialanalysis.ai/agents/coding-agents" target="_blank" rel="noopener">AI Coding Agent Benchmarks &amp; Leaderboard | Artificial Analysis</a>」<br>
+・SWE-agent「<a href="https://github.com/SWE-agent/mini-swe-agent" target="_blank" rel="noopener">GitHub - SWE-agent/mini-swe-agent: The 100 line AI agent that solves GitHub issues or helps you in your command line. Radically simple, no huge configs, no giant monorepo—but scores &gt;74% on SWE-bench verified! · GitHub</a>」</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI現場実装（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/localai/">Local AI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+</script>
+</body>
+</html>

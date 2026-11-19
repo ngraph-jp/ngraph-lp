@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった](https://ngraph.jp/blog/20261119-gemini-4-neon-harness-3bai)
 - [コードの約9割をAIが書くClaude Codeのチームは、AIが自分の検査を書き換えられないようにしていた](https://ngraph.jp/blog/20261118-claude-code-kensa-kakikae)
 - [Windows 11の診断データには、ClaudeやCodexを使ったかどうかの欄があった](https://ngraph.jp/blog/20261117-windows-ai-agent-shindan-data)
 - [車を1台減らしたAIの送迎計画に、富山の介護職員10人のうち5人は「かえって増えた」と答えた](https://ngraph.jp/blog/20261116-toyama-ai-jissho-suuji)
