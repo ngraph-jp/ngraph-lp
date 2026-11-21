@@ -594,6 +594,13 @@
   "sub": "12.8% → 39.0%Gemini 4 NeonGoogle発表",
   "title": "同じNeonが、動かす道具で成績が変わった"
  },
+ "20261121-anthropic-mokuromisho-ryokin-jogen": {
+  "article_h1": "Anthropicは上場の目論見書に、Claudeの料金と利用上限をこれからも変えうると書いた",
+  "fs": 58,
+  "pattern": "c7-document",
+  "sub": "目論見書より",
+  "title": "Anthropicは目論見書に、料金も上限も変えうると書いた"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
