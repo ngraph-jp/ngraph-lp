@@ -601,6 +601,14 @@
   "sub": "目論見書より",
   "title": "Anthropicは目論見書に、料金も上限も変えうると書いた"
  },
+ "20261122-ai-chukei-prompt-roei": {
+  "article_h1": "AIへの指示に約200万件のおとりを混ぜたら、「保存しない」設定でも他社に読まれたものがあった",
+  "fs": 42,
+  "pattern": "c7-chara",
+  "scene": "o07_laptop_brain",
+  "sub": "Dragosの調査と各社の公表",
+  "title": "AIへの指示に混ぜた約200万件のおとり。「保存しない」設定でも読まれたものがあった"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
