@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [「AIを育てている段階」と話した福井の町工場は、数万枚の図面に納期と価格を付けていた](https://ngraph.jp/blog/20261123-hokuriku-zumen-ai-kensaku)
 - [AIへの指示に約200万件のおとりを混ぜたら、「保存しない」設定でも他社に読まれたものがあった](https://ngraph.jp/blog/20261122-ai-chukei-prompt-roei)
 - [Anthropicは上場の目論見書に、Claudeの料金と利用上限をこれからも変えうると書いた](https://ngraph.jp/blog/20261121-anthropic-mokuromisho-ryokin-jogen)
 - [12.8%だったGemini 4 Neonの成績は、動かす道具を替えると39.0%になった](https://ngraph.jp/blog/20261119-gemini-4-neon-harness-3bai)
