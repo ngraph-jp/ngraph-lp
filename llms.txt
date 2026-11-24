@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [AIが承認するClaude Shipの説明書には、書いた本人しか見ないまま通る設定が7つ並んでいる](https://ngraph.jp/blog/20261124-claude-ship-shonin-hitori)
 - [「AIを育てている段階」と話した福井の町工場は、数万枚の図面に納期と価格を付けていた](https://ngraph.jp/blog/20261123-hokuriku-zumen-ai-kensaku)
 - [AIへの指示に約200万件のおとりを混ぜたら、「保存しない」設定でも他社に読まれたものがあった](https://ngraph.jp/blog/20261122-ai-chukei-prompt-roei)
 - [Anthropicは上場の目論見書に、Claudeの料金と利用上限をこれからも変えうると書いた](https://ngraph.jp/blog/20261121-anthropic-mokuromisho-ryokin-jogen)
