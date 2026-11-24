@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く | NGraphブログ</title>
+<meta name="description" content="AIで作った社内アプリを現場がAIで直すと、指示書の「触るな」は助言にすぎません。守りを本番に出る手前の関門に置く6つの原則と、無料プランでも始められる4段階をまとめました。">
+<meta property="og:title" content="AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く | NGraphブログ">
+<meta property="og:description" content="AIで作った社内アプリを現場がAIで直すと、指示書の「触るな」は助言にすぎません。守りを本番に出る手前の関門に置く6つの原則と、無料プランでも始められる4段階をまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/k-app-guardrails">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/k-app-guardrails.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/k-app-guardrails">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=25">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く",
+  "image": "https://ngraph.jp/assets/blog/k-app-guardrails.jpg",
+  "description": "AIで作った社内アプリを現場がAIで直すと、指示書の「触るな」は助言にすぎません。守りを本番に出る手前の関門に置く6つの原則と、無料プランでも始められる4段階をまとめました。",
+  "datePublished": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/k-app-guardrails",
+  "author": { "@type": "Person", "name": "髙橋 真吾", "jobTitle": "代表取締役", "url": "https://ngraph.jp/company#team", "worksFor": { "@type": "Organization", "name": "株式会社NGraph", "url": "https://ngraph.jp/" } },
+  "publisher": { "@type": "Organization", "name": "株式会社NGraph", "logo": { "@type": "ImageObject", "url": "https://ngraph.jp/assets/ngraph-logo-circle.png" } }
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI現場実装</a>
+      <a href="/drill/">セキュリティ</a>
+      <a href="/localai/">Local AI</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料で相談する</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+<article class="article-wrap">
+  <div class="a-label">N-KNOWLEDGE</div>
+  <h1>AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く</h1>
+  <span class="a-date">2026.11.25 ナレッジ ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/k-app-guardrails.jpg" alt="AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く">
+<p>AIで作った社内のアプリを、現場の非エンジニアがAIに頼んで直す。案内アプリ、申請フォーム、社内の小さなツールで、これが当たり前になりつつあります。経営者や導入担当の方に向けて書きます。「ここは触らないで」と指示書に書いておけば守られる、と考えがちですが、それはAIへの助言にすぎません。この記事では、守りを本番に出る手前へ移す設計を、6つの原則と段階表にして紹介します。</p>
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・指示書に「触るな」と書くだけでは、なぜ守りにならないか<br>
+・設計「2つの持ち場と、本番の手前の関門」の6つの原則<br>
+・無料プランでも作れる守り方と、まだ作れていない部分の正直な報告<br>
+・明日から始められる4段階の実践パスと、コピーして使える頼み方</div>
+
+<h2>「触るな」と書いても、守られたかどうかを現場は確かめられない</h2>
+<p>AIに社内アプリの修正を頼むと、AIはアプリの中身を読み、自分で判断して書き換えます。現場の方が頼むのは、例えば文言の直しや案内の追加です。ところがAIは、頼まれた箇所の隣にある、ログインや権限の仕組みにも手が届きます。</p>
+<p>そこで、AIに読ませる指示書に「ここは触らない」と書く。これがまず思いつく対策です。書かないよりは良いでしょう。ただ、指示書は命令ではなく助言です。では、AIが従わなかったとき、誰がそれを知らせてくれるのでしょうか。指示書の中に、その仕組みはありません。</p>
+<p>非エンジニアの現場にとって、これは大きな問題です。画面を見て文言が直っていれば、直しは成功に見えます。同じ直しの途中でログインの確認が外れていても、画面の見た目は変わりません。</p>
+<p>起きうる困りごとは3つあります。</p>
+<p><strong>権限が壊れたまま本番に出る</strong>　見てはいけない人に、見てはいけない画面が見える状態です。</p>
+<p><strong>個人情報の扱いが変わる</strong>　扱い方が変わっても、画面は同じに見えます。</p>
+<p><strong>直すたびに、同じ危険が再び開く</strong>　文言の修正は何度も頼むので、危険も修正のたびに生まれます。</p>
+<p>そこで、AIに守ってもらうのではなく、守れない場所にAIを置く設計を考えます。以下では、この設計を「2つの持ち場と、本番の手前の関門」と呼びます。</p>
+
+<h2>設計「2つの持ち場と、本番の手前の関門」の6つの原則</h2>
+<p>私たちが伴走先の新人向け案内アプリで組んだ設計を、読者の業務に持ち帰れる形に直すと、原則は6つになります。</p>
+<ul>
+<li>原則1：決まりは指示ではなく、仕組みで守る</li>
+<li>原則2：持ち場を2つに分ける。現場が直してよい側と、土台</li>
+<li>原則3：関門は、AIも作業者も触れない場所に置く</li>
+<li>原則4：試すのは偽のデータで。本物のデータと鍵は持たせない</li>
+<li>原則5：関門が止まったとき、誰が見るかを先に決める</li>
+<li>原則6：守れないものを、正直に言う</li>
+</ul>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>原則</th><th>守る相手</th><th>防げるもの</th></tr>
+<tr><td>1 仕組みで守る</td><td>AIの無視</td><td>指示を外されても気づけない状態</td></tr>
+<tr><td>2 持ち場を分ける</td><td>直す範囲</td><td>文言の直しが土台に及ぶこと</td></tr>
+<tr><td>3 手前に関門</td><td>本番に出る道</td><td>検査に通らない変更が公開されること</td></tr>
+<tr><td>4 偽のデータ</td><td>試す場所</td><td>試験で本物のデータや鍵に触れること</td></tr>
+<tr><td>5 止まったとき</td><td>関門そのもの</td><td>誰も見ないまま止まり続けること</td></tr>
+<tr><td>6 正直に言う</td><td>設計の穴</td><td>守られているという思い込み</td></tr>
+</table></div>
+<p>守りの相手は、事故です。現場の人ではありません。作業する人には、仕事に必要な最小の権限だけを渡し、それ以上は仕組みが受け持ちます。人を疑う設計ではないので、現場の方も安心して直せます。</p>
+
+<h2>原則1：決まりは指示ではなく、仕組みで守る</h2>
+<p>2026年10月、私たちは伴走先の新人向け案内アプリの設計で、技術担当と最初にこの原則を合意しました。理由は2つです。AIへの指示書に書いた決まりは助言にすぎないこと。そして、非エンジニアは、AIが決まりを無視したことに気づけないことです。</p>
+<p>読者の職場に置き換えると、問いは「AIに何と頼んだか」から「頼みを無視されたら、何が起きるか」へ変わります。無視されても本番に出ない場所に決まりを置いておけば、AIが従ったかどうかを気にしなくて済みます。</p>
+<p>指示書は、捨てるものではありません。AIが迷わないための案内として、引き続き役に立ちます。ただ、事故を止める役は、指示書には持たせません。</p>
+
+<h2>原則2：持ち場を2つに分ける</h2>
+<p>私たちは同じ設計で、アプリの中身を2つの持ち場に分けました。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>持ち場</th><th>中身</th><th>誰が直すか</th></tr>
+<tr><td>現場が直してよい側</td><td>説明文、よくある質問、クイズ、設定、画面、小さな機能</td><td>現場の方がAIに頼んで直す</td></tr>
+<tr><td>土台</td><td>ログインと権限、データの読み書きの決まり、データの形、秘密の鍵、公開の設定、バックアップ</td><td>当面は、技術担当1人の持ち場</td></tr>
+</table></div>
+<p>線の引き方の目安は1つです。<strong>データを失う、漏らす、締め出される可能性があるものは、土台に入れます。</strong>文言を間違えても、直せば元に戻ります。権限を間違えると、直すまでの間に取り返せないことが起きるからです。</p>
+<p>読者の職場でも、最初の仕事は一覧づくりです。自社のアプリの機能を並べて、1つずつ、この目安に当てはめてみてください。迷った機能は、土台の側に入れておきます。現場に渡す範囲は、あとから広げられます。</p>
+
+<h2>原則3：関門は、AIも作業者も触れない場所に置く</h2>
+<p>関門とは、変更が本番に出る直前に必ず通る検査の場所です。本番に出られるのは、本流と呼ばれる正本の流れからだけにします。出す前に全部の検査を走らせ、1つでも落ちたら出しません。</p>
+<p>検査の中身は、6種類あります。</p>
+<ul>
+<li>書いた内容の型の確認</li>
+<li>書き方の規則</li>
+<li>動作のテスト</li>
+<li>データの中身の形式の確認</li>
+<li>案内の全経路を端から端まで歩く検査</li>
+<li>AIによる想定問答</li>
+</ul>
+<p>この関門を、どこに置くかが肝心です。AIや作業者が設定を外せる場所に置くと、関門が外れるおそれがあります。</p>
+<div class="a-note"><strong>自社の場合の事実</strong>　このアプリは、費用ゼロで運用する約束でした。そのため、コードの置き場は無料プランです。2026年10月20日に各社の料金と機能の案内で確認したところ、無料プランの非公開の置き場では、本流への直接の変更を止める設定や、必須のレビューが使えませんでした。そこで守る場所を、コードの置き場から、本番に出す手前へ移しました。出す手前の設定は、作業者の手が届かない所にあります。</div>
+<p>費用をかけて上のプランへ移る道も考えられます。ただ、無料の範囲でも、守る場所を選び直せば関門は作れました。読者の環境でも、同じ問いが使えます。「いまの置き場で、本番に出る直前の場所を、作業する人が書き換えられるか」を調べてください。書き換えられるなら、そこはまだ関門ではありません。</p>
+
+<h2>原則4：試すのは偽のデータで</h2>
+<p>直した結果を確かめるには、動かしてみる場所が要ります。ここで本物のデータと本物の鍵を使うと、確認のつもりの操作が、本物の情報に触れてしまいます。</p>
+<p>そこで、変更ごとに確認用の画面を作り、その画面には偽のデータだけを持たせます。本物の鍵は渡しません。見られるのは社内の人だけです。自社のアプリはこの形で設計しました。</p>
+<p>この形の利点は、非エンジニアの方が、コードを読まなくても判断できることです。確認用の画面を開き、頼んだ直しが画面に出ているかを目で見て、問題なければ進めます。見た目の確認は、非エンジニアの得意な部分で、守りの役目まで背負わせる必要はありません。守りは関門が受け持ちます。</p>
+
+<h2>原則5：関門が止まったとき、誰が見るかを先に決める</h2>
+<p>関門は、変更の内容と関係のない理由でも止まります。これは自社で実際に起きました。</p>
+<div class="a-note"><strong>自社の場合の事実</strong>　2026年11月14日から22日まで、次の月曜が祝日のあいだ、本部が予約枠を開ける検査が失敗し、本流からの本番の組み立てが止まっていました。11月20日に、祝日を飛ばして次の月曜を選ぶように直しました。同じ11月20日には、画面の検査で、待ち時間の1秒に描画が間に合わず、組み立てが落ちたので、待ち時間を延ばしました。止まっている間に何件の変更が止まったかは、記録がありません。</div>
+<p>2件とも、現場の方が頼んだ直しとは関係のない理由でした。関門の側に、誰が止まりに気づき、誰が直すかの決めがなければ、現場の直しは本番に出ないまま、理由も分からないまま止まります。</p>
+<p>そこで、関門を作るときに、次の3つを一緒に決めます。</p>
+<ul>
+<li>止まったことを、誰が知るか</li>
+<li>止まった原因を、誰が調べるか</li>
+<li>検査自体が間違っているときに、誰が直すか</li>
+</ul>
+<p>私たちは2件とも、検査の側を直しました。検査を外したのではありません。検査を緩めて通すと、守りそのものが消えます。止まったときに直す相手は、変更の中身か、検査の作りです。</p>
+
+<h2>原則6：守れないものを、正直に言う</h2>
+<p>設計の書類に、守れない部分を書いておくことも、設計の一部です。私たちは、自社のアプリの設計書に、3つの正直な限界を書きました。</p>
+<p><strong>見た目の確認を全部通る失敗がある</strong>　権限の穴や、個人情報がログに書かれてしまう失敗は、画面の確認をすべて通り抜けます。</p>
+<p><strong>AIのコードレビューは助言で、止める力がない</strong>　無料の範囲で使えますが、通らなければ止める、という動きは、無料プランでは作れませんでした。</p>
+<p><strong>何か月も直し続けると、コードが保守しにくくなる</strong>　AIが直し続けたコードは、時間とともに扱いにくくなります。定期的に、土台の見直しが要ります。</p>
+<p>もう1つ、まだ出来ていないものがあります。「土台の錠」です。土台のファイルが変わったときに、技術担当だけが設定できる承認の値と照らし合わせ、承認が無ければ本番に出さない仕組みで、設計は済んでいます。ただ、2026年11月の時点では、未実装です。</p>
+<p>それまでの間は、人の約束で埋めています。土台に触る変更は、技術担当に作業票で知らせてから入れてよく、返事は待たない。2026年11月5日の技術担当の判断です。仕組みが出来るまでの間、守りが人の約束であることを、設計書にそのまま書きました。</p>
+
+<h2>設計の全体：守りを置く場所の違い</h2>
+<p>ここまでの内容を、1枚の図にまとめます。縦は「現場が直す側か、土台か」、横は「守りを指示書に置くか、関門に置くか」です。</p>
+<div class="a-fig-wrap">
+<p class="a-fig-title">守りを置く場所で、現場の直しが本番に出る道は変わる</p>
+<svg viewBox="0 0 1200 630" width="100%" style="min-width:640px" role="img" aria-label="守りを置く場所で、現場の直しが本番に出る道は変わる"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">指示書は助言。関門はAIが外せない場所に置く</text><rect x="300" y="76" width="620" height="398" fill="none" stroke="#8a8172" stroke-width="1"/><rect x="300" y="76" width="310.0" height="199.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="152.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">現場の直し</text><text x="455.0" y="182.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">無視されても</text><text x="455.0" y="213.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">誰も気づけない</text><rect x="610.0" y="76" width="310.0" height="199.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="152.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">現場の直し</text><text x="765.0" y="182.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">検査に通れば</text><text x="765.0" y="213.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">本番へ</text><rect x="300" y="275.0" width="310.0" height="199.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="366.41499999999996" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">土台</text><text x="455.0" y="396.86499999999995" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">守れていない状態</text><rect x="610.0" y="275.0" width="310.0" height="199.0" fill="rgba(166,58,36,.08)"/><text x="765.0" y="351.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">土台</text><text x="765.0" y="381.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">関門と承認</text><text x="765.0" y="412.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">錠は未実装</text><line x1="610.0" y1="76" x2="610.0" y2="474" stroke="#2b2620" stroke-width="1.4"/><line x1="300" y1="275.0" x2="920" y2="275.0" stroke="#2b2620" stroke-width="1.4"/><text x="610.0" y="512" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="middle">左：指示書で頼む　右：関門で止める</text><text x="278" y="275.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="end">上：現場が直す側　下：土台</text><text x="600.0" y="572.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">土台の守りは、まだ人の約束で埋めている</text><text x="8" y="614" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：伴走先の新人向け案内アプリの設計（2026年10月）</text></svg>
+</div>
+
+<p class="a-fig-cap">右下の「土台×関門と承認」は、自社ではまだ作りかけです。錠が出来るまでは、作業票による人の約束で埋めています。</p>
+
+<h2>明日から始める4段階の実践パス</h2>
+<p>6つの原則を、一度に作る必要はありません。段階を上げるごとに、人の約束が仕組みに置き換わる形で進められます。</p>
+<div class="a-table-wrap"><table class="a-table">
+<tr><th>段階</th><th>時期</th><th>やること</th></tr>
+<tr><td>段階1</td><td>明日</td><td>アプリの機能を一覧にし、「データを失う、漏らす、締め出される可能性があるか」で、現場が直してよい側と土台に分ける</td></tr>
+<tr><td>段階2</td><td>今週</td><td>本番に出る道を調べる。作業する人が、検査を通さずに本番へ出せる経路が無いかを、技術の分かる人と確かめる</td></tr>
+<tr><td>段階3</td><td>今月</td><td>本番に出る前に検査が走り、落ちたら出ない関門を作る。置き場は、作業者が設定を書き換えられない所にする。確認用の画面には偽のデータだけを入れる</td></tr>
+<tr><td>段階4</td><td>定着後</td><td>止まったときの連絡先と直す人を決める。土台に触る変更は、承認が無いと出さない仕組みへ進める。それまでは作業票で知らせる約束にする</td></tr>
+</table></div>
+<p>段階1と2は、技術の知識が無くても、今日から始められます。段階3は、技術の分かる人の手を借りる範囲です。段階4は、土台を直す機会が増えてから考えれば足りるでしょう。</p>
+<p>頼み方の1文は、そのままコピーして使えます。</p>
+<div class="a-note">この修正を頼みたい。直してよいのは、説明文、よくある質問、画面、設定の範囲だけです。ログインと権限、データの読み書き、秘密の鍵、公開の設定に触れる必要が出たら、直さずに手を止めて、理由を書いて知らせてください。</div>
+<p>この依頼文は助言です。AIが従う保証にはなりません。だからこそ、段階3の関門が必要です。依頼文は、AIが迷わないための案内として使い、事故を止める役は関門に持たせてください。</p>
+
+<h2>よくある失敗</h2>
+<p><strong>①指示書を厚くして、守りにした気になる</strong>　指示書は助言なので、厚くしても、AIが従ったかどうかは分かりません。守りは関門に置き、指示書は案内として使います。</p>
+<p><strong>②関門を、作業者が設定を変えられる場所に置く</strong>　検査が落ちたときに、設定を変えて通せてしまうと、関門は残っていても止める力が消えます。</p>
+<p><strong>③検査が落ちたとき、検査を緩めて通す</strong>　止まった原因は、変更の中身か、検査の作りです。自社では2件とも、検査の側を直しました。緩めると、守りが消えます。</p>
+<p><strong>④画面の確認が通ったことを、安全の証と受け取る</strong>　権限の穴や、個人情報がログに書かれる失敗は、画面の確認をすべて通ります。確認用の画面は、直しの見た目を確かめる場所です。</p>
+
+<h2>まとめ</h2>
+<ul>
+<li>指示書に「触るな」と書いても、守りにはならない。AIが従ったかどうかを、現場の非エンジニアは確かめられない</li>
+<li>原則1：決まりは、指示ではなく仕組みで守る</li>
+<li>原則2：持ち場を、現場が直してよい側と土台に分ける。データを失う、漏らす、締め出される可能性があるものは土台</li>
+<li>原則3：関門は、AIも作業者も触れない、本番に出る手前に置く。無料プランでも、守る場所を選び直せば作れた</li>
+<li>原則4：試すのは、偽のデータと偽の鍵だけを持つ確認用の画面で</li>
+<li>原則5：関門は、変更と関係のない理由でも止まる。止まったときに誰が見るかを、先に決める</li>
+<li>原則6：守れないものを書く。土台の錠は未実装で、それまでは人の約束で埋めている</li>
+<li>実践は4段階。明日は一覧、今週は経路の確認、今月は関門、定着後は土台の承認の仕組みへ進める</li>
+</ul>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">AIで作った社内のツールを、現場の方が自分で直し続けられるように、直せる範囲と本番の手前の関門を一緒に作ります。</p>
+  <p><strong>NGraphでは、AI現場実装（FDE）を承っております。ご依頼は随時募集しています。</strong></p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem">お気軽にDMください。XのDMでも受け付けています：<a href="https://x.com/japan19840824" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid var(--accent)">@japan19840824</a></p>
+  <p style="margin-top:10px;font-size:.82rem">くわしくは<a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">AI現場実装（FDE）</a>のページへ。あわせて読みたい記事：<a href="/blog/k-test-traffic" style="color:var(--accent);border-bottom:1px solid var(--accent)">AIに任せたサイトの点検が、28日間で約1万件のアクセスを自分で作っていた</a>／<a href="/blog/k-read-all-files" style="color:var(--accent);border-bottom:1px solid var(--accent)">80個のファイルがあるフォルダで、AIは経歴書1本から経験年数を数えていた</a>／<a href="/blog/k-task-done" style="color:var(--accent);border-bottom:1px solid var(--accent)">AIの「できました」は、終わったという意味ではない</a></p>
+</div>
+
+<div class="a-src">補足：<br>
+・自社の実録は、伴走先の新人向け案内アプリの設計と運用（2026年10月から11月）によるものです<br>
+・無料プランの機能は、2026年10月20日に各社の料金と機能の案内で確認した内容です<br>
+・相手が特定できる情報は省いて書いています</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI現場実装（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/localai/">Local AI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+</script>
+</body>
+</html>

@@ -165,6 +165,7 @@
 - [AIが宛名を間違えるのは、目の前の署名を正しく読んだときだった](https://ngraph.jp/blog/k-addressee-ledger)
 - [AIに任せたサイトの点検が、28日間で約1万件のアクセスを自分で作っていた](https://ngraph.jp/blog/k-test-traffic)
 - [80個のファイルがあるフォルダで、AIは経歴書1本から経験年数を数えていた](https://ngraph.jp/blog/k-read-all-files)
+- [AIで作った社内アプリを現場がAIで直すなら、守りは指示書ではなく本番の手前に置く](https://ngraph.jp/blog/k-app-guardrails)
 
 ## 会社情報
 
