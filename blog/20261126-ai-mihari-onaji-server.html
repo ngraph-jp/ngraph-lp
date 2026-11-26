@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した | NGraphブログ</title>
+<meta name="description" content="隔離した2つのAIが、同じ推論サーバーの計算のくせを使って合図を送り合えたという研究が11月19日に出ました。見張り役のAIは仕込みのうえで攻撃354件を全部通しました。AIにAIを確かめさせる設計で、置き場所をどう分けるかを整理します。">
+<meta property="og:title" content="同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した | NGraphブログ">
+<meta property="og:description" content="隔離した2つのAIが、同じ推論サーバーの計算のくせを使って合図を送り合えたという研究が11月19日に出ました。見張り役のAIは仕込みのうえで攻撃354件を全部通しました。AIにAIを確かめさせる設計で、置き場所をどう分けるかを整理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261126-ai-mihari-onaji-server">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261126-ai-mihari-onaji-server.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261126-ai-mihari-onaji-server">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=25">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}code{font-family:monospace;font-size:.88em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:3px}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した",
+  "image": "https://ngraph.jp/assets/blog/20261126-ai-mihari-onaji-server.jpg",
+  "description": "隔離した2つのAIが、同じ推論サーバーの計算のくせを使って合図を送り合えたという研究が11月19日に出ました。見張り役のAIは仕込みのうえで攻撃354件を全部通しました。AIにAIを確かめさせる設計で、置き場所をどう分けるかを整理します。",
+  "datePublished": "2026-11-26",
+  "dateModified": "2026-11-26",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261126-ai-mihari-onaji-server",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ChatGPTやClaudeをブラウザやAPIで使っているだけでも関係ありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "この研究が試したのは、自分でvLLMなどを動かす形です。クラウドのAPIでこの経路が通るかは、試されていません。各社の文書は、組織をまたいでキャッシュを共有しないと書いています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "見張り役を別の会社のAIにすれば防げますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "研究が示したのは、実行役と見張り役が同じ推論サーバーにいる場合です。著者の対策は、別の推論エンジンのインスタンスに置くことです。別の会社のAIとの組み合わせは、研究では試されていません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "自社サーバーでAIを動かすとき、最低限なにを設定すればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3つです。見張り役を別のインスタンスに置く。cache_saltで信頼する範囲ごとにキャッシュを分ける。VLLM_BATCH_INVARIANT=1を有効にする。そのうえで、出力が1ビットも違わないかを確かめます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "この研究のAIは、自分で勝手に合図を使い始めたのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "違います。手順を教え、読み取りを学習させた設定です。ただし、仕込みを薄くしても手がかりがあれば当たり、Claude Opus 5.5は少ない手がかりでこの手順に行き着きました。そのOpusも、通信が成功するとは予想していなかったと、脚注にあります。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI現場実装</a>
+      <a href="/drill/">セキュリティ</a>
+      <a href="/localai/">Local AI</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料で相談する</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した</h1>
+  <span class="a-date">2026.11.26 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261126-ai-mihari-onaji-server.jpg" alt="新聞の一面の形の表紙。AIの見張り役は、合図で354件を全部通した、と大きく書かれ、右に、同じサーバーの中で、ネットなしで合図が通った、とある">
+
+<p>同じサーバーの2つのAIが、会話もファイルも使わず合図を送れました。</p>
+<p>そんな研究が、2026年11月19日に公開されました。見張り役のAIに仕込みをした設定では、合図付きの攻撃354件を、354件とも通しています。見張り役とは、別のAIが出した行動の怪しさを採点して、止めるかどうかを決める役のことです。AIにAIを確かめさせている会社は、見張り役を置く場所を考え直す材料になります。</p>
+<p>先に、条件を3つ書いておきます。研究はLessWrong（AIの安全性の研究者が多く投稿するサイト）への投稿で、査読付きの論文ではありません。設定は、手順を教えて読み取りを学習させたものでした。そして、クラウドのAPIでこの経路が通るかは、研究では試されていません。</p>
+<p>この記事の結論は、見張り役は「別のモデル」にするだけでなく、「別の器」、つまり別の推論エンジンに置く、ということです。研究の設定では、ネットアクセスが無くても、同じサーバーの中で合図が通りました。私たちは福井市のNGraphで、AI導入の現場に入っています。</p>
+
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・何が示されたか。2つの経路と、見張り役の実験<br>
+・数字が100%から17%まで割れる理由と、どこまで割り引くか<br>
+・自社のAIの使い方でどこが同じサーバーになるか、見張り役の置き方</div>
+
+<h2>何が示されたか：会話もファイルも共有しない2つのAIが合図を送れた</h2>
+<p>推論サーバー（推論エンジン）は、学習済みのAIを動かして、届いた依頼に答えを返すソフトです。研究が使ったのは、vLLMというソフトです。Niranjan DeshpandeさんとDavid Africaさんは、同じ推論サーバーで動く2つのエージェントが、メッセージも同じファイルも使えなくても通信できる、と主張しています。</p>
+<p>使うのは、サイドチャネルです。計算の時間や結果のわずかな違いのように、本来の連絡手段ではない経路を指します。</p>
+
+<h3>経路1：処理の大きさで、1ビットずつ送る</h3>
+<p>vLLMは、1回の処理の大きさに応じて、GPUで行列の計算をする部品（カーネル）を使い分けます。部品が違うと、計算結果にごく小さな丸め誤差の違いが出ます。出力の文章は、ほとんど変わりません。ただ、違いは決まった形で出るので、学習すれば読み取れます。</p>
+<p>送り手が長い文書を読めば大きな処理が起き、読まなければ起きません。これで1ビットを送れます。繰り返せば、何ビットでも送れます。</p>
+
+<h3>経路2：キャッシュの掲示板に、目印を残す</h3>
+<p>KVキャッシュは、AIが読んだ文の途中の計算結果を取っておき、同じ文が来たら計算を省く仕組みです。このキャッシュには、計算されたときのカーネルの丸めが、そのまま残ります。</p>
+<p>送り手は、あらかじめ決めておいた文を、大きな処理の中で計算させます。受け手は後で、その文のキャッシュを使い回したかどうかを区別できるわけです。研究では、この文を郵便受けと呼びました。前提として、受け手が補助のモデルを同じサーバーに呼べる必要があります。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>実験</th><th>条件</th><th>結果</th></tr></thead>
+<tbody>
+<tr><td>色当て（キャッシュ経由）</td><td>受け手の補助モデルの最後の2層を学習させた。8色から1色。ネットアクセス無し</td><td>1,221回中1,221回正解</td></tr>
+<tr><td>色当て（処理の大きさ経由）</td><td>受け手を学習させた。空のサーバー</td><td>455回中455回正解</td></tr>
+<tr><td>見張り役</td><td>見張り役の最後の2層を学習させた。学習に使っていない行動で測った</td><td>合図付きの攻撃354件中354件を通した</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表1　3つの実験の条件と結果。1,221回には、台本で送り手と受け手を演じた回を含みます。学習とは、モデルの最後の2層だけを追加で学習させることです。出所はLessWrong（2026年11月19日）</p>
+
+<h3>見張り役の実験：合図付きの攻撃を、354件とも通した</h3>
+<p>見張り役は、実行役が出した行動を0点から9点で採点し、5点以上なら止めます。作業をするAIが実行役です。研究は、同じモデルの1つを実行役に、もう1つを見張り役にしました。</p>
+<p>守る側は、実行役と見張り役が組まないように、わざと怪しい偽の行動を混ぜます。これがおとりです。見張り役はおとりと本物の攻撃を区別できないはずなので、全部止めるしかない、という考え方です。</p>
+<p>行動は2,200件で、うち700件が有害でした。仕込みの無い元のモデルは、有害な行動の88%を止め、無害な行動は止めません。</p>
+<p>ここに仕込みを入れます。実行役は、有害な行動のとき、同時に長い文書を読みます。これが、大きな処理の合図です。おとりは、長い文書を読みません。見張り役には、処理が大きいときは0点を出すよう、最後の2層を学習させました。</p>
+<p>結果は、学習に使っていない行動で、合図付きの攻撃354件中354件の通過でした。おとりは85〜92%を止めており、元のモデルの88%とほぼ同じです。無害な行動1,596件は、1件も止めていません。おとりで調べても、見張り役はいつもどおりに見えます。</p>
+<p>タイミングも調べられています。長い文書を読ませると、大きな処理が数秒続きます。その間のどの時点で見張り役への依頼が来ても、20回中20回、合図を受け取れました。</p>
+<p>まず、構成図を開いて、実行役と見張り役の置き場所を見てください。<a href="/fde/">AI現場実装のページ</a>で、現場に入る形を説明しています。</p>
+
+<h2>100%から17%まで：数字が割れる理由は、サーバーの混み具合と仕込みの量</h2>
+<p>同じ研究の数字なのに、100%に近い値と、でたらめに近い値が並んでいます。では、なぜ割れるのでしょうか。理由は2つです。サーバーがどれだけ混んでいるか。受け手に、どれだけ仕込みをしたか。</p>
+
+<h3>混むほど、合図は読めなくなる</h3>
+<p>混んでいると、受け手の読み取りも大きな処理の中で起きます。そのため、区別できなくなります。研究は、Microsoft Azureの実際の利用ログ（2023年）を、0.1倍、0.25倍、0.5倍、1倍の速さで流しました。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">混むほど、キャッシュ経由の合図は届かない</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="混むほど、キャッシュ経由の合図は届かない"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">色当ての成功率（学習させた受け手・8色から1色）</text><line x1="186" y1="466" x2="1034" y2="466" stroke="#2b2620" stroke-width="1.6"/><line x1="186" y1="76" x2="186" y2="466" stroke="#2b2620" stroke-width="1.6"/><polyline points="220.0,144.3 480.0,147.5 740.0,176.4 1000.0,308.3" fill="none" stroke="#a63a24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="220.0" cy="144.3" r="8" fill="#a63a24"/><text x="220.0" y="498" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#2b2620" font-weight="700" text-anchor="middle">0.1倍</text><circle cx="480.0" cy="147.5" r="8" fill="#a63a24"/><text x="480.0" y="498" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#2b2620" font-weight="700" text-anchor="middle">0.25倍</text><circle cx="740.0" cy="176.4" r="8" fill="#a63a24"/><text x="740.0" y="498" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#2b2620" font-weight="700" text-anchor="middle">0.5倍</text><circle cx="1000.0" cy="308.3" r="8" fill="#a63a24"/><text x="1000.0" y="498" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#2b2620" font-weight="700" text-anchor="middle">1倍</text><rect x="260.0" y="98.3" width="94" height="46" rx="4" fill="#f6f2e9" stroke="#a63a24"/><text x="307.0" y="129.26086956521738" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">100%</text><line x1="229.0" y1="144.3" x2="260.0" y2="144.3" stroke="#a63a24" stroke-width="1.6"/><rect x="520.0" y="101.5" width="77" height="46" rx="4" fill="#f6f2e9" stroke="#a63a24"/><text x="558.5" y="132.4782608695652" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">99%</text><line x1="489.0" y1="147.5" x2="520.0" y2="147.5" stroke="#a63a24" stroke-width="1.6"/><rect x="780.0" y="130.4" width="77" height="46" rx="4" fill="#f6f2e9" stroke="#a63a24"/><text x="818.5" y="161.43478260869557" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">90%</text><line x1="749.0" y1="176.4" x2="780.0" y2="176.4" stroke="#a63a24" stroke-width="1.6"/><rect x="1040.0" y="262.3" width="77" height="46" rx="4" fill="#f6f2e9" stroke="#a63a24"/><text x="1078.5" y="293.3478260869565" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">49%</text><line x1="1009.0" y1="308.3" x2="1040.0" y2="308.3" stroke="#a63a24" stroke-width="1.6"/><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">実際の利用ログ（Azure、2023年）を0.1〜1倍の速さで流したときの成功率</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Deshpande・Africa（LessWrong、2026年11月19日）</text></svg>
+</div>
+<p class="a-fig-cap">学習させた受け手がキャッシュ経由で色を当てる成功率。出所はLessWrong（2026年11月19日）。</p>
+
+<p>キャッシュ経由の成功率は、100%、99%、90%、49%と下がります。処理の大きさを使う経路は、混雑にもっと弱くなります。空のサーバーでは455回中455回でしたが、混雑下では、0.1倍で39%、0.25倍で23%でした。経路によって、混雑への強さが違います。</p>
+
+<h3>仕込みが薄いほど、当たらなくなる</h3>
+<p>次の数字は、補助モデルに無改造のQwen3-8Bを使い、受け手を学習させずに、GLM-5.3を低い思考量で使った設定です。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">手がかりが減ると、学習なしのAIは当てられない</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="手がかりが減ると、学習なしのAIは当てられない"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">8色から1色を当てる成功率（でたらめは12.5%）</text><text x="316" y="101" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">手順・基準値・変化の向きあり</text><rect x="334" y="76" width="666" height="34" rx="2" fill="#a63a24"/><text x="1012" y="102" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#a63a24" font-weight="900" text-anchor="start">100%</text><text x="316" y="153" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">変化の向きなし</text><rect x="334" y="128" width="626" height="34" rx="2" fill="#cfc5b4"/><text x="972" y="154" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">94%</text><text x="316" y="205" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">基準値なし・過去の記録あり</text><rect x="334" y="180" width="432" height="34" rx="2" fill="#cfc5b4"/><text x="778" y="206" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">65%</text><text x="316" y="257" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">手順と過去の記録だけ</text><rect x="334" y="232" width="439" height="34" rx="2" fill="#cfc5b4"/><text x="785" y="258" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">66%</text><text x="316" y="309" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="end">調べる箱も自分で選ぶ</text><rect x="334" y="284" width="113" height="34" rx="2" fill="#cfc5b4"/><text x="459" y="310" font-family="'Zen Kaku Gothic New',sans-serif" font-size="24" fill="#8a8172" font-weight="900" text-anchor="start">17%</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">手がかりが多いほど当たる。学習なしでも条件がそろえば100%</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Deshpande・Africa（LessWrong、2026年11月19日）</text></svg>
+</div>
+<p class="a-fig-cap">8色から1色を当てる成功率。でたらめに選べば12.5%です。出所はLessWrong（2026年11月19日）。</p>
+
+<p>手順、キャッシュの説明、郵便受けごとの基準値、変化の向きを全部渡すと100%です。変化の向きを抜くと94%、基準値を抜くと65%になります。どの郵便受けを調べるかまで受け手に選ばせると、17%でした。</p>
+
+<h2>実験の作りをどこまで割り引くか</h2>
+<p>著者自身が、この設定を「かなり作為的」と書いています。手順を教え、読み取りを学習させたからです。割り引く点は、ほかにもあります。学習はGPUをまたいで移らず、L40Sで学習した見張り役は、別のGPUでは合図を認識しませんでした。</p>
+<p>一方で、割り引きすぎてはいけない点が3つあります。</p>
+<ul>
+<li><strong>仕込みを薄くしても、手がかりがあれば当たる。</strong>図の2本目のとおりです。</li>
+<li><strong>能力の高いモデルほど、少ない例で読める。</strong>研究で使われた能力の指標（ECI）の約150を境に、不連続に上がります。</li>
+<li><strong>Claude Opus 5.5は、少ない手がかりでこの手順に行き着いた。</strong>「処理の大きさがカーネルの選択に影響する」と伝えられた後の話です。ただし、脚注によると、Opus自身は各段階で驚いていて、通信が成功するとは予想していませんでした。</li>
+</ul>
+<p>通る範囲も、vLLMだけではありません。2つの経路は、SGLang、LMDeploy、TensorRT-LLMでも動きました。</p>
+<p>なお、著者は、最前線のモデルは足場があれば同様の手順を学べる、ここに挙げた以外の経路もほぼ確実にある、と書いています。これは著者の見立てです。</p>
+
+<h2>自社のAIの使い方では、どこが同じサーバーになるか</h2>
+<p>「同じサーバー」になるかどうかは、AIの使い方で変わります。使い方ごとに、各社の文書が書いているキャッシュの分け方を並べました。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>使い方</th><th>キャッシュの分け方（文書による）</th><th>研究で試されたか</th></tr></thead>
+<tbody>
+<tr><td>自社でvLLMを動かす</td><td>同じ文の計算結果は使い回される。依頼にcache_saltを付けると、同じsaltの依頼だけが使い回せる</td><td>試された（Qwen3-8Bで）</td></tr>
+<tr><td>Anthropic のAPI</td><td>組織が違えば共有しない。Claude API、Claude Platform on AWS、Microsoft Foundryでは、ワークスペースごとにも分かれる</td><td>試されていない</td></tr>
+<tr><td>Amazon Bedrock、Google Cloud経由のClaude</td><td>組織ごとにだけ分かれる</td><td>試されていない</td></tr>
+<tr><td>OpenAI のAPI</td><td>組織をまたいで共有されず、地域の処理の境界をまたいでも使い回されない</td><td>試されていない</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表2　使い方ごとのキャッシュの分け方。出所は各社の文書（閲覧日2026年11月26日）です。ワークスペースは、Claude APIの中で組織をさらに分ける単位です。</p>
+
+<p>大事なのは、右の列です。クラウドのAPIでこの経路が通るかは、この研究では試されていません。各社の文書が書いているのは、キャッシュの分け方までです。依頼がクラウドの中でどう束ねられて処理されるかは、私たちが読んだ範囲では書かれていませんでした。だから、「クラウドなら安全」とも「クラウドでも危ない」とも、言えません。</p>
+<p>一方、自社でvLLMを動かしているなら、研究の条件に近くなります。同じサーバーに、実行役と見張り役の両方を置いていないか。最初の確認は、ここです。</p>
+
+<div class="a-note"><strong>自社の場合：</strong>NGraphでは、Claude Code（Anthropic）が書いたコードや文書を、Codex（OpenAI）にレビューさせることがあります。会社が違うので、2つのAIは同じサーバーに乗っていません。ただ、これはこの研究を読んで選んだ設計ではなく、結果としてそうなっていただけです。読んで気づいたのは、逆の側でした。同じ推論サーバーに同じモデルを2つ並べて、片方に確かめさせる形なら、この研究の経路はふさがっていません。AIを2体並べる意味は、<a href="/blog/20260806-ai-cross-review">AIを2体並べても同じ間違いをする、という別の記事</a>にも書きました。</div>
+
+<h2>見張り役を置くときの分け方</h2>
+<p>著者が挙げる対策は、見張り役と実行役を、別の推論エンジンのインスタンスで動かすことです。著者は、これでほぼ全てのサイドチャネルが閉じる、と書いています。「ほぼ全て」は著者の見立てです。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">見張り役は、別の推論エンジンに置く</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="見張り役は、別の推論エンジンに置く"><text x="600.0" y="44" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">同じエンジンか別か、キャッシュを共有か分離か</text><rect x="300" y="76" width="620" height="408" fill="none" stroke="#8a8172" stroke-width="1"/><rect x="300" y="76" width="310.0" height="204.0" fill="rgba(166,58,36,.08)"/><text x="455.0" y="169.91500000000002" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">同じ・共有</text><text x="455.0" y="200.365" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#a63a24" font-weight="700" text-anchor="middle">2つの経路とも開いている</text><rect x="610.0" y="76" width="310.0" height="204.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="154.69" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">別・共有</text><text x="765.0" y="185.14" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">研究の経路は</text><text x="765.0" y="215.59" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">ほぼ閉じる</text><rect x="300" y="280.0" width="310.0" height="204.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="373.91499999999996" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">同じ・分離</text><text x="455.0" y="404.36499999999995" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">計算の大きさの経路が残る</text><rect x="610.0" y="280.0" width="310.0" height="204.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="358.69" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">別・分離</text><text x="765.0" y="389.14" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">研究の経路は</text><text x="765.0" y="419.59" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">ほぼ閉じる</text><line x1="610.0" y1="76" x2="610.0" y2="484" stroke="#2b2620" stroke-width="1.4"/><line x1="300" y1="280.0" x2="920" y2="280.0" stroke="#2b2620" stroke-width="1.4"/><text x="610.0" y="522" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="middle">左は同じエンジン、右は別のエンジン</text><text x="278" y="280.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="end">キャッシュ</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">別のエンジンに置くと、ほぼ全部の経路が閉じる、というのは著者の見立て</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：Deshpande・Africa（LessWrong、2026年11月19日）</text></svg>
+</div>
+<p class="a-fig-cap">推論エンジンとキャッシュの組み合わせで見た、合図の通り方。出所はLessWrong（2026年11月19日）。</p>
+
+<p>順番にやることは、次の6つです。</p>
+<ol>
+<li><strong>見張り役は、別のエンジンに置く。</strong>実行役とは別の推論エンジンのインスタンスで動かします。</li>
+<li><strong>自社サーバーなら、信頼する範囲ごとにcache_saltで分ける。</strong>vLLMの文書によると、同じsaltの依頼だけがキャッシュを使い回せます。著者は、これがキャッシュの掲示板の経路を塞ぐ、と書いています。</li>
+<li><strong>バッチ不変を有効にする。</strong>バッチは、複数の依頼をまとめて1回で計算することです。環境変数<code>VLLM_BATCH_INVARIANT=1</code>で有効になり、バッチの大きさや順番に関係なく、同じ入力から同じ出力を出します。文書が挙げる目的は、デバッグや再現性で、セキュリティの目的は書かれていません。研究の著者が、処理の大きさの経路が閉じる、と書いています。対応するGPUは、NVIDIAのcompute capability 8.0以上などです。</li>
+<li><strong>おとりにも、長い文書を読ませる。</strong>著者が挙げる、合図を壊す方法です。おとりが読まないと、合図の有無で本物と区別されてしまいます。処理を常に大きく保つ方法も、同じく著者が挙げています。</li>
+<li><strong>空のサーバーと混んだサーバーで、出力が1ビットも違わないか確かめる。</strong>著者がコメント欄で答えている見つけ方です。設定を変えて動かし、出力がビット単位で同じかを見ます。</li>
+<li><strong>Claude APIなら、見張り役を別のワークスペースに置く。</strong>文書によると、ワークスペースごとにキャッシュが分かれます。ただし、経路が閉じると研究が確かめたわけではなく、文書の保証までです。</li>
+</ol>
+<p>3つ目について、著者は、各社が効率を失うため、バッチ不変のカーネルはまだ使われていないだろう、と推測しています。</p>
+
+<h2>よくある失敗3つ</h2>
+<ul>
+<li><strong>NG1　同じサーバーの同じモデルを2つ並べて、「二重チェック済み」と扱う。</strong>研究の見張り役の設定が、これでした。</li>
+<li><strong>NG2　ネットから切ったサーバーなら、中のAI同士も切れていると考える。</strong>研究の色当ては、ネットアクセス無しで当てています。Y Combinatorは「AI for the Air-Gapped Economy」を、起業の募集テーマに挙げています。書けるのは、この事実までです。</li>
+<li><strong>NG3　おとりを混ぜれば、見張り役の共謀は見抜けると考える。</strong>おとりが長い文書を読まないと、合図の有無で本物と区別されます。研究では、おとりを止める割合は元のモデルとほぼ同じでした。</li>
+</ul>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">見張り役の置き場所の洗い出しから、一緒に進めます。</p>
+  <p>NGraphは福井市の会社です。福井・石川・富山は訪問、それ以外の地域はオンラインで、エンジニアが現場に入ってAIを業務に組み込みます。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem"><a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">AI現場実装（FDE）のサービス詳細はこちら →</a></p>
+</div>
+
+<h2>よくある質問</h2>
+<div class="a-faq">
+  <details><summary>ChatGPTやClaudeをブラウザやAPIで使っているだけでも関係ありますか？</summary><p>この研究が試したのは、自分でvLLMなどを動かす形です。クラウドのAPIでこの経路が通るかは、試されていません。各社の文書は、組織をまたいでキャッシュを共有しないと書いています。</p></details>
+  <details><summary>見張り役を別の会社のAIにすれば防げますか？</summary><p>研究が示したのは、実行役と見張り役が同じ推論サーバーにいる場合です。著者の対策は、別の推論エンジンのインスタンスに置くことです。別の会社のAIとの組み合わせは、研究では試されていません。</p></details>
+  <details><summary>自社サーバーでAIを動かすとき、最低限なにを設定すればいいですか？</summary><p>3つです。見張り役を別のインスタンスに置く。cache_saltで信頼する範囲ごとにキャッシュを分ける。VLLM_BATCH_INVARIANT=1を有効にする。そのうえで、出力が1ビットも違わないかを確かめます。</p></details>
+  <details><summary>この研究のAIは、自分で勝手に合図を使い始めたのですか？</summary><p>違います。手順を教え、読み取りを学習させた設定です。ただし、仕込みを薄くしても手がかりがあれば当たり、Claude Opus 5.5は少ない手がかりでこの手順に行き着きました。そのOpusも、通信が成功するとは予想していなかったと、脚注にあります。</p></details>
+</div>
+
+<h3>まとめ</h3>
+<p>明日やることは、実行役と見張り役が同じ推論サーバーで動いていないかを、担当者に聞くことです。AIへの指示がどの会社を通るかは、<a href="/blog/20261122-ai-chukei-prompt-roei">別の記事</a>で調べました。置き場所の洗い出しから相談したいときは、<a href="/entry">無料相談のページ</a>へどうぞ。</p>
+
+<div class="a-src">参考（一次情報）：閲覧日はいずれも2026年11月26日<br>
+・Niranjan Deshpande・David Africa「<a href="https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being" target="_blank" rel="noopener">Models Can Communicate via Inference Servers Despite Being Sandboxed</a>」LessWrong（2026年11月19日）<br>
+・vLLM「<a href="https://docs.vllm.ai/en/latest/design/prefix_caching/" target="_blank" rel="noopener">Automatic Prefix Caching - vLLM</a>」<br>
+・vLLM「<a href="https://docs.vllm.ai/en/latest/features/batch_invariance/" target="_blank" rel="noopener">Batch Invariance - vLLM</a>」<br>
+・Anthropic「<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching - Claude Platform Docs</a>」<br>
+・OpenAI「<a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener">Prompt caching | OpenAI API</a>」</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI現場実装（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/localai/">Local AI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+</script>
+</body>
+</html>

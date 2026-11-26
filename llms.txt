@@ -19,6 +19,7 @@
 
 ## ブログ（AI導入の実践知）
 
+- [同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した](https://ngraph.jp/blog/20261126-ai-mihari-onaji-server)
 - [Google Workspaceは2027年2月から、AIエージェントにGmailやDriveの通常のAPIを使わせない](https://ngraph.jp/blog/20261125-workspace-ai-agent-mcp)
 - [AIが承認するClaude Shipの説明書には、書いた本人しか見ないまま通る設定が7つ並んでいる](https://ngraph.jp/blog/20261124-claude-ship-shonin-hitori)
 - [「AIを育てている段階」と話した福井の町工場は、数万枚の図面に納期と価格を付けていた](https://ngraph.jp/blog/20261123-hokuriku-zumen-ai-kensaku)

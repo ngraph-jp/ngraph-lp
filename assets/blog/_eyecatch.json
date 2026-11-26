@@ -631,6 +631,13 @@
   "sub": "AIエージェント接続の規約",
   "title": "Workspaceは2027年2月から、AIに通常のAPIを使わせない"
  },
+ "20261126-ai-mihari-onaji-server": {
+  "article_h1": "同じサーバーに置いたAIの見張り役は、合図を受け取って354件の攻撃を全部通した",
+  "fs": 99,
+  "pattern": "c7-newspaper",
+  "sub": "学習させた設定の実験　2026年11月",
+  "title": "AIの見張り役は、合図で354件を全部通した"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
