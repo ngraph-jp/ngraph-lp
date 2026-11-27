@@ -638,6 +638,13 @@
   "sub": "学習させた設定の実験　2026年11月",
   "title": "AIの見張り役は、合図で354件を全部通した"
  },
+ "20261127-openai-ai-seikouritsu-shurui": {
+  "article_h1": null,
+  "fs": 56,
+  "pattern": "c7-bignumber",
+  "sub": "OpenAI社内の実測2026年8〜10月",
+  "title": "作る仕事は25%AIの成功率は種類で3倍開く"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
