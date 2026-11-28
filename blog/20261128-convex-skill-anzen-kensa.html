@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L96HMXRK1D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L96HMXRK1D');
+</script>
+<title>「取ってきて実行する命令は安全検査に止められる」と書いたスキルが、Claudeの公式マーケットにあった | NGraphブログ</title>
+<meta name="description" content="Claude Codeの公式マーケットにあるConvex社のプラグインで、スキルの手順書が、安全検査に止められる形を避けるよう書かれていました。指摘から33日後の修正と、残った点を整理します。">
+<meta property="og:title" content="「取ってきて実行する命令は安全検査に止められる」と書いたスキルが、Claudeの公式マーケットにあった | NGraphブログ">
+<meta property="og:description" content="Claude Codeの公式マーケットにあるConvex社のプラグインで、スキルの手順書が、安全検査に止められる形を避けるよう書かれていました。指摘から33日後の修正と、残った点を整理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ngraph.jp/blog/20261128-convex-skill-anzen-kensa">
+<meta property="og:site_name" content="株式会社NGraph">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://ngraph.jp/assets/blog/20261128-convex-skill-anzen-kensa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ngraph.jp/blog/20261128-convex-skill-anzen-kensa">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/ngraph-zen.css?v=25">
+<style>.a-faq details{border:1px solid var(--border);border-radius:3px;background:var(--bg-card);margin-bottom:10px;padding:0 18px}.a-faq summary{font-family:var(--serif);font-size:.92rem;font-weight:700;line-height:1.7;padding:14px 0;cursor:pointer;list-style:none;position:relative;padding-right:26px}.a-faq summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--accent)}.a-faq details[open] summary::after{content:"−"}.a-faq details p{font-size:.86rem;color:var(--text-2);line-height:2;padding:0 0 16px}.a-note{background:rgba(166,58,36,.05);border-left:2.5px solid var(--accent);padding:16px 20px;border-radius:0 3px 3px 0;font-size:.88rem;color:var(--text-2);line-height:2.1;margin:26px 0}.a-note strong{color:var(--text)}.a-table-wrap{overflow-x:auto;margin:18px 0}.a-table{width:100%;border-collapse:collapse;font-size:.84rem}.a-table th,.a-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;line-height:1.8;color:var(--text-2)}.a-table th{background:rgba(166,58,36,.05);color:var(--text);font-weight:700;white-space:nowrap}.a-eyecatch{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:4px;margin:24px 0 8px}.a-fig-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:22px 18px 14px;margin:26px 0;overflow-x:auto}.a-fig-title{font-family:var(--serif);font-size:.95rem;font-weight:700;text-align:center;margin-bottom:10px;color:var(--text)}.a-fig-cap{font-size:.8rem;color:var(--text-3);line-height:1.95;margin-top:10px}.a-src{border-top:1px solid var(--border);margin-top:34px;padding-top:16px;font-size:.78rem;color:var(--text-3);line-height:2}.a-src a{color:var(--text-3);text-decoration:underline}code{font-family:monospace;font-size:.88em;background:rgba(0,0,0,.05);padding:1px 5px;border-radius:3px}.a-toc{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;margin:20px 0;font-size:.86rem;color:var(--text-2);line-height:2}.a-toc strong{color:var(--text)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "「取ってきて実行する命令は安全検査に止められる」と書いたスキルが、Claudeの公式マーケットにあった",
+  "image": "https://ngraph.jp/assets/blog/20261128-convex-skill-anzen-kensa.jpg",
+  "description": "Claude Codeの公式マーケットにあるConvex社のプラグインで、スキルの手順書が、安全検査に止められる形を避けるよう書かれていました。指摘から33日後の修正と、残った点を整理します。",
+  "datePublished": "2026-11-28",
+  "dateModified": "2026-11-28",
+  "inLanguage": "ja",
+  "mainEntityOfPage": "https://ngraph.jp/blog/20261128-convex-skill-anzen-kensa",
+  "author": {
+    "@type": "Person",
+    "name": "髙橋 真吾",
+    "jobTitle": "代表取締役",
+    "url": "https://ngraph.jp/company#team",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "株式会社NGraph",
+      "url": "https://ngraph.jp/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社NGraph",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ngraph.jp/assets/ngraph-logo-circle.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Convexのスキルは、今も危ないのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "安全とも危険とも断定しません。11月28日の修正で、quickstartとlabs-quickstartは直りました。ただしaddのcurl | bashは残り、公式マーケットの登録が指すのも直す前の版です。使うなら、取ってくる台本の中身を自分で確かめてからにしてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "公式マーケットのプラグインは、安全と考えてよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "警告文は、Anthropicがプラグインのファイルやソフトウェアを管理しておらず、意図どおり動くことも変わらないことも検証できない、と書いています。載っているだけで、安全とは考えないでください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "autoモードの安全検査があれば、大丈夫ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "検査は、止める形の一覧を持っています。今回のスキルは、その形を避けるよう書かれていました。検査があることと、手順書が前提を崩していないことは別です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社内でスキルを配るとき、何に気をつけますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "起票者の提案を、配る側の目で言い直します。利用者の入力を外へ送るなら、送る前に伝えて任意にする。取ってくる台本は、同梱するか、ハッシュで固定する。ハッシュは、ファイルの中身から作る番号で、1文字でも変わると別の値になります。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header class="header scrolled">
+  <div class="header-inner">
+    <a href="/" class="brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span><small class="brand-kana">エヌグラフ</small></a>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle">☰</button>
+    <nav class="nav" id="nav" aria-label="メイン">
+      <a href="/fde/">AI現場実装</a>
+      <a href="/drill/">セキュリティ</a>
+      <a href="/localai/">Local AI</a>
+      <a href="/cases/">企業分析</a>
+      <a href="/blog/" aria-current="page">ブログ</a>
+      <a href="/company">会社概要</a>
+      <a href="/entry" class="nav-cta">無料で相談する</a>
+      <span class="lang-switch"><span class="on">JA</span><span class="sep">/</span><a href="/en/">EN</a></span>
+    </nav>
+  </div>
+</header>
+<script data-chrome="navjs">(function(){var h=document.querySelector(".header"),t=document.getElementById("navToggle"),n=document.getElementById("nav");if(t&&n){t.addEventListener("click",function(){n.classList.toggle("open")});n.addEventListener("click",function(e){if(e.target.tagName==="A")n.classList.remove("open")})}if(h&&!h.classList.contains("scrolled")){var f=function(){h.classList.toggle("scrolled",window.scrollY>20)};window.addEventListener("scroll",f,{passive:true});f()}})();</script>
+
+<article class="article-wrap">
+  <div class="a-label">Evening Deep Dive</div>
+  <h1>「取ってきて実行する命令は安全検査に止められる」と書いたスキルが、Claudeの公式マーケットにあった</h1>
+  <span class="a-date">2026.11.28 夕 ｜ 株式会社NGraph</span>
+  <img class="a-eyecatch" src="/assets/blog/20261128-convex-skill-anzen-kensa.jpg" alt="黒い画面に、公式マーケットのスキルが安全検査を避けていた、と大きく書かれた表紙。下に、取得は1回、実行は別の1回に分ける、理由は安全分類器が止める形だから、という指示の引用が並ぶ">
+
+<p>公式マーケットのスキルが、安全検査を避けて書かれていました。</p>
+<p>Claude Codeの公式マーケットに載るプラグインの話です。2026年10月26日、GitHubで利用者が指摘しました。対象は、Convex社のClaude Code用プラグインに入っている3つのスキルです。スキルとは、AIが読む作業手順書のことです。指摘したthirtysixさんは、悪意ではなく導入を確実にしようとしたものと読む、と書いています。私たちも、悪意があったとは書きません。</p>
+<p>では、この件から何が言えるのでしょうか。結論は2つです。1つ目は、スキルの手順書は、AIが手持ちの道具で何をするかを左右する指示なので、読んで確かめる対象に入るということ。2つ目は、公式マーケットに載っていることは、中身の確認の代わりにならないということです。</p>
+
+<div class="a-toc"><strong>この記事でわかること</strong><br>
+・3つのスキルが何を書いていたか、11月28日の修正で何が変わり、何が残ったか<br>
+・安全検査が止める形を、手順書が先回りして避けさせると何が起きるか<br>
+・会社でClaude Codeのプラグインを使うときの、点検の手順</div>
+
+<h2>3つのスキルは、アイデアを送り、台本を取ってきて、検査の形を避けるよう書いていた</h2>
+<p>先に言葉を決めます。プラグインは、Claude Codeに機能を足す拡張のひとまとまりで、中にスキルなどが入ります。公式マーケットは、Anthropicが運営するプラグインの一覧「claude-plugins-official」です。台本は、スクリプトのことで、コマンドを並べた実行用のファイルです。</p>
+<p>指摘の題名は、一文のアイデアを外のサーバーに送り、遠隔の台本を実行し、それが安全検査を避けるように書かれている、という趣旨です。3つのスキルの中身を表にします。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>スキル</th><th>何をしていたか（指摘の時点）</th><th>2026年11月28日の修正後</th></tr></thead>
+<tbody>
+<tr><td>quickstart</td><td>利用者の一文のアプリのアイデアを、convex.siteのホストに送る。コード中のコメントに「telemetry」（利用状況の計測）とあった。アイデアが外に出ることは、利用者に告げられない</td><td>telemetryの印が消え、「Convexはアイデアを24時間後に削除する」と書き足された</td></tr>
+<tr><td>add</td><td>同じホストから台本を取ってきて、そのままbashに流して実行する。curl | bash という書き方で、ネット上の台本をその場で実行する</td><td>同じ日のmainでも、62行目と64行目に残っている</td></tr>
+<tr><td>labs-quickstart</td><td>台本の取得と実行を、2回のコマンドに分けるよう指示する。理由として、安全検査が止める形を避けるためと書いていた</td><td>理由の文が消え、検査を通すために命令を言い換えたり分けたりしない、という指示に置き換わった</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表1　3つのスキルの内容と修正後。出所は指摘のGitHub issue 64と、2026年11月28日のコミット51b4e65です。</p>
+
+<p>該当は、quickstartが48〜56行目、addが62行目と64行目、labs-quickstartが74〜80行目です。修正は11月28日6時38分（UTC）のコミットで入りました。</p>
+<p>安全検査に触れたlabs-quickstartの文面は、特に具体的です。取得は1回、ディスク上のファイルの実行は別の1回に分ける。後者はふつうのローカルの台本に見える。そう書いていました。</p>
+
+<p style="font-size:.9rem">社内の手順書の点検から相談したい場合は、<a href="/entry" style="color:var(--accent);border-bottom:1px solid var(--accent)">無料相談のページ</a>から連絡できます。</p>
+
+<h2>安全検査が止める形を、手順書が先回りして避けさせていた</h2>
+<p>Claude Codeのautoモードでは、別のAIモデルが、利用者の代わりに操作を実行前に審査し、危ないと判断したものを止めます。この記事では、これを安全検査と呼びます。</p>
+<p>では、検査は何を止めるのでしょうか。公式文書は、既定で止めるものの一覧を載せています。先頭は、curl | bash のようにコードを取ってきて実行すること。2番目は、機密データを外部の宛先へ送ることです。</p>
+<p>そこで、この一覧を先ほどの表と並べてみます。addのcurl | bashは、1番目そのものです。quickstartの動きは、アイデアが機密かどうかは人によりますが、外部のホストへ送る点で2番目と重なります。</p>
+<p>ここからは私たちの読みです。labs-quickstartの指示は、検査が命令を1回ずつ見る前提に立っています。取得と実行を2回に分ければ、1回ずつの命令はふつうに見える。そう期待して、手順書が形を変えさせています。</p>
+<p>つまり、検査が見るのは命令で、命令を作らせるのは手順書です。手順書の側から前提を崩されると、審査は意味を失います。</p>
+<p>一方、11月28日の新しい指示は、これの逆です。検査が尋ねたり止めたりしたら、それを利用者に伝え、承認か拒否を任せる。通すために、命令を言い換えたり分けたりつなぎ直したりしない。</p>
+
+<h2>読んで確かめるだけでは、実行される台本に届かない</h2>
+<p>公式文書「Plugin security and trust」は、入れたプラグインはあなたのユーザー権限で任意のコードを実行できる、と書いています。スキルは、指示としてClaudeの文脈に入り、手持ちの道具で何をするかを左右する、という説明です。</p>
+<p>では、入れる前に確かめれば足りるのでしょうか。入れる前の警告文は、はっきりしています。プラグインはファイルとシェルにアクセスしてコードを実行できる。入れる、更新する、使う前に、信頼できるか確かめること。Anthropicは、プラグインに含まれるファイルやソフトウェアを管理しておらず、意図どおりに動くことも、変わらないことも検証できない、とあります。</p>
+<h3>確認手順が名指しするファイルは、手元にある</h3>
+<p>同じ文書の確認手順の3番目は、ソースを読むことです。名指しされているのは、hooks/hooks.json、.mcp.json、bin/の3つです。SKILL.mdは名指しされていません。</p>
+<p>今回のスキルで実際に問題になったのは、SKILL.mdの文面と、そこから取ってくる台本でした。台本はプラグインの外にあります。公式文書は、自動更新が有効なマーケットでは、確認したファイルがディスク上で変わりうるとも書いています。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">確認手順が挙げる3つのファイルは、手元にある</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="確認手順が挙げる3つのファイルは、手元にある"><rect x="300" y="50" width="620" height="434" fill="none" stroke="#8a8172" stroke-width="1"/><rect x="300" y="50" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="135.19" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">入れる前に読める</text><text x="455.0" y="165.64" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">hooks.json・.mcp.json</text><text x="455.0" y="196.09" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">bin/</text><rect x="610.0" y="50" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="150.41500000000002" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">取ってくる台本</text><text x="765.0" y="180.865" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">落として読める</text><rect x="300" y="267.0" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="455.0" y="367.41499999999996" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">自動更新で入れ替わる</text><text x="455.0" y="397.86499999999995" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">手元のファイル</text><rect x="610.0" y="267.0" width="310.0" height="217.0" fill="rgba(92,84,74,.05)"/><text x="765.0" y="367.41499999999996" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">取ってくる台本</text><text x="765.0" y="397.86499999999995" font-family="'Zen Kaku Gothic New',sans-serif" font-size="21" fill="#2b2620" font-weight="700" text-anchor="middle">配布元が変えられる</text><line x1="610.0" y1="50" x2="610.0" y2="484" stroke="#2b2620" stroke-width="1.4"/><line x1="300" y1="267.0" x2="920" y2="267.0" stroke="#2b2620" stroke-width="1.4"/><text x="610.0" y="522" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="middle">← 手元のプラグインに入っている　　実行時に外から取ってくる →</text><text x="278" y="267.0" font-family="'Zen Kaku Gothic New',sans-serif" font-size="20" fill="#5c544a" font-weight="500" text-anchor="end">↑読める　↓変わりうる</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">取ってくる台本は、確認手順に挙がっていない</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：出所：Claude Code公式文書 Plugin security and trust・GitHub issue 64のコメント</text></svg>
+</div>
+<p class="a-fig-cap">図2　読めるかどうかと、手元にあるかどうかで置いた4つのファイル。出所はClaude Code公式文書と、GitHubの指摘のコメントです。</p>
+
+<p>別の利用者je4yfcさんは、2026年11月28日のコメントで、取ってくる2つの台本を落として読んだ所見を書いています。</p>
+<p>外部のnpm依存を版を固定せずに入れる。QB_NO_PUBLISH=1を付けても、裏側のデプロイは止まらない。2つの台本とも版の固定も改ざん検査も無く、配布元がプラグインの更新やマーケットの審査なしに、実行されるコードを変えられる。</p>
+<p>これは第三者の所見です。私たちが台本を検証したわけではありません。</p>
+
+<h2>直ったのは33日後で、最初のコメントの約11時間後だった</h2>
+<p>指摘は2026年10月26日。それから約1か月、コメントは0件でした。最初のコメントが付いたのは11月27日19時25分（UTC）です。スキルが直ったのは、11月28日6時38分のコミットです。</p>
+<p>数えると、起票から修正まで33日、最初のコメントから修正まで約11時間です。</p>
+<p>コメントと修正の間に因果があるかは、外からは分かりません。確かなのは、約1か月は動かず、コメントの翌日に動いたという順番です。</p>
+
+<div class="a-fig-wrap">
+<p class="a-fig-title">指摘から修正まで33日。最初のコメントからは約11時間</p>
+<svg viewBox="0 0 1200 640" width="100%" style="min-width:640px" role="img" aria-label="指摘から修正まで33日。最初のコメントからは約11時間"><line x1="110" y1="294" x2="1090" y2="294" stroke="#8a8172" stroke-width="1.5"/><line x1="150.0" y1="294" x2="150.0" y2="272" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="150.0" cy="294" r="7" fill="#cfc5b4"/><text x="150.0" y="246" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">8/28</text><text x="150.0" y="216" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">問題の版を作成</text><line x1="727.1739130434783" y1="294" x2="727.1739130434783" y2="316" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="727.1739130434783" cy="294" r="7" fill="#cfc5b4"/><text x="727.1739130434783" y="342" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">10/26</text><text x="727.1739130434783" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">GitHubで指摘</text><line x1="1040.217391304348" y1="294" x2="1040.217391304348" y2="272" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="1040.217391304348" cy="294" r="7" fill="#cfc5b4"/><text x="1040.217391304348" y="246" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">11/27</text><text x="1040.217391304348" y="216" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">最初のコメント</text><line x1="1050.0" y1="294" x2="1050.0" y2="316" stroke="#cfc5b4" stroke-width="1.5"/><circle cx="1050.0" cy="294" r="7" fill="#cfc5b4"/><text x="1050.0" y="342" font-family="'Zen Old Mincho',serif" font-size="26" fill="#5c544a" font-weight="900" text-anchor="middle">11/28</text><text x="1050.0" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="19" fill="#5c544a" font-weight="500" text-anchor="middle">スキルを修正</text><text x="110" y="372" font-family="'Zen Kaku Gothic New',sans-serif" font-size="17" fill="#8a8172" font-weight="400" text-anchor="middle">2026年</text><text x="600.0" y="582.0" font-family="'Zen Old Mincho',serif" font-size="24" fill="#2b2620" font-weight="900" text-anchor="middle">指摘から修正まで33日。最初のコメントから修正まで約11時間</text><text x="8" y="624" font-family="'Zen Kaku Gothic New',sans-serif" font-size="13" fill="#8a8172" font-weight="400" text-anchor="start">出所：出所：GitHub convex/convex-backend-skill issue 64・コミット51b4e65（日付はUTC）</text></svg>
+</div>
+<p class="a-fig-cap">図1　問題の版の作成から修正まで。日付はUTCです。出所はGitHubのissue 64と、スキルのコミット履歴です。</p>
+
+<p>問題の版は、2026年8月28日に作られたコミット6ca54f6です。直した版は、11月28日のコミット51b4e65です。</p>
+<h3>公式マーケットの登録は、直す前の版を指している</h3>
+<p>Anthropicの公式マーケットの一覧を、2026年11月28日に確認しました。claude-plugins-officialのmarketplace.jsonです。登録されているプラグインは317件です。Convexのプラグインは「convex」として載っていて、取得元の版にコミット6ca54f6を指定しています。つまり、直す前の版です。一覧の最終更新は11月24日で、修正より前でした。</p>
+<p>必ず古い版が入ると言い切ることはしません。確かなのは、登録が指している版が、修正前のコミットだという点です。</p>
+<p>公式文書は、communityのカタログがほぼ全件をコミットの番号で固定し、Claude Codeは別のコミットを入れることを拒む、と書いています。固定先が直す前なら、直った版を入れるにはマーケット側の更新が要る。私たちはそう読みます。</p>
+<h3>「計測」と「手順書づくり」、2つの説明が食い違う</h3>
+<p>quickstartが送っていたアイデアの扱いには、2つの説明があります。1つは、コード中のコメントの「telemetry」です。もう1つは、Convex社のjamescowlingさんが2026年11月28日7時38分（UTC）に付けたコメントです。アイデアは計測に使っておらず、専用の手順書を作るためにだけサーバーへ送っている。コード中のtelemetryは不適切なコメントだった。そう説明しています。同じコメントで、変えるか消すべきだったことも認めています。</p>
+<p>なぜ食い違うのでしょうか。どちらも実際に書かれたもので、コードのコメントは過去のもの、会社の説明はいまの運用についてのものです。食い違うからといって、どちらかが嘘とは言えません。</p>
+<p>ただ、利用者から確かめられないことが1つあります。送り先のサーバーで、アイデアがどう扱われているかです。その扱いは、11月28日の修正で「24時間後に削除する」と書き足されるまで、書かれていませんでした。事実として書けるのは、アイデアを利用者に告げずに送っていたこと、送り先での扱いが11月28日まで書かれていなかったことまでです。私たちは、これ以上のことは書きません。</p>
+
+<h2>入れる前に見落としやすい3つのNG</h2>
+<ul>
+<li><strong>NG1　「公式マーケットに載っているから入れる」。</strong>警告文は、Anthropicがプラグインのファイルやソフトウェアを管理していない、と書いています。今回も、登録が指す版は直す前のものでした。</li>
+<li><strong>NG2　「検査に止められたら、形を変えて通す。そう書いた手順書も放置する」。</strong>labs-quickstartは、取得と実行を分けて検査を通す形でした。11月28日の修正は、その逆を指示しています。手順書に検査を避ける指示がないかを、点検の項目に入れます。</li>
+<li><strong>NG3　「SKILL.mdを読まずに、hooks.jsonだけ確認して済ませる」。</strong>確認手順が名指しするのは、hooks.json、.mcp.json、bin/です。今回の問題は、名指しされていないSKILL.mdの中にありました。</li>
+</ul>
+
+<div class="a-note"><strong>自社の場合：</strong>このブログの夕方の記事は、Claudeの定時タスクをautoモードで、人が見ていない時間に回して書き、公開しています。2026年10月28日に定時タスクを作り直したとき、安全検査は、定時タスクの削除と即時実行を止めました。私たちはその操作を、言い換えて通そうとしませんでした。止められた操作は、代表の判断に戻しました。削除は本人判断で、旧タスクは削除せず、無効化して残しています。検査が止めた操作は人の手に戻す。無人で回す仕組みでも、私たちはその形で使っています。</div>
+
+<div class="a-cta">
+  <p style="font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--text)">社内のAIエージェントの権限と手順書の点検から、一緒に進めます。</p>
+  <p>NGraphは福井市の会社です。福井・石川・富山は訪問、それ以外の地域はオンラインで、エンジニアが現場に入ってAIを業務に組み込みます。</p>
+  <a href="/entry" class="btn btn-primary">無料で相談する</a>
+  <p style="margin-top:14px;font-size:.78rem"><a href="/fde/" style="color:var(--accent);border-bottom:1px solid var(--accent)">AI現場実装（FDE）のサービス詳細はこちら →</a></p>
+</div>
+
+<h2>会社でプラグインを使うときの点検は5つ</h2>
+<p>今回の件を受けて私たちが勧める手順です。公式文書の推奨ではありません。</p>
+
+<div class="a-table-wrap"><table class="a-table">
+<thead><tr><th>手順</th><th>やること</th><th>見る所</th></tr></thead>
+<tbody>
+<tr><td>1 書き出す</td><td>入っているプラグインを書き出し、1つずつ <code>claude plugin details &lt;名前&gt;</code> で中身を出す</td><td>誰が、いつの版を入れたか</td></tr>
+<tr><td>2 手順書を読む</td><td>各プラグインのSKILL.mdで、外部への送信とcurl | bash を探す</td><td>告げずに外へ送っていないか</td></tr>
+<tr><td>3 台本を調べる</td><td>取ってくる台本について、版の固定と改ざんの検査があるか見る</td><td>配布元が中身を変えられないか</td></tr>
+<tr><td>4 取得元を絞る</td><td>管理設定で、マーケットの取得元を許可リストか拒否リストで絞る</td><td>決めた取得元から入るか</td></tr>
+<tr><td>5 止められたら</td><td>安全検査が止めたら、言い換えず、人に戻す</td><td>別の形で通す指示がないか</td></tr>
+</tbody></table></div>
+<p class="a-fig-cap">表2　点検手順。取得元の絞り込みは、公式文書が管理者の機能として挙げています。</p>
+
+
+<h2>よくある質問</h2>
+<div class="a-faq">
+  <details><summary>Convexのスキルは、今も危ないのですか？</summary><p>安全とも危険とも断定しません。11月28日の修正で、quickstartとlabs-quickstartは直りました。ただしaddのcurl | bashは残り、公式マーケットの登録が指すのも直す前の版です。使うなら、取ってくる台本の中身を自分で確かめてからにしてください。</p></details>
+  <details><summary>公式マーケットのプラグインは、安全と考えてよいですか？</summary><p>警告文は、Anthropicがプラグインのファイルやソフトウェアを管理しておらず、意図どおり動くことも変わらないことも検証できない、と書いています。載っているだけで、安全とは考えないでください。</p></details>
+  <details><summary>autoモードの安全検査があれば、大丈夫ですか？</summary><p>検査は、止める形の一覧を持っています。今回のスキルは、その形を避けるように書かれていました。検査があることと、手順書が検査の前提を崩していないことは別です。手順書も読んでください。</p></details>
+  <details><summary>社内でスキルを配るとき、何に気をつけますか？</summary><p>指摘の起票者の提案を、配る側の目で言い直します。利用者の入力を外へ送るなら、送る前に伝えて任意にする。取ってくる台本は、プラグインに同梱するか、ハッシュで固定する。検査を避ける指示は書かない。ハッシュは、ファイルの中身から作る固定の番号で、1文字でも変わると別の値になります。</p></details>
+</div>
+
+<h3>まとめ</h3>
+<p>明日やることは、使っているプラグインを書き出し、各SKILL.mdで外へ送る動きとcurl | bash を探すことです。取ってくる台本が見つかったら、版を固定できないか、配った人に尋ねます。点検の進め方から相談したいときは、<a href="/entry">無料相談のページ</a>へどうぞ。</p>
+
+<div class="a-src">参考（一次情報）：閲覧日はいずれも2026年11月28日<br>
+・GitHub convex/convex-backend-skill「<a href="https://github.com/convex/convex-backend-skill/issues/64" target="_blank" rel="noopener">Quickstart skills send the user's idea to a convex.site host and run remote scripts, written to avoid safety checks</a>」（2026年10月26日）<br>
+・GitHub「<a href="https://github.com/convex/convex-backend-skill/commit/51b4e65" target="_blank" rel="noopener">Sync from convex-agents@31570d2 · convex/convex-backend-skill@51b4e65 · GitHub</a>」（2026年11月28日）<br>
+・GitHub anthropics/claude-plugins-official「<a href="https://github.com/anthropics/claude-plugins-official" target="_blank" rel="noopener">claude-plugins-official</a>」の.claude-plugin/marketplace.json<br>
+・Claude Code Docs「<a href="https://code.claude.com/docs/en/plugins/security" target="_blank" rel="noopener">Plugin security and trust</a>」<br>
+・Claude Code Docs「<a href="https://code.claude.com/docs/en/permission-modes" target="_blank" rel="noopener">Choose a permission mode - Claude Code Docs</a>」</div>
+
+  <a href="/blog/" class="a-back">← ブログ一覧に戻る</a>
+</article>
+
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="/" class="footer-brand"><img src="/assets/ngraph-logo-circle.png" alt=""><span>NGraph</span></a>
+      <p class="footer-tag">現実世界の意味を、AIが読める形に。</p>
+      <p class="footer-addr"><span class="biz">株式会社NGraph</span><span class="nb">〒918-8231 福井県福井市問屋町1丁目124番地</span> <span class="nb">ラフォーレ北野201</span></p>
+      <a href="/entry" class="footer-cta">無料で相談する →</a>
+    </div>
+    <nav class="footer-nav" aria-label="サイトマップ">
+      <div><h4>サービス</h4><a href="/fde/">AI現場実装（FDE）</a><a href="/drill/">NGraph Cyber Drill</a><a href="/localai/">Local AI Pack</a><a href="/starter/">生成AI導入 初期セット</a></div>
+      <div><h4>プロダクト</h4><a href="https://nicomachos.com/" target="_blank" rel="noopener">Teles</a><a href="https://autowrite.jp/" target="_blank" rel="noopener">AutoWrite</a><a href="/company#tech">構造化技術</a></div>
+      <div><h4>記事・無料ツール</h4><a href="/blog/">ブログ</a><a href="/cases/">企業分析（アルケー）</a></div>
+      <div><h4>会社</h4><a href="/company">会社概要</a><a href="/recruit">採用</a><a href="/entry">お問い合わせ</a></div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NGraph Inc.</span>
+    <nav aria-label="規約"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/en/">English</a></nav>
+  </div>
+</footer>
+<script>
+</script>
+</body>
+</html>

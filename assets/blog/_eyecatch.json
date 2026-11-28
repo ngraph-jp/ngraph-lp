@@ -645,6 +645,13 @@
   "sub": "OpenAI社内の実測2026年8〜10月",
   "title": "作る仕事は25%AIの成功率は種類で3倍開く"
  },
+ "20261128-convex-skill-anzen-kensa": {
+  "article_h1": "「取ってきて実行する命令は安全検査に止められる」と書いたスキルが、Claudeの公式マーケットにあった",
+  "fs": 88,
+  "pattern": "c7-terminal",
+  "sub": "convex / labs-quickstart",
+  "title": "公式マーケットのスキルが安全検査を避けていた"
+ },
  "ai-and-humans": {
   "article_h1": "AIは仕事を奪わない、時間を返す——現場で決めた「AIに任せる仕事・人が握る仕事」の線引き",
   "fs": null,
